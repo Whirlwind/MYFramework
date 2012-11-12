@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name         = "MYFramework"
   s.version      = "0.0.1"
-  s.summary      = "A short description of MYFramework."
+  s.summary      = "a based Router framework."
   # s.description  = <<-DESC
   #                   An optional longer description of MYFramework
   #
@@ -49,7 +49,7 @@ Pod::Spec.new do |s|
 
   # Specify the location from where the source should be retreived.
   #
-  # s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :commit => "a15798d" }
+  s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'0.0.1'}
   # s.source       = { :svn => 'http://EXAMPLE/MYFramework/tags/1.0.0' }
   # s.source       = { :hg  => 'http://EXAMPLE/MYFramework', :revision => '1.0.0' }
 
@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
   # over the selected files.
   # (See http://rake.rubyforge.org/classes/Rake/FileList.html.)
   #
-  s.source_files = 'src/**'
+  s.source_files = 'src/**/*.{h,m}'
 
   # A list of file patterns which select the header files that should be
   # made available to the application. If the pattern is a directory then the
@@ -86,7 +86,7 @@ Pod::Spec.new do |s|
   # If you do not explicitely set the list of public header files,
   # all headers of source_files will be made public.
   #
-  s.public_header_files = 'include/**/*.h'
+  # s.public_header_files = 'include/**/*.h'
 
   # A list of resources included with the Pod. These are copied into the
   # target bundle with a build phase script.
@@ -94,7 +94,7 @@ Pod::Spec.new do |s|
   # Also allows the use of the FileList class like `source_files does.
   #
   # s.resource  = "icon.png"
-  s.resources = "resources/ui/images/ValueCheckBoxView/*.png"
+  s.resources = "resources/**/*.png"
 
   # A list of paths to preserve after installing the Pod.
   # CocoaPods cleans by default any file that is not used.
