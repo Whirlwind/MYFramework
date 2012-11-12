@@ -49,7 +49,7 @@ Pod::Spec.new do |s|
 
   # Specify the location from where the source should be retreived.
   #
-  s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'0.0.1'}
+  s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'v0.0.1'}
   # s.source       = { :svn => 'http://EXAMPLE/MYFramework/tags/1.0.0' }
   # s.source       = { :hg  => 'http://EXAMPLE/MYFramework', :revision => '1.0.0' }
 
