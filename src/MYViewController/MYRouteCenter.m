@@ -23,6 +23,11 @@ static dispatch_once_t _sharedRouteCenterPred;
     [_sharedRouteCenter release], _sharedRouteCenter = nil;
 }
 
++ (void)addRoutesInBundle {
+    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    [[self sharedRouteCenter] addRouteFileInDir:bundlePath];
+}
+
 - (void)dealloc {
     for (NSString *routeName in [self.routeList allKeys]) {
         [self unregisterNotification:routeName];
@@ -52,9 +57,17 @@ static dispatch_once_t _sharedRouteCenterPred;
     }
 }
 
-- (void)addRouteFile:(NSString *)fileName {
-    NSString *path = [[NSBundle mainBundle] pathForResource:fileName
-                                                     ofType:@"route"];
+- (void)addRouteFileInDir:(NSString *)dir {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *bundleDirectory = [fileManager contentsOfDirectoryAtPath:dir error:nil];
+
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"self ENDSWITH '.route'"];
+    for (NSString *filename in [bundleDirectory filteredArrayUsingPredicate:filter]) {
+        [self addRouteFile:[dir stringByAppendingPathComponent:filename]];
+    }
+}
+
+- (void)addRouteFile:(NSString *)path {
     NSString *content = [[NSString alloc] initWithContentsOfFile:path
                                                         encoding:NSUTF8StringEncoding
                                                            error:NULL];

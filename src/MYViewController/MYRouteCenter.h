@@ -10,6 +10,7 @@
 @interface MYRouteCenter : NSObject
 @property (retain, nonatomic) NSMutableDictionary *routeList;
 + (id)sharedRouteCenter;
++ (void)addRoutesInBundle;
 
-- (void)addRouteFile:(NSString *)fileName;
+- (void)addRouteFile:(NSString *)path;
 @end
