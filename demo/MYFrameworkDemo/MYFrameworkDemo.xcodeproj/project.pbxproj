@@ -71,6 +71,7 @@
 		AB3A91171650946A00C672E5 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		AB3A91181650946A00C672E5 /* NSObject+Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Route.h"; sourceTree = "<group>"; };
 		AB3A91191650946A00C672E5 /* NSObject+Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Route.m"; sourceTree = "<group>"; };
+		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +152,7 @@
 			children = (
 				AB3A91021650946A00C672E5 /* MYView */,
 				AB3A910F1650946A00C672E5 /* MYViewController */,
+				ABEEE92E16512A360002BC58 /* MYFramework.h */,
 			);
 			name = src;
 			path = ../../src;
@@ -369,6 +371,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYFrameworkDemo/MYFrameworkDemo-Prefix.pch";
 				INFOPLIST_FILE = "MYFrameworkDemo/MYFrameworkDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -381,6 +384,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYFrameworkDemo/MYFrameworkDemo-Prefix.pch";
 				INFOPLIST_FILE = "MYFrameworkDemo/MYFrameworkDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -7,6 +7,7 @@
 //
 
 #import "MYNavigationController.h"
+#import "MYFramework.h"
 
 @implementation MYNavigationController
 

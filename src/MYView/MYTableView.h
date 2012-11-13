@@ -6,8 +6,6 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface MYTableView : UITableView
 
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier createWithStyle:(UITableViewCellStyle)style;

@@ -6,10 +6,6 @@
 //  Copyright 2011 BOOHEE. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
-#import "NSObject+Route.h"
-#import "MYView.h"
-
 @class MYView;
 @class MYNavigationController;
 //#import "UIViewController+GuideImageView.h"

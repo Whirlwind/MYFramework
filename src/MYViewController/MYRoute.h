@@ -6,7 +6,6 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-
 @interface MYRoute : NSObject
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *path;

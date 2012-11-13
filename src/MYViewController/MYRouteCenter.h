@@ -6,7 +6,6 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import "MYRoute.h"
 
 @interface MYRouteCenter : NSObject
 @property (retain, nonatomic) NSMutableDictionary *routeList;

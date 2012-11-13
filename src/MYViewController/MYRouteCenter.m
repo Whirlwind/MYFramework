@@ -7,6 +7,7 @@
 //
 
 #import "MYRouteCenter.h"
+#import "MYRoute.h"
 
 static MYRouteCenter *_sharedRouteCenter = nil;
 

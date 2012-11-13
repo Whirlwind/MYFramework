@@ -5,9 +5,7 @@
 //  Created by Whirlwind James on 12-6-28.
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
-
 #import "MYViewController.h"
-
 @interface MYNavigationController : MYViewController
 @property (nonatomic, retain) NSMutableArray *viewControllers;
 @property (nonatomic, retain) UIView *contentView;

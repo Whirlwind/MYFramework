@@ -7,8 +7,9 @@
 //
 
 #import "MYViewController.h"
-#import "MYNavigationController.h"
+#import "MYFramework.h"
 #import "CGRectAdditions.h"
+
 #ifndef LOGPAGEVIEWBEGIN
 #define LOGPAGEVIEWBEGIN 
 #define LOGPAGEVIEWEND

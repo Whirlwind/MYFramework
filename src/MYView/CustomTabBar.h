@@ -5,7 +5,7 @@
 //  Created by Whirlwind James on 11-9-22.
 //  Copyright 2011 BOOHEE. All rights reserved.
 //
-@class CustomTabBarItem;
+#import "CustomTabBarItem.h"
 
 @interface CustomTabBar : UIToolbar {
 	
