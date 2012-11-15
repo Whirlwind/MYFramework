@@ -80,5 +80,6 @@
             [self performSelectorOnMainThread:selector withObject:change waitUntilDone:NO];
         }
     }
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 @end
