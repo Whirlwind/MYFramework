@@ -1,23 +1,22 @@
-class Pod::Spec
-  @@git_plugins_url = 'git@boohee-apple:/opt/git/Plugins'
-
-  def dependency_git(name, other={})
-    other[:git] = "#{@@git_plugins_url}/#{name}.git"
-    self.dependency name, other
-  end
-end
-
+#
+# Be sure to run `pod spec lint UIView.podspec' to ensure this is a
+# valid spec.
+#
+# Remove all comments before submitting the spec. Optional attributes are commented.
+#
+# For details see: https://github.com/CocoaPods/CocoaPods/wiki/The-podspec-format
+#
 Pod::Spec.new do |s|
-  s.name         = "MYFramework"
+  s.name         = "UIView"
   s.version      = "0.0.1"
-  s.summary      = "a based Router framework."
+  s.summary      = "UIView 的一系列方便的Category."
   # s.description  = <<-DESC
-  #                   An optional longer description of MYFramework
+  #                   An optional longer description of UIView
   #
   #                   * Markdonw format.
   #                   * Don't worry about the indent, we strip it!
   #                  DESC
-  s.homepage     = "http://EXAMPLE/MYFramework"
+  s.homepage     = "http://EXAMPLE/UIView"
 
   # Specify the license type. CocoaPods detects automatically the license file if it is named
   # `LICENSE*.*', however if the name is different, specify it.
@@ -50,9 +49,9 @@ Pod::Spec.new do |s|
 
   # Specify the location from where the source should be retreived.
   #
-  s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'v0.0.1'}
-  # s.source       = { :svn => 'http://EXAMPLE/MYFramework/tags/1.0.0' }
-  # s.source       = { :hg  => 'http://EXAMPLE/MYFramework', :revision => '1.0.0' }
+  s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/UIView.git", :commit => "0ef9271" }
+  # s.source       = { :svn => 'http://EXAMPLE/UIView/tags/1.0.0' }
+  # s.source       = { :hg  => 'http://EXAMPLE/UIView', :revision => '1.0.0' }
 
   # If this Pod runs only on iOS or OS X, then specify the platform and
   # the deployment target.
@@ -76,7 +75,7 @@ Pod::Spec.new do |s|
   # over the selected files.
   # (See http://rake.rubyforge.org/classes/Rake/FileList.html.)
   #
-  s.source_files = 'src/**/*.{h,m}'
+  s.source_files = '*.{h,m}'
 
   # A list of file patterns which select the header files that should be
   # made available to the application. If the pattern is a directory then the
@@ -87,7 +86,7 @@ Pod::Spec.new do |s|
   # If you do not explicitely set the list of public header files,
   # all headers of source_files will be made public.
   #
-  # s.public_header_files = 'include/**/*.h'
+  # s.public_header_files = 'Classes/**/*.h'
 
   # A list of resources included with the Pod. These are copied into the
   # target bundle with a build phase script.
@@ -95,7 +94,7 @@ Pod::Spec.new do |s|
   # Also allows the use of the FileList class like `source_files does.
   #
   # s.resource  = "icon.png"
-  s.resources = "resources/**/*.png"
+  # s.resources = "Resources/*.png"
 
   # A list of paths to preserve after installing the Pod.
   # CocoaPods cleans by default any file that is not used.
@@ -108,7 +107,7 @@ Pod::Spec.new do |s|
   # against for this Pod to work.
   #
   # s.framework  = 'SomeFramework'
-  s.frameworks = 'UIKit', 'Foundation', 'QuartzCore'
+  # s.frameworks = 'SomeFramework', 'AnotherFramework'
 
   # Specify a list of libraries that the application needs to link
   # against for this Pod to work.
@@ -128,6 +127,4 @@ Pod::Spec.new do |s|
   # Finally, specify any Pods that this Pod depends on.
   #
   # s.dependency 'JSONKit', '~> 1.4'
-  s.dependency_git 'UIView', :commit=>'eef7a3b'
-  s.dependency_git 'NSDate'
 end

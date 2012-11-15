@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7933CA3A1649409FB02E5769 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D49B9F6386094C51AD178C53 /* libPods.a */; };
+		AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3443A71654B2F600F77740 /* MYDateSwitcher.m */; };
 		AB3A90D5165092CF00C672E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A90D4165092CF00C672E5 /* UIKit.framework */; };
 		AB3A90D7165092CF00C672E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A90D6165092CF00C672E5 /* Foundation.framework */; };
 		AB3A90D9165092CF00C672E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A90D8165092CF00C672E5 /* CoreGraphics.framework */; };
@@ -33,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		64ACB4F4102D4439A827EFF3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../../Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		AB3443A61654B2F600F77740 /* MYDateSwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDateSwitcher.h; sourceTree = "<group>"; };
+		AB3443A71654B2F600F77740 /* MYDateSwitcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDateSwitcher.m; sourceTree = "<group>"; };
+		AB3443A81654B2F600F77740 /* MYDateSwitcherDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDateSwitcherDefine.h; sourceTree = "<group>"; };
 		AB3A90D0165092CF00C672E5 /* MYFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3A90D4165092CF00C672E5 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB3A90D6165092CF00C672E5 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,6 +165,9 @@
 		AB3A91021650946A00C672E5 /* MYView */ = {
 			isa = PBXGroup;
 			children = (
+				AB3443A61654B2F600F77740 /* MYDateSwitcher.h */,
+				AB3443A71654B2F600F77740 /* MYDateSwitcher.m */,
+				AB3443A81654B2F600F77740 /* MYDateSwitcherDefine.h */,
 				AB3A91031650946A00C672E5 /* CustomTabBar.h */,
 				AB3A91041650946A00C672E5 /* CustomTabBar.m */,
 				AB3A91051650946A00C672E5 /* CustomTabBarItem.h */,
@@ -291,6 +298,7 @@
 				AB3A91211650946A00C672E5 /* MYRouteCenter.m in Sources */,
 				AB3A91221650946A00C672E5 /* MYViewController.m in Sources */,
 				AB3A91231650946A00C672E5 /* NSObject+Route.m in Sources */,
+				AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
