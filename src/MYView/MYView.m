@@ -77,7 +77,7 @@
         NSObject *receiver = [array objectAtIndex:0];
         if (receiver == object) {
             SEL selector = NSSelectorFromString((NSString *)[array objectAtIndex:1]);
-            [self performSelectorOnMainThread:selector withObject:change waitUntilDone:NO];
+            [self performSelector:selector withObject:change];
         }
     }
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
