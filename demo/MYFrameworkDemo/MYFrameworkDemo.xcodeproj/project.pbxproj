@@ -30,6 +30,9 @@
 		AB3A91211650946A00C672E5 /* MYRouteCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91151650946A00C672E5 /* MYRouteCenter.m */; };
 		AB3A91221650946A00C672E5 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91171650946A00C672E5 /* MYViewController.m */; };
 		AB3A91231650946A00C672E5 /* NSObject+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91191650946A00C672E5 /* NSObject+Route.m */; };
+		ABA229C5165C609000269EB7 /* MYEditableView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA229C0165C609000269EB7 /* MYEditableView.m */; };
+		ABA229C6165C609000269EB7 /* MYEditableViewDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA229C2165C609000269EB7 /* MYEditableViewDate.m */; };
+		ABA229C7165C609000269EB7 /* MYEditableViewWeight.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA229C4165C609000269EB7 /* MYEditableViewWeight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,12 @@
 		AB3A91171650946A00C672E5 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		AB3A91181650946A00C672E5 /* NSObject+Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Route.h"; sourceTree = "<group>"; };
 		AB3A91191650946A00C672E5 /* NSObject+Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Route.m"; sourceTree = "<group>"; };
+		ABA229BF165C609000269EB7 /* MYEditableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEditableView.h; sourceTree = "<group>"; };
+		ABA229C0165C609000269EB7 /* MYEditableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEditableView.m; sourceTree = "<group>"; };
+		ABA229C1165C609000269EB7 /* MYEditableViewDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEditableViewDate.h; sourceTree = "<group>"; };
+		ABA229C2165C609000269EB7 /* MYEditableViewDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEditableViewDate.m; sourceTree = "<group>"; };
+		ABA229C3165C609000269EB7 /* MYEditableViewWeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEditableViewWeight.h; sourceTree = "<group>"; };
+		ABA229C4165C609000269EB7 /* MYEditableViewWeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEditableViewWeight.m; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,13 +174,19 @@
 		AB3A91021650946A00C672E5 /* MYView */ = {
 			isa = PBXGroup;
 			children = (
-				AB3443A61654B2F600F77740 /* MYDateSwitcher.h */,
-				AB3443A71654B2F600F77740 /* MYDateSwitcher.m */,
-				AB3443A81654B2F600F77740 /* MYDateSwitcherDefine.h */,
 				AB3A91031650946A00C672E5 /* CustomTabBar.h */,
 				AB3A91041650946A00C672E5 /* CustomTabBar.m */,
 				AB3A91051650946A00C672E5 /* CustomTabBarItem.h */,
 				AB3A91061650946A00C672E5 /* CustomTabBarItem.m */,
+				AB3443A61654B2F600F77740 /* MYDateSwitcher.h */,
+				AB3443A71654B2F600F77740 /* MYDateSwitcher.m */,
+				AB3443A81654B2F600F77740 /* MYDateSwitcherDefine.h */,
+				ABA229BF165C609000269EB7 /* MYEditableView.h */,
+				ABA229C0165C609000269EB7 /* MYEditableView.m */,
+				ABA229C1165C609000269EB7 /* MYEditableViewDate.h */,
+				ABA229C2165C609000269EB7 /* MYEditableViewDate.m */,
+				ABA229C3165C609000269EB7 /* MYEditableViewWeight.h */,
+				ABA229C4165C609000269EB7 /* MYEditableViewWeight.m */,
 				AB3A91071650946A00C672E5 /* MYTableView.h */,
 				AB3A91081650946A00C672E5 /* MYTableView.m */,
 				AB3A91091650946A00C672E5 /* MYView.h */,
@@ -299,6 +314,9 @@
 				AB3A91221650946A00C672E5 /* MYViewController.m in Sources */,
 				AB3A91231650946A00C672E5 /* NSObject+Route.m in Sources */,
 				AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */,
+				ABA229C5165C609000269EB7 /* MYEditableView.m in Sources */,
+				ABA229C6165C609000269EB7 /* MYEditableViewDate.m in Sources */,
+				ABA229C7165C609000269EB7 /* MYEditableViewWeight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
