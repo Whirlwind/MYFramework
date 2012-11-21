@@ -11,6 +11,7 @@
 #import "KalLogic.h"
 #import "KalDate.h"
 #import "CGRectAdditions.h"
+#import "NSDate+Extend.h"
 
 @implementation MYEditableViewDate
 - (void)dealloc {
@@ -40,6 +41,13 @@
         [_kalView addObserver:self forKeyPath:@"frame" options:0 context:nil];
     }
     return _kalView;
+}
+
+#pragma mark - setter
+- (void)setDate:(NSDate *)date {
+    [_date release];
+    _date = [date retain];
+    self.valueLabel.text = [date strftime:@"M月d日"];
 }
 
 #pragma mark - override
