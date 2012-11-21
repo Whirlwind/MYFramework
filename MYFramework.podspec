@@ -128,6 +128,7 @@ Pod::Spec.new do |s|
   # Finally, specify any Pods that this Pod depends on.
   #
   # s.dependency 'JSONKit', '~> 1.4'
-  s.dependency_git 'UIView', :commit=>'eef7a3b'
+  s.dependency_git 'UIView'
+  s.dependency_git 'Kal', :branch => 'KalView_picker'
   s.dependency_git 'NSDate'
 end

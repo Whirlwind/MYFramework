@@ -1,21 +1,26 @@
 
-COCOAPODS: 0.15.2
-
-PODS: 
-- NSDate (0.0.1)
-- UIView (0.0.1)
-
 SPEC CHECKSUMS: 
   UIView: 5dd4a456c8d9b66cfafa372bb185c58fa12c1df9
+  Kal: 501427b8e14e30856a9a8b8c6e7142b4276ee374
   NSDate: 082f025c0e67caeab03b170d04eb3e28f42c0833
+
+COCOAPODS: 0.15.2
+
+DEPENDENCIES: 
+- Kal (from `git@boohee-apple:/opt/git/Plugins/Kal.git', branch `KalView_picker')
+- NSDate (from `git@boohee-apple:/opt/git/Plugins/NSDate.git')
+- UIView (from `git@boohee-apple:/opt/git/Plugins/UIView.git')
 
 EXTERNAL SOURCES: 
   UIView: 
-    :commit: eef7a3b
     :git: git@boohee-apple:/opt/git/Plugins/UIView.git
+  Kal: 
+    :branch: KalView_picker
+    :git: git@boohee-apple:/opt/git/Plugins/Kal.git
   NSDate: 
     :git: git@boohee-apple:/opt/git/Plugins/NSDate.git
 
-DEPENDENCIES: 
-- NSDate (from `git@boohee-apple:/opt/git/Plugins/NSDate.git')
-- UIView (from `git@boohee-apple:/opt/git/Plugins/UIView.git', commit `eef7a3b')
+PODS: 
+- Kal (1.0rc1)
+- NSDate (0.0.1)
+- UIView (0.0.1)
