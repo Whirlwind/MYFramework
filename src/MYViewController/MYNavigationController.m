@@ -57,6 +57,7 @@
     [super viewDidLoad];
     [self.contentView setBackgroundColor:[UIColor blackColor]];
     [self.contentView setFrame:self.view.bounds];
+    [self.contentView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [self.view addSubview:self.contentView];
     [self enterWithAnimated:NO
          nextViewController:[self.viewControllers lastObject]
