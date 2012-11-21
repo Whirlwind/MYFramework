@@ -22,7 +22,7 @@
 @property (nonatomic, retain) UIButton *rightBtn;
 @property (nonatomic, retain) NSDate *date;
 @property (nonatomic, retain) NSDate *lastDate;
-@property (nonatomic, assign) id<MYDateSwitcherDelegate> delegate;
+@property (nonatomic, assign) IBOutlet id<MYDateSwitcherDelegate> delegate;
 @property (retain, nonatomic) NSDate *minDate;
 @property (retain, nonatomic) NSDate *maxDate;
 
