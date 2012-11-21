@@ -34,6 +34,8 @@
         return;
     NSObject *target = [[NSClassFromString([array objectAtIndex:0]) alloc] init];
     SEL selector = NSSelectorFromString([array objectAtIndex:1]);
+    if (![target respondsToSelector:selector])
+        return;
     switch (self.thread) {
         case 1: // 主线程
             if (self.sync && [NSThread currentThread].isMainThread) {
