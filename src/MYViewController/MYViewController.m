@@ -275,7 +275,7 @@
 #pragma mark - route support
 - (void)pushIntoMyNavigationController:(NSNotification *)ntf {
     UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
-    [((MYNavigationController *)window.rootViewController) pushViewController:vc animated:YES sender:nil];
+    [((MYNavigationController *)window.rootViewController) pushViewController:self animated:YES sender:nil];
 }
 
 + (void)pushIntoMyNavigationController:(NSNotification *)ntf {
