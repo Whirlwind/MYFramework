@@ -79,6 +79,7 @@
                            completion:(void (^)(void))completion;
 
 #pragma mark - route support
+- (void)pushIntoMyNavigationController:(NSNotification *)ntf;
 + (void)pushIntoMyNavigationController:(NSNotification *)ntf;
 @end
 
