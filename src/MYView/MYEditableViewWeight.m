@@ -43,9 +43,9 @@
 }
 
 #pragma mark - override
-- (void)addKeyboardToShowView {
+- (void)setKeyboardShowView:(UIView *)keyboardShowView {
+    [super setKeyboardShowView:keyboardShowView];
     [self.weightPickerView setFrame:CGRectMake(0, self.keyboardShowView.frame.size.height - self.weightPickerView.frame.size.height, self.keyboardShowView.frame.size.width, self.weightPickerView.frame.size.height)];
-    [self.keyboardShowView addSubview:self.keyboardView];
 }
 
 - (void)setWeight:(CGFloat)weight {
