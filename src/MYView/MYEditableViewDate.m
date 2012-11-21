@@ -21,6 +21,10 @@
     [super dealloc];
 }
 
+- (void)initUI {
+    [super initUI];
+    [self.titleLabel setText:@"日期"];
+}
 #pragma mark - getter
 - (KalLogic *)kalLogic {
     if (_kalLogic == nil) {
