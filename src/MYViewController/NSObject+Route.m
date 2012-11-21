@@ -11,14 +11,14 @@
 @implementation NSObject (Route)
 
 #pragma mark - route
-- (void)postRouteMethod:(SEL)selector {
-    [self postRouteMethod:selector userInfo:nil];
+- (void)postRouteMethod:(NSString *)name {
+    [self postRouteMethod:name userInfo:nil];
 }
 
-- (void)postRouteMethod:(SEL)selector userInfo:(NSDictionary *)userInfo {
+- (void)postRouteMethod:(NSString *)name userInfo:(NSDictionary *)userInfo {
     [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@/%@",
                                                                 [[self class] description],
-                                                                NSStringFromSelector(selector), nil]
+                                                                name, nil]
                                                         object:self
                                                       userInfo:userInfo];
     
