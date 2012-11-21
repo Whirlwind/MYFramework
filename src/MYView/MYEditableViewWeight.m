@@ -24,6 +24,7 @@
 
 - (void)initUI {
     [super initUI];
+    [self.titleLabel setText:@"体重"];
     [self setKeyboardView:self.weightPickerView];
 }
 
