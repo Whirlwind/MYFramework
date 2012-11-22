@@ -79,6 +79,7 @@
 		AB3A91171650946A00C672E5 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		AB3A91181650946A00C672E5 /* NSObject+Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Route.h"; sourceTree = "<group>"; };
 		AB3A91191650946A00C672E5 /* NSObject+Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Route.m"; sourceTree = "<group>"; };
+		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
 		ABA229BF165C609000269EB7 /* MYEditableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEditableView.h; sourceTree = "<group>"; };
 		ABA229C0165C609000269EB7 /* MYEditableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEditableView.m; sourceTree = "<group>"; };
 		ABA229C1165C609000269EB7 /* MYEditableViewDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEditableViewDate.h; sourceTree = "<group>"; };
@@ -215,6 +216,7 @@
 				AB3A91151650946A00C672E5 /* MYRouteCenter.m */,
 				AB3A91161650946A00C672E5 /* MYViewController.h */,
 				AB3A91171650946A00C672E5 /* MYViewController.m */,
+				AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */,
 				AB3A91181650946A00C672E5 /* NSObject+Route.h */,
 				AB3A91191650946A00C672E5 /* NSObject+Route.m */,
 			);

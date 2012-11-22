@@ -130,11 +130,11 @@
     return [self.myNavigationController.viewControllers objectAtIndex:[self indexInNavigationControllerStack] - 1];
 }
 
-- (MYViewController *)nextViewController {
+- (id<MYViewControllerDelegate>)nextViewController {
     return [self.myNavigationController.viewControllers objectAtIndex:[self indexInNavigationControllerStack] + 1];
 }
 
-- (void)addSubViewController:(MYViewController *)childController {
+- (void)addSubViewController:(id<MYViewControllerDelegate>)childController {
     if (childController.viewZIndex >= ((MYViewController *)[self.subViewControllers lastObject]).viewZIndex) {
         [self.subViewControllers addObject:childController];
         [self.view addSubview:childController.view];
