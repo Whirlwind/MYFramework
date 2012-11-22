@@ -36,7 +36,7 @@
         [_weightPickerView setIncreaseValuePerCell:1];
         [_weightPickerView setMaxValue:kWeightDefaultMaxValue];
         [_weightPickerView setMinValue:kWeightDefaultMinValue];
-        [_weightPickerView updateUnits:[NSArray arrayWithObject:@"kg"]];
+        [_weightPickerView updateUnits:@[@"kg"]];
         [_weightPickerView updateSelectedUnitIndex:0];
     }
     return _weightPickerView;
@@ -57,7 +57,7 @@
 
 #pragma mark - delegate
 - (void)checkBox:(ValueCheckBoxView *)checkBox didChangedValue:(CGFloat)value {
-    self.valueLabel.text = [NSString stringWithFormat:@"%@ kg", [NSNumber numberWithFloat:value]];
+    self.valueLabel.text = [NSString stringWithFormat:@"%@ kg", @(value)];
     [self setWeight:value];
 }
 @end

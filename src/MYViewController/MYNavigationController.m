@@ -28,10 +28,10 @@
 }
 
 #pragma mark - init
-- (id)initWithRootViewController:(UIViewController *)viewController {
+- (id)initWithRootViewController:(id<MYViewControllerDelegate>)viewController {
     if (self = [self init]) {
         [self.viewControllers addObject:viewController];
-        [(MYViewController *)viewController setMyNavigationController:self];
+        [viewController setMyNavigationController:self];
     }
     return self;
 }
@@ -68,7 +68,7 @@
 
 #pragma mark - private methods
 - (void)enterWithAnimated:(BOOL)animated
-       nextViewController:(MYViewController *)nextViewController
+       nextViewController:(id<MYViewControllerDelegate> )nextViewController
                 direction:(BOOL)isPush
                    sender:(id)sender
                  complete:(void (^)(void))block {
@@ -80,8 +80,8 @@
                   complete:block];
 }
 - (void)exitWithAnimated:(BOOL)animated
-      prevViewController:(MYViewController *)prevViewController
-      nextViewController:(MYViewController *)nextViewController
+      prevViewController:(id<MYViewControllerDelegate> )prevViewController
+      nextViewController:(id<MYViewControllerDelegate> )nextViewController
                direction:(BOOL)isPush
                   sender:(id)sender
                 complete:(void (^)(void))block {
@@ -125,13 +125,13 @@
 }
 
 #pragma mark - controller
-- (MYViewController *)topViewController {
+- (id<MYViewControllerDelegate> )topViewController {
     if ([self.viewControllers count] == 0) {
         return nil;
     }
     return [self.viewControllers lastObject];
 }
-- (void)setRootViewController:(MYViewController *)vc animated:(BOOL)animated{
+- (void)setRootViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated{
     if ([self.viewControllers count] <= 1) {
         [self pushViewController:vc
                         animated:animated];
@@ -142,11 +142,11 @@
         [self.viewControllers removeObjectAtIndex:0];
     }
 }
-- (void)setRootViewControllerWithEmptyStack:(MYViewController *)vc animated:(BOOL)animated {
+- (void)setRootViewControllerWithEmptyStack:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated {
     [self setRootViewControllerWithEmptyStack:vc animated:animated sender:nil];
 }
 
-- (void)setRootViewControllerWithEmptyStack:(MYViewController *)vc animated:(BOOL)animated sender:(id)sender{
+- (void)setRootViewControllerWithEmptyStack:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender{
     if ([self.viewControllers count] == 0) {
         [self.viewControllers addObject:vc];
         [self enterWithAnimated:animated
@@ -155,7 +155,7 @@
                          sender:sender
                        complete:nil];
     } else {
-        MYViewController *last = [[self.viewControllers lastObject] retain];
+        id<MYViewControllerDelegate> last = [[self.viewControllers lastObject] retain];
         [self.viewControllers removeAllObjects];
         [self.viewControllers addObject:vc];
 
@@ -163,24 +163,24 @@
     }
 }
 
-- (void)pushViewController:(MYViewController *)vc animated:(BOOL)animated{
+- (void)pushViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated{
     [self pushViewController:vc animated:animated sender:nil];
 }
 
-- (void)pushViewController:(MYViewController *)vc animated:(BOOL)animated sender:(id)sender{
+- (void)pushViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender{
     [self pushViewController:vc
                       sender:sender
-              animationBlock:^(MYViewController *preVC, MYViewController *nextVC, id sender) {
+              animationBlock:^(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender) {
                   [self exitWithAnimated:animated prevViewController:preVC nextViewController:nextVC direction:YES sender:sender complete:nil];
               }];
 }
 
-- (void)pushViewController:(MYViewController *)vc animationBlock:(void (^)(MYViewController *preVC, MYViewController *nextVC, id sender))block {
+- (void)pushViewController:(id<MYViewControllerDelegate> )vc animationBlock:(void (^)(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender))block {
     [self pushViewController:vc sender:nil animationBlock:block];
 }
 
-- (void)pushViewController:(MYViewController *)vc sender:(id)sender animationBlock:(void (^)(MYViewController *preVC, MYViewController *nextVC, id sender))block {
-    MYViewController *last = [self.viewControllers lastObject];
+- (void)pushViewController:(id<MYViewControllerDelegate> )vc sender:(id)sender animationBlock:(void (^)(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender))block {
+    id<MYViewControllerDelegate> last = [self.viewControllers lastObject];
     [self.viewControllers addObject:vc];
     block(last, vc, sender);
 }
@@ -206,7 +206,7 @@
                               sender:(id)sender{
     NSInteger i = [self.viewControllers count] - 1;
     for (; i >= 0; i--) {
-        UIViewController *vc = [self.viewControllers objectAtIndex:i];
+        UIViewController *vc = (self.viewControllers)[i];
         if (block(vc)) {
             break;
         }
@@ -249,7 +249,7 @@
 
 - (void)popViewControllerAnimated:(BOOL)animated sender:(id)sender{
     [self popViewControllerBySender:sender
-                     animationBlock:^(MYViewController *preVC, MYViewController *nextVC, id sender) {
+                     animationBlock:^(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender) {
                          [self exitWithAnimated:animated
                              prevViewController:preVC
                              nextViewController:nextVC
@@ -259,24 +259,24 @@
                      }];
 }
 
-- (void)popViewControllerAnimationBlock:(void (^)(MYViewController *preVC, MYViewController *nextVC, id sender))block {
+- (void)popViewControllerAnimationBlock:(void (^)(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender))block {
     [self popViewControllerBySender:nil animationBlock:block];
 }
 
-- (void)popViewControllerBySender:(id)sender animationBlock:(void (^)(MYViewController *preVC, MYViewController *nextVC, id sender))block {
+- (void)popViewControllerBySender:(id)sender animationBlock:(void (^)(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender))block {
     if (self.viewControllers.count <= 1) {
         return;
     }
-    MYViewController *last = [[self.viewControllers lastObject] retain];
+    id<MYViewControllerDelegate> last = [[self.viewControllers lastObject] retain];
     [self.viewControllers removeLastObject];
     block([last autorelease], [self.viewControllers lastObject], sender);
 }
 
-- (void)replaceTopViewController:(MYViewController *)vc animated:(BOOL)animated {
+- (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated {
     [self replaceTopViewController:vc animated:animated sender:nil];
 }
-- (void)replaceTopViewController:(MYViewController *)vc animated:(BOOL)animated sender:(id)sender{
-    MYViewController *last = [[self.viewControllers lastObject] retain];
+- (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender{
+    id<MYViewControllerDelegate> last = [[self.viewControllers lastObject] retain];
     if (last) {
         [self.viewControllers removeObject:last];
     }

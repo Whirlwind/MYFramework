@@ -10,24 +10,24 @@
 @property (nonatomic, retain) NSMutableArray *viewControllers;
 @property (nonatomic, retain) UIView *contentView;
 
-- (id)initWithRootViewController:(UIViewController *)viewController;
+- (id)initWithRootViewController:(id<MYViewControllerDelegate>)viewController;
 
-- (MYViewController *)topViewController;
+- (id<MYViewControllerDelegate>)topViewController;
 
-- (void)setRootViewController:(MYViewController *)vc animated:(BOOL)animated;
-- (void)setRootViewControllerWithEmptyStack:(MYViewController *)vc animated:(BOOL)animated;
+- (void)setRootViewController:(id<MYViewControllerDelegate>)vc animated:(BOOL)animated;
+- (void)setRootViewControllerWithEmptyStack:(id<MYViewControllerDelegate>)vc animated:(BOOL)animated;
 
-- (void)pushViewController:(MYViewController *)vc
+- (void)pushViewController:(id<MYViewControllerDelegate>)vc
                   animated:(BOOL)animated;
-- (void)pushViewController:(MYViewController *)vc
+- (void)pushViewController:(id<MYViewControllerDelegate>)vc
                   animated:(BOOL)animated
                     sender:(id)sender;
-- (void)pushViewController:(MYViewController *)vc
-            animationBlock:(void (^)(MYViewController *preVC, MYViewController *nextVC, id sender))block;
+- (void)pushViewController:(id<MYViewControllerDelegate>)vc
+            animationBlock:(void (^)(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender))block;
 
 - (void)popViewControllerAnimated:(BOOL)animated;
 - (void)popViewControllerAnimated:(BOOL)animated sender:(id)sender;
-- (void)popViewControllerAnimationBlock:(void (^)(MYViewController *preVC, MYViewController *nextVC, id sender))block;
+- (void)popViewControllerAnimationBlock:(void (^)(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender))block;
 
 
 - (void)popToViewController:(UIViewController *)viewController
@@ -41,6 +41,6 @@
           animated:(BOOL)animated
             sender:(id)sender;
 
-- (void)replaceTopViewController:(MYViewController *)vc animated:(BOOL)animated;
-- (void)replaceTopViewController:(MYViewController *)vc animated:(BOOL)animated sender:(id)sender;
+- (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated;
+- (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender;
 @end

@@ -38,7 +38,7 @@
 }
 -(void)dealloc{
 	while (_threadPool != nil && [_threadPool count]>0) {
-		NSThread *thread = (NSThread *)[_threadPool objectAtIndex:0];
+		NSThread *thread = (NSThread *)_threadPool[0];
 		[thread cancel];
 		[_threadPool removeObject:thread];
 	}
@@ -127,11 +127,11 @@
 }
 
 - (MYViewController *)prevViewController {
-    return [self.myNavigationController.viewControllers objectAtIndex:[self indexInNavigationControllerStack] - 1];
+    return (self.myNavigationController.viewControllers)[[self indexInNavigationControllerStack] - 1];
 }
 
 - (id<MYViewControllerDelegate>)nextViewController {
-    return [self.myNavigationController.viewControllers objectAtIndex:[self indexInNavigationControllerStack] + 1];
+    return (self.myNavigationController.viewControllers)[[self indexInNavigationControllerStack] + 1];
 }
 
 - (void)addSubViewController:(id<MYViewControllerDelegate>)childController {
@@ -214,7 +214,7 @@
 #pragma mark - keyboard
 - (void)keyboardWillShowNotification:(NSNotification *)ntf{
     self.keyboardIsOpened = YES;
-    self.keyboardRect = [[[ntf userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    self.keyboardRect = [[ntf userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue];
     POST_ROUTE;
 }
 - (void)keyboardDidHideNotification:(NSNotification *)ntf{
@@ -274,13 +274,13 @@
 
 #pragma mark - route support
 - (void)pushIntoMyNavigationController:(NSNotification *)ntf {
-    UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+    UIWindow *window = [[UIApplication sharedApplication] windows][0];
     [((MYNavigationController *)window.rootViewController) pushViewController:self animated:YES sender:nil];
 }
 
 + (void)pushIntoMyNavigationController:(NSNotification *)ntf {
     MYViewController *vc = [[[self class] alloc] init];
-    UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+    UIWindow *window = [[UIApplication sharedApplication] windows][0];
     [((MYNavigationController *)window.rootViewController) pushViewController:vc animated:YES sender:nil];
     [vc release];
 }

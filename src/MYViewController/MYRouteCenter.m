@@ -49,11 +49,19 @@ static dispatch_once_t _sharedRouteCenterPred;
 }
 
 - (void)callRoute:(NSNotification *)ntf {
-    NSArray *array = [self.routeList valueForKey:ntf.name];
-    if (array == nil)
-        return;
-    for (MYRoute *route in array) {
-        [route executeWithNotification:ntf];
+    NSArray *nameArray = [ntf.name componentsSeparatedByString:@"/"];
+    NSString *globalName = [NSString stringWithFormat:@"*/%@", nameArray[1]];
+    NSArray *array = [self.routeList valueForKey:globalName];
+    if (array != nil) {
+        for (MYRoute *route in array) {
+            [route executeWithNotification:ntf];
+        }
+    }
+    array = [self.routeList valueForKey:ntf.name];
+    if (array != nil) {
+        for (MYRoute *route in array) {
+            [route executeWithNotification:ntf];
+        }
     }
 }
 
@@ -96,7 +104,7 @@ static dispatch_once_t _sharedRouteCenterPred;
     NSMutableArray *array = [self.routeList valueForKey:route.name];
     if (array == nil) {
         array = [NSMutableArray arrayWithCapacity:1];
-        [self.routeList setObject:array forKey:route.name];
+        (self.routeList)[route.name] = array;
         [self registerNotification:route];
     }
     [array addObject:route];

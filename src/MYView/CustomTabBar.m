@@ -62,7 +62,7 @@
 -(void)setItemsWithButton:(NSArray *)buttonArray label:(NSArray *)labelArray animated:(BOOL)animated{
 	NSMutableArray *itemArray = [[NSMutableArray alloc] initWithCapacity:8];
 	for (int i = 0; i < [buttonArray count]; i++) {
-		CustomTabBarItem *tabbar = [CustomTabBarItem initWithButton:[buttonArray objectAtIndex:i] label:labelArray && [labelArray count]>i?[labelArray objectAtIndex:i]:nil tag:i];
+		CustomTabBarItem *tabbar = [CustomTabBarItem initWithButton:buttonArray[i] label:labelArray && [labelArray count]>i?labelArray[i]:nil tag:i];
 		[tabbar setClick:self click:@selector(switchTab:)];
 		
 		[itemArray addObject:tabbar];

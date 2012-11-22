@@ -32,8 +32,8 @@
     NSArray *array = [self.path componentsSeparatedByString:@"/"];
     if ([array count] != 2)
         return;
-    NSObject *target = [[NSClassFromString([array objectAtIndex:0]) alloc] init];
-    SEL selector = NSSelectorFromString([array objectAtIndex:1]);
+    NSObject *target = [[NSClassFromString(array[0]) alloc] init];
+    SEL selector = NSSelectorFromString(array[1]);
     if (![target respondsToSelector:selector]) {
         [target release];
         return;
@@ -67,17 +67,17 @@
     NSArray *array = [line componentsSeparatedByString:@","];
     if ([array count] < 2)
         return nil;
-    NSString *name = [array objectAtIndex:0];
-    NSString *path = [array objectAtIndex:1];
+    NSString *name = array[0];
+    NSString *path = array[1];
     NSInteger thread = 0;
     if ([array count] >= 3) {
-        NSNumber *threadNumber = [array objectAtIndex:2];
+        NSNumber *threadNumber = array[2];
         if (threadNumber)
             thread = [threadNumber integerValue];
     }
     BOOL sync = NO;
     if ([array count] >= 4) {
-        NSNumber *syncNumber = [array objectAtIndex:3];
+        NSNumber *syncNumber = array[3];
         if (syncNumber)
             sync = [syncNumber boolValue];
     }

@@ -32,8 +32,15 @@
 - (void)reflashView; // animated=YES
 - (void)reflashView:(BOOL)animated; // for override
 - (MYView *)myView;
-- (UIView *)view;
 
+@required
+- (UIView *)view;
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
+
+@optional
 #pragma mark - view controller
 - (BOOL)isTopViewController;
 - (void)viewControllerBecomeTopViewController:(BOOL)isPush;
@@ -48,6 +55,7 @@
 - (void)keyboardWillShowNotification:(NSNotification *)ntf;
 - (void)keyboardDidHideNotification:(NSNotification *)ntf;
 
+@required
 #pragma mark - animation
 - (void)enterWithAnimated:(BOOL)animated prevViewController:(id<MYViewControllerDelegate>)prevViewController direction:(BOOL)isPush sender:(id)sender complete:(void (^)(void))block;
 - (void)exitWithAnimated:(BOOL)animated
@@ -55,6 +63,8 @@
                direction:(BOOL)isPush
                   sender:(id)sender
                 complete:(void (^)(void))block;
+
+@optional
 #pragma mark - thread
 - (NSMutableArray *)getThreadPool;
 - (NSThread *)addCurrentThreadToThreadPool;

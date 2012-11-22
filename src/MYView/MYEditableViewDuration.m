@@ -36,7 +36,7 @@
         [_minutePickerView setIncreaseValuePerCell:10];
         [_minutePickerView setMaxValue:kDurationDefaultMaxValue];
         [_minutePickerView setMinValue:kDurationDefaultMinValue];
-        [_minutePickerView updateUnits:[NSArray arrayWithObject:@"分钟"]];
+        [_minutePickerView updateUnits:@[@"分钟"]];
         [_minutePickerView updateSelectedUnitIndex:0];
     }
     return _minutePickerView;
@@ -57,7 +57,7 @@
 
 #pragma mark - delegate
 - (void)checkBox:(ValueCheckBoxView *)checkBox didChangedValue:(CGFloat)value {
-    self.valueLabel.text = [NSString stringWithFormat:@"%@ 分钟", [NSNumber numberWithFloat:value]];
+    self.valueLabel.text = [NSString stringWithFormat:@"%@ 分钟", @(value)];
     [self setMinute:(NSInteger)value];
 }
 @end

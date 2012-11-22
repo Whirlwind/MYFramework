@@ -12,8 +12,8 @@
 
 - (void)dealloc {
     for (NSString *keyPath in self.observerList.allKeys) {
-        for (NSArray *array in [self.observerList objectForKey:keyPath]) {
-            [[array objectAtIndex:0] removeObserver:self forKeyPath:keyPath];
+        for (NSArray *array in (self.observerList)[keyPath]) {
+            [array[0] removeObserver:self forKeyPath:keyPath];
         }
     }
     [_observerList release], _observerList = nil;
@@ -42,11 +42,11 @@
                          keyPath:(NSString *)keyPath
                          options:(NSKeyValueObservingOptions)options
                          context:(void *)context {
-    NSMutableArray *array = [self.observerList objectForKey:keyPath];
+    NSMutableArray *array = (self.observerList)[keyPath];
     if (array == nil) {
         array = [NSMutableArray arrayWithCapacity:1];
     }
-    [array addObject:[NSArray arrayWithObjects:receiver,NSStringFromSelector(selector), nil]];
+    [array addObject:@[receiver,NSStringFromSelector(selector)]];
     [self.observerList setValue:array forKey:keyPath];
     [receiver addObserver:self forKeyPath:keyPath options:options context:context];
 }
@@ -54,12 +54,12 @@
 - (void)unregisterObserverReceiver:(NSObject *)receiver
                            keyPath:(NSString *)keyPath {
     [receiver removeObserver:self forKeyPath:keyPath];
-    NSMutableArray *receivers = [self.observerList objectForKey:keyPath];
+    NSMutableArray *receivers = (self.observerList)[keyPath];
     if (receivers == nil) {
         return;
     }
     for (NSArray *array in receivers) {
-        if ([array objectAtIndex:0] == receiver) {
+        if (array[0] == receiver) {
             [receivers removeObject:array];
             break;
         }
@@ -69,14 +69,14 @@
     }
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    NSArray *receivers = [self.observerList objectForKey:keyPath];
+    NSArray *receivers = (self.observerList)[keyPath];
     if (receivers == nil) {
         return;
     }
     for (NSArray *array in receivers) {
-        NSObject *receiver = [array objectAtIndex:0];
+        NSObject *receiver = array[0];
         if (receiver == object) {
-            SEL selector = NSSelectorFromString((NSString *)[array objectAtIndex:1]);
+            SEL selector = NSSelectorFromString((NSString *)array[1]);
             [self performSelector:selector withObject:change];
         }
     }

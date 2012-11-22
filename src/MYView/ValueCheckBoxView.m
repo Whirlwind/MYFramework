@@ -144,7 +144,7 @@
 }
 
 - (NSObject *)selectedUnit {
-    return [self.units objectAtIndex:self.selectedUnitIndex];
+    return (self.units)[self.selectedUnitIndex];
 }
 
 #pragma mark - set data
@@ -169,7 +169,7 @@
 }
 - (void)updateSelectedValue:(CGFloat)value scroll:(BOOL)scroll{
     self.selectedValue = value;
-    [self.valueSelectedLabel setText:[NSString stringWithFormat:@"%@", [NSNumber numberWithFloat:self.selectedValue]]];
+    [self.valueSelectedLabel setText:[NSString stringWithFormat:@"%@", @(self.selectedValue)]];
     [self.valueSelectedLabel sizeToFit];
     [self.valueSelectedLabel setCenter:CGPointMake(self.frame.size.width / 2, 35)];
     [self.unitSelectedLabel setCenter:CGPointMake(self.valueSelectedLabel.frame.origin.x + self.valueSelectedLabel.frame.size.width + 5 + self.unitSelectedLabel.frame.size.width / 2, 28)];
@@ -184,7 +184,7 @@
 - (void)updateSelectedUnit:(NSObject *)unit {
     int i = [self.units count] - 1;
     for (; i >= 0; i --) {
-        if (unit == [self.units objectAtIndex:i]) {
+        if (unit == (self.units)[i]) {
             break;
         }
     }
@@ -216,9 +216,9 @@
 #ifdef kValueCheckBoxViewUnitTitleColorForSelected
         [unitBtn setTitleColor:kValueCheckBoxViewUnitTitleColorForSelected forState:UIControlStateSelected];
 #endif
-        [unitBtn setTitle:[[units objectAtIndex:i] description] forState:UIControlStateNormal];
-        [unitBtn setTitle:[[units objectAtIndex:i] description] forState:UIControlStateHighlighted];
-        [unitBtn setTitle:[[units objectAtIndex:i] description] forState:UIControlStateSelected];
+        [unitBtn setTitle:[units[i] description] forState:UIControlStateNormal];
+        [unitBtn setTitle:[units[i] description] forState:UIControlStateHighlighted];
+        [unitBtn setTitle:[units[i] description] forState:UIControlStateSelected];
         [unitBtn setFrame:CGRectMake(width * i, 0, width, self.unitsView.frame.size.height)];
         [unitBtn addTarget:self action:@selector(unitChanged:) forControlEvents:UIControlEventTouchUpInside];
         [self.unitsView addSubview:unitBtn];
@@ -233,7 +233,7 @@
         return;
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox:shouldChangeUnitFrom:to:)]) {
-        if (![self.delegate checkBox:self shouldChangeUnitFrom:self.selectedUnit to:[self.units objectAtIndex:((UIView *)sender).tag-kTagPreValue]])
+        if (![self.delegate checkBox:self shouldChangeUnitFrom:self.selectedUnit to:(self.units)[((UIView *)sender).tag-kTagPreValue]])
             return;
     }
     for (UIView *view in [self.unitsView subviews]) {
@@ -250,7 +250,7 @@
     }
     [self.unitSelectedFlagView setFrameWithX:((UIView *)sender).frame.origin.x];
     self.selectedUnitIndex = ((UIView *)sender).tag-kTagPreValue;
-    [self.unitSelectedLabel setText:[[self.units objectAtIndex:self.selectedUnitIndex] description]];
+    [self.unitSelectedLabel setText:[(self.units)[self.selectedUnitIndex] description]];
     [self.unitSelectedLabel sizeToFit];
     [self.unitSelectedLabel setCenter:CGPointMake(self.valueSelectedLabel.frame.origin.x + self.valueSelectedLabel.frame.size.width + 5 + self.unitSelectedLabel.frame.size.width / 2, 28)];
     if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox:didChangedUnit:)]) {
