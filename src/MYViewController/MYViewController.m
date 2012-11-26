@@ -161,7 +161,7 @@
     subViewDidLoaded = YES;
     [super viewDidLoad];
 
-    POST_ROUTE;
+    POST_BROADCAST;
 
     if ([UIScreen mainScreen].bounds.size.height == 568.0f && self.view.frame.size.height == 460.0f)
         [self.view setFrameWithHeight:568.0f];
@@ -170,23 +170,23 @@
     [self reflashView:NO];
 }
 - (void)viewWillAppear:(BOOL)animated{
-    POST_ROUTE;
+    POST_BROADCAST;
     [super viewWillAppear:animated];
     LOGPAGEVIEWBEGIN([[self class] description]);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    POST_ROUTE;
+    POST_BROADCAST;
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     LOGPAGEVIEWEND([[self class] description]);
-    POST_ROUTE;
+    POST_BROADCAST;
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    POST_ROUTE;
+    POST_BROADCAST;
 }
 
 - (void)reflashView {
@@ -215,12 +215,12 @@
 - (void)keyboardWillShowNotification:(NSNotification *)ntf{
     self.keyboardIsOpened = YES;
     self.keyboardRect = [[ntf userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    POST_ROUTE;
+    POST_BROADCAST;
 }
 - (void)keyboardDidHideNotification:(NSNotification *)ntf{
     self.keyboardIsOpened = NO;
     self.keyboardRect = CGRectZero;
-    POST_ROUTE;
+    POST_BROADCAST;
 }
 
 #pragma mark - animation

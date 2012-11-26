@@ -1,15 +1,15 @@
 //
-//  MYRoute.m
+//  MYBroadcast.m
 //  ONE
 //
 //  Created by Whirlwind on 12-10-31.
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import "MYRoute.h"
+#import "MYBroadcast.h"
 #import "MYFramework.h"
 
-@implementation MYRoute
+@implementation MYBroadcast
 - (void)dealloc {
     [_name release], _name = nil;
     [_path release], _path = nil;
@@ -18,13 +18,11 @@
 
 - (id)initWithName:(NSString *)name
               path:(NSString *)path
-            thread:(NSInteger)thread
-              sync:(BOOL)sync {
+            thread:(NSInteger)thread {
     if (self = [self init]) {
         self.name = name;
         self.path = path;
         self.thread = thread;
-        self.sync = sync;
     }
     return self;
 }
@@ -40,16 +38,16 @@
     }
     switch (self.thread) {
         case 1: // 主线程
-            if (self.sync && [NSThread currentThread].isMainThread) {
+            if ([NSThread currentThread].isMainThread) {
                 [target performSelector:selector withObject:ntf];
             } else {
                 [target performSelectorOnMainThread:selector
-                                     withObject:ntf
-                                  waitUntilDone:self.sync];
+                                         withObject:ntf
+                                      waitUntilDone:NO];
             }
             break;
         case 2: // 后台线程
-            if (self.sync && ![NSThread currentThread].isMainThread) {
+            if (![NSThread currentThread].isMainThread) {
                 [target performSelector:selector withObject:ntf];
             } else {
                 [target performSelectorInBackground:selector withObject:ntf];
@@ -61,7 +59,7 @@
     }
     [target release];
 }
-+ (MYRoute *)parseRouteFileLine:(NSString *)line {
++ (MYBroadcast *)parseRouteFileLine:(NSString *)line {
     line = [line stringByReplacingOccurrencesOfString:@" " withString:@""];
     line = [line stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     NSArray *array = [line componentsSeparatedByString:@","];
@@ -75,16 +73,9 @@
         if (threadNumber)
             thread = [threadNumber integerValue];
     }
-    BOOL sync = NO;
-    if ([array count] >= 4) {
-        NSNumber *syncNumber = array[3];
-        if (syncNumber)
-            sync = [syncNumber boolValue];
-    }
-    MYRoute *route = [[MYRoute alloc] initWithName:name
-                                              path:path
-                                            thread:thread
-                                              sync:sync];
+    MYBroadcast *route = [[MYBroadcast alloc] initWithName:name
+                                                      path:path
+                                                    thread:thread];
     return [route autorelease];
 }
 @end

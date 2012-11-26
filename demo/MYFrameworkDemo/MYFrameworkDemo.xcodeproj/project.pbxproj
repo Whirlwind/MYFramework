@@ -26,10 +26,10 @@
 		AB3A911D1650946A00C672E5 /* MYView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A910A1650946A00C672E5 /* MYView.m */; };
 		AB3A911E1650946A00C672E5 /* ValueCheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A910C1650946A00C672E5 /* ValueCheckBoxView.m */; };
 		AB3A911F1650946A00C672E5 /* MYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91111650946A00C672E5 /* MYNavigationController.m */; };
-		AB3A91201650946A00C672E5 /* MYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91131650946A00C672E5 /* MYRoute.m */; };
-		AB3A91211650946A00C672E5 /* MYRouteCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91151650946A00C672E5 /* MYRouteCenter.m */; };
+		AB3A91201650946A00C672E5 /* MYBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91131650946A00C672E5 /* MYBroadcast.m */; };
+		AB3A91211650946A00C672E5 /* MYBroadcastCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91151650946A00C672E5 /* MYBroadcastCenter.m */; };
 		AB3A91221650946A00C672E5 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91171650946A00C672E5 /* MYViewController.m */; };
-		AB3A91231650946A00C672E5 /* NSObject+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91191650946A00C672E5 /* NSObject+Route.m */; };
+		AB3A91231650946A00C672E5 /* NSObject+MYBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,14 +67,14 @@
 		AB3A910E1650946A00C672E5 /* ValueCheckBoxViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCheckBoxViewDelegate.h; sourceTree = "<group>"; };
 		AB3A91101650946A00C672E5 /* MYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYNavigationController.h; sourceTree = "<group>"; };
 		AB3A91111650946A00C672E5 /* MYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYNavigationController.m; sourceTree = "<group>"; };
-		AB3A91121650946A00C672E5 /* MYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRoute.h; sourceTree = "<group>"; };
-		AB3A91131650946A00C672E5 /* MYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRoute.m; sourceTree = "<group>"; };
-		AB3A91141650946A00C672E5 /* MYRouteCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRouteCenter.h; sourceTree = "<group>"; };
-		AB3A91151650946A00C672E5 /* MYRouteCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRouteCenter.m; sourceTree = "<group>"; };
+		AB3A91121650946A00C672E5 /* MYBroadcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBroadcast.h; sourceTree = "<group>"; };
+		AB3A91131650946A00C672E5 /* MYBroadcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBroadcast.m; sourceTree = "<group>"; };
+		AB3A91141650946A00C672E5 /* MYBroadcastCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBroadcastCenter.h; sourceTree = "<group>"; };
+		AB3A91151650946A00C672E5 /* MYBroadcastCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBroadcastCenter.m; sourceTree = "<group>"; };
 		AB3A91161650946A00C672E5 /* MYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
 		AB3A91171650946A00C672E5 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
-		AB3A91181650946A00C672E5 /* NSObject+Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Route.h"; sourceTree = "<group>"; };
-		AB3A91191650946A00C672E5 /* NSObject+Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Route.m"; sourceTree = "<group>"; };
+		AB3A91181650946A00C672E5 /* NSObject+MYBroadcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MYBroadcast.h"; sourceTree = "<group>"; };
+		AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYBroadcast.m"; sourceTree = "<group>"; };
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,15 +190,15 @@
 			children = (
 				AB3A91101650946A00C672E5 /* MYNavigationController.h */,
 				AB3A91111650946A00C672E5 /* MYNavigationController.m */,
-				AB3A91121650946A00C672E5 /* MYRoute.h */,
-				AB3A91131650946A00C672E5 /* MYRoute.m */,
-				AB3A91141650946A00C672E5 /* MYRouteCenter.h */,
-				AB3A91151650946A00C672E5 /* MYRouteCenter.m */,
+				AB3A91121650946A00C672E5 /* MYBroadcast.h */,
+				AB3A91131650946A00C672E5 /* MYBroadcast.m */,
+				AB3A91141650946A00C672E5 /* MYBroadcastCenter.h */,
+				AB3A91151650946A00C672E5 /* MYBroadcastCenter.m */,
 				AB3A91161650946A00C672E5 /* MYViewController.h */,
 				AB3A91171650946A00C672E5 /* MYViewController.m */,
 				AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */,
-				AB3A91181650946A00C672E5 /* NSObject+Route.h */,
-				AB3A91191650946A00C672E5 /* NSObject+Route.m */,
+				AB3A91181650946A00C672E5 /* NSObject+MYBroadcast.h */,
+				AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */,
 			);
 			path = MYViewController;
 			sourceTree = "<group>";
@@ -296,10 +296,10 @@
 				AB3A911D1650946A00C672E5 /* MYView.m in Sources */,
 				AB3A911E1650946A00C672E5 /* ValueCheckBoxView.m in Sources */,
 				AB3A911F1650946A00C672E5 /* MYNavigationController.m in Sources */,
-				AB3A91201650946A00C672E5 /* MYRoute.m in Sources */,
-				AB3A91211650946A00C672E5 /* MYRouteCenter.m in Sources */,
+				AB3A91201650946A00C672E5 /* MYBroadcast.m in Sources */,
+				AB3A91211650946A00C672E5 /* MYBroadcastCenter.m in Sources */,
 				AB3A91221650946A00C672E5 /* MYViewController.m in Sources */,
-				AB3A91231650946A00C672E5 /* NSObject+Route.m in Sources */,
+				AB3A91231650946A00C672E5 /* NSObject+MYBroadcast.m in Sources */,
 				AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
