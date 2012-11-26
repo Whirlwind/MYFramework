@@ -44,7 +44,7 @@ static dispatch_once_t _sharedRouteCenterPred;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *bundleDirectory = [fileManager contentsOfDirectoryAtPath:dir error:nil];
 
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"self ENDSWITH '%@'", [[self class] extendString]];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"self ENDSWITH '%@'", [[self class] extendString]]];
     for (NSString *filename in [bundleDirectory filteredArrayUsingPredicate:filter]) {
         [self addFile:[dir stringByAppendingPathComponent:filename]];
     }
