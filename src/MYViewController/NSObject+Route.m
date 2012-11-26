@@ -21,6 +21,10 @@
                                                                 name, nil]
                                                         object:self
                                                       userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"*/%@",
+                                                                name, nil]
+                                                        object:self
+                                                      userInfo:userInfo];
     
 }
 @end
