@@ -11,6 +11,6 @@
 @property (copy, nonatomic) NSString *path;
 @property (assign, nonatomic) NSInteger thread;
 
-+ (MYBroadcast *)parseRouteFileLine:(NSString *)line;
++ (MYBroadcast *)parseBroadcastFileLine:(NSString *)line;
 - (void)executeWithNotification:(NSNotification *)ntf;
 @end

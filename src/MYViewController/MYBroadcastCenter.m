@@ -84,7 +84,7 @@ static dispatch_once_t _sharedBroadcastCenterPred;
             contentLine = [line substringWithRange:preRange];
         }
         if (contentLine != nil && ![contentLine isEqualToString:@""]) {
-            MYBroadcast *broadcast = [MYBroadcast parseRouteFileLine:contentLine];
+            MYBroadcast *broadcast = [MYBroadcast parseBroadcastFileLine:contentLine];
             if (broadcast != nil)
                 [self addBroadcast:broadcast];
         }

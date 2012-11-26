@@ -59,7 +59,7 @@
     }
     [target release];
 }
-+ (MYBroadcast *)parseRouteFileLine:(NSString *)line {
++ (MYBroadcast *)parseBroadcastFileLine:(NSString *)line {
     line = [line stringByReplacingOccurrencesOfString:@" " withString:@""];
     line = [line stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     NSArray *array = [line componentsSeparatedByString:@","];
