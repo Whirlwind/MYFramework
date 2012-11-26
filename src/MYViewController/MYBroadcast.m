@@ -10,18 +10,11 @@
 #import "MYFramework.h"
 
 @implementation MYBroadcast
-- (void)dealloc {
-    [_name release], _name = nil;
-    [_path release], _path = nil;
-    [super dealloc];
-}
 
 - (id)initWithName:(NSString *)name
               path:(NSString *)path
             thread:(NSInteger)thread {
-    if (self = [self init]) {
-        self.name = name;
-        self.path = path;
+    if (self = [self initWithName:name path:path]) {
         self.thread = thread;
     }
     return self;
@@ -59,7 +52,8 @@
     }
     [target release];
 }
-+ (MYBroadcast *)parseBroadcastFileLine:(NSString *)line {
+
++ (id)parseFileLine:(NSString *)line {
     line = [line stringByReplacingOccurrencesOfString:@" " withString:@""];
     line = [line stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     NSArray *array = [line componentsSeparatedByString:@","];

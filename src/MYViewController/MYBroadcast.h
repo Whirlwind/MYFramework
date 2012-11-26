@@ -6,11 +6,13 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-@interface MYBroadcast : NSObject
-@property (copy, nonatomic) NSString *name;
-@property (copy, nonatomic) NSString *path;
+#import "MYRoute.h"
+@interface MYBroadcast : MYRoute
 @property (assign, nonatomic) NSInteger thread;
 
-+ (MYBroadcast *)parseBroadcastFileLine:(NSString *)line;
+- (id)initWithName:(NSString *)name
+              path:(NSString *)path
+            thread:(NSInteger)thread;
+
 - (void)executeWithNotification:(NSNotification *)ntf;
 @end

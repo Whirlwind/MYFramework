@@ -6,11 +6,7 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
+#import "MYRouteCenter.h"
 
-@interface MYBroadcastCenter : NSObject
-@property (retain, nonatomic) NSMutableDictionary *broadcastList;
-+ (id)sharedInstant;
-+ (void)addBroadcastFileInBundle;
-
-- (void)addBroadcastFile:(NSString *)path;
+@interface MYBroadcastCenter : MYRouteCenter
 @end

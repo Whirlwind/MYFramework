@@ -10,7 +10,6 @@
 
 @implementation NSObject (MYBroadcast)
 
-#pragma mark - route
 - (void)postBroadcastMethod:(NSString *)name {
     [self postBroadcastMethod:name userInfo:nil];
 }

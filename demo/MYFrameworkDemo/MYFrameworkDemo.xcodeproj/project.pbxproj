@@ -30,6 +30,9 @@
 		AB3A91211650946A00C672E5 /* MYBroadcastCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91151650946A00C672E5 /* MYBroadcastCenter.m */; };
 		AB3A91221650946A00C672E5 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91171650946A00C672E5 /* MYViewController.m */; };
 		AB3A91231650946A00C672E5 /* NSObject+MYBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */; };
+		AB63DA7B16638BC8006CA284 /* MYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA7A16638BC8006CA284 /* MYRoute.m */; };
+		AB63DA7F16638D67006CA284 /* MYRouteCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA7E16638D67006CA284 /* MYRouteCenter.m */; };
+		AB63DA821663922B006CA284 /* NSObject+MYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA811663922A006CA284 /* NSObject+MYRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +78,12 @@
 		AB3A91171650946A00C672E5 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		AB3A91181650946A00C672E5 /* NSObject+MYBroadcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MYBroadcast.h"; sourceTree = "<group>"; };
 		AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYBroadcast.m"; sourceTree = "<group>"; };
+		AB63DA7916638BC8006CA284 /* MYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRoute.h; sourceTree = "<group>"; };
+		AB63DA7A16638BC8006CA284 /* MYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRoute.m; sourceTree = "<group>"; };
+		AB63DA7D16638D67006CA284 /* MYRouteCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRouteCenter.h; sourceTree = "<group>"; };
+		AB63DA7E16638D67006CA284 /* MYRouteCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRouteCenter.m; sourceTree = "<group>"; };
+		AB63DA801663922A006CA284 /* NSObject+MYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MYRoute.h"; sourceTree = "<group>"; };
+		AB63DA811663922A006CA284 /* NSObject+MYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYRoute.m"; sourceTree = "<group>"; };
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +208,12 @@
 				AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */,
 				AB3A91181650946A00C672E5 /* NSObject+MYBroadcast.h */,
 				AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */,
+				AB63DA7916638BC8006CA284 /* MYRoute.h */,
+				AB63DA7A16638BC8006CA284 /* MYRoute.m */,
+				AB63DA7D16638D67006CA284 /* MYRouteCenter.h */,
+				AB63DA7E16638D67006CA284 /* MYRouteCenter.m */,
+				AB63DA801663922A006CA284 /* NSObject+MYRoute.h */,
+				AB63DA811663922A006CA284 /* NSObject+MYRoute.m */,
 			);
 			path = MYViewController;
 			sourceTree = "<group>";
@@ -301,6 +316,9 @@
 				AB3A91221650946A00C672E5 /* MYViewController.m in Sources */,
 				AB3A91231650946A00C672E5 /* NSObject+MYBroadcast.m in Sources */,
 				AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */,
+				AB63DA7B16638BC8006CA284 /* MYRoute.m in Sources */,
+				AB63DA7F16638D67006CA284 /* MYRouteCenter.m in Sources */,
+				AB63DA821663922B006CA284 /* NSObject+MYRoute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

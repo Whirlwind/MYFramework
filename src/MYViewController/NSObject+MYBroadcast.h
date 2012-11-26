@@ -11,7 +11,7 @@
 #define POST_BROADCAST_WITH_NAME_AND_ARGS(_name, _userInfo) [self postBroadcastMethod:_name userInfo:_userInfo]
 @interface NSObject (MYBroadcast)
 
-#pragma mark - route
 - (void)postBroadcastMethod:(NSString *)name;
 - (void)postBroadcastMethod:(NSString *)name userInfo:(NSDictionary *)userInfo;
+
 @end
