@@ -14,6 +14,7 @@
 #import "MYBroadcastCenter.h"
 #import "NSObject+MYBroadcast.h"
 
+#import "MYTableView.h"
 #import "MYViewController.h"
 #import "MYNavigationController.h"
 #import "MYView.h"
