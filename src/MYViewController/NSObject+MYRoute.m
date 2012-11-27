@@ -15,6 +15,6 @@
     return [self postRouteMethod:name userInfo:nil];
 }
 - (id)postRouteMethod:(NSString *)name userInfo:(NSDictionary *)userInfo {
-    return [[MYRouteCenter sharedInstant] callRoute:name userInfo:userInfo];
+    return [[MYRouteCenter sharedInstant] callRoute:[NSString stringWithFormat:@"%@/%@", [[self class] description], name, nil] userInfo:userInfo];
 }
 @end
