@@ -80,7 +80,15 @@ static dispatch_once_t _sharedRouteCenterPred;
 }
 
 - (id)callRoute:(NSString *)name userInfo:(NSDictionary *)userInfo {
-    MYRoute *route = [self.list valueForKey:@"name"];
+    MYRoute *route = [self.list valueForKey:name];
+    if (route == nil) {
+        NSArray *nameArray = [name componentsSeparatedByString:@"/"];
+        NSRange range;
+        range.location = 1;
+        range.length = [nameArray count] - 1;
+        name = [NSString stringWithFormat:@"*/%@", [[nameArray subarrayWithRange:range] componentsJoinedByString:@"/"]];
+        route = [self.list valueForKey:name];
+    }
     return [route executeWithUserInfo:userInfo];
 }
 #pragma mark - getter
