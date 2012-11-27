@@ -86,6 +86,7 @@
 		AB63DA811663922A006CA284 /* NSObject+MYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYRoute.m"; sourceTree = "<group>"; };
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
+		ABFEDC4E16645BBD0053A5BC /* MYFramework-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYFramework-Prefix.pch"; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +168,7 @@
 				AB3A91021650946A00C672E5 /* MYView */,
 				AB3A910F1650946A00C672E5 /* MYViewController */,
 				ABEEE92E16512A360002BC58 /* MYFramework.h */,
+				ABFEDC4E16645BBD0053A5BC /* MYFramework-Prefix.pch */,
 			);
 			name = src;
 			path = ../../src;
