@@ -55,6 +55,9 @@
 #pragma mark - view
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CGRect frame = [self.view frame];
+    frame.origin.y = 0;
+    [self.view setFrame:frame];
     [self.contentView setBackgroundColor:[UIColor blackColor]];
     [self.contentView setFrame:self.view.bounds];
     [self.contentView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
