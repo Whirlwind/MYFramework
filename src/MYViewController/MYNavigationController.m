@@ -52,10 +52,12 @@
     return _contentView;
 }
 
+- (BOOL)wantsFullScreenLayout {
+    return NO;
+}
 #pragma mark - view
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setWantsFullScreenLayout:YES];
     [self.contentView setBackgroundColor:[UIColor blackColor]];
     [self.contentView setFrame:self.view.bounds];
     [self.contentView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
