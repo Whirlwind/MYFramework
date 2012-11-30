@@ -110,8 +110,6 @@
                                 complete:^{
                                     if (isIOS4)
                                         [prevViewController viewDidDisappear:animated];
-                                    if (isIOS4)
-                                        [nextViewController viewDidAppear:animated];
                                     if (block)
                                         block();
                                     [prevViewController setMyNavigationController:nil];
