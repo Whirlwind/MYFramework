@@ -94,8 +94,8 @@
     [prevViewController retain];
     if ([prevViewController respondsToSelector:@selector(viewControllerResignTopViewController:)])
         [prevViewController viewControllerResignTopViewController:YES];
-    [nextViewController view];
     [nextViewController setMyNavigationController:self];
+    [nextViewController view];
     if ([nextViewController respondsToSelector:@selector(viewControllerBecomeTopViewController:)])
         [nextViewController viewControllerBecomeTopViewController:YES];
     BOOL isIOS4 = [[[UIDevice currentDevice] systemVersion] integerValue] < 5;
