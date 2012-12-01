@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
   s.resources = "resources/**/*.png"
   s.frameworks = 'UIKit', 'Foundation', 'QuartzCore'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
-  s.dependency 'UIView', '0.0.1'
-  s.dependency 'NSDate', '0.0.1'
+
+  s.dependency 'UIView', '~>0.0.1'
+  s.dependency 'NSDate', '~>0.0.1'
   s.dependency_git 'Kal', :branch => 'KalView_picker'
 end
