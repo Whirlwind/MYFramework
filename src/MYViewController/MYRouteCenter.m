@@ -12,6 +12,29 @@
 static MYRouteCenter *_sharedRouteCenter = nil;
 static dispatch_once_t _sharedRouteCenterPred;
 
+@implementation MYNotification
+
+- (void)dealloc {
+    [_name release], _name = nil;
+    [_userInfo release], _userInfo = nil;
+    [super dealloc];
+}
+
+- (id)initWithName:(NSString *)name object:(id)object userInfo:(id)userInfo {
+    if (self = [self init]) {
+        self.name = name;
+        self.object = object;
+        self.userInfo = userInfo;
+    }
+    return self;
+}
+
++ (id)notificationWithName:(NSString *)name object:(id)object userInfo:(id)userInfo {
+    return [[[self alloc] initWithName:name object:object userInfo:userInfo] autorelease];
+}
+@end
+
+
 @implementation MYRouteCenter
 
 + (id)sharedInstant {
@@ -79,7 +102,7 @@ static dispatch_once_t _sharedRouteCenterPred;
     [self.list setValue:route forKey:route.name];
 }
 
-- (id)callRoute:(NSString *)name userInfo:(NSDictionary *)userInfo {
+- (id)callRoute:(NSString *)name object:(id)object userInfo:(id)userInfo {
     MYRoute *route = [self.list valueForKey:name];
     if (route == nil) {
         NSArray *nameArray = [name componentsSeparatedByString:@"/"];
@@ -89,7 +112,7 @@ static dispatch_once_t _sharedRouteCenterPred;
         name = [NSString stringWithFormat:@"*/%@", [[nameArray subarrayWithRange:range] componentsJoinedByString:@"/"]];
         route = [self.list valueForKey:name];
     }
-    return [route executeWithUserInfo:userInfo];
+    return [route executeWithNotification:[MYNotification notificationWithName:name object:object userInfo:userInfo]];
 }
 #pragma mark - getter
 - (NSMutableDictionary *)list {

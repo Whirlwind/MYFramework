@@ -16,6 +16,5 @@
               path:(NSString *)path;
 
 + (id)parseFileLine:(NSString *)line;
-- (id)executeWithUserInfo:(NSDictionary *)userInfo;
-
+- (id)executeWithNotification:(MYNotification *)ntf;
 @end

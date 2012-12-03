@@ -13,6 +13,4 @@
 - (id)initWithName:(NSString *)name
               path:(NSString *)path
             thread:(NSInteger)thread;
-
-- (void)executeWithNotification:(NSNotification *)ntf;
 @end

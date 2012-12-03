@@ -26,7 +26,7 @@
     return self;
 }
 
-- (id)executeWithUserInfo:(NSDictionary *)userInfo {
+- (id)executeWithNotification:(MYNotification *)ntf {
     NSArray *array = [self.path componentsSeparatedByString:@"/"];
     if ([array count] != 2)
         return nil;
@@ -35,7 +35,7 @@
     if (![target respondsToSelector:selector]) {
         return nil;
     }
-    return [target performSelector:selector withObject:userInfo];
+    return [target performSelector:selector withObject:ntf];
 }
 
 + (id)parseFileLine:(NSString *)line {

@@ -12,6 +12,6 @@
 @interface NSObject (MYBroadcast)
 
 - (void)postBroadcastMethod:(NSString *)name;
-- (void)postBroadcastMethod:(NSString *)name userInfo:(NSDictionary *)userInfo;
+- (void)postBroadcastMethod:(NSString *)name userInfo:(id)userInfo;
 
 @end

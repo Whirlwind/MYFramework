@@ -19,15 +19,15 @@
     }
     return self;
 }
-- (void)executeWithNotification:(NSNotification *)ntf {
+- (id)executeWithNotification:(MYNotification *)ntf {
     NSArray *array = [self.path componentsSeparatedByString:@"/"];
     if ([array count] != 2)
-        return;
+        return nil;
     NSObject *target = [[NSClassFromString(array[0]) alloc] init];
     SEL selector = NSSelectorFromString(array[1]);
     if (![target respondsToSelector:selector]) {
         [target release];
-        return;
+        return nil;
     }
     switch (self.thread) {
         case 1: // 主线程
@@ -51,6 +51,7 @@
             break;
     }
     [target release];
+    return nil;
 }
 
 + (id)parseFileLine:(NSString *)line {
