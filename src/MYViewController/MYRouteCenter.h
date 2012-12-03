@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MYNotification : NSObject
-@property (copy, nonatomic) NSString *name;
-@property (assign, nonatomic) id object;
-@property (retain, nonatomic) id userInfo;
-- (id)initWithName:(NSString *)name object:(id)object userInfo:(id)userInfo;
-+ (id)notificationWithName:(NSString *)name object:(id)object userInfo:(id)userInfo;
-@end
-
 @interface MYRouteCenter : NSObject
 @property (retain, nonatomic) NSMutableDictionary *list;
 + (id)sharedInstant;

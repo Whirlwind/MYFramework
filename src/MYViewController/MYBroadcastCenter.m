@@ -53,13 +53,11 @@ static dispatch_once_t _sharedBroadcastCenterPred;
 - (void)callback:(NSNotification *)ntf {
     NSArray *array = [self.list valueForKey:ntf.name];
     if (array != nil) {
-        MYNotification *myntf = [[MYNotification alloc] initWithName:ntf.name
-                                                              object:ntf.object
-                                                            userInfo:[ntf.userInfo valueForKey:@"user_info"]];
+        [ntf retain];
         for (MYBroadcast *broadcast in array) {
-            [broadcast executeWithNotification:myntf];
+            [broadcast executeWithNotification:ntf];
         }
-        [myntf release];
+        [ntf release];
     }
 }
 

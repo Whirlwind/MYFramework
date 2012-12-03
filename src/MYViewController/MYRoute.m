@@ -26,7 +26,7 @@
     return self;
 }
 
-- (id)executeWithNotification:(MYNotification *)ntf {
+- (id)executeWithNotification:(NSNotification *)ntf {
     NSArray *array = [self.path componentsSeparatedByString:@"/"];
     if ([array count] != 2)
         return nil;
