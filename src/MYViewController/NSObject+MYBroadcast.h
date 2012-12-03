@@ -7,7 +7,8 @@
 //
 
 #define POST_BROADCAST [self postBroadcastMethod:NSStringFromSelector(_cmd)]
-#define POST_BROADCAST_WITH(_userInfo) [self postBroadcastMethod:NSStringFromSelector(_cmd) userInfo:_userInfo]
+#define POST_BROADCAST_WITH_ARGS(_userInfo) [self postBroadcastMethod:NSStringFromSelector(_cmd) userInfo:_userInfo]
+#define POST_BROADCAST_WITH_NAME(_name) [self postBroadcastMethod:_name userInfo:nil]
 #define POST_BROADCAST_WITH_NAME_AND_ARGS(_name, _userInfo) [self postBroadcastMethod:_name userInfo:_userInfo]
 @interface NSObject (MYBroadcast)
 
