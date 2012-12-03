@@ -14,7 +14,7 @@
     [self postBroadcastMethod:name userInfo:nil];
 }
 
-- (void)postBroadcastMethod:(NSString *)name userInfo:(id)userInfo {
+- (void)postBroadcastMethod:(NSString *)name userInfo:(NSDictionary *)userInfo {
     [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%@/%@", [[self class] description], name, nil]
                                                         object:self
                                                       userInfo:userInfo];

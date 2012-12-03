@@ -15,6 +15,6 @@
 @interface NSObject (MYRoute)
 
 - (id)postRouteMethod:(NSString *)name;
-- (id)postRouteMethod:(NSString *)name userInfo:(id)userInfo;
+- (id)postRouteMethod:(NSString *)name userInfo:(NSDictionary *)userInfo;
 
 @end
