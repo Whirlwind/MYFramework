@@ -40,11 +40,7 @@
             }
             break;
         case 2: // 后台线程
-            if (![NSThread currentThread].isMainThread) {
-                [target performSelector:selector withObject:ntf];
-            } else {
-                [target performSelectorInBackground:selector withObject:ntf];
-            }
+            [target performSelectorInBackground:selector withObject:ntf];
             break;
         default: // 当前线程
             [target performSelector:selector withObject:ntf];
