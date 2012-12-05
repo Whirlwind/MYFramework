@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomTabBar.h"
+#import "ValueCheckBoxView.h"
 @interface ViewController : UIViewController
 @property (retain, nonatomic) IBOutlet CustomTabBar *tabBar;
 
+@property (retain, nonatomic) IBOutlet ValueCheckBoxView *checkBox;
 @end

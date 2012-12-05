@@ -30,6 +30,8 @@
 		AB3A91211650946A00C672E5 /* MYBroadcastCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91151650946A00C672E5 /* MYBroadcastCenter.m */; };
 		AB3A91221650946A00C672E5 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91171650946A00C672E5 /* MYViewController.m */; };
 		AB3A91231650946A00C672E5 /* NSObject+MYBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */; };
+		AB485AC2166F17460031747E /* pointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB485AC0166F17460031747E /* pointer@2x.png */; };
+		AB485AC3166F17460031747E /* ruler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB485AC1166F17460031747E /* ruler@2x.png */; };
 		AB63DA7B16638BC8006CA284 /* MYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA7A16638BC8006CA284 /* MYRoute.m */; };
 		AB63DA7F16638D67006CA284 /* MYRouteCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA7E16638D67006CA284 /* MYRouteCenter.m */; };
 		AB63DA821663922B006CA284 /* NSObject+MYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA811663922A006CA284 /* NSObject+MYRoute.m */; };
@@ -78,6 +80,8 @@
 		AB3A91171650946A00C672E5 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		AB3A91181650946A00C672E5 /* NSObject+MYBroadcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MYBroadcast.h"; sourceTree = "<group>"; };
 		AB3A91191650946A00C672E5 /* NSObject+MYBroadcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYBroadcast.m"; sourceTree = "<group>"; };
+		AB485AC0166F17460031747E /* pointer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointer@2x.png"; sourceTree = "<group>"; };
+		AB485AC1166F17460031747E /* ruler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruler@2x.png"; sourceTree = "<group>"; };
 		AB63DA7916638BC8006CA284 /* MYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRoute.h; sourceTree = "<group>"; };
 		AB63DA7A16638BC8006CA284 /* MYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRoute.m; sourceTree = "<group>"; };
 		AB63DA7D16638D67006CA284 /* MYRouteCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRouteCenter.h; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		AB3A90DA165092CF00C672E5 /* MYFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AB485ABC166F17460031747E /* resources */,
 				AB3A90E3165092CF00C672E5 /* AppDelegate.h */,
 				AB3A90E4165092CF00C672E5 /* AppDelegate.m */,
 				AB3A90EC165092CF00C672E5 /* ViewController.h */,
@@ -220,6 +225,40 @@
 			path = MYViewController;
 			sourceTree = "<group>";
 		};
+		AB485ABC166F17460031747E /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB485ABD166F17460031747E /* ui */,
+			);
+			name = resources;
+			path = ../../../resources;
+			sourceTree = "<group>";
+		};
+		AB485ABD166F17460031747E /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				AB485ABE166F17460031747E /* Images */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		AB485ABE166F17460031747E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AB485ABF166F17460031747E /* ValueCheckBoxView */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		AB485ABF166F17460031747E /* ValueCheckBoxView */ = {
+			isa = PBXGroup;
+			children = (
+				AB485AC0166F17460031747E /* pointer@2x.png */,
+				AB485AC1166F17460031747E /* ruler@2x.png */,
+			);
+			path = ValueCheckBoxView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,6 +316,8 @@
 				AB3A90E9165092CF00C672E5 /* Default@2x.png in Resources */,
 				AB3A90EB165092CF00C672E5 /* Default-568h@2x.png in Resources */,
 				AB3A90F1165092CF00C672E5 /* ViewController.xib in Resources */,
+				AB485AC2166F17460031747E /* pointer@2x.png in Resources */,
+				AB485AC3166F17460031747E /* ruler@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
