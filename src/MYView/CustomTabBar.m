@@ -44,7 +44,7 @@
 - (void)setItemsWithTitle:(NSArray *)itemArray animated:(BOOL)animated {
 	NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithCapacity:8];
     [itemArray enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop) {
-		CustomTabBarItem *tabbar = [CustomTabBarItem initWithTitle:item tag:idx];
+		CustomTabBarItem *tabbar = [CustomTabBarItem itemWithTitle:item tag:idx];
 		[tabbar setClick:self click:@selector(switchTab:)];
         [tabbar.titleLabel sizeToFit];
 
