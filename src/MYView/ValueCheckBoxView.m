@@ -58,6 +58,11 @@
     
     self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulerBackground"]];
     
+    UIImageView * mask = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rulerMask"]];
+    mask.frame = CGRectMake(0.0f, 63.0f, 320.0f, 101.0f);
+    [self addSubview:mask];
+    [mask release];
+    
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kValueCheckBoxViewPointerImage]];
     [image setCenter:CGPointMake(160.0f, 113.0f)];
     [self addSubview:image];
