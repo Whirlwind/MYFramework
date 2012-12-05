@@ -13,4 +13,5 @@
 @property (retain, nonatomic) IBOutlet CustomTabBar *tabBar;
 
 @property (retain, nonatomic) IBOutlet ValueCheckBoxView *checkBox;
+- (IBAction)changeTabBar:(id)sender;
 @end

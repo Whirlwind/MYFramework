@@ -17,8 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tabBar setItemsWithTitle:@[@"1", @"2", @"3"] animated:YES];
+    [self.tabBar setItemsWithTitle:@[@"1", @"2", @"3"] animated:NO];
     [self.tabBar setCanRepeatClick:YES];
+    [self.tabBar.items enumerateObjectsUsingBlock:^(CustomTabBarItem *obj, NSUInteger idx, BOOL *stop) {
+        [obj setBackgroundColor:[UIColor blueColor]];
+    }];
 
     // ValueCheckBoxView
     [_checkBox setIncreaseValuePerCell:10];
@@ -44,5 +47,16 @@
     [self setTabBar:nil];
     [self setCheckBox:nil];
     [super viewDidUnload];
+}
+- (IBAction)changeTabBar:(id)sender {
+    if (((UIButton *)sender).tag == 0) {
+        [self.tabBar setFrame:CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y, self.tabBar.frame.size.width - 20.0f, 100)];
+    } else {
+        [UIView animateWithDuration:0.2
+                         animations:^{
+
+                             [self.tabBar setFrame:CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y, self.tabBar.frame.size.width - 50.0f, 100)];
+                         }];
+    }
 }
 @end
