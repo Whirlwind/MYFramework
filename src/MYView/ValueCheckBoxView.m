@@ -55,16 +55,13 @@
     [self addSubview:self.unitSelectedLabel];
     [self addSubview:self.valueSelector];
     [self setClipsToBounds:YES];
-
+    
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulerBackground"]];
+    
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kValueCheckBoxViewPointerImage]];
-    [image setCenter:CGPointMake(160.0f, 95.0f)];
+    [image setCenter:CGPointMake(160.0f, 113.0f)];
     [self addSubview:image];
     [image release];
-    
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
-    [lineView setBackgroundColor:[UIColor colorWithRed:200/255.0f green:200/255.0f blue:200/255.0f alpha:1]];
-    [self addSubview:lineView];
-    [lineView release];
 
     [self addSubview:self.unitsView];
     [self.unitsView addSubview:self.unitSelectedFlagView];
@@ -114,7 +111,7 @@
     if (_valueSelector == nil) {
         _valueSelector = [[UITableView alloc] initWithFrame:CGRectZero];
         [_valueSelector setFrameWithWidth:kValueCheckBoxViewHeightPerCell Height:self.frame.size.width+kValueCheckBoxViewWidthPerCell*2*(kValueCheckBoxViewExtendCellNumber -1)];
-        [_valueSelector setCenter:CGPointMake(self.frame.size.width/2, 110.5f)];
+        [_valueSelector setCenter:CGPointMake(self.frame.size.width/2, 113.5f)];
         [_valueSelector setTransform:CGAffineTransformMakeRotation(-M_PI_2)];
         [_valueSelector setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_valueSelector setShowsVerticalScrollIndicator:NO];
@@ -273,6 +270,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    tableView.backgroundColor = [UIColor clearColor];
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:@"kValueCell"];
     if (cell == nil) {

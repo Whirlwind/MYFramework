@@ -15,7 +15,7 @@
 
 #define kValueCheckBoxViewPointerImage @"pointer"
 
-#define kValueCheckBoxViewValueSelectedLabelTextColor [UIColor colorWithRed:255.0/255.0 green:80/255.0f blue:0 alpha:1]
+#define kValueCheckBoxViewValueSelectedLabelTextColor [UIColor colorWithRed:229.0/255.0 green:20/255.0f blue:0 alpha:1]
 #define kValueCheckBoxViewValueSelectedLabelTextFont [UIFont fontWithName:@"Helvetica Neue" size:36]
 
 #define kValueCheckBoxViewUnitSelectedLabelTextColor [UIColor colorWithRed:51/255 green:51/255 blue:51/255 alpha:1]
