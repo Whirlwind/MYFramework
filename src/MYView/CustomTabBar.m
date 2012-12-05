@@ -45,7 +45,6 @@
 	NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithCapacity:8];
     [itemArray enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop) {
 		CustomTabBarItem *tabbar = [CustomTabBarItem itemWithTitle:item tag:idx];
-		[tabbar setClick:self click:@selector(switchTab:)];
         [tabbar.titleLabel sizeToFit];
 
 		[buttonArray addObject:tabbar];
@@ -56,6 +55,9 @@
 
 - (void)setItems:(NSMutableArray *)items animated:(BOOL)animated {
     self.items = items;
+    for (CustomTabBarItem *item in self.items) {
+		[item setClick:self click:@selector(switchTab:)];
+    }
     [self updateItems:animated];
 }
 
