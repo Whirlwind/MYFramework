@@ -10,103 +10,97 @@
 
 
 @implementation CustomTabBarItem
-@synthesize selected, loopSelect, canRepeatClick, allSelectedStatus, selectedStatus;
-@synthesize titleLabel, button;
-@synthesize myDelegate, click;
+
 -(void)dealloc{
-	[button release], button=nil;
-	[titleLabel release], titleLabel=nil;
+	[_button release], _button=nil;
+	[_titleLabel release], _titleLabel=nil;
 	[super dealloc];
 }
--(void)buildWithButton:(UIButton *)_button label:(UILabel *)_label tag:(int)_tag{
-	self.button = _button;
-	self.button.tag = _tag;
+-(void)buildWithButton:(UIButton *)button label:(UILabel *)label tag:(int)tag{
+	self.button = button;
+	self.button.tag = tag;
 	self.button.selected = NO;
 	[button addTarget:self action:@selector(myClick:) forControlEvents:UIControlEventTouchUpInside];
-	
-	if (_label) {
-		self.titleLabel = _label;
-		[self.button addSubview:_label];
+    if (self.button) {
+        [self addSubview:self.button];
+    }
+
+    self.titleLabel = label;
+	if (self.titleLabel) {
+		[self.button addSubview:label];
 	}
-	
-	[self setCustomView:button];
-	
-	self.tag = _tag;
-	
-	allSelectedStatus = 2;
-	selectedStatus = 0;
-	loopSelect = NO;
-	canRepeatClick = YES;
+
+	self.tag = tag;
+	self.frame = self.button.bounds;
+	_allSelectedStatus = 2;
+	_selectedStatus = 0;
+	_loopSelect = NO;
+	_canRepeatClick = NO;
 }
--(void)build:(NSString *)_title tag:(int)_tag{
-	UIButton *_button = [UIButton buttonWithType:UIButtonTypeCustom];
-	CGRect rect = CGRectMake(0.0, 0.0, 92.0, 44.0);
-	[_button setFrame:rect];	
-	[_button setBackgroundImage:[UIImage imageNamed:@"subtab-normal"] forState:UIControlStateNormal];
-	[_button setBackgroundImage:[UIImage imageNamed:@"subtab-current"] forState:UIControlStateSelected];
-	_button.adjustsImageWhenHighlighted = NO;
+-(void)build:(NSString *)title tag:(int)tag{
+	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+	button.adjustsImageWhenHighlighted = NO;
 	
-	UILabel *_label = [[UILabel alloc] initWithFrame:rect];
-	_label.text = _title;
-	[_label setFont:[UIFont boldSystemFontOfSize:14]];
-	[_label setTextColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0]];
-	[_label setHighlightedTextColor:[UIColor whiteColor]];
-	_label.backgroundColor = [UIColor clearColor];
-	_label.textAlignment =  UITextAlignmentCenter;
+	UILabel *label = [[UILabel alloc] init];
+	label.text = title;
+	[label setFont:[UIFont boldSystemFontOfSize:14]];
+	[label setTextColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0]];
+	[label setHighlightedTextColor:[UIColor whiteColor]];
+	label.backgroundColor = [UIColor clearColor];
+	label.textAlignment =  UITextAlignmentCenter;
+    [label sizeToFit];
+    [label setCenter:CGPointMake(label.frame.size.width/2.0f+5.0f, label.frame.size.height/2.0f+5.0f)];
+    
+    [button setFrame:CGRectMake(0, 0, label.frame.size.width+10.0f, label.frame.size.height+10.0f)];
 	
-	[self buildWithButton:_button label:_label tag:_tag];
-	[_label release], _label=nil;
-	self.width = 92.0;
+	[self buildWithButton:button label:label tag:tag];
+	[label release], label=nil;
+
 }
 -(void)setTitle:(NSString *)_title{
-	titleLabel.text = _title;
+	self.titleLabel.text = _title;
 }
--(void)setBackgroundImage:(UIImage *)_image forState:(UIControlState)_state{
-	[button setBackgroundImage:_image forState:_state];
+-(void)setBackgroundImage:(UIImage *)image forState:(UIControlState)state{
+	[self.button setBackgroundImage:image forState:state];
 }
 -(void)myClick:(id)sender{
-	[self setSelectedStatus:selectedStatus+1];
-	if (click) {
-		[myDelegate performSelector:click withObject:self];
+	[self setSelectedStatus:self.selectedStatus+1];
+	if (self.click) {
+		[self.myDelegate performSelector:self.click withObject:self];
 	}
 }
--(void)setClick:(id)_delegate click:(SEL)_click{
-	myDelegate = _delegate;
-	click = _click;
+-(void)setClick:(id)delegate click:(SEL)click{
+	self.myDelegate = delegate;
+	self.click = click;
 }
--(void)setCanRepeatClick:(BOOL)_repeat{
-	canRepeatClick = _repeat;
-	if (!selected) {
-		selectedStatus = 0;
-		button.userInteractionEnabled = YES;
-	}else {
-		if (selectedStatus == -1) {
-			selectedStatus = 0;
-		}
-		button.userInteractionEnabled = canRepeatClick;
-	}
+- (void)updateSelectedStatus {
+    BOOL selected = _selectedStatus >= 1;
+    if (self.selected != selected) {
+        self.selected = selected;
+    }
+	self.button.selected = _selected;
+	self.titleLabel.highlighted = _selected;
+    self.userInteractionEnabled = !self.selected || self.canRepeatClick;
 }
--(void)setSelectedStatus:(int)_status{
-	int _selectedStatus = _status % allSelectedStatus;
-	if (_selectedStatus == 0 && !loopSelect && selectedStatus == allSelectedStatus - 1) {
-		return;
-	}
-	selectedStatus = _selectedStatus;
-	[self setSelected:selectedStatus == 1];
+-(void)setSelectedStatus:(int)status{
+	int selectedStatus = status % self.allSelectedStatus;
+	_selectedStatus = selectedStatus;
+    if (_selectedStatus == 0 && _selected) {
+        _selected = NO;
+    }
+    [self updateSelectedStatus];
 }
--(void)setSelected:(BOOL)_selected{
-	selected = _selected;
-	self.canRepeatClick = canRepeatClick;
-
-	button.selected = _selected;
-	titleLabel.highlighted = _selected;
+-(void)setSelected:(BOOL)selected{
+	_selected = selected;
+    self.selectedStatus = selected ? 1 : 0;
 }
-+(CustomTabBarItem *)initWithTitle:(NSString *)_title tag:(int)_tag{
++(CustomTabBarItem *)itemWithTitle:(NSString *)_title tag:(int)_tag{
 	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
 	[item build:_title tag:_tag];
 	return [item autorelease];
 }
-+(CustomTabBarItem *)initWithButton:(UIButton *)_button label:(UILabel *)_label tag:(int)_tag{
++(CustomTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label tag:(int)_tag{
 	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
 	[item buildWithButton:_button label:_label tag:_tag];
 	return [item autorelease];

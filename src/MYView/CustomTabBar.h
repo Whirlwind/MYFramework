@@ -7,14 +7,7 @@
 //
 #import "CustomTabBarItem.h"
 
-@interface CustomTabBar : UIToolbar {
-	
-	id myDelegate;
-	SEL switchTab;
-	SEL clickTab;
-	
-	BOOL canRepeatClick;
-}
+@interface CustomTabBar : UIView
 
 @property (nonatomic, assign) id myDelegate;
 @property (nonatomic, assign) SEL switchTab;
@@ -24,10 +17,9 @@
 @property (nonatomic, assign) BOOL canRepeatClick;
 @property (nonatomic, retain) CustomTabBarItem *selectedItem;
 @property (nonatomic, retain) CustomTabBarItem *oldSelectedItem;
--(void)setLayerColor:(UIColor *)_color;
--(void)setLayerImage:(UIImage *)_image;
+@property (retain, nonatomic) NSMutableArray *items;
 
--(void)setItemsWithButton:(NSArray *)buttonArray animated:(BOOL)animated;
--(void)setItemsWithButton:(NSArray *)buttonArray label:(NSArray *)labelArray animated:(BOOL)animated;
+- (void)setItemsWithTitle:(NSArray *)itemArray animated:(BOOL)animated;
+- (void)setItems:(NSMutableArray *)items animated:(BOOL)animated;
 @end
 

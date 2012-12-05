@@ -17,7 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self.tabBar setItemsWithTitle:@[@"1", @"2", @"3"] animated:YES];
+    [self.tabBar setCanRepeatClick:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +27,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_tabBar release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [self setTabBar:nil];
+    [super viewDidUnload];
+}
 @end
