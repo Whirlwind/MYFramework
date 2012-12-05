@@ -16,9 +16,8 @@
 	[_titleLabel release], _titleLabel=nil;
 	[super dealloc];
 }
--(void)buildWithButton:(UIButton *)button label:(UILabel *)label tag:(int)tag{
+-(void)buildWithButton:(UIButton *)button label:(UILabel *)label {
 	self.button = button;
-	self.button.tag = tag;
 	self.button.selected = NO;
 	[button addTarget:self action:@selector(myClick:) forControlEvents:UIControlEventTouchUpInside];
     if (self.button) {
@@ -30,14 +29,13 @@
 		[self.button addSubview:label];
 	}
 
-	self.tag = tag;
 	self.frame = self.button.bounds;
 	_allSelectedStatus = 2;
 	_selectedStatus = 0;
 	_loopSelect = NO;
 	_canRepeatClick = NO;
 }
--(void)build:(NSString *)title tag:(int)tag{
+-(void)build:(NSString *)title {
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 	button.adjustsImageWhenHighlighted = NO;
@@ -54,7 +52,7 @@
     
     [button setFrame:CGRectMake(0, 0, label.frame.size.width+10.0f, label.frame.size.height+10.0f)];
 	
-	[self buildWithButton:button label:label tag:tag];
+	[self buildWithButton:button label:label];
 	[label release], label=nil;
 
 }
@@ -95,14 +93,18 @@
 	_selected = selected;
     self.selectedStatus = selected ? 1 : 0;
 }
-+(CustomTabBarItem *)itemWithTitle:(NSString *)_title tag:(int)_tag{
+- (void)setTag:(NSInteger)tag {
+    [super setTag:tag];
+    [self.button setTag:tag];
+}
++(CustomTabBarItem *)itemWithTitle:(NSString *)_title {
 	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
-	[item build:_title tag:_tag];
+	[item build:_title];
 	return [item autorelease];
 }
-+(CustomTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label tag:(int)_tag{
++(CustomTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label {
 	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
-	[item buildWithButton:_button label:_label tag:_tag];
+	[item buildWithButton:_button label:_label];
 	return [item autorelease];
 }
 @end

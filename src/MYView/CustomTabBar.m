@@ -60,7 +60,7 @@
 - (void)setItemsWithTitle:(NSArray *)itemArray animated:(BOOL)animated {
 	NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithCapacity:8];
     [itemArray enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop) {
-		CustomTabBarItem *tabbar = [CustomTabBarItem itemWithTitle:item tag:idx];
+		CustomTabBarItem *tabbar = [CustomTabBarItem itemWithTitle:item];
 
 		[buttonArray addObject:tabbar];
 	}];
@@ -70,9 +70,10 @@
 
 - (void)setItems:(NSMutableArray *)items animated:(BOOL)animated {
     self.items = items;
-    for (CustomTabBarItem *item in self.items) {
+    [items enumerateObjectsUsingBlock:^(CustomTabBarItem *item, NSUInteger idx, BOOL *stop) {
+        [item setTag:idx];
 		[item setClick:self click:@selector(switchTab:)];
-    }
+    }];
     [self updateItems:animated];
 }
 
