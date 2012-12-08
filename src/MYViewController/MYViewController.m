@@ -135,6 +135,7 @@
 }
 
 - (void)addSubViewController:(id<MYViewControllerDelegate>)childController {
+    [childController setMyNavigationController:self.myNavigationController];
     if (childController.viewZIndex >= ((MYViewController *)[self.subViewControllers lastObject]).viewZIndex) {
         [self.subViewControllers addObject:childController];
         [self.view addSubview:childController.view];
