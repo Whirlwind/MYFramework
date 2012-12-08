@@ -21,6 +21,6 @@
 @property (retain, nonatomic) UIView *contentView;
 
 - (void)setItemsWithTitle:(NSArray *)itemArray animated:(BOOL)animated;
-- (void)setItems:(NSMutableArray *)items animated:(BOOL)animated;
+- (void)setItems:(NSArray *)items animated:(BOOL)animated;
 @end
 

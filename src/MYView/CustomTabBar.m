@@ -58,7 +58,7 @@
 }
 
 - (void)setItemsWithTitle:(NSArray *)itemArray animated:(BOOL)animated {
-	NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithCapacity:8];
+	NSMutableArray *buttonArray = [[NSMutableArray alloc] initWithCapacity:[itemArray count]];
     [itemArray enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop) {
 		CustomTabBarItem *tabbar = [CustomTabBarItem itemWithTitle:item];
 
@@ -68,9 +68,9 @@
 	[buttonArray release], buttonArray=nil;
 }
 
-- (void)setItems:(NSMutableArray *)items animated:(BOOL)animated {
-    self.items = items;
-    [items enumerateObjectsUsingBlock:^(CustomTabBarItem *item, NSUInteger idx, BOOL *stop) {
+- (void)setItems:(NSArray *)items animated:(BOOL)animated {
+    self.items = [NSMutableArray arrayWithArray:items];
+    [self.items enumerateObjectsUsingBlock:^(CustomTabBarItem *item, NSUInteger idx, BOOL *stop) {
         [item setTag:idx];
 		[item setClick:self click:@selector(switchTab:)];
     }];
