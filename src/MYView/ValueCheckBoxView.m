@@ -50,13 +50,18 @@
 #ifdef kValueCheckBoxHeight
     [self setFrameWithHeight:kValueCheckBoxHeight];
 #endif
+    
+    self.backgroundColor = [UIColor clearColor];
+    UIImageView * backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rulerBackground"]];
+    backgroundView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 219.0f);
+    [self addSubview:backgroundView];
+    [backgroundView release];
+    
     [self addSubview:self.valueSelectedLabel];
     [self addSubview:self.subValueSelectedLabel];
     [self addSubview:self.unitSelectedLabel];
     [self addSubview:self.valueSelector];
     [self setClipsToBounds:YES];
-    
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rulerBackground"]];
     
     UIImageView * mask = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rulerMask"]];
     mask.frame = CGRectMake(0.0f, 63.0f, 320.0f, 101.0f);
