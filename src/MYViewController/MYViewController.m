@@ -163,7 +163,7 @@
 #pragma mark - view
 - (void)viewDidLoad{
     if (self.contentView) {
-        [self.view addSubview:self.contentView];
+        [self.view insertSubview:self.contentView atIndex:0];
         [self.contentView setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.view.bounds.size.height)];
     }
     [self.myView updateRelatedViewController:self];
