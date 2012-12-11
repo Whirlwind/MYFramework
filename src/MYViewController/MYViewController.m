@@ -164,7 +164,7 @@
 - (void)viewDidLoad{
     if (self.contentView) {
         [self.view addSubview:self.contentView];
-        [self.contentView setFrame:self.view.bounds];
+        [self.contentView setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.view.bounds.size.height)];
     }
     [self.myView updateRelatedViewController:self];
     [self.myView configView];
