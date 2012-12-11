@@ -146,14 +146,14 @@
     [childController setMyNavigationController:self.myNavigationController];
     if (childController.viewZIndex >= ((MYViewController *)[self.subViewControllers lastObject]).viewZIndex) {
         [self.subViewControllers addObject:childController];
-        [self.view addSubview:childController.view];
+        [self.contentView addSubview:childController.view];
         return;
     }
     NSUInteger i = 0;
     for (MYViewController *vc in self.subViewControllers) {
         if (vc.viewZIndex > childController.viewZIndex) {
             [self.subViewControllers insertObject:vc atIndex:i];
-            [self.view insertSubview:childController.view aboveSubview:vc.view];
+            [self.contentView insertSubview:childController.view aboveSubview:vc.view];
             return;
         }
         i++;
