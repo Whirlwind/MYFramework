@@ -8,7 +8,6 @@
 #import "MYViewController.h"
 @interface MYNavigationController : MYViewController
 @property (nonatomic, retain) NSMutableArray *viewControllers;
-@property (nonatomic, retain) UIView *contentView;
 
 - (id)initWithRootViewController:(id<MYViewControllerDelegate>)viewController;
 

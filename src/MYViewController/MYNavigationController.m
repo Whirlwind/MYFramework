@@ -18,7 +18,6 @@
 }
 
 - (void)releaseSubViews{
-    [_contentView release], _contentView = nil;
     [super releaseSubViews];
 }
 
@@ -44,14 +43,6 @@
     return _viewControllers;
 }
 
-- (UIView *)contentView {
-    if (_contentView == nil) {
-        _contentView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_contentView setContentMode:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight ];
-    }
-    return _contentView;
-}
-
 - (BOOL)wantsFullScreenLayout {
     return NO;
 }
@@ -59,9 +50,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.contentView setBackgroundColor:[UIColor blackColor]];
-    [self.contentView setFrame:self.view.bounds];
-    [self.contentView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-    [self.view addSubview:self.contentView];
     [self enterWithAnimated:NO
          nextViewController:[self.viewControllers lastObject]
                   direction:YES

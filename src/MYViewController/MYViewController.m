@@ -30,6 +30,7 @@
     [super didReceiveMemoryWarning];
 }
 - (void)releaseSubViews{
+    [self setContentView:nil];
     subViewDidLoaded = NO;
     [self setSubViewControllers:nil];
 }
@@ -66,6 +67,7 @@
 #pragma mark - data
 - (void)initData{
     self.viewZIndex = 0;
+    self.autoResizeToFitIphone5 = YES;
     [self reloadData];
 }
 
@@ -92,7 +94,13 @@
         _subViewControllers = [[NSMutableArray alloc] initWithCapacity:0];
     return _subViewControllers;
 }
-
+- (UIView *)contentView {
+    if (_contentView == nil) {
+        _contentView = [[UIView alloc] initWithFrame:self.view.bounds];
+        [_contentView setContentMode:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    }
+    return _contentView;
+}
 #pragma mark - view controller
 - (BOOL)isTopViewController {
     return [self.myNavigationController topViewController] == self;
@@ -154,6 +162,9 @@
 
 #pragma mark - view
 - (void)viewDidLoad{
+    if (self.contentView) {
+        [self.view addSubview:self.contentView];
+    }
     [self.myView updateRelatedViewController:self];
     [self.myView configView];
     if (!dataDidLoaded) {
@@ -164,9 +175,8 @@
 
     POST_BROADCAST;
 
-    if ([UIScreen mainScreen].bounds.size.height == 568.0f && self.view.frame.size.height == 460.0f)
+    if (self.autoResizeToFitIphone5 && [UIScreen mainScreen].bounds.size.height == 568.0f && self.view.frame.size.height != 568.0f)
         [self.view setFrameWithHeight:568.0f];
-
 
     [self reflashView:NO];
 }
