@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
 
   s.dependency 'UIView', '~>0.0.1'
-  s.dependency 'NSDate', '~>0.0.2'
+  s.dependency 'NSDate', '~>0.0.3'
   s.dependency_git 'Kal', :branch => 'KalView_picker'
 end
