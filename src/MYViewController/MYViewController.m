@@ -143,17 +143,21 @@
 }
 
 - (void)addSubViewController:(id<MYViewControllerDelegate>)childController {
+    [self addSubViewController:childController view:self.contentView];
+}
+
+- (void)addSubViewController:(id<MYViewControllerDelegate>)childController view:(UIView*)__view {
     [childController setMyNavigationController:self.myNavigationController];
     if (childController.viewZIndex >= ((MYViewController *)[self.subViewControllers lastObject]).viewZIndex) {
         [self.subViewControllers addObject:childController];
-        [self.contentView addSubview:childController.view];
+        [__view addSubview:childController.view];
         return;
     }
     NSUInteger i = 0;
     for (MYViewController *vc in self.subViewControllers) {
         if (vc.viewZIndex > childController.viewZIndex) {
             [self.subViewControllers insertObject:vc atIndex:i];
-            [self.contentView insertSubview:childController.view aboveSubview:vc.view];
+            [__view insertSubview:childController.view aboveSubview:vc.view];
             return;
         }
         i++;

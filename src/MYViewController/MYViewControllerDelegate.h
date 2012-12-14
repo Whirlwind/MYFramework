@@ -50,6 +50,7 @@
 - (id<MYViewControllerDelegate>)prevViewController;
 - (id<MYViewControllerDelegate>)nextViewController;
 - (void)addSubViewController:(id<MYViewControllerDelegate>)childController;
+- (void)addSubViewController:(id<MYViewControllerDelegate>)childController view:(UIView*)__view;
 
 #pragma mark - keyboard
 - (void)keyboardWillShowNotification:(NSNotification *)ntf;
