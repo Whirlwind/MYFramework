@@ -267,7 +267,14 @@
             }
         }
     }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [self.unitSelectedFlagView setFrameWithX:((UIView *)sender).frame.origin.x + ((UIView *)sender).frame.size.width / 2 - 15.0f];
+    [UIView commitAnimations];
+    
     self.selectedUnitIndex = ((UIView *)sender).tag-kTagPreValue;
     [self.unitSelectedLabel setText:[(self.units)[self.selectedUnitIndex] description]];
     [self.unitSelectedLabel sizeToFit];

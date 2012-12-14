@@ -27,7 +27,7 @@
     [_checkBox setIncreaseValuePerCell:10];
     [_checkBox setMaxValue:100];
     [_checkBox setMinValue:0];
-    [_checkBox updateUnits:@[@"分钟",@"鸟人",@"我勒个去"]];
+    [_checkBox updateUnits:@[@"分钟"]];
     [_checkBox updateSelectedUnitIndex:0];
     [_checkBox updateSelectedValue:50];
 }
