@@ -133,19 +133,24 @@
 }
 - (UIView *)unitsView {
     if (_unitsView == nil) {
-        _unitsView = [[UIView alloc] initWithFrame:CGRectMake(0, 151, self.frame.size.width, 65)];
+        _unitsView = [[UIView alloc] initWithFrame:CGRectMake(0, 168, self.frame.size.width, 51)];
     }
+    _unitsView.backgroundColor = [UIColor clearColor];
+ 
     return _unitsView;
 }
 
 - (UIView *)unitSelectedFlagView {
     if (_unitSelectedFlagView == nil) {
-        _unitSelectedFlagView = [[UIView alloc] initWithFrame:CGRectMake(0, self.unitsView.frame.size.height-6, 0, 6)];
+        UIImageView * unitPointer = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 18)];
+        unitPointer.image = [UIImage imageNamed:@"unitPointer"];
+        
+        _unitSelectedFlagView = [[UIView alloc] initWithFrame:unitPointer.frame];
         [_unitSelectedFlagView setUserInteractionEnabled:NO];
-#ifdef kValueCheckBoxViewUnitSelectedFlagViewBackgroundColor
-        [_unitSelectedFlagView setBackgroundColor:kValueCheckBoxViewUnitSelectedFlagViewBackgroundColor];
-#endif
         [_unitSelectedFlagView setTag:99];
+        
+        [_unitSelectedFlagView addSubview:unitPointer];
+        [unitPointer release];
     }
     return _unitSelectedFlagView;
 }
@@ -213,6 +218,13 @@
             [v removeFromSuperview];
         }
     }
+    if ( count > 1 ) {
+        UIImageView * unitBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 51.0f)];
+        unitBackground.image = [UIImage imageNamed:@"unitBackground"];
+        [_unitsView addSubview:unitBackground];
+        [unitBackground release];
+    }
+    
     CGFloat width = self.unitsView.frame.size.width / count;
     for (int i = 0; i < count; i ++) {
         UIButton *unitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -231,7 +243,7 @@
         [self.unitsView addSubview:unitBtn];
         [unitBtn setHidden:count < 2];
     }
-    [self.unitSelectedFlagView setFrameWithWidth:width];
+    //[self.unitSelectedFlagView setFrameWithWidth:width];
     [self.unitSelectedFlagView setHidden:count < 2];
     [self.unitsView bringSubviewToFront:self.unitSelectedFlagView];
 }
@@ -255,7 +267,7 @@
             }
         }
     }
-    [self.unitSelectedFlagView setFrameWithX:((UIView *)sender).frame.origin.x];
+    [self.unitSelectedFlagView setFrameWithX:((UIView *)sender).frame.origin.x + ((UIView *)sender).frame.size.width / 2 - 15.0f];
     self.selectedUnitIndex = ((UIView *)sender).tag-kTagPreValue;
     [self.unitSelectedLabel setText:[(self.units)[self.selectedUnitIndex] description]];
     [self.unitSelectedLabel sizeToFit];
@@ -280,6 +292,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 刻度条
     tableView.backgroundColor = [UIColor clearColor];
     UITableViewCell *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:@"kValueCell"];
