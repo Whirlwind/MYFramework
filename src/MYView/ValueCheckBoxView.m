@@ -314,7 +314,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
         [cell setFrameWithWidth:kValueCheckBoxViewCellWidth Height:kValueCheckBoxViewCellHeight];
-        [cell.contentView setBackgroundColor:[UIColor whiteColor]];
+        [cell.contentView setBackgroundColor:[UIColor clearColor]];
         [cell.contentView addSubview:[[[ValueCheckBoxViewCellRuler alloc] initWithFrame:cell.bounds splitNumber:self.splitNumberPerCell] autorelease]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 

@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.splitNumber = splitNumber;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
