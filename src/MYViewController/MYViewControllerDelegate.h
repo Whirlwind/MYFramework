@@ -33,6 +33,10 @@
 - (void)reflashView:(BOOL)animated; // for override
 - (MYView *)myView;
 
+- (void)showLoading:(BOOL)show; // Shows views to represent the model loading.
+- (void)showEmpty:(BOOL)show; // Shows views to represent an empty model.
+- (void)showError:(BOOL)show; // Shows views to represent an error that occurred while loading the model.
+
 @required
 - (UIView *)view;
 - (void)viewWillDisappear:(BOOL)animated;
