@@ -309,9 +309,10 @@
     // 刻度条
     tableView.backgroundColor = [UIColor clearColor];
     UITableViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"kValueCell"];
+    NSString *cellId = [NSString stringWithFormat:@"kValueCell_%d", self.splitNumberPerCell];
+    cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"kValueCell"] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
         [cell setFrameWithWidth:kValueCheckBoxViewCellWidth Height:kValueCheckBoxViewCellHeight];
         [cell.contentView setBackgroundColor:[UIColor whiteColor]];
         [cell.contentView addSubview:[[[ValueCheckBoxViewCellRuler alloc] initWithFrame:cell.bounds splitNumber:self.splitNumberPerCell] autorelease]];
