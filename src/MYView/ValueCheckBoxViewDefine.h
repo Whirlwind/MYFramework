@@ -8,9 +8,8 @@
 
 //#define kValueCheckBoxHeight 200.0f
 
-#define kValueCheckBoxViewWidthPerUnit 10.0f
-#define kValueCheckBoxViewWidthPerCell 100.0f
-#define kValueCheckBoxViewHeightPerCell 81.0f
+#define kValueCheckBoxViewCellHeight 100.0f
+#define kValueCheckBoxViewCellWidth 81.0f
 #define kValueCheckBoxViewExtendCellNumber 3
 
 #define kValueCheckBoxViewPointerImage @"pointer"

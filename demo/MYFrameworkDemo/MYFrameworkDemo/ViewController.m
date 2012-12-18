@@ -25,6 +25,7 @@
 
     // ValueCheckBoxView
     [_checkBox setIncreaseValuePerCell:10];
+    [_checkBox setSplitNumberPerCell:5];
     [_checkBox setMaxValue:100];
     [_checkBox setMinValue:0];
     [_checkBox updateUnits:@[@"分钟"]];

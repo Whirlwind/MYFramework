@@ -10,6 +10,7 @@
 
 #import "ValueCheckBoxViewDefine.h"
 #import "CGRectAdditions.h"
+#import "ValueCheckBoxViewCellRuler.h"
 
 #define kTagPreValue 100
 
@@ -47,6 +48,9 @@
 }
 - (void)initUI{
     self.increaseValuePerCell = 10;
+    self.splitNumberPerCell = 10;
+    self.canSelectMinValue = NO;
+    self.canSelectMaxValue = NO;
 #ifdef kValueCheckBoxHeight
     [self setFrameWithHeight:kValueCheckBoxHeight];
 #endif
@@ -62,7 +66,7 @@
     [self addSubview:self.unitSelectedLabel];
     [self addSubview:self.valueSelector];
     [self setClipsToBounds:YES];
-    
+
     UIImageView * mask = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rulerMask"]];
     mask.frame = CGRectMake(0.0f, 63.0f, 320.0f, 101.0f);
     [self addSubview:mask];
@@ -120,12 +124,12 @@
 - (UITableView *)valueSelector {
     if (_valueSelector == nil) {
         _valueSelector = [[UITableView alloc] initWithFrame:CGRectZero];
-        [_valueSelector setFrameWithWidth:kValueCheckBoxViewHeightPerCell Height:self.frame.size.width+kValueCheckBoxViewWidthPerCell*2*(kValueCheckBoxViewExtendCellNumber -1)];
+        [_valueSelector setFrameWithWidth:kValueCheckBoxViewCellWidth Height:kValueCheckBoxViewCellHeight*2*(kValueCheckBoxViewExtendCellNumber + 0.5)];
         [_valueSelector setCenter:CGPointMake(self.frame.size.width/2, 113.5f)];
         [_valueSelector setTransform:CGAffineTransformMakeRotation(-M_PI_2)];
         [_valueSelector setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_valueSelector setShowsVerticalScrollIndicator:NO];
-        [_valueSelector setRowHeight:100];
+        [_valueSelector setRowHeight:kValueCheckBoxViewCellHeight];
         [_valueSelector setDelegate:self];
         [_valueSelector setDataSource:self];
     }
@@ -284,13 +288,16 @@
     }
 }
 
+- (CGFloat)valueForContentOffsetY:(CGFloat)y {
+    return ((NSInteger)(0.5f + y / (kValueCheckBoxViewCellHeight / self.splitNumberPerCell))) * (self.increaseValuePerCell / self.splitNumberPerCell) + self.minValue;
+}
+
+- (CGFloat)offsetYForValue:(CGFloat)value {
+    return (value - self.minValue) / self.increaseValuePerCell * kValueCheckBoxViewCellHeight;
+}
+
 - (void)moveForcusToRightPoint:(UIScrollView *)scrollView {
-    CGFloat y = [scrollView contentOffset].y;
-    CGFloat pointAnchor = (NSInteger)(y / kValueCheckBoxViewWidthPerUnit) * kValueCheckBoxViewWidthPerUnit;
-    if ((y - pointAnchor) / kValueCheckBoxViewWidthPerUnit >= 0.5) {
-        pointAnchor = pointAnchor + kValueCheckBoxViewWidthPerUnit;
-    }
-    [scrollView setContentOffset:CGPointMake(0, pointAnchor) animated:YES];
+    [self scrollToValue:[self valueForContentOffsetY:[scrollView contentOffset].y]];
 }
 
 #pragma mark - table view
@@ -305,8 +312,9 @@
     cell = [tableView dequeueReusableCellWithIdentifier:@"kValueCell"];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"kValueCell"] autorelease];
-        [cell setFrameWithWidth:kValueCheckBoxViewHeightPerCell Height:kValueCheckBoxViewWidthPerCell];
-        [cell.contentView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ruler"]]];
+        [cell setFrameWithWidth:kValueCheckBoxViewCellWidth Height:kValueCheckBoxViewCellHeight];
+        [cell.contentView setBackgroundColor:[UIColor whiteColor]];
+        [cell.contentView addSubview:[[[ValueCheckBoxViewCellRuler alloc] initWithFrame:cell.bounds splitNumber:self.splitNumberPerCell] autorelease]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -319,7 +327,7 @@
         [label release];
     }
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:12071614];
-    CGFloat value = self.minValue - self.increaseValuePerCell * kValueCheckBoxViewExtendCellNumber + self.increaseValuePerCell * indexPath.row;
+    CGFloat value = [self valueForContentOffsetY:(indexPath.row - kValueCheckBoxViewExtendCellNumber) * kValueCheckBoxViewCellHeight];
     if (value < self.minValue || value > self.maxValue) {
         [label setHidden:YES];
     } else {
@@ -339,18 +347,15 @@
     [self moveForcusToRightPoint:scrollView];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGPoint point = [scrollView contentOffset];
-    CGFloat value = self.minValue + (point.y / kValueCheckBoxViewWidthPerUnit - 5 + self.frame.size.width / kValueCheckBoxViewWidthPerUnit /2 - 10) * self.increaseValuePerCell / 10.0f;
-    value = (NSInteger)(value * 10 / self.increaseValuePerCell + 0.5f);
-    value = value * self.increaseValuePerCell / 10.0f;
-    [self updateSelectedValue:value scroll:NO];
+    [self updateSelectedValue:[self valueForContentOffsetY:[scrollView contentOffset].y] scroll:NO];
 }
 
 - (void)scrollToValue:(CGFloat)value {
-    if (value < self.minValue || value > self.maxValue) {
-        return;
+    if (value <= self.minValue) {
+        value = self.canSelectMinValue ? self.minValue : self.minValue + (self.increaseValuePerCell / self.splitNumberPerCell);
+    } else if (value >= self.maxValue) {
+        value = self.canSelectMaxValue ? self.maxValue : self.maxValue - (self.increaseValuePerCell / self.splitNumberPerCell);
     }
-    CGFloat y = ((value - self.minValue) * 10.0f / self.increaseValuePerCell + 5 + 10 - self.frame.size.width/ kValueCheckBoxViewWidthPerUnit / 2.0f) * kValueCheckBoxViewWidthPerUnit;
-    [self.valueSelector setContentOffset:CGPointMake(0, y) animated:YES];
+    [self.valueSelector setContentOffset:CGPointMake(0, [self offsetYForValue:value]) animated:YES];
 }
 @end

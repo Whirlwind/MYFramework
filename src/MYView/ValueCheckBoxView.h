@@ -11,12 +11,15 @@
 @interface ValueCheckBoxView : UIView <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, assign) CGFloat minValue;
 @property (nonatomic, assign) CGFloat maxValue;
+@property (assign, nonatomic) BOOL canSelectMinValue;
+@property (assign, nonatomic) BOOL canSelectMaxValue;
 @property (nonatomic, retain) NSArray *units;
 
 @property (nonatomic, assign) CGFloat selectedValue;
 @property (nonatomic, assign) NSInteger selectedUnitIndex;
 
 @property (assign, nonatomic) CGFloat increaseValuePerCell;
+@property (assign, nonatomic) NSInteger splitNumberPerCell;
 
 @property (nonatomic, retain) UILabel *valueSelectedLabel;
 @property (retain, nonatomic) UILabel *subValueSelectedLabel;

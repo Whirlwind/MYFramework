@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7933CA3A1649409FB02E5769 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D49B9F6386094C51AD178C53 /* libPods.a */; };
+		AB1F15761680336F00E55E77 /* ValueCheckBoxViewCellRuler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F15751680336F00E55E77 /* ValueCheckBoxViewCellRuler.m */; };
 		AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3443A71654B2F600F77740 /* MYDateSwitcher.m */; };
 		AB3A90D5165092CF00C672E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A90D4165092CF00C672E5 /* UIKit.framework */; };
 		AB3A90D7165092CF00C672E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A90D6165092CF00C672E5 /* Foundation.framework */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		64ACB4F4102D4439A827EFF3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../../Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		AB1F15741680336F00E55E77 /* ValueCheckBoxViewCellRuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCheckBoxViewCellRuler.h; sourceTree = "<group>"; };
+		AB1F15751680336F00E55E77 /* ValueCheckBoxViewCellRuler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueCheckBoxViewCellRuler.m; sourceTree = "<group>"; };
 		AB3443A61654B2F600F77740 /* MYDateSwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDateSwitcher.h; sourceTree = "<group>"; };
 		AB3443A71654B2F600F77740 /* MYDateSwitcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDateSwitcher.m; sourceTree = "<group>"; };
 		AB3443A81654B2F600F77740 /* MYDateSwitcherDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDateSwitcherDefine.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				AB3A910C1650946A00C672E5 /* ValueCheckBoxView.m */,
 				AB3A910D1650946A00C672E5 /* ValueCheckBoxViewDefine.h */,
 				AB3A910E1650946A00C672E5 /* ValueCheckBoxViewDelegate.h */,
+				AB1F15741680336F00E55E77 /* ValueCheckBoxViewCellRuler.h */,
+				AB1F15751680336F00E55E77 /* ValueCheckBoxViewCellRuler.m */,
 			);
 			path = MYView;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				AB63DA7B16638BC8006CA284 /* MYRoute.m in Sources */,
 				AB63DA7F16638D67006CA284 /* MYRouteCenter.m in Sources */,
 				AB63DA821663922B006CA284 /* NSObject+MYRoute.m in Sources */,
+				AB1F15761680336F00E55E77 /* ValueCheckBoxViewCellRuler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
