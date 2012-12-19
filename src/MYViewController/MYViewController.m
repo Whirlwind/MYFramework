@@ -166,6 +166,10 @@
 
 #pragma mark - view
 - (void)viewDidLoad{
+    if (!self.nibName && self.view.frame.origin.y == 20) {
+        [self.view setFrameWithOrigin:CGPointMake(self.view.frame.origin.x, self.view.frame.origin.y - 20)];
+    }
+    
     if (self.contentView) {
         [self.view insertSubview:self.contentView atIndex:0];
         [self.contentView setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.view.bounds.size.height)];
