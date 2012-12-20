@@ -16,7 +16,7 @@
                       animated:(BOOL)animated
                         sender:(id)sender
                       complete:(void (^)(void))block {
-    [prevViewController.myNavigationController.contentView addSubview:nextViewController.view];
+    [nextViewController.myNavigationController.contentView addSubview:nextViewController.view];
     [prevViewController.view removeFromSuperview];
     if (block) {
         block();
