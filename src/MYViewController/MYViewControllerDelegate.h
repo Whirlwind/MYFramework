@@ -11,6 +11,7 @@
 @protocol MYViewControllerDelegate <NSObject>
 
 
+@property (assign, nonatomic) NSInteger vcType;
 @property (nonatomic, retain) MYNavigationController *myNavigationController;
 @property (nonatomic, assign) BOOL keyboardIsOpened;
 @property (nonatomic, assign) CGRect keyboardRect;
