@@ -289,7 +289,7 @@
 }
 
 - (CGFloat)valueForContentOffsetY:(CGFloat)y {
-    return ((NSInteger)(0.5f + y / (kValueCheckBoxViewCellHeight / self.splitNumberPerCell))) * (self.increaseValuePerCell / self.splitNumberPerCell) + self.minValue;
+    return ((NSInteger)(0.5f + y / (kValueCheckBoxViewCellHeight / self.splitNumberPerCell))) * self.increaseValuePerCell / self.splitNumberPerCell + self.minValue;
 }
 
 - (CGFloat)offsetYForValue:(CGFloat)value {
