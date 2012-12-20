@@ -238,7 +238,7 @@
                      animationBlock:^(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender) {
                          [self exchangeViewController:preVC
                                withNextViewController:nextVC
-                                            direction:YES
+                                            direction:NO
                                              animated:animated
                                                sender:sender
                                              complete:nil];
