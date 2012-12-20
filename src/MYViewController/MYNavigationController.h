@@ -6,7 +6,10 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 #import "MYViewController.h"
+#import "MYNavigationControllerAnimationFactoryProtocol.h"
+
 @interface MYNavigationController : MYViewController
+@property (retain, nonatomic) id<MYNavigationControllerAnimationFactoryProtocol> animationFactory;
 @property (nonatomic, retain) NSMutableArray *viewControllers;
 
 - (id)initWithRootViewController:(id<MYViewControllerDelegate>)viewController;

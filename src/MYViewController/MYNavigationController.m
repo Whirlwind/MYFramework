@@ -8,6 +8,7 @@
 
 #import "MYNavigationController.h"
 #import "MYFramework.h"
+#import "MYNavigationControllerAnimationFactory.h"
 
 @implementation MYNavigationController
 
@@ -22,6 +23,7 @@
 }
 
 - (void)dealloc{
+    [_animationFactory release], _animationFactory = nil;
     [_viewControllers release], _viewControllers = nil;
     [super dealloc];
 }
@@ -43,42 +45,32 @@
     return _viewControllers;
 }
 
-- (BOOL)wantsFullScreenLayout {
-    return NO;
+- (id<MYNavigationControllerAnimationFactoryProtocol>)animationFactory {
+    if (_animationFactory == nil) {
+        _animationFactory = [[MYNavigationControllerAnimationFactory alloc] init];
+    }
+    return _animationFactory;
 }
+
 #pragma mark - view
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.contentView setBackgroundColor:[UIColor blackColor]];
-    [self enterWithAnimated:NO
-         nextViewController:[self.viewControllers lastObject]
-                  direction:YES
-                     sender:nil
-                   complete:nil];
+    [self exchangeViewController:nil
+          withNextViewController:[self.viewControllers lastObject]
+                       direction:YES
+                        animated:NO
+                          sender:nil
+                        complete:nil];
 }
 
 #pragma mark - private methods
-- (void)enterWithAnimated:(BOOL)animated
-       nextViewController:(id<MYViewControllerDelegate> )nextViewController
-                direction:(BOOL)isPush
-                   sender:(id)sender
-                 complete:(void (^)(void))block {
-    [self exitWithAnimated:animated
-        prevViewController:nil
-        nextViewController:nextViewController
-                 direction:isPush
-                    sender:sender
-                  complete:block];
-}
-- (void)exitWithAnimated:(BOOL)animated
-      prevViewController:(id<MYViewControllerDelegate> )prevViewController
-      nextViewController:(id<MYViewControllerDelegate> )nextViewController
-               direction:(BOOL)isPush
-                  sender:(id)sender
-                complete:(void (^)(void))block {
-    if (!subViewDidLoaded) {
-        return;
-    }
+- (void)exchangeViewController:(id<MYViewControllerDelegate>)prevViewController
+        withNextViewController:(id<MYViewControllerDelegate>)nextViewController
+                     direction:(BOOL)isPush
+                      animated:(BOOL)animated
+                        sender:(id)sender
+                      complete:(void (^)(void))block {
     [prevViewController retain];
     if ([prevViewController respondsToSelector:@selector(viewControllerResignTopViewController:)])
         [prevViewController viewControllerResignTopViewController:YES];
@@ -91,28 +83,21 @@
         [prevViewController viewWillDisappear:animated];
     if (isIOS4)
         [nextViewController viewWillAppear:animated];
-    [prevViewController exitWithAnimated:animated
-                      nextViewController:nextViewController
-                               direction:isPush
-                                  sender:sender
-                                complete:^{
-                                    if (isIOS4)
-                                        [prevViewController viewDidDisappear:animated];
-                                    if (block)
-                                        block();
-                                    [prevViewController setMyNavigationController:nil];
-                                    [prevViewController release];
-                                }];
-    [prevViewController retain];
-    [nextViewController enterWithAnimated:animated
-                       prevViewController:prevViewController
-                                direction:isPush
-                                   sender:sender
-                                 complete:^{
-                                     if (isIOS4)
-                                         [nextViewController viewDidAppear:animated];
-                                     [prevViewController release];
-                                 }];
+    [self.animationFactory exchangeViewController:prevViewController
+                           withNextViewController:nextViewController
+                                        direction:isPush
+                                         animated:animated
+                                           sender:sender
+                                         complete:^{
+                                             if (isIOS4)
+                                                 [prevViewController viewDidDisappear:animated];
+                                             [prevViewController setMyNavigationController:nil];
+                                             [prevViewController release];
+                                             if (isIOS4)
+                                                 [nextViewController viewDidAppear:animated];
+                                             if (block)
+                                                 block();
+                                         }];
 }
 
 #pragma mark - controller
@@ -140,17 +125,22 @@
 - (void)setRootViewControllerWithEmptyStack:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender{
     if ([self.viewControllers count] == 0) {
         [self.viewControllers addObject:vc];
-        [self enterWithAnimated:animated
-             nextViewController:vc
-                      direction:YES
-                         sender:sender
-                       complete:nil];
+        [self exchangeViewController:nil
+              withNextViewController:vc
+                           direction:YES
+                            animated:animated
+                              sender:sender
+                            complete:nil];
     } else {
         id<MYViewControllerDelegate> last = [[self.viewControllers lastObject] retain];
         [self.viewControllers removeAllObjects];
         [self.viewControllers addObject:vc];
-
-        [self exitWithAnimated:animated prevViewController:[last autorelease]nextViewController:vc direction:YES sender:sender complete:nil];
+        [self exchangeViewController:[last autorelease]
+              withNextViewController:vc
+                           direction:YES
+                            animated:animated
+                              sender:sender
+                            complete:nil];
     }
 }
 
@@ -162,7 +152,12 @@
     [self pushViewController:vc
                       sender:sender
               animationBlock:^(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender) {
-                  [self exitWithAnimated:animated prevViewController:preVC nextViewController:nextVC direction:YES sender:sender complete:nil];
+                  [self exchangeViewController:preVC
+                        withNextViewController:nextVC
+                                     direction:YES
+                                      animated:animated
+                                        sender:sender
+                                      complete:nil];
               }];
 }
 
@@ -241,12 +236,12 @@
 - (void)popViewControllerAnimated:(BOOL)animated sender:(id)sender{
     [self popViewControllerBySender:sender
                      animationBlock:^(id<MYViewControllerDelegate> preVC, id<MYViewControllerDelegate> nextVC, id sender) {
-                         [self exitWithAnimated:animated
-                             prevViewController:preVC
-                             nextViewController:nextVC
-                                      direction:NO
-                                         sender:sender
-                                       complete:nil];
+                         [self exchangeViewController:preVC
+                               withNextViewController:nextVC
+                                            direction:YES
+                                             animated:animated
+                                               sender:sender
+                                             complete:nil];
                      }];
 }
 
@@ -272,11 +267,11 @@
         [self.viewControllers removeObject:last];
     }
     [self.viewControllers addObject:vc];
-    [self exitWithAnimated:animated
-        prevViewController:[last autorelease]
-        nextViewController:vc
-                 direction:YES
-                    sender:sender
-                  complete:nil];
+    [self exchangeViewController:nil
+          withNextViewController:[last autorelease]
+                       direction:YES
+                        animated:animated
+                          sender:sender
+                        complete:nil];
 }
 @end
