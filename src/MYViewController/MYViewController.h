@@ -28,6 +28,7 @@
 @property (nonatomic, retain) NSMutableArray *subViewControllers;
 @property (retain, nonatomic) IBOutlet UIView *contentView;
 
+- (id)initWithVCType:(NSInteger)vcType;
 @end
 
 

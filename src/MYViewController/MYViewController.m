@@ -63,6 +63,12 @@
     }
     return self;
 }
+- (id)initWithVCType:(NSInteger)vcType {
+    if (self = [super init]) {
+        self.vcType = vcType;
+    }
+    return self;
+}
 
 #pragma mark - data
 - (void)initData{
