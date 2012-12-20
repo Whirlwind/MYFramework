@@ -243,18 +243,6 @@
     POST_BROADCAST;
 }
 
-#pragma mark - animation
-- (void)enterWithAnimated:(BOOL)animated prevViewController:(MYViewController *)prevViewController direction:(BOOL)isPush sender:(id)sender complete:(void (^)(void))block {
-    [self.myNavigationController.contentView addSubview:self.view];
-}
-
-- (void)exitWithAnimated:(BOOL)animated
-      nextViewController:(MYViewController *)nextViewController
-               direction:(BOOL)isPush
-                  sender:(id)sender
-                complete:(void (^)(void))block {
-    [self.view removeFromSuperview];
-}
 #pragma mark - Thread
 - (NSMutableArray *)getThreadPool{
     if (self.threadPool == nil) {

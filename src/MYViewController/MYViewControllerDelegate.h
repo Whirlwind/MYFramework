@@ -60,15 +60,6 @@
 - (void)keyboardWillShowNotification:(NSNotification *)ntf;
 - (void)keyboardDidHideNotification:(NSNotification *)ntf;
 
-@required
-#pragma mark - animation
-- (void)enterWithAnimated:(BOOL)animated prevViewController:(id<MYViewControllerDelegate>)prevViewController direction:(BOOL)isPush sender:(id)sender complete:(void (^)(void))block;
-- (void)exitWithAnimated:(BOOL)animated
-      nextViewController:(id<MYViewControllerDelegate>)nextViewController
-               direction:(BOOL)isPush
-                  sender:(id)sender
-                complete:(void (^)(void))block;
-
 @optional
 #pragma mark - thread
 - (NSMutableArray *)getThreadPool;
