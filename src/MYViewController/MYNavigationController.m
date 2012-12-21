@@ -267,8 +267,8 @@
         [self.viewControllers removeObject:last];
     }
     [self.viewControllers addObject:vc];
-    [self exchangeViewController:nil
-          withNextViewController:[last autorelease]
+    [self exchangeViewController:[last autorelease]
+          withNextViewController:vc
                        direction:YES
                         animated:animated
                           sender:sender
