@@ -223,6 +223,9 @@
 }
 
 - (MYView *)myView {
+    if ([self.contentView isKindOfClass:[MYView class]]) {
+        return (MYView *)self.contentView;
+    }
     if ([self.view isKindOfClass:[MYView class]]) {
         return (MYView *)[self view];
     }
