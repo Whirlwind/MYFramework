@@ -37,6 +37,7 @@
 		AB63DA7B16638BC8006CA284 /* MYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA7A16638BC8006CA284 /* MYRoute.m */; };
 		AB63DA7F16638D67006CA284 /* MYRouteCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA7E16638D67006CA284 /* MYRouteCenter.m */; };
 		AB63DA821663922B006CA284 /* NSObject+MYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB63DA811663922A006CA284 /* NSObject+MYRoute.m */; };
+		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
 		EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87CF167ACA160068798C /* unitBackground@2x.png */; };
 		EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87D0167ACA160068798C /* unitPointer@2x.png */; };
 		ECC06D4A166F341400B6EA33 /* rulerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC06D49166F341400B6EA33 /* rulerBackground@2x.png */; };
@@ -100,6 +101,8 @@
 		AB63DA801663922A006CA284 /* NSObject+MYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MYRoute.h"; sourceTree = "<group>"; };
 		AB63DA811663922A006CA284 /* NSObject+MYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYRoute.m"; sourceTree = "<group>"; };
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
+		ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTextLabel.h; sourceTree = "<group>"; };
+		ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTextLabel.m; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
 		ABFEDC4E16645BBD0053A5BC /* MYFramework-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYFramework-Prefix.pch"; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,12 +211,14 @@
 				AB3A91081650946A00C672E5 /* MYTableView.m */,
 				AB3A91091650946A00C672E5 /* MYView.h */,
 				AB3A910A1650946A00C672E5 /* MYView.m */,
+				ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */,
+				ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */,
 				AB3A910B1650946A00C672E5 /* ValueCheckBoxView.h */,
 				AB3A910C1650946A00C672E5 /* ValueCheckBoxView.m */,
-				AB3A910D1650946A00C672E5 /* ValueCheckBoxViewDefine.h */,
-				AB3A910E1650946A00C672E5 /* ValueCheckBoxViewDelegate.h */,
 				AB1F15741680336F00E55E77 /* ValueCheckBoxViewCellRuler.h */,
 				AB1F15751680336F00E55E77 /* ValueCheckBoxViewCellRuler.m */,
+				AB3A910D1650946A00C672E5 /* ValueCheckBoxViewDefine.h */,
+				AB3A910E1650946A00C672E5 /* ValueCheckBoxViewDelegate.h */,
 			);
 			path = MYView;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				AB63DA821663922B006CA284 /* NSObject+MYRoute.m in Sources */,
 				AB1F15761680336F00E55E77 /* ValueCheckBoxViewCellRuler.m in Sources */,
 				AB0178D816836C0E00DE4498 /* MYNavigationControllerAnimationFactory.m in Sources */,
+				ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
