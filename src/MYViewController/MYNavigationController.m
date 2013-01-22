@@ -83,6 +83,7 @@
         [prevViewController viewWillDisappear:animated];
     if (isIOS4)
         [nextViewController viewWillAppear:animated];
+    [self viewControllerWillChangeTo:nextViewController from:prevViewController];
     [self.animationFactory exchangeViewController:prevViewController
                            withNextViewController:nextViewController
                                         direction:isPush
@@ -97,6 +98,7 @@
                                                  [nextViewController viewDidAppear:animated];
                                              if (block)
                                                  block();
+                                             [self viewControllerDidChangedTo:nextViewController from:prevViewController];
                                          }];
 }
 
@@ -273,5 +275,16 @@
                         animated:animated
                           sender:sender
                         complete:nil];
+}
+
+#pragma mark - override
+
+- (void)viewControllerWillChangeTo:(id<MYViewControllerDelegate>)nextViewController
+                              from:(id<MYViewControllerDelegate>)prevViewController {
+
+}
+- (void)viewControllerDidChangedTo:(id<MYViewControllerDelegate>)nextViewController
+                              from:(id<MYViewControllerDelegate>)prevViewController {
+    
 }
 @end

@@ -45,4 +45,11 @@
 
 - (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated;
 - (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender;
+
+#pragma mark - override
+
+- (void)viewControllerWillChangeTo:(id<MYViewControllerDelegate>)nextViewController
+                              from:(id<MYViewControllerDelegate>)prevViewController;
+- (void)viewControllerDidChangedTo:(id<MYViewControllerDelegate>)nextViewController
+                              from:(id<MYViewControllerDelegate>)prevViewController;
 @end
