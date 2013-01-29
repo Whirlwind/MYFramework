@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MYRoute.h"
 @interface MYRouteCenter : NSObject
 @property (retain, nonatomic) NSMutableDictionary *list;
 + (id)sharedInstant;

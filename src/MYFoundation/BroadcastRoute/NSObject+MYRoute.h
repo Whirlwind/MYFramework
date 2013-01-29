@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MYRouteCenter.h"
 
 #define POST_ROUTE [self postRouteMethod:NSStringFromSelector(_cmd)]
 #define POST_ROUTE_WITH_ARGS(_userInfo) [self postRouteMethod:NSStringFromSelector(_cmd) userInfo:_userInfo]

@@ -7,7 +7,6 @@
 //
 
 #import "NSObject+MYRoute.h"
-#import "MYRouteCenter.h"
 
 @implementation NSObject (MYRoute)
 

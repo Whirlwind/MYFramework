@@ -7,7 +7,6 @@
 //
 
 #import "MYBroadcastCenter.h"
-#import "MYBroadcast.h"
 
 static MYBroadcastCenter *_sharedBroadcastCenter = nil;
 
