@@ -33,4 +33,12 @@
     [super viewDidLoad];
 }
 
+- (void)addSubViewModel:(MYViewModel *)vm {
+    [self addSubViewController:vm];
+}
+
+- (void)addSubViewModel:(MYViewModel *)vm view:(UIView *)__view {
+    [self addSubViewController:vm view:__view];
+}
+
 @end
