@@ -8,6 +8,8 @@
 
 
 @class MYViewController;
+@class MYViewModel;
+
 @interface MYView : UIView
 @property (retain, nonatomic) NSMutableDictionary *observerList;
 
@@ -15,6 +17,9 @@
 
 - (void)updateRelatedViewController:(MYViewController *)vc;
 - (void)configView;
+- (void)pushViewModel:(MYViewModel *)vm;
+- (void)pushViewModelClass:(Class)className;
+- (void)popViewModel;
 - (void)registerObserverReceiver:(NSObject *)receiver
                         selector:(SEL)selector
                          keyPath:(NSString *)keyPath

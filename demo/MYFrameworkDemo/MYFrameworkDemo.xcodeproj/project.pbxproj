@@ -49,6 +49,7 @@
 		AB76FEA216B7D7E500128E0A /* MYEntryDbSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9816B7D7E500128E0A /* MYEntryDbSchema.m */; };
 		AB76FEA316B7D7E500128E0A /* MYUserEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */; };
 		AB76FEA416B7D7E500128E0A /* MYUserEntryLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9C16B7D7E500128E0A /* MYUserEntryLog.m */; };
+		AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FEA716B8A65D00128E0A /* MYViewModel.m */; };
 		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
 		EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87CF167ACA160068798C /* unitBackground@2x.png */; };
 		EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87D0167ACA160068798C /* unitPointer@2x.png */; };
@@ -140,6 +141,8 @@
 		AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserEntry.m; sourceTree = "<group>"; };
 		AB76FE9B16B7D7E500128E0A /* MYUserEntryLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserEntryLog.h; sourceTree = "<group>"; };
 		AB76FE9C16B7D7E500128E0A /* MYUserEntryLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserEntryLog.m; sourceTree = "<group>"; };
+		AB76FEA616B8A65D00128E0A /* MYViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewModel.h; sourceTree = "<group>"; };
+		AB76FEA716B8A65D00128E0A /* MYViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewModel.m; sourceTree = "<group>"; };
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
 		ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTextLabel.h; sourceTree = "<group>"; };
 		ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTextLabel.m; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 		AB3A91011650946A00C672E5 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AB76FEA516B8A65D00128E0A /* MYViewModel */,
 				AB76FE8C16B7D7E500128E0A /* MYModel */,
 				AB76FE5816B7D19400128E0A /* MYFoundation */,
 				AB3A91021650946A00C672E5 /* MYView */,
@@ -380,6 +384,15 @@
 			path = MYModel;
 			sourceTree = "<group>";
 		};
+		AB76FEA516B8A65D00128E0A /* MYViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AB76FEA616B8A65D00128E0A /* MYViewModel.h */,
+				AB76FEA716B8A65D00128E0A /* MYViewModel.m */,
+			);
+			path = MYViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,6 +515,7 @@
 				AB76FEA216B7D7E500128E0A /* MYEntryDbSchema.m in Sources */,
 				AB76FEA316B7D7E500128E0A /* MYUserEntry.m in Sources */,
 				AB76FEA416B7D7E500128E0A /* MYUserEntryLog.m in Sources */,
+				AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

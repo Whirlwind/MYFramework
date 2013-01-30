@@ -34,4 +34,5 @@
 #import "MYTableView.h"
 #import "MYViewController.h"
 #import "MYNavigationController.h"
+#import "MYViewModel.h"
 #import "MYView.h"

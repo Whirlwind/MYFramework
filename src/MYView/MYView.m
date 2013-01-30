@@ -7,6 +7,7 @@
 //
 
 #import "MYView.h"
+#import "MYViewModel.h"
 
 @implementation MYView
 
@@ -28,6 +29,21 @@
 - (void)configView {
     
 }
+
+- (void)popViewModel {
+    [self.relatedViewController.myNavigationController popViewControllerAnimated:YES];
+}
+
+- (void)pushViewModel:(MYViewModel *)vm {
+    [self.relatedViewController.myNavigationController pushViewController:vm animated:YES];
+}
+
+- (void)pushViewModelClass:(Class)className {
+    id vm = [[className alloc] init];
+    [self pushViewModel:vm];
+    [vm release];
+}
+
 #pragma mark - getter
 - (NSMutableDictionary *)observerList {
     if (_observerList == nil) {
