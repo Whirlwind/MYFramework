@@ -88,12 +88,12 @@
 }
 
 - (void)reloadDataAndReflashView:(BOOL)animated {
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self reloadData];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self reflashView:animated];
-        });
-    });
+    MY_BACKGROUND_BEGIN_WITH_PRIORITY(DISPATCH_QUEUE_PRIORITY_HIGH)
+    [self reloadData];
+    MY_FOREGROUND_BEGIN
+    [self reflashView:animated];
+    MY_FOREGROUND_COMMIT
+    MY_BACKGROUND_COMMIT
 }
 
 #pragma mark - getter
