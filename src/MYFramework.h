@@ -29,6 +29,8 @@
 #import "MYBroadcastCenter.h"
 #import "NSObject+MYBroadcast.h"
 
+#import "MYEntry.h"
+
 #import "MYTableView.h"
 #import "MYViewController.h"
 #import "MYNavigationController.h"
