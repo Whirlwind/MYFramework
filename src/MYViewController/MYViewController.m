@@ -74,10 +74,12 @@
 - (void)initData{
     self.viewZIndex = 0;
     self.autoResizeToFitIphone5 = YES;
+    POST_BROADCAST;
     [self reloadData];
 }
 
 - (void)reloadData{
+    POST_BROADCAST;
     dataDidLoaded = YES;
 }
 
