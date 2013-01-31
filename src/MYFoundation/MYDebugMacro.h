@@ -6,6 +6,9 @@
 //  Copyright (c) 2013年 BOOHEE. All rights reserved.
 //
 
+#ifdef USE_MYDebuger
+#   import "LoggerClient.h"
+#endif
 
 #ifdef USE_MYDebuger
 #   define MYLog(_level, ...) {NSString *MYLogPath = MY_AUTORELEASE([[NSString alloc] initWithBytes:__FILE__ length:strlen(__FILE__) encoding:NSUTF8StringEncoding]);\
