@@ -30,6 +30,8 @@
             self.contentView = [[[NSClassFromString(viewName) alloc] init] autorelease];
         }
     }
+    self.view.width = self.contentView.width;
+    self.view.height = self.contentView.height;
     [super viewDidLoad];
 }
 
