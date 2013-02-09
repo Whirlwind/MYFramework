@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.dependency 'UIView'
   s.dependency 'NSDate', '~>0.0.3'
   s.dependency 'FMDB'
+  s.dependency 'NSString'
 end

@@ -51,6 +51,11 @@
 		AB76FEA416B7D7E500128E0A /* MYUserEntryLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9C16B7D7E500128E0A /* MYUserEntryLog.m */; };
 		AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FEA716B8A65D00128E0A /* MYViewModel.m */; };
 		AB9E55E616BF4F8D008D733B /* MYBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E55E516BF4F8D008D733B /* MYBundle.m */; };
+		AB9E565016BFC5AE008D733B /* MYInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564716BFC5AE008D733B /* MYInputField.m */; };
+		AB9E565116BFC5AE008D733B /* MYInputFieldEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564B16BFC5AE008D733B /* MYInputFieldEmail.m */; };
+		AB9E565216BFC5AE008D733B /* MYInputFieldNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564D16BFC5AE008D733B /* MYInputFieldNumber.m */; };
+		AB9E565316BFC5AE008D733B /* MYInputFieldText.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564F16BFC5AE008D733B /* MYInputFieldText.m */; };
+		AB9E565616BFD1D1008D733B /* MYInputFieldCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E565516BFD1D0008D733B /* MYInputFieldCellPhone.m */; };
 		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
 		EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87CF167ACA160068798C /* unitBackground@2x.png */; };
 		EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87D0167ACA160068798C /* unitPointer@2x.png */; };
@@ -147,6 +152,17 @@
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
 		AB9E55E416BF4F8D008D733B /* MYBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBundle.h; sourceTree = "<group>"; };
 		AB9E55E516BF4F8D008D733B /* MYBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBundle.m; sourceTree = "<group>"; };
+		AB9E564616BFC5AE008D733B /* MYInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputField.h; sourceTree = "<group>"; };
+		AB9E564716BFC5AE008D733B /* MYInputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputField.m; sourceTree = "<group>"; };
+		AB9E564916BFC5AE008D733B /* MYInputFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldDelegate.h; sourceTree = "<group>"; };
+		AB9E564A16BFC5AE008D733B /* MYInputFieldEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldEmail.h; sourceTree = "<group>"; };
+		AB9E564B16BFC5AE008D733B /* MYInputFieldEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldEmail.m; sourceTree = "<group>"; };
+		AB9E564C16BFC5AE008D733B /* MYInputFieldNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldNumber.h; sourceTree = "<group>"; };
+		AB9E564D16BFC5AE008D733B /* MYInputFieldNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldNumber.m; sourceTree = "<group>"; };
+		AB9E564E16BFC5AE008D733B /* MYInputFieldText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldText.h; sourceTree = "<group>"; };
+		AB9E564F16BFC5AE008D733B /* MYInputFieldText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldText.m; sourceTree = "<group>"; };
+		AB9E565416BFD1D0008D733B /* MYInputFieldCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldCellPhone.h; sourceTree = "<group>"; };
+		AB9E565516BFD1D0008D733B /* MYInputFieldCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldCellPhone.m; sourceTree = "<group>"; };
 		ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTextLabel.h; sourceTree = "<group>"; };
 		ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTextLabel.m; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
@@ -256,6 +272,17 @@
 				AB3443A61654B2F600F77740 /* MYDateSwitcher.h */,
 				AB3443A71654B2F600F77740 /* MYDateSwitcher.m */,
 				AB3443A81654B2F600F77740 /* MYDateSwitcherDefine.h */,
+				AB9E564616BFC5AE008D733B /* MYInputField.h */,
+				AB9E564716BFC5AE008D733B /* MYInputField.m */,
+				AB9E565416BFD1D0008D733B /* MYInputFieldCellPhone.h */,
+				AB9E565516BFD1D0008D733B /* MYInputFieldCellPhone.m */,
+				AB9E564916BFC5AE008D733B /* MYInputFieldDelegate.h */,
+				AB9E564A16BFC5AE008D733B /* MYInputFieldEmail.h */,
+				AB9E564B16BFC5AE008D733B /* MYInputFieldEmail.m */,
+				AB9E564C16BFC5AE008D733B /* MYInputFieldNumber.h */,
+				AB9E564D16BFC5AE008D733B /* MYInputFieldNumber.m */,
+				AB9E564E16BFC5AE008D733B /* MYInputFieldText.h */,
+				AB9E564F16BFC5AE008D733B /* MYInputFieldText.m */,
 				AB3A91071650946A00C672E5 /* MYTableView.h */,
 				AB3A91081650946A00C672E5 /* MYTableView.m */,
 				AB3A91091650946A00C672E5 /* MYView.h */,
@@ -522,6 +549,11 @@
 				AB76FEA416B7D7E500128E0A /* MYUserEntryLog.m in Sources */,
 				AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */,
 				AB9E55E616BF4F8D008D733B /* MYBundle.m in Sources */,
+				AB9E565016BFC5AE008D733B /* MYInputField.m in Sources */,
+				AB9E565116BFC5AE008D733B /* MYInputFieldEmail.m in Sources */,
+				AB9E565216BFC5AE008D733B /* MYInputFieldNumber.m in Sources */,
+				AB9E565316BFC5AE008D733B /* MYInputFieldText.m in Sources */,
+				AB9E565616BFD1D1008D733B /* MYInputFieldCellPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
