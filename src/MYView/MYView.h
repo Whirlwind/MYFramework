@@ -27,4 +27,9 @@
                          context:(void *)context;
 - (void)unregisterObserverReceiver:(NSObject *)receiver
                            keyPath:(NSString *)keyPath;
+
+#pragma mark - IB event
+- (IBAction)backAction:(id)sender;
+// 隐藏键盘
+- (IBAction)cancelKeyboard:(id)sender;
 @end

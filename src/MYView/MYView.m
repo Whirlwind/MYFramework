@@ -102,4 +102,12 @@
     }
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
+#pragma mark - IB event
+- (IBAction)backAction:(id)sender {
+    [self popViewModel];
+}
+// 隐藏键盘
+- (IBAction)cancelKeyboard:(id)sender {
+    [self endEditing:YES];
+}
 @end
