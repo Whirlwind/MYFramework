@@ -23,3 +23,7 @@
 #   define MY_RELEASE(exp) [exp release]
 #   define MY_RETAIN(exp) [exp retain]
 #endif
+
+// Color helpers
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
