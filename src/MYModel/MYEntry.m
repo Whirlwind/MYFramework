@@ -190,7 +190,7 @@
 
 #pragma mark - reverse
 - (void)reverseWithProperty:(NSString *)property {
-    SEL selector = [[self class] convertDbFieldNameToSetSelector:property];
+    SEL selector = [[self class] setterFromPropertyString:property];
     NSArray *change = (NSArray *)[self.changes valueForKey:property];
     if (change == nil)
         return;
