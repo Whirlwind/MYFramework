@@ -13,7 +13,7 @@
 DEF_MY_SINGLETON(MYUserEntryLog)
 
 + (NSString *)tableName {
-    return @"ONEBaseUserDataBase_logs";
+    return @"my_user_entry_logs";
 }
 
 - (BOOL)logChangeForModel:(NSString *)modelName

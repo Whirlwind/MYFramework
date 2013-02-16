@@ -7,6 +7,7 @@
 //
 
 #import "MYEntry.h"
+#import "MYUserDataBase.h"
 
 @interface MYUserEntry : MYEntry
 

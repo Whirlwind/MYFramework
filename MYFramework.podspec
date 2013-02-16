@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'v1.0'}
   s.platform     = :ios
   s.source_files = 'src/**/*.{h,m}'
-  s.resources = "resources/**/*.png"
+  s.resources = "resources/**/*.png", "src/*.{broadcast,route}"
   s.frameworks = 'UIKit', 'Foundation', 'QuartzCore'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
 
@@ -28,4 +28,5 @@ Pod::Spec.new do |s|
   s.dependency 'ASIHTTPRequest/Basic'
   s.dependency 'JSONAPI'
   s.dependency 'BHAnalysis'
+  s.dependency 'VersionString'
 end

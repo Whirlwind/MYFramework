@@ -40,6 +40,10 @@
     return YES;
 }
 
++ (FMDatabaseQueue *)dbQueue {
+    return [MYUserDataBase dbQueue];
+}
+
 - (BOOL)logChanges:(NSDictionary *)changes usingDb:(FMDatabase *)db {
     NSMutableDictionary *logChanges = [NSMutableDictionary dictionaryWithDictionary:changes];
     [self.ignoreLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
@@ -73,7 +77,7 @@
 }
 
 + (NSString *)userKey {
-    return @"";
+    return @" ";
 }
 
 #pragma mark - select

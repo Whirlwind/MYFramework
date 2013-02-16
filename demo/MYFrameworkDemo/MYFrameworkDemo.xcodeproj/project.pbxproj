@@ -13,6 +13,11 @@
 		AB06B79316CF4F1F00450A0E /* MYJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79216CF4F1E00450A0E /* MYJsonAccess.m */; };
 		AB06B79616CF514E00450A0E /* ASIHTTPRequest+MYSign.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */; };
 		AB06B79C16CF6CC900450A0E /* MYDbFetcher+MYEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79B16CF6CC900450A0E /* MYDbFetcher+MYEntry.m */; };
+		AB06B7A116CF7FCD00450A0E /* MYUserDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79E16CF7FCC00450A0E /* MYUserDataBase.m */; };
+		AB06B7A216CF7FCD00450A0E /* MYSqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B7A016CF7FCD00450A0E /* MYSqlAccess.m */; };
+		AB06B7A416CF848100450A0E /* MYFramework.broadcast in Resources */ = {isa = PBXBuildFile; fileRef = AB06B7A316CF848100450A0E /* MYFramework.broadcast */; };
+		AB06B7A816CF8E9600450A0E /* MYApplicationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B7A716CF8E9600450A0E /* MYApplicationObserver.m */; };
+		AB06B7AB16CF8EF500450A0E /* MYUserDataBaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B7AA16CF8EF500450A0E /* MYUserDataBaseObserver.m */; };
 		AB1F15761680336F00E55E77 /* ValueCheckBoxViewCellRuler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F15751680336F00E55E77 /* ValueCheckBoxViewCellRuler.m */; };
 		AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3443A71654B2F600F77740 /* MYDateSwitcher.m */; };
 		AB3A90D5165092CF00C672E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3A90D4165092CF00C672E5 /* UIKit.framework */; };
@@ -79,6 +84,15 @@
 		AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIHTTPRequest+MYSign.m"; sourceTree = "<group>"; };
 		AB06B79A16CF6CC900450A0E /* MYDbFetcher+MYEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYDbFetcher+MYEntry.h"; sourceTree = "<group>"; };
 		AB06B79B16CF6CC900450A0E /* MYDbFetcher+MYEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYDbFetcher+MYEntry.m"; sourceTree = "<group>"; };
+		AB06B79D16CF7FCC00450A0E /* MYUserDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserDataBase.h; sourceTree = "<group>"; };
+		AB06B79E16CF7FCC00450A0E /* MYUserDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserDataBase.m; sourceTree = "<group>"; };
+		AB06B79F16CF7FCD00450A0E /* MYSqlAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSqlAccess.h; sourceTree = "<group>"; };
+		AB06B7A016CF7FCD00450A0E /* MYSqlAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSqlAccess.m; sourceTree = "<group>"; };
+		AB06B7A316CF848100450A0E /* MYFramework.broadcast */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MYFramework.broadcast; sourceTree = "<group>"; };
+		AB06B7A616CF8E9600450A0E /* MYApplicationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYApplicationObserver.h; sourceTree = "<group>"; };
+		AB06B7A716CF8E9600450A0E /* MYApplicationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYApplicationObserver.m; sourceTree = "<group>"; };
+		AB06B7A916CF8EF500450A0E /* MYUserDataBaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserDataBaseObserver.h; sourceTree = "<group>"; };
+		AB06B7AA16CF8EF500450A0E /* MYUserDataBaseObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserDataBaseObserver.m; sourceTree = "<group>"; };
 		AB1F15741680336F00E55E77 /* ValueCheckBoxViewCellRuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCheckBoxViewCellRuler.h; sourceTree = "<group>"; };
 		AB1F15751680336F00E55E77 /* ValueCheckBoxViewCellRuler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueCheckBoxViewCellRuler.m; sourceTree = "<group>"; };
 		AB3443A61654B2F600F77740 /* MYDateSwitcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDateSwitcher.h; sourceTree = "<group>"; };
@@ -201,6 +215,10 @@
 		AB06B78D16CF4E0F00450A0E /* MYDataAccess */ = {
 			isa = PBXGroup;
 			children = (
+				AB06B79D16CF7FCC00450A0E /* MYUserDataBase.h */,
+				AB06B79E16CF7FCC00450A0E /* MYUserDataBase.m */,
+				AB06B79F16CF7FCD00450A0E /* MYSqlAccess.h */,
+				AB06B7A016CF7FCD00450A0E /* MYSqlAccess.m */,
 				AB06B79416CF514E00450A0E /* ASIHTTPRequest+MYSign.h */,
 				AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */,
 				AB06B79116CF4F1E00450A0E /* MYJsonAccess.h */,
@@ -209,6 +227,17 @@
 				AB06B78F16CF4E3300450A0E /* MYDbFetcher.m */,
 			);
 			path = MYDataAccess;
+			sourceTree = "<group>";
+		};
+		AB06B7A516CF8E7200450A0E /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				AB06B7A616CF8E9600450A0E /* MYApplicationObserver.h */,
+				AB06B7A716CF8E9600450A0E /* MYApplicationObserver.m */,
+				AB06B7A916CF8EF500450A0E /* MYUserDataBaseObserver.h */,
+				AB06B7AA16CF8EF500450A0E /* MYUserDataBaseObserver.m */,
+			);
+			path = Observer;
 			sourceTree = "<group>";
 		};
 		AB3A90C5165092CF00C672E5 = {
@@ -272,6 +301,7 @@
 		AB3A91011650946A00C672E5 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AB06B7A516CF8E7200450A0E /* Observer */,
 				AB06B78D16CF4E0F00450A0E /* MYDataAccess */,
 				AB76FEA516B8A65D00128E0A /* MYViewModel */,
 				AB76FE8C16B7D7E500128E0A /* MYModel */,
@@ -280,6 +310,7 @@
 				AB3A910F1650946A00C672E5 /* MYViewController */,
 				ABEEE92E16512A360002BC58 /* MYFramework.h */,
 				ABFEDC4E16645BBD0053A5BC /* MYFramework-Prefix.pch */,
+				AB06B7A316CF848100450A0E /* MYFramework.broadcast */,
 			);
 			name = src;
 			path = ../../src;
@@ -511,6 +542,7 @@
 				ECC06D4D166F3E2300B6EA33 /* rulerMask@2x.png in Resources */,
 				EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */,
 				EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */,
+				AB06B7A416CF848100450A0E /* MYFramework.broadcast in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +612,10 @@
 				AB06B79316CF4F1F00450A0E /* MYJsonAccess.m in Sources */,
 				AB06B79616CF514E00450A0E /* ASIHTTPRequest+MYSign.m in Sources */,
 				AB06B79C16CF6CC900450A0E /* MYDbFetcher+MYEntry.m in Sources */,
+				AB06B7A116CF7FCD00450A0E /* MYUserDataBase.m in Sources */,
+				AB06B7A216CF7FCD00450A0E /* MYSqlAccess.m in Sources */,
+				AB06B7A816CF8E9600450A0E /* MYApplicationObserver.m in Sources */,
+				AB06B7AB16CF8EF500450A0E /* MYUserDataBaseObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

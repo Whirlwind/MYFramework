@@ -1,0 +1,9 @@
+//  这是一个Broadcast文件，文件名是组件名
+//  双斜杠为注释
+//  格式：
+//      触发的方法, 响应的方法, 执行的进程类型(0为当前进程，1为主进程，2为后台进程，默认为2)
+
+*/application:didFinishLaunchingWithOptions:, MYApplicationObserver/migrateUserDatabase:, 2
+
+// db migrate
+MYUserDataBase/migrateUserDatabase:, MYUserDataBaseObserver/migrateUserDataBase:, 0
