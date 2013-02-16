@@ -202,4 +202,13 @@
         [self reverseWithProperty:property];
     }
 }
+
+#pragma mark - DAO
+- (BOOL)save {
+    return YES;
+}
+
+- (BOOL)destroy {
+    return YES;
+}
 @end

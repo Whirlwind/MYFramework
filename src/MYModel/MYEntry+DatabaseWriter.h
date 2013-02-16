@@ -14,11 +14,11 @@
 
 - (NSDictionary *)changesDictionary;
 
-+ (BOOL)clear;
++ (BOOL)clearInDb;
 
 #pragma mark - DAO
-- (BOOL)destory;
-- (BOOL)save;
+- (BOOL)destroyInDb;
+- (BOOL)saveInDb;
 
 #pragma mark - for override
 + (NSString *)convertDbFieldNameToPropertyName:(NSString *)name;

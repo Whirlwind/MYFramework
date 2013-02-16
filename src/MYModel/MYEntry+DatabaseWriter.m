@@ -64,7 +64,7 @@
     return status;
 }
 
-+ (BOOL)clear {
++ (BOOL)clearInDb {
     BOOL status = [[self fetcher] deleteDb];
     if (status)
         [self postLocalChangeNotification];
@@ -99,7 +99,7 @@
     return NSSelectorFromString([NSString stringWithFormat:@"set%@:", cappedString]);
 }
 
-- (BOOL)save {
+- (BOOL)saveInDb {
     if (self.index != nil && [self.changes count] <= 0) {
         return YES;
     }
@@ -118,7 +118,7 @@
     }
     return NO;
 }
-- (BOOL)destory {
+- (BOOL)destroyInDb {
     return [self removeEntry];
 }
 @end

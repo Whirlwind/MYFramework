@@ -50,9 +50,13 @@
 + (BOOL)needLog;
 + (BOOL)isUserDb;
 
-#pragma mark log
+#pragma mark - log
 - (BOOL)logChanges:(NSDictionary *)changes usingDb:(FMDatabase *)db;
 - (BOOL)logDeleteUsingDb:(FMDatabase *)db;
+
+#pragma mark - DAO
+- (BOOL)save;
+- (BOOL)destroy;
 
 @end
 

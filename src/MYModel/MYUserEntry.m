@@ -31,9 +31,9 @@
     return [super save];
 }
 
-- (BOOL)destory {
+- (BOOL)destroy {
     [self setUpdatedAt:[NSDate date]];
-    return [super destory];
+    return [super destroy];
 }
 
 + (BOOL)isUserDb {
