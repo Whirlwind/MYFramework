@@ -20,7 +20,7 @@
     return [changeDic autorelease];
 }
 #pragma mark - C
-- (BOOL)createEntry {
+- (BOOL)createEntryInDb {
     NSDictionary *changeDic = [self changesDictionary];
     BOOL status = [[[self fetcher] insert:changeDic] insertDb:^BOOL(FMDatabase *db, NSInteger insertId) {
         self.index = [NSNumber numberWithInteger:insertId];
@@ -35,7 +35,7 @@
 }
 
 #pragma mark - U
-- (BOOL)updateEntry {
+- (BOOL)updateEntryInDb {
     NSDictionary *changeDic = [self changesDictionary];
     BOOL status = [[[[self fetcher] where:@"id = ?", self.index, nil] update:changeDic] updateDb:^BOOL(FMDatabase *db) {
         if (self.needLog && ![self logChanges:changeDic usingDb:db]) {
@@ -49,7 +49,7 @@
 }
 
 #pragma mark - D
-- (BOOL)removeEntry {
+- (BOOL)removeEntryInDb {
     if (self.index == nil) {
         return YES;
     }
@@ -99,26 +99,4 @@
     return NSSelectorFromString([NSString stringWithFormat:@"set%@:", cappedString]);
 }
 
-- (BOOL)saveInDb {
-    if (self.index != nil && [self.changes count] <= 0) {
-        return YES;
-    }
-    if (self.index == nil) { // C
-        if ([self createEntry]) {
-            [self.changes removeAllObjects];
-            return YES;
-        }
-        return NO;
-    } else { // U
-        if ([self updateEntry]) {
-            [self.changes removeAllObjects];
-            return YES;
-        }
-        return NO;
-    }
-    return NO;
-}
-- (BOOL)destroyInDb {
-    return [self removeEntry];
-}
 @end

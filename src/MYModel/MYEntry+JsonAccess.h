@@ -37,5 +37,4 @@
  */
 + (NSString *)convertJsonKeyNameToPropertyName:(NSString *)name;
 
-
 @end

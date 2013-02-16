@@ -205,10 +205,37 @@
 
 #pragma mark - DAO
 - (BOOL)save {
-    return YES;
+    if (self.index != nil && [self.changes count] <= 0) {
+        return YES;
+    }
+    BOOL status = NO;
+    if (self.index == nil) { // C
+        status = [self createEntry];
+    } else { // U
+        status = [self updateEntry];
+    }
+    if (status) {
+        [self postLocalChangeNotification];
+        [self.changes removeAllObjects];
+    }
+    return status;
 }
 
 - (BOOL)destroy {
-    return YES;
+    return [self removeEntry];
 }
+
+#pragma mark for override
+- (BOOL)createEntry {
+    return [self createEntryInDb];
+}
+
+- (BOOL)updateEntry {
+    return [self updateEntryInDb];
+}
+
+- (BOOL)removeEntry {
+    return [self removeEntryInDb];
+}
+
 @end

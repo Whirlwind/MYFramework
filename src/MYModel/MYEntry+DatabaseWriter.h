@@ -17,8 +17,9 @@
 + (BOOL)clearInDb;
 
 #pragma mark - DAO
-- (BOOL)destroyInDb;
-- (BOOL)saveInDb;
+- (BOOL)createEntryInDb;
+- (BOOL)updateEntryInDb;
+- (BOOL)removeEntryInDb;
 
 #pragma mark - for override
 + (NSString *)convertDbFieldNameToPropertyName:(NSString *)name;

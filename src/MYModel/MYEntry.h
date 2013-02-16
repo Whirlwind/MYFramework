@@ -58,6 +58,11 @@
 - (BOOL)save;
 - (BOOL)destroy;
 
+#pragma mark for override
+- (BOOL)createEntry;
+- (BOOL)updateEntry;
+- (BOOL)removeEntry;
+
 @end
 
 #import "MYEntry+DatabaseReader.h"
