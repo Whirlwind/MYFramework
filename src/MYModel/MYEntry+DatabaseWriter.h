@@ -8,7 +8,7 @@
 
 
 #import "MYEntry.h"
-#import "MYEntryDbFetcher.h"
+#import "MYDbFetcher+MYEntry.h"
 
 @interface MYEntry (DatabaseWriter)
 

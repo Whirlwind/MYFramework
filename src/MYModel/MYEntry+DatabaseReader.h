@@ -7,13 +7,13 @@
 //
 
 #import "MYEntry.h"
-#import "MYEntryDbFetcher.h"
+#import "MYDbFetcher+MYEntry.h"
 
 @interface MYEntry (DatabaseReader)
 
 
-- (MYEntryDbFetcher *)fetcher;
-+ (MYEntryDbFetcher *)fetcher;
+- (MYDbFetcher *)fetcher;
++ (MYDbFetcher *)fetcher;
 
 #pragma mark - Convenient
 + (NSInteger)count;

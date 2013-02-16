@@ -11,11 +11,11 @@
 @implementation MYEntry (DatabaseReader)
 
 #pragma mark - fetcher
-+ (MYEntryDbFetcher *)fetcher {
-    return [MYEntryDbFetcher fetcherForEntryClass:[self class]];
++ (MYDbFetcher *)fetcher {
+    return [MYDbFetcher fetcherForEntryClass:[self class]];
 }
-- (MYEntryDbFetcher *)fetcher {
-    MYEntryDbFetcher *fetcher = [MYEntryDbFetcher fetcherForEntryClass:[self class]];
+- (MYDbFetcher *)fetcher {
+    MYDbFetcher *fetcher = [MYDbFetcher fetcherForEntryClass:[self class]];
     [fetcher setDb:self.db];
     return fetcher;
 }

@@ -1,5 +1,5 @@
 //
-//  ONEBaseDbEntryFetcher.h
+//  MYDbFetcher.h
 //  SPORTRECORD
 //
 //  Created by Whirlwind on 12-11-25.
@@ -12,7 +12,7 @@
 #import "FMDatabase+MYAdditions.h"
 
 
-@interface MYEntryDbFetcher : NSObject
+@interface MYDbFetcher : NSObject
 
 @property (assign, nonatomic) Class entryClass;
 @property (copy, nonatomic) NSString *tableName;
@@ -26,40 +26,37 @@
 @property (retain, nonatomic) NSNumber *limit;
 @property (retain, nonatomic) NSMutableArray *orderBy;
 
-+ (MYEntryDbFetcher *)fetcherForTableName:(NSString *)tableName;
-+ (MYEntryDbFetcher *)fetcherForEntryClass:(Class)entryClass;
++ (MYDbFetcher *)fetcherForTableName:(NSString *)tableName;
 
 - (id)initWithTableName:(NSString *)tableName;
-- (id)initWithEntryClass:(Class)entryClass;
 
 #pragma mark - build
-- (MYEntryDbFetcher *)offset:(NSInteger)offset;
-- (MYEntryDbFetcher *)limit:(NSInteger)limit;
-- (MYEntryDbFetcher *)orderBy:(NSString *)aField
+- (MYDbFetcher *)offset:(NSInteger)offset;
+- (MYDbFetcher *)limit:(NSInteger)limit;
+- (MYDbFetcher *)orderBy:(NSString *)aField
                               ascending:(BOOL)isAscending;
-- (MYEntryDbFetcher *)orderBy:(NSString *)aField;
-- (MYEntryDbFetcher *)select:(NSString *)aFirstParam, ... NS_REQUIRES_NIL_TERMINATION;
-- (MYEntryDbFetcher *)selectInArray:(NSArray *)fields;
-- (MYEntryDbFetcher *)where:(NSString *)aCondition, ... NS_REQUIRES_NIL_TERMINATION;
-- (MYEntryDbFetcher *)where:(NSString *)aCondition argsInArray:(NSArray *)args;
-- (MYEntryDbFetcher *)update:(NSDictionary *)updateDic;
-- (MYEntryDbFetcher *)insert:(NSDictionary *)insertDic;
+- (MYDbFetcher *)orderBy:(NSString *)aField;
+- (MYDbFetcher *)select:(NSString *)aFirstParam, ... NS_REQUIRES_NIL_TERMINATION;
+- (MYDbFetcher *)selectInArray:(NSArray *)fields;
+- (MYDbFetcher *)where:(NSString *)aCondition, ... NS_REQUIRES_NIL_TERMINATION;
+- (MYDbFetcher *)where:(NSString *)aCondition argsInArray:(NSArray *)args;
+- (MYDbFetcher *)update:(NSDictionary *)updateDic;
+- (MYDbFetcher *)insert:(NSDictionary *)insertDic;
 
-- (MYEntryDbFetcher *)usingDb:(FMDatabase *)db;
-- (MYEntryDbFetcher *)usingDbQueue:(FMDatabaseQueue *)dbQueue;
+- (MYDbFetcher *)usingDb:(FMDatabase *)db;
+- (MYDbFetcher *)usingDbQueue:(FMDatabaseQueue *)dbQueue;
 
 #pragma mark - fetch
 - (NSInteger)fetchInteger;
 - (NSNumber *)fetchNumber;
 - (NSString *)fetchString;
-- (MYEntry *)fetchRecord;
 - (NSArray *)fetchRecords;
 - (NSArray *)fetchDictionaryArray;
 - (NSDictionary *)fetchDictionary;
 - (NSInteger)fetchCounter;
 - (void)fetchDbWithBlock:(void(^)(FMResultSet *rs))block;
 
-- (MYEntryDbFetcher *)filterUserKey:(NSString *)userKey;
+- (MYDbFetcher *)filterUserKey:(NSString *)userKey;
 
 - (BOOL)updateDb;
 - (BOOL)updateDb:(BOOL(^)(FMDatabase *db))block;
@@ -71,6 +68,4 @@
 - (BOOL)deleteDb;
 - (BOOL)deleteDb:(BOOL(^)(FMDatabase *db))block;
 
-#pragma mark - for override
-- (MYEntry *)fetchRecordFromResultSet:(FMResultSet *)rs;
 @end

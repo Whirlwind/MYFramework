@@ -1,24 +1,21 @@
 //
-//  ONEBaseDbEntryFetcher.m
+//  MYDbFetcher.m
 //  SPORTRECORD
 //
 //  Created by Whirlwind on 12-11-25.
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import "MYEntryDbFetcher.h"
+#import "MYDbFetcher.h"
 
-@interface MYEntryDbFetcher ()
+@interface MYDbFetcher ()
 @property (copy, nonatomic) NSString *userKey;
 @end
 
-@implementation MYEntryDbFetcher
+@implementation MYDbFetcher
 #pragma mark - class methods
-+ (MYEntryDbFetcher *)fetcherForTableName:(NSString *)tableName {
++ (MYDbFetcher *)fetcherForTableName:(NSString *)tableName {
     return [[[self alloc] initWithTableName:tableName] autorelease];
-}
-+ (MYEntryDbFetcher *)fetcherForEntryClass:(Class)entryClass {
-    return [[[self alloc] initWithEntryClass:entryClass] autorelease];
 }
 
 #pragma mark - dealloc
@@ -44,14 +41,6 @@
     return self;
 }
 
-- (id)initWithEntryClass:(Class)entryClass {
-    if (self = [self initWithTableName:[(MYEntry *)entryClass tableName]]) {
-        self.entryClass = entryClass;
-        self.dbQueue = [entryClass dbQueue];
-    }
-    return self;
-}
-
 - (NSMutableArray *)wheres {
     if (_wheres == nil) {
         _wheres = [[NSMutableArray alloc] initWithCapacity:1];
@@ -61,24 +50,24 @@
 
 #pragma mark - public methods
 
-- (MYEntryDbFetcher *)filterUserKey:(NSString *)userKey {
+- (MYDbFetcher *)filterUserKey:(NSString *)userKey {
     self.userKey = userKey;
     return self;
 }
 #pragma mark offset
-- (MYEntryDbFetcher *)offset:(NSInteger)offset {
+- (MYDbFetcher *)offset:(NSInteger)offset {
     self.offset = [NSNumber numberWithInteger:offset];
     return self;
 }
 
 #pragma mark limit
-- (MYEntryDbFetcher *)limit:(NSInteger)limit {
+- (MYDbFetcher *)limit:(NSInteger)limit {
     self.limit = [NSNumber numberWithInteger:limit];
     return self;
 }
 
 #pragma mark order by
-- (MYEntryDbFetcher *)orderBy:(NSString *)aField
+- (MYDbFetcher *)orderBy:(NSString *)aField
                          ascending:(BOOL)isAscending {
     NSArray *orderBy = @[aField, [NSNumber numberWithBool:isAscending]];
     if (_orderBy == nil) {
@@ -89,12 +78,12 @@
     return self;
 }
 
-- (MYEntryDbFetcher *)orderBy:(NSString *)aField {
+- (MYDbFetcher *)orderBy:(NSString *)aField {
     return [self orderBy:aField ascending:YES];
 }
 
 #pragma mark select
-- (MYEntryDbFetcher *)select:(NSString *)aFirstParam, ... {
+- (MYDbFetcher *)select:(NSString *)aFirstParam, ... {
     if (_fields == nil) {
         _fields = [[NSMutableArray alloc] initWithObjects:aFirstParam, nil];
     } else {
@@ -109,7 +98,7 @@
     va_end(args);
     return self;
 }
-- (MYEntryDbFetcher *)selectInArray:(NSArray *)fields {
+- (MYDbFetcher *)selectInArray:(NSArray *)fields {
     if (_fields == nil) {
         _fields = [[NSMutableArray alloc] initWithArray:fields];
     } else {
@@ -119,7 +108,7 @@
 }
 
 #pragma mark where
-- (MYEntryDbFetcher *)where:(NSString *)aCondition, ... {
+- (MYDbFetcher *)where:(NSString *)aCondition, ... {
     NSMutableArray *conditions = [[NSMutableArray alloc] initWithObjects:aCondition, nil];
 
     va_list args;
@@ -134,7 +123,7 @@
     return self;
 }
 
-- (MYEntryDbFetcher *)where:(NSString *)aCondition argsInArray:(NSArray *)args {
+- (MYDbFetcher *)where:(NSString *)aCondition argsInArray:(NSArray *)args {
     NSMutableArray *conditions = [[NSMutableArray alloc] initWithObjects:aCondition, nil];
     [conditions addObjectsFromArray:args];
     [self.wheres addObject:conditions];
@@ -143,7 +132,7 @@
 }
 
 #pragma mark update
-- (MYEntryDbFetcher *)update:(NSDictionary *)updateDic {
+- (MYDbFetcher *)update:(NSDictionary *)updateDic {
     if (_updateDictionary == nil) {
         _updateDictionary = [[NSMutableDictionary alloc] initWithDictionary:updateDic copyItems:YES];
     } else {
@@ -153,17 +142,17 @@
 }
 
 #pragma mark insert
-- (MYEntryDbFetcher *)insert:(NSDictionary *)insertDic {
+- (MYDbFetcher *)insert:(NSDictionary *)insertDic {
     return [self update:insertDic];
 }
 
 #pragma mark - using
-- (MYEntryDbFetcher *)usingDb:(FMDatabase *)db {
+- (MYDbFetcher *)usingDb:(FMDatabase *)db {
     self.db = db;
     return self;
 }
 
-- (MYEntryDbFetcher *)usingDbQueue:(FMDatabaseQueue *)dbQueue {
+- (MYDbFetcher *)usingDbQueue:(FMDatabaseQueue *)dbQueue {
     self.dbQueue = dbQueue;
     return self;
 }
@@ -220,35 +209,6 @@
     }];
     if ([result isKindOfClass:[NSNull class]])
         return nil;
-    return result;
-}
-
-- (MYEntry *)fetchRecordFromResultSet:(FMResultSet *)rs {
-    NSAssert(self.entryClass != nil, @"");
-    if ([self.entryClass respondsToSelector:@selector(fetchRecordFromResultSet:)]) {
-        return [self.entryClass performSelector:@selector(fetchRecordFromResultSet:) withObject:rs];
-    }
-    NSDictionary *dic = [rs resultDictionary];
-    MYEntry *entry = [[self.entryClass alloc] init];
-    [entry disableListenProperty:^{
-        [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            SEL setProperty = [self.entryClass convertDbFieldNameToSetSelector:key];
-            if ([entry respondsToSelector:setProperty]) {
-                [entry performSelector:setProperty withObject:[obj isEqual:[NSNull null]] ? nil : obj];
-            }
-        }];
-    }];
-    return [entry autorelease];
-}
-
-- (MYEntry *)fetchRecord {
-    [self limit:1];
-    __block MYEntry *result = nil;
-    [self fetchDbWithBlock:^(FMResultSet *rs) {
-        if ([rs next]) {
-            result = [self fetchRecordFromResultSet:rs];
-        }
-    }];
     return result;
 }
 
