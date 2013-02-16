@@ -178,9 +178,9 @@
     if (status == 0) {
         LogError(@"URL: %@ %@ STATE: %d MESSAGE: %@", method, url, status, @"网络连接存在异常");
     } else if (code == nil) {
-        LogError(@"URL: %@ %@ STATE: %d MESSAGE: %@ REQUEST: %@ RESPONSE: %@", method, url, s, message, request, response);
+        LogError(@"URL: %@ %@ STATE: %d MESSAGE: %@ REQUEST: %@ RESPONSE: %@", method, url, status, message, request, response);
     } else {
-        LogError(@"URL: %@ %@ STATE: %d CODE: %@ MESSAGE: %@ REQUEST: %@ RESPONSE: %@", method, url, s, code, message, request, response);
+        LogError(@"URL: %@ %@ STATE: %d CODE: %@ MESSAGE: %@ REQUEST: %@ RESPONSE: %@", method, url, status, code, message, request, response);
     }
 }
 
