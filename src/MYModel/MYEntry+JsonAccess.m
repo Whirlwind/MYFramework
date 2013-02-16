@@ -29,7 +29,7 @@
 
 + (NSString *)convertJsonKeyNameToPropertyName:(NSString *)name {
     if ([name isEqualToString:@"id"]) {
-        return @"index";
+        return @"remoteId";
     }
     return name;
 }

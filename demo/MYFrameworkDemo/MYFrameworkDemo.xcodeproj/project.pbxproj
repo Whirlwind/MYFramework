@@ -10,6 +10,8 @@
 		7933CA3A1649409FB02E5769 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D49B9F6386094C51AD178C53 /* libPods.a */; };
 		AB0178D816836C0E00DE4498 /* MYNavigationControllerAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0178D716836C0E00DE4498 /* MYNavigationControllerAnimationFactory.m */; };
 		AB06B79016CF4E3300450A0E /* MYDbFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B78F16CF4E3300450A0E /* MYDbFetcher.m */; };
+		AB06B79316CF4F1F00450A0E /* MYJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79216CF4F1E00450A0E /* MYJsonAccess.m */; };
+		AB06B79616CF514E00450A0E /* ASIHTTPRequest+MYSign.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */; };
 		AB06B79C16CF6CC900450A0E /* MYDbFetcher+MYEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79B16CF6CC900450A0E /* MYDbFetcher+MYEntry.m */; };
 		AB1F15761680336F00E55E77 /* ValueCheckBoxViewCellRuler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1F15751680336F00E55E77 /* ValueCheckBoxViewCellRuler.m */; };
 		AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3443A71654B2F600F77740 /* MYDateSwitcher.m */; };
@@ -71,6 +73,10 @@
 		AB0178DA16836C3C00DE4498 /* MYNavigationControllerAnimationFactoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYNavigationControllerAnimationFactoryProtocol.h; sourceTree = "<group>"; };
 		AB06B78E16CF4E3300450A0E /* MYDbFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDbFetcher.h; sourceTree = "<group>"; };
 		AB06B78F16CF4E3300450A0E /* MYDbFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDbFetcher.m; sourceTree = "<group>"; };
+		AB06B79116CF4F1E00450A0E /* MYJsonAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYJsonAccess.h; sourceTree = "<group>"; };
+		AB06B79216CF4F1E00450A0E /* MYJsonAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYJsonAccess.m; sourceTree = "<group>"; };
+		AB06B79416CF514E00450A0E /* ASIHTTPRequest+MYSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIHTTPRequest+MYSign.h"; sourceTree = "<group>"; };
+		AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIHTTPRequest+MYSign.m"; sourceTree = "<group>"; };
 		AB06B79A16CF6CC900450A0E /* MYDbFetcher+MYEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYDbFetcher+MYEntry.h"; sourceTree = "<group>"; };
 		AB06B79B16CF6CC900450A0E /* MYDbFetcher+MYEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYDbFetcher+MYEntry.m"; sourceTree = "<group>"; };
 		AB1F15741680336F00E55E77 /* ValueCheckBoxViewCellRuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueCheckBoxViewCellRuler.h; sourceTree = "<group>"; };
@@ -195,6 +201,10 @@
 		AB06B78D16CF4E0F00450A0E /* MYDataAccess */ = {
 			isa = PBXGroup;
 			children = (
+				AB06B79416CF514E00450A0E /* ASIHTTPRequest+MYSign.h */,
+				AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */,
+				AB06B79116CF4F1E00450A0E /* MYJsonAccess.h */,
+				AB06B79216CF4F1E00450A0E /* MYJsonAccess.m */,
 				AB06B78E16CF4E3300450A0E /* MYDbFetcher.h */,
 				AB06B78F16CF4E3300450A0E /* MYDbFetcher.m */,
 			);
@@ -567,6 +577,8 @@
 				AB9E565316BFC5AE008D733B /* MYInputFieldText.m in Sources */,
 				AB9E565616BFD1D1008D733B /* MYInputFieldCellPhone.m in Sources */,
 				AB06B79016CF4E3300450A0E /* MYDbFetcher.m in Sources */,
+				AB06B79316CF4F1F00450A0E /* MYJsonAccess.m in Sources */,
+				AB06B79616CF514E00450A0E /* ASIHTTPRequest+MYSign.m in Sources */,
 				AB06B79C16CF6CC900450A0E /* MYDbFetcher+MYEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import "MYEntry.h"
+#import "MYJsonAccess.h"
 
 @interface MYEntry (JsonAccess)
 

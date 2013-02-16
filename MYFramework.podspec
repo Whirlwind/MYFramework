@@ -25,4 +25,7 @@ Pod::Spec.new do |s|
   s.dependency 'NSDate', '~>0.0.3'
   s.dependency 'FMDB'
   s.dependency 'NSString'
+  s.dependency 'ASIHTTPRequest/Basic'
+  s.dependency 'JSONAPI'
+  s.dependency 'BHAnalysis'
 end
