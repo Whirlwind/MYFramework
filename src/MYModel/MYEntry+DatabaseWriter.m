@@ -94,9 +94,7 @@
 
 + (SEL)convertDbFieldNameToSetSelector:(NSString *)name {
     NSString *property = [self convertDbFieldNameToPropertyName:name];
-    NSString *firstCapChar = [[property substringToIndex:1] capitalizedString];
-    NSString *cappedString = [property stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
-    return NSSelectorFromString([NSString stringWithFormat:@"set%@:", cappedString]);
+    return [self setterFromPropertyString:property];
 }
 
 @end
