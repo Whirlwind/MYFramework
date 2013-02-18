@@ -11,4 +11,7 @@
 @interface NSObject (MYProperty)
 + (SEL)setterFromPropertyString:(NSString *)property;
 + (SEL)getterFromPropertyString:(NSString *)property;
+
++ (NSString *)convertRailsStylePropertyToAppleStyleProperty:(NSString *)property;
++ (NSString *)convertAppleStylePropertyToRailsStyleProperty:(NSString *)property;
 @end

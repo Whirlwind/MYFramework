@@ -18,4 +18,29 @@
 + (SEL)getterFromPropertyString:(NSString *)property {
     return NSSelectorFromString(property);
 }
+
++ (NSString *)convertRailsStylePropertyToAppleStyleProperty:(NSString *)property {
+    NSArray *pieces = [property componentsSeparatedByString:@"_"];
+    NSMutableArray *array = [[[NSMutableArray alloc] initWithCapacity:[pieces count]] autorelease];
+    [pieces enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if (idx == 0) {
+            [array addObject:obj];
+        } else {
+            [array addObject:[obj capitalizedString]];
+        }
+    }];
+    return [array componentsJoinedByString:@""];
+}
+
++ (NSString *)convertAppleStylePropertyToRailsStyleProperty:(NSString *)property {
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([A-Z])"
+                                                                           options:NSRegularExpressionDotMatchesLineSeparators
+                                                                             error:NULL];
+
+    NSString *s1 = [regex stringByReplacingMatchesInString:property
+                                                   options:0
+                                                     range:NSMakeRange(0, [property length])
+                                              withTemplate:@"_$0"];
+    return [s1 lowercaseString];
+}
 @end

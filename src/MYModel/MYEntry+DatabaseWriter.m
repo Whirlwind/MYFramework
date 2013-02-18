@@ -80,16 +80,7 @@
     if ([name isEqualToString:@"id"]) {
         return @"index";
     }
-    NSArray *pieces = [name componentsSeparatedByString:@"_"];
-    NSMutableArray *array = [[[NSMutableArray alloc] initWithCapacity:[pieces count]] autorelease];
-    [pieces enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if (idx == 0) {
-            [array addObject:obj];
-        } else {
-            [array addObject:[obj capitalizedString]];
-        }
-    }];
-    return [array componentsJoinedByString:@""];
+    return [self convertRailsStylePropertyToAppleStyleProperty:name];
 }
 
 + (SEL)convertDbFieldNameToSetSelector:(NSString *)name {
