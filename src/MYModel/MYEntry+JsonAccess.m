@@ -31,7 +31,7 @@
     if ([name isEqualToString:@"id"]) {
         return @"remoteId";
     }
-    return name;
+    return [self convertRailsStylePropertyToAppleStyleProperty:name];
 }
 
 + (NSArray *)parseModelArrayFromHashArray:(NSArray *)list {
