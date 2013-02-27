@@ -27,27 +27,24 @@
 - (void)buildSecurityParams:(NSString*)appSecret postData:(NSDictionary*)__postData addIDParams:(BOOL)__addIDParams
 {
     NSMutableDictionary* resultDict = [[NSMutableDictionary alloc] init];
-    
+
     NSDictionary* dict;
-    
-    if (__postData)
-    {
+
+    if (__postData) {
         dict = __postData;
-    }
-    else
-    {
+    } else {
         dict = [url dictionaryOfQuery];
     }
-    
+
     [resultDict addEntriesFromDictionary:dict];
-    
+
     if (__addIDParams) {
         [self mixAdditionParams:dict];
         [resultDict addEntriesFromDictionary:[self additionParams]];
     }
-    
+
     NSString* apiPath = [self matchAPIPath:[url absoluteString]];
-    
+
     NSString* str = [NSString stringWithFormat:@"%@%@%@%@",
                      appSecret,
                      requestMethod,
@@ -55,7 +52,7 @@
                      [self queryStringFromDictionary:resultDict]];
 
     [resultDict release];
-    
+
     if (self.requestHeaders) {
         [self.requestHeaders setValue:[str stringFromMD5] forKey:@"consumer-key"];
     } else {
@@ -72,31 +69,26 @@
 - (void)mixAdditionParams:(NSDictionary*)__postData
 {
     NSMutableDictionary* resultDict = [self additionParams];
-    
+
     if ([self.requestMethod isEqualToString:@"GET"]) {
-        
+
         [resultDict addEntriesFromDictionary:__postData];
-        
+
         NSString* urlPath = [self matchURLPath:[url absoluteString]];
         NSString* mixPath = [NSString stringWithFormat:@"%@%@", urlPath, [URLHelper getURL:nil queryParameters:resultDict isSort:YES]];
-        
+
         [self setURL:[NSURL URLWithString:mixPath]];
-        
-    }else
-    {
-        
+
+    } else {
+
         NSArray * keys = [resultDict allKeys];
-        
-        for ( NSString * key in keys )
-        {
-            
-            if ([self isKindOfClass:[ASIFormDataRequest class]])
-            {
+
+        for ( NSString * key in keys ) {
+
+            if ([self isKindOfClass:[ASIFormDataRequest class]]) {
                 [(ASIFormDataRequest*)self setPostValue:[resultDict objectForKey:key] forKey:key];
             }
-            
         }
-        
     }
 }
 
@@ -109,23 +101,23 @@
 - (NSString*) matchAPIPath:(NSString*)string
 {
     NSString* apiPath = @"";
-    
+
     NSRange firstDelimiterRange = [string rangeOfString:@"?"];
-    
+
     if (firstDelimiterRange.location != NSNotFound) {
         string = [string substringWithRange:NSMakeRange(0, firstDelimiterRange.location)];
     }
-    
+
     NSString *regexStr = @".*://.+?(\\/.*)";
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexStr options:0 error:nil];
-    
+
     NSTextCheckingResult *result = [regex firstMatchInString:string options:0 range:NSMakeRange(0, [string length])];
-    
+
     if (result) {
         NSRange range = [result rangeAtIndex:1];
         apiPath = [string substringWithRange:range];
     }
-    
+
     return apiPath;
 }
 
@@ -140,26 +132,21 @@
 {
     NSMutableArray * pairs = [NSMutableArray array];
     NSArray *sortedKeys = [[dict allKeys] sortedArrayUsingSelector: @selector(compare:)];
-    
-	for ( NSString * key in sortedKeys )
-	{
+
+	for ( NSString * key in sortedKeys ) {
         id value = [dict objectForKey:key];
-        
-		if ( ([value isKindOfClass:[NSNumber class]]) )
-		{
+
+		if ( ([value isKindOfClass:[NSNumber class]]) ) {
 			value = [value stringValue];
-            
-		}else if ([value isKindOfClass:[NSString class]])
-        {
-            
-        }else
-        {
+
+        } else if ([value isKindOfClass:[NSString class]]) {
+
+        } else {
             continue;
         }
         
-		NSString * urlEncoding = [value encodedURLParameterString];
-		[pairs addObject:[NSString stringWithFormat:@"%@%@", key, urlEncoding]];
-	}
+		[pairs addObject:[NSString stringWithFormat:@"%@%@", key, value]];
+    }
 	
 	return [pairs componentsJoinedByString:@""];
 }

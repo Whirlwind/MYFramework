@@ -7,7 +7,7 @@
 //
 
 #import "MYEntry.h"
-#import "MYUserDataBase.h"
+#import "MYDbManager.h"
 
 @interface MYUserEntry : MYEntry
 

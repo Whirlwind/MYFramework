@@ -14,7 +14,6 @@
 
 @interface MYDbFetcher : NSObject
 
-@property (assign, nonatomic) Class entryClass;
 @property (copy, nonatomic) NSString *tableName;
 @property (retain, nonatomic) FMDatabaseQueue *dbQueue;
 @property (retain, nonatomic) FMDatabase *db;
@@ -50,13 +49,11 @@
 - (NSInteger)fetchInteger;
 - (NSNumber *)fetchNumber;
 - (NSString *)fetchString;
-- (NSArray *)fetchRecords;
 - (NSArray *)fetchDictionaryArray;
 - (NSDictionary *)fetchDictionary;
 - (NSInteger)fetchCounter;
 - (void)fetchDbWithBlock:(void(^)(FMResultSet *rs))block;
 
-- (MYDbFetcher *)filterUserKey:(NSString *)userKey;
 
 - (BOOL)updateDb;
 - (BOOL)updateDb:(BOOL(^)(FMDatabase *db))block;

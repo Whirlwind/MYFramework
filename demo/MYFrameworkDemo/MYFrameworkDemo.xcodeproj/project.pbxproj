@@ -9,12 +9,6 @@
 /* Begin PBXBuildFile section */
 		7933CA3A1649409FB02E5769 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D49B9F6386094C51AD178C53 /* libPods.a */; };
 		AB0178D816836C0E00DE4498 /* MYNavigationControllerAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0178D716836C0E00DE4498 /* MYNavigationControllerAnimationFactory.m */; };
-		AB06B79016CF4E3300450A0E /* MYDbFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B78F16CF4E3300450A0E /* MYDbFetcher.m */; };
-		AB06B79316CF4F1F00450A0E /* MYJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79216CF4F1E00450A0E /* MYJsonAccess.m */; };
-		AB06B79616CF514E00450A0E /* ASIHTTPRequest+MYSign.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */; };
-		AB06B79C16CF6CC900450A0E /* MYDbFetcher+MYEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79B16CF6CC900450A0E /* MYDbFetcher+MYEntry.m */; };
-		AB06B7A116CF7FCD00450A0E /* MYUserDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B79E16CF7FCC00450A0E /* MYUserDataBase.m */; };
-		AB06B7A216CF7FCD00450A0E /* MYSqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B7A016CF7FCD00450A0E /* MYSqlAccess.m */; };
 		AB06B7A416CF848100450A0E /* MYFramework.broadcast in Resources */ = {isa = PBXBuildFile; fileRef = AB06B7A316CF848100450A0E /* MYFramework.broadcast */; };
 		AB06B7A816CF8E9600450A0E /* MYApplicationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B7A716CF8E9600450A0E /* MYApplicationObserver.m */; };
 		AB06B7AB16CF8EF500450A0E /* MYUserDataBaseObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06B7AA16CF8EF500450A0E /* MYUserDataBaseObserver.m */; };
@@ -50,13 +44,8 @@
 		AB76FE8916B7D25B00128E0A /* MYSandbox.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE8116B7D25B00128E0A /* MYSandbox.m */; };
 		AB76FE8A16B7D25B00128E0A /* NSDictionary+KeyExtends.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE8516B7D25B00128E0A /* NSDictionary+KeyExtends.m */; };
 		AB76FE8B16B7D25B00128E0A /* NSObject+MYProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE8716B7D25B00128E0A /* NSObject+MYProperty.m */; };
-		AB76FE9D16B7D7E500128E0A /* MYEntry+DatabaseReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE8E16B7D7E500128E0A /* MYEntry+DatabaseReader.m */; };
-		AB76FE9E16B7D7E500128E0A /* MYEntry+DatabaseWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9016B7D7E500128E0A /* MYEntry+DatabaseWriter.m */; };
 		AB76FE9F16B7D7E500128E0A /* MYEntry+JsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9216B7D7E500128E0A /* MYEntry+JsonAccess.m */; };
 		AB76FEA016B7D7E500128E0A /* MYEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9416B7D7E500128E0A /* MYEntry.m */; };
-		AB76FEA216B7D7E500128E0A /* MYEntryDbSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9816B7D7E500128E0A /* MYEntryDbSchema.m */; };
-		AB76FEA316B7D7E500128E0A /* MYUserEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */; };
-		AB76FEA416B7D7E500128E0A /* MYUserEntryLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9C16B7D7E500128E0A /* MYUserEntryLog.m */; };
 		AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FEA716B8A65D00128E0A /* MYViewModel.m */; };
 		AB9E55E616BF4F8D008D733B /* MYBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E55E516BF4F8D008D733B /* MYBundle.m */; };
 		AB9E565016BFC5AE008D733B /* MYInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564716BFC5AE008D733B /* MYInputField.m */; };
@@ -64,7 +53,16 @@
 		AB9E565216BFC5AE008D733B /* MYInputFieldNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564D16BFC5AE008D733B /* MYInputFieldNumber.m */; };
 		AB9E565316BFC5AE008D733B /* MYInputFieldText.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564F16BFC5AE008D733B /* MYInputFieldText.m */; };
 		AB9E565616BFD1D1008D733B /* MYInputFieldCellPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E565516BFD1D0008D733B /* MYInputFieldCellPhone.m */; };
+		ABAA74EC16DB53FF00F5930F /* MYDbFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74E116DB53FF00F5930F /* MYDbFetcher.m */; };
+		ABAA74ED16DB53FF00F5930F /* MYEntrySqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74E316DB53FF00F5930F /* MYEntrySqlAccess.m */; };
+		ABAA74EF16DB53FF00F5930F /* MYDbManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74E816DB53FF00F5930F /* MYDbManager.m */; };
+		ABAA74F716DB544B00F5930F /* ASIHTTPRequest+MYSign.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74F216DB544B00F5930F /* ASIHTTPRequest+MYSign.m */; };
+		ABAA74F816DB544B00F5930F /* MYEntryJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74F416DB544B00F5930F /* MYEntryJsonAccess.m */; };
+		ABAA74F916DB544B00F5930F /* MYJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74F616DB544B00F5930F /* MYJsonAccess.m */; };
+		ABAA74FF16DB623700F5930F /* MYDbManager+FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74FE16DB623700F5930F /* MYDbManager+FileHelper.m */; };
 		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
+		ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */; };
+		ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */; };
 		EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87CF167ACA160068798C /* unitBackground@2x.png */; };
 		EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87D0167ACA160068798C /* unitPointer@2x.png */; };
 		ECC06D4A166F341400B6EA33 /* rulerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC06D49166F341400B6EA33 /* rulerBackground@2x.png */; };
@@ -76,18 +74,6 @@
 		AB0178D616836C0E00DE4498 /* MYNavigationControllerAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYNavigationControllerAnimationFactory.h; sourceTree = "<group>"; };
 		AB0178D716836C0E00DE4498 /* MYNavigationControllerAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYNavigationControllerAnimationFactory.m; sourceTree = "<group>"; };
 		AB0178DA16836C3C00DE4498 /* MYNavigationControllerAnimationFactoryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYNavigationControllerAnimationFactoryProtocol.h; sourceTree = "<group>"; };
-		AB06B78E16CF4E3300450A0E /* MYDbFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDbFetcher.h; sourceTree = "<group>"; };
-		AB06B78F16CF4E3300450A0E /* MYDbFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDbFetcher.m; sourceTree = "<group>"; };
-		AB06B79116CF4F1E00450A0E /* MYJsonAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYJsonAccess.h; sourceTree = "<group>"; };
-		AB06B79216CF4F1E00450A0E /* MYJsonAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYJsonAccess.m; sourceTree = "<group>"; };
-		AB06B79416CF514E00450A0E /* ASIHTTPRequest+MYSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIHTTPRequest+MYSign.h"; sourceTree = "<group>"; };
-		AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIHTTPRequest+MYSign.m"; sourceTree = "<group>"; };
-		AB06B79A16CF6CC900450A0E /* MYDbFetcher+MYEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYDbFetcher+MYEntry.h"; sourceTree = "<group>"; };
-		AB06B79B16CF6CC900450A0E /* MYDbFetcher+MYEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYDbFetcher+MYEntry.m"; sourceTree = "<group>"; };
-		AB06B79D16CF7FCC00450A0E /* MYUserDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserDataBase.h; sourceTree = "<group>"; };
-		AB06B79E16CF7FCC00450A0E /* MYUserDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserDataBase.m; sourceTree = "<group>"; };
-		AB06B79F16CF7FCD00450A0E /* MYSqlAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSqlAccess.h; sourceTree = "<group>"; };
-		AB06B7A016CF7FCD00450A0E /* MYSqlAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSqlAccess.m; sourceTree = "<group>"; };
 		AB06B7A316CF848100450A0E /* MYFramework.broadcast */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MYFramework.broadcast; sourceTree = "<group>"; };
 		AB06B7A616CF8E9600450A0E /* MYApplicationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYApplicationObserver.h; sourceTree = "<group>"; };
 		AB06B7A716CF8E9600450A0E /* MYApplicationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYApplicationObserver.m; sourceTree = "<group>"; };
@@ -156,16 +142,10 @@
 		AB76FE8516B7D25B00128E0A /* NSDictionary+KeyExtends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KeyExtends.m"; sourceTree = "<group>"; };
 		AB76FE8616B7D25B00128E0A /* NSObject+MYProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MYProperty.h"; sourceTree = "<group>"; };
 		AB76FE8716B7D25B00128E0A /* NSObject+MYProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYProperty.m"; sourceTree = "<group>"; };
-		AB76FE8D16B7D7E500128E0A /* MYEntry+DatabaseReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYEntry+DatabaseReader.h"; sourceTree = "<group>"; };
-		AB76FE8E16B7D7E500128E0A /* MYEntry+DatabaseReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYEntry+DatabaseReader.m"; sourceTree = "<group>"; };
-		AB76FE8F16B7D7E500128E0A /* MYEntry+DatabaseWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYEntry+DatabaseWriter.h"; sourceTree = "<group>"; };
-		AB76FE9016B7D7E500128E0A /* MYEntry+DatabaseWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYEntry+DatabaseWriter.m"; sourceTree = "<group>"; };
 		AB76FE9116B7D7E500128E0A /* MYEntry+JsonAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYEntry+JsonAccess.h"; sourceTree = "<group>"; };
 		AB76FE9216B7D7E500128E0A /* MYEntry+JsonAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYEntry+JsonAccess.m"; sourceTree = "<group>"; };
 		AB76FE9316B7D7E500128E0A /* MYEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntry.h; sourceTree = "<group>"; };
 		AB76FE9416B7D7E500128E0A /* MYEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntry.m; sourceTree = "<group>"; };
-		AB76FE9716B7D7E500128E0A /* MYEntryDbSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntryDbSchema.h; sourceTree = "<group>"; };
-		AB76FE9816B7D7E500128E0A /* MYEntryDbSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntryDbSchema.m; sourceTree = "<group>"; };
 		AB76FE9916B7D7E500128E0A /* MYUserEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserEntry.h; sourceTree = "<group>"; };
 		AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserEntry.m; sourceTree = "<group>"; };
 		AB76FE9B16B7D7E500128E0A /* MYUserEntryLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserEntryLog.h; sourceTree = "<group>"; };
@@ -186,8 +166,29 @@
 		AB9E564F16BFC5AE008D733B /* MYInputFieldText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldText.m; sourceTree = "<group>"; };
 		AB9E565416BFD1D0008D733B /* MYInputFieldCellPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldCellPhone.h; sourceTree = "<group>"; };
 		AB9E565516BFD1D0008D733B /* MYInputFieldCellPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldCellPhone.m; sourceTree = "<group>"; };
+		ABAA74DA16DB53FF00F5930F /* MYEntryDataAccessProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntryDataAccessProtocol.h; sourceTree = "<group>"; };
+		ABAA74E016DB53FF00F5930F /* MYDbFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDbFetcher.h; sourceTree = "<group>"; };
+		ABAA74E116DB53FF00F5930F /* MYDbFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDbFetcher.m; sourceTree = "<group>"; };
+		ABAA74E216DB53FF00F5930F /* MYEntrySqlAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntrySqlAccess.h; sourceTree = "<group>"; };
+		ABAA74E316DB53FF00F5930F /* MYEntrySqlAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntrySqlAccess.m; sourceTree = "<group>"; };
+		ABAA74E416DB53FF00F5930F /* MYEntrySqlAccessProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntrySqlAccessProtocol.h; sourceTree = "<group>"; };
+		ABAA74E716DB53FF00F5930F /* MYDbManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDbManager.h; sourceTree = "<group>"; };
+		ABAA74E816DB53FF00F5930F /* MYDbManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDbManager.m; sourceTree = "<group>"; };
+		ABAA74F116DB544B00F5930F /* ASIHTTPRequest+MYSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIHTTPRequest+MYSign.h"; sourceTree = "<group>"; };
+		ABAA74F216DB544B00F5930F /* ASIHTTPRequest+MYSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASIHTTPRequest+MYSign.m"; sourceTree = "<group>"; };
+		ABAA74F316DB544B00F5930F /* MYEntryJsonAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntryJsonAccess.h; sourceTree = "<group>"; };
+		ABAA74F416DB544B00F5930F /* MYEntryJsonAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntryJsonAccess.m; sourceTree = "<group>"; };
+		ABAA74F516DB544B00F5930F /* MYJsonAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYJsonAccess.h; sourceTree = "<group>"; };
+		ABAA74F616DB544B00F5930F /* MYJsonAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYJsonAccess.m; sourceTree = "<group>"; };
+		ABAA74FD16DB623600F5930F /* MYDbManager+FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYDbManager+FileHelper.h"; sourceTree = "<group>"; };
+		ABAA74FE16DB623700F5930F /* MYDbManager+FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYDbManager+FileHelper.m"; sourceTree = "<group>"; };
 		ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTextLabel.h; sourceTree = "<group>"; };
 		ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTextLabel.m; sourceTree = "<group>"; };
+		ABC9D99316DC8BB2001BAEEC /* MYDbSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDbSchema.h; sourceTree = "<group>"; };
+		ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDbSchema.m; sourceTree = "<group>"; };
+		ABC9D99616DCC1C0001BAEEC /* MYEntryJsonAccessProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYEntryJsonAccessProtocol.h; sourceTree = "<group>"; };
+		ABC9D99716DD9DA2001BAEEC /* MYEntry+SqlAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYEntry+SqlAccess.h"; sourceTree = "<group>"; };
+		ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYEntry+SqlAccess.m"; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
 		ABFEDC4E16645BBD0053A5BC /* MYFramework-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYFramework-Prefix.pch"; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,16 +216,9 @@
 		AB06B78D16CF4E0F00450A0E /* MYDataAccess */ = {
 			isa = PBXGroup;
 			children = (
-				AB06B79D16CF7FCC00450A0E /* MYUserDataBase.h */,
-				AB06B79E16CF7FCC00450A0E /* MYUserDataBase.m */,
-				AB06B79F16CF7FCD00450A0E /* MYSqlAccess.h */,
-				AB06B7A016CF7FCD00450A0E /* MYSqlAccess.m */,
-				AB06B79416CF514E00450A0E /* ASIHTTPRequest+MYSign.h */,
-				AB06B79516CF514E00450A0E /* ASIHTTPRequest+MYSign.m */,
-				AB06B79116CF4F1E00450A0E /* MYJsonAccess.h */,
-				AB06B79216CF4F1E00450A0E /* MYJsonAccess.m */,
-				AB06B78E16CF4E3300450A0E /* MYDbFetcher.h */,
-				AB06B78F16CF4E3300450A0E /* MYDbFetcher.m */,
+				ABAA74DA16DB53FF00F5930F /* MYEntryDataAccessProtocol.h */,
+				ABAA74F016DB544B00F5930F /* Json */,
+				ABAA74DF16DB53FF00F5930F /* Sqlite */,
 			);
 			path = MYDataAccess;
 			sourceTree = "<group>";
@@ -301,16 +295,16 @@
 		AB3A91011650946A00C672E5 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				AB06B7A516CF8E7200450A0E /* Observer */,
-				AB06B78D16CF4E0F00450A0E /* MYDataAccess */,
-				AB76FEA516B8A65D00128E0A /* MYViewModel */,
-				AB76FE8C16B7D7E500128E0A /* MYModel */,
-				AB76FE5816B7D19400128E0A /* MYFoundation */,
-				AB3A91021650946A00C672E5 /* MYView */,
-				AB3A910F1650946A00C672E5 /* MYViewController */,
+				AB06B7A316CF848100450A0E /* MYFramework.broadcast */,
 				ABEEE92E16512A360002BC58 /* MYFramework.h */,
 				ABFEDC4E16645BBD0053A5BC /* MYFramework-Prefix.pch */,
-				AB06B7A316CF848100450A0E /* MYFramework.broadcast */,
+				AB06B78D16CF4E0F00450A0E /* MYDataAccess */,
+				AB76FE5816B7D19400128E0A /* MYFoundation */,
+				AB76FE8C16B7D7E500128E0A /* MYModel */,
+				AB3A91021650946A00C672E5 /* MYView */,
+				AB3A910F1650946A00C672E5 /* MYViewController */,
+				AB76FEA516B8A65D00128E0A /* MYViewModel */,
+				AB06B7A516CF8E7200450A0E /* Observer */,
 			);
 			name = src;
 			path = ../../src;
@@ -450,18 +444,12 @@
 		AB76FE8C16B7D7E500128E0A /* MYModel */ = {
 			isa = PBXGroup;
 			children = (
-				AB06B79A16CF6CC900450A0E /* MYDbFetcher+MYEntry.h */,
-				AB06B79B16CF6CC900450A0E /* MYDbFetcher+MYEntry.m */,
-				AB76FE8D16B7D7E500128E0A /* MYEntry+DatabaseReader.h */,
-				AB76FE8E16B7D7E500128E0A /* MYEntry+DatabaseReader.m */,
-				AB76FE8F16B7D7E500128E0A /* MYEntry+DatabaseWriter.h */,
-				AB76FE9016B7D7E500128E0A /* MYEntry+DatabaseWriter.m */,
 				AB76FE9116B7D7E500128E0A /* MYEntry+JsonAccess.h */,
 				AB76FE9216B7D7E500128E0A /* MYEntry+JsonAccess.m */,
+				ABC9D99716DD9DA2001BAEEC /* MYEntry+SqlAccess.h */,
+				ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */,
 				AB76FE9316B7D7E500128E0A /* MYEntry.h */,
 				AB76FE9416B7D7E500128E0A /* MYEntry.m */,
-				AB76FE9716B7D7E500128E0A /* MYEntryDbSchema.h */,
-				AB76FE9816B7D7E500128E0A /* MYEntryDbSchema.m */,
 				AB76FE9916B7D7E500128E0A /* MYUserEntry.h */,
 				AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */,
 				AB76FE9B16B7D7E500128E0A /* MYUserEntryLog.h */,
@@ -477,6 +465,38 @@
 				AB76FEA716B8A65D00128E0A /* MYViewModel.m */,
 			);
 			path = MYViewModel;
+			sourceTree = "<group>";
+		};
+		ABAA74DF16DB53FF00F5930F /* Sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				ABAA74FD16DB623600F5930F /* MYDbManager+FileHelper.h */,
+				ABAA74FE16DB623700F5930F /* MYDbManager+FileHelper.m */,
+				ABAA74E016DB53FF00F5930F /* MYDbFetcher.h */,
+				ABAA74E116DB53FF00F5930F /* MYDbFetcher.m */,
+				ABAA74E716DB53FF00F5930F /* MYDbManager.h */,
+				ABAA74E816DB53FF00F5930F /* MYDbManager.m */,
+				ABC9D99316DC8BB2001BAEEC /* MYDbSchema.h */,
+				ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */,
+				ABAA74E216DB53FF00F5930F /* MYEntrySqlAccess.h */,
+				ABAA74E316DB53FF00F5930F /* MYEntrySqlAccess.m */,
+				ABAA74E416DB53FF00F5930F /* MYEntrySqlAccessProtocol.h */,
+			);
+			path = Sqlite;
+			sourceTree = "<group>";
+		};
+		ABAA74F016DB544B00F5930F /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				ABAA74F116DB544B00F5930F /* ASIHTTPRequest+MYSign.h */,
+				ABAA74F216DB544B00F5930F /* ASIHTTPRequest+MYSign.m */,
+				ABAA74F316DB544B00F5930F /* MYEntryJsonAccess.h */,
+				ABAA74F416DB544B00F5930F /* MYEntryJsonAccess.m */,
+				ABC9D99616DCC1C0001BAEEC /* MYEntryJsonAccessProtocol.h */,
+				ABAA74F516DB544B00F5930F /* MYJsonAccess.h */,
+				ABAA74F616DB544B00F5930F /* MYJsonAccess.m */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -594,13 +614,8 @@
 				AB76FE8916B7D25B00128E0A /* MYSandbox.m in Sources */,
 				AB76FE8A16B7D25B00128E0A /* NSDictionary+KeyExtends.m in Sources */,
 				AB76FE8B16B7D25B00128E0A /* NSObject+MYProperty.m in Sources */,
-				AB76FE9D16B7D7E500128E0A /* MYEntry+DatabaseReader.m in Sources */,
-				AB76FE9E16B7D7E500128E0A /* MYEntry+DatabaseWriter.m in Sources */,
 				AB76FE9F16B7D7E500128E0A /* MYEntry+JsonAccess.m in Sources */,
 				AB76FEA016B7D7E500128E0A /* MYEntry.m in Sources */,
-				AB76FEA216B7D7E500128E0A /* MYEntryDbSchema.m in Sources */,
-				AB76FEA316B7D7E500128E0A /* MYUserEntry.m in Sources */,
-				AB76FEA416B7D7E500128E0A /* MYUserEntryLog.m in Sources */,
 				AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */,
 				AB9E55E616BF4F8D008D733B /* MYBundle.m in Sources */,
 				AB9E565016BFC5AE008D733B /* MYInputField.m in Sources */,
@@ -608,14 +623,17 @@
 				AB9E565216BFC5AE008D733B /* MYInputFieldNumber.m in Sources */,
 				AB9E565316BFC5AE008D733B /* MYInputFieldText.m in Sources */,
 				AB9E565616BFD1D1008D733B /* MYInputFieldCellPhone.m in Sources */,
-				AB06B79016CF4E3300450A0E /* MYDbFetcher.m in Sources */,
-				AB06B79316CF4F1F00450A0E /* MYJsonAccess.m in Sources */,
-				AB06B79616CF514E00450A0E /* ASIHTTPRequest+MYSign.m in Sources */,
-				AB06B79C16CF6CC900450A0E /* MYDbFetcher+MYEntry.m in Sources */,
-				AB06B7A116CF7FCD00450A0E /* MYUserDataBase.m in Sources */,
-				AB06B7A216CF7FCD00450A0E /* MYSqlAccess.m in Sources */,
 				AB06B7A816CF8E9600450A0E /* MYApplicationObserver.m in Sources */,
 				AB06B7AB16CF8EF500450A0E /* MYUserDataBaseObserver.m in Sources */,
+				ABAA74EC16DB53FF00F5930F /* MYDbFetcher.m in Sources */,
+				ABAA74ED16DB53FF00F5930F /* MYEntrySqlAccess.m in Sources */,
+				ABAA74EF16DB53FF00F5930F /* MYDbManager.m in Sources */,
+				ABAA74F716DB544B00F5930F /* ASIHTTPRequest+MYSign.m in Sources */,
+				ABAA74F816DB544B00F5930F /* MYEntryJsonAccess.m in Sources */,
+				ABAA74F916DB544B00F5930F /* MYJsonAccess.m in Sources */,
+				ABAA74FF16DB623700F5930F /* MYDbManager+FileHelper.m in Sources */,
+				ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */,
+				ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

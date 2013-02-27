@@ -10,10 +10,13 @@
 #import "FMDatabase.h"
 #import "FMDatabaseQueue.h"
 #import "NSObject+MYProperty.h"
+#import "MYEntryDataAccessProtocol.h"
 
 @interface MYEntry : NSObject{
     BOOL listening;
 }
+
+@property (retain, nonatomic) NSObject<MYEntryDataAccessProtocol> *dataAccessor;
 
 @property (retain, nonatomic) NSNumber *index;
 @property (copy, nonatomic) NSString *createdAt;
@@ -26,17 +29,11 @@
 @property (assign, nonatomic) BOOL needPostLocalChangeNotification;
 @property (retain, nonatomic) NSMutableDictionary *changes;
 
-@property (retain, nonatomic) NSString *tableName;
-@property (assign, nonatomic) BOOL needLog;
-@property (retain, nonatomic) NSMutableArray *ignoreLogProperties;
-@property (retain, nonatomic) NSMutableArray *extendLogProperties;
-
-@property (retain, nonatomic) FMDatabaseQueue *dbQueue;
 @property (retain, nonatomic) FMDatabase *db;
-@property (assign, nonatomic) BOOL insertModeUsingReplace;
 
 
 #pragma mark - listen
+- (NSArray *)listenProperties;
 - (void)disableListenProperty:(void(^)(void))block;
 - (void)reverseWithProperty:(NSString *)property;
 - (void)reverse;
@@ -44,26 +41,23 @@
 + (void)postLocalChangeNotification;
 
 #pragma mark - for override
-+ (NSString *)tableName;
-+ (NSString *)modelName;
-+ (FMDatabaseQueue *)dbQueue;
 + (BOOL)needLog;
 + (BOOL)isUserDb;
 
-#pragma mark - log
-- (BOOL)logChanges:(NSDictionary *)changes usingDb:(FMDatabase *)db;
-- (BOOL)logDeleteUsingDb:(FMDatabase *)db;
 
 #pragma mark - DAO
 - (BOOL)save;
 - (BOOL)destroy;
+
+#pragma mark - Convenient
++ (NSInteger)count;
++ (id)entryAt:(NSNumber *)index;
++ (BOOL)existEntry;
 
 #pragma mark for override
 - (BOOL)createEntry;
 - (BOOL)updateEntry;
 - (BOOL)removeEntry;
 
++ (NSObject<MYEntryDataAccessProtocol> *)dataAccessor;
 @end
-
-#import "MYEntry+DatabaseReader.h"
-#import "MYEntry+DatabaseWriter.h"

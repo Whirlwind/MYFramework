@@ -13,6 +13,8 @@
 @property (nonatomic, retain) ASIHTTPRequest *request;
 @property (copy, nonatomic) NSString *securityKey;
 
+- (NSString *)parseAPI:(NSString *)api method:(NSString **)method args:(NSMutableDictionary **)args;
+
 - (NSDictionary *)requestAPI:(NSString *)api;
 - (NSDictionary *)requestAPI:(NSString *)api
                    postValue:(NSDictionary *)values;

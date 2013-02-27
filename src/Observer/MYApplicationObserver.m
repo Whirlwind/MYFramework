@@ -7,12 +7,12 @@
 //
 
 #import "MYApplicationObserver.h"
-#import "MYUserDataBase.h"
+#import "MYDbManager.h"
 
 @implementation MYApplicationObserver
 
 - (void)migrateUserDatabase:(NSNotification *)ntf {
-    MYUserDataBase *db = [[MYUserDataBase alloc] init];
+    MYDbManager *db = [[MYDbManager alloc] init];
     [db migrateUserDatabase:ntf];
     [db release];
 }

@@ -8,10 +8,6 @@
 
 #import "MYDbFetcher.h"
 
-@interface MYDbFetcher ()
-@property (copy, nonatomic) NSString *userKey;
-@end
-
 @implementation MYDbFetcher
 #pragma mark - class methods
 + (MYDbFetcher *)fetcherForTableName:(NSString *)tableName {
@@ -20,7 +16,6 @@
 
 #pragma mark - dealloc
 - (void)dealloc {
-    [_userKey release], _userKey = nil;
     [_db release], _db = nil;
     [_dbQueue release], _dbQueue = nil;
     [_orderBy release], _orderBy = nil;
@@ -48,12 +43,6 @@
     return _wheres;
 }
 
-#pragma mark - public methods
-
-- (MYDbFetcher *)filterUserKey:(NSString *)userKey {
-    self.userKey = userKey;
-    return self;
-}
 #pragma mark offset
 - (MYDbFetcher *)offset:(NSInteger)offset {
     self.offset = [NSNumber numberWithInteger:offset];
@@ -212,16 +201,6 @@
     return result;
 }
 
-- (NSArray *)fetchRecords {
-    __block NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:0];
-    [self fetchDbWithBlock:^(FMResultSet *rs) {
-        while ([rs next]) {
-            [result addObject:[self fetchRecordFromResultSet:rs]];
-        }
-    }];
-    return [result autorelease];
-}
-
 - (NSArray *)fetchDictionaryArray {
     __block NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:0];
     [self fetchDbWithBlock:^(FMResultSet *rs) {
@@ -366,11 +345,6 @@
 }
 
 #pragma mark - private
-- (void)filterUser {
-    if ([self.entryClass isUserDb]) {
-        [self where:@"user_key = ?", self.userKey, nil];
-    }
-}
 - (NSString *)buildSelectSqlWithArgs:(NSMutableArray **)args {
     NSString *selectStatement = [self createSelectStatement];
     NSString *whereStatement = [self createWhereStatementWithArgs:args];
@@ -412,11 +386,6 @@
 - (NSString *)buildInsertSqlWithArgs:(NSMutableArray **)args replace:(BOOL)replace {
     NSMutableArray *tmp = [[NSMutableArray alloc] initWithCapacity:[self.updateDictionary count]+1];
     NSMutableArray *tmp2 = [[NSMutableArray alloc] initWithCapacity:[self.updateDictionary count]+1];
-    if ([self.entryClass isUserDb]) {
-        [tmp addObject:@"user_key"];
-        [tmp2 addObject:@"?"];
-        [*args addObject:self.userKey];
-    }
     [self.updateDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [tmp addObject:[NSString stringWithFormat:@"`%@`", key]];
         [tmp2 addObject:@"?"];
@@ -435,7 +404,6 @@
 }
 
 - (NSString *)createWhereStatementWithArgs:(NSMutableArray **)args {
-    [self filterUser];
     if (_wheres == nil || [_wheres count] == 0) {
         return nil;
     }

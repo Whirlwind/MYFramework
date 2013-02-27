@@ -8,12 +8,10 @@
 
 #import "MYEntry.h"
 #import "NSDate+Extend.h"
-#import "MYEntryDbSchema.h"
+#import "MYDbSchema.h"
 #import "MYUserEntryLog.h"
 
 @implementation MYEntry
-
-@synthesize dbQueue = _dbQueue;
 
 - (void)dealloc {
     [_index release], _index = nil;
@@ -21,9 +19,7 @@
     [_createdAt release], _createdAt = nil;
     [_error release], _error = nil;
     [_db release], _db = nil;
-    [_dbQueue release], _dbQueue = nil;
-    NSArray *properties = [[MYEntryDbSchema sharedInstance] propertiesForModel:[self class]];
-    [properties enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.dataAccessor.dataProperties enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self removeObserver:self forKeyPath:obj];
     }];
     [_changes release], _changes = nil;
@@ -50,7 +46,6 @@
 - (id)init {
     if (self = [super init]) {
         listening = YES;
-        self.insertModeUsingReplace = YES;
         self.needPostLocalChangeNotification = YES;
         [self listenProperty];
     }
@@ -65,15 +60,11 @@
 
 #pragma mark - getter
 
-- (FMDatabaseQueue *)dbQueue {
-    if (_dbQueue == nil) {
-        return [[self class] dbQueue];
+- (NSObject<MYEntryDataAccessProtocol> *)dataAccessor {
+    if (_dataAccessor == nil) {
+        _dataAccessor = [[[self class] dataAccessor] retain];
     }
-    return _dbQueue;
-}
-
-+ (FMDatabaseQueue *)dbQueue {
-    return nil;
+    return _dataAccessor;
 }
 
 - (NSMutableDictionary *)changes {
@@ -90,10 +81,6 @@
     return NO;
 }
 
-+ (NSString *)modelName {
-    return [self description];
-}
-
 - (void)postLocalChangeNotification {
     if (self.needPostLocalChangeNotification) {
         [[self class] postLocalChangeNotification];
@@ -106,25 +93,15 @@
     MY_BACKGROUND_COMMIT
 }
 
-#pragma mark - table name
-- (NSString *)tableName {
-    if (_tableName == nil) {
-        return [[self class] tableName];
-    }
-    return _tableName;
-}
-
-+ (NSString *)tableName {
-    return [self description];
-}
-
 #pragma mark - listener
-- (void)listenProperty {
-    if ([self isKindOfClass:[MYEntryDbSchema class]]) {
-        return;
+- (NSArray *)listenProperties {
+    if ([self.dataAccessor respondsToSelector:@selector(dataProperties)]) {
+        return self.dataAccessor.dataProperties;
     }
-    NSArray *properties = [[MYEntryDbSchema sharedInstance] propertiesForModel:[self class]];
-    [properties enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    return @[];
+}
+- (void)listenProperty {
+    [[self listenProperties] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self addObserver:self
                forKeyPath:obj
                   options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew
@@ -158,35 +135,6 @@
     }
 }
 
-#pragma mark - log
-
-- (BOOL)logChanges:(NSDictionary *)changes usingDb:(FMDatabase *)db {
-    NSMutableDictionary *logChanges = [NSMutableDictionary dictionaryWithDictionary:changes];
-    [self.ignoreLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
-        NSString *field = [[MYEntryDbSchema sharedInstance] dbFieldNameForProperty:property forModel:[self class]];
-        [logChanges removeObjectForKey:field];
-    }];
-    [self.extendLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
-        NSString *field = [[MYEntryDbSchema sharedInstance] dbFieldNameForProperty:property forModel:[self class]];
-        if (field) {
-            [logChanges setValue:[self performSelector:NSSelectorFromString(property)] forKey:field];
-        }
-    }];
-    return [[MYUserEntryLog sharedInstance] logChangeForModel:[[self class] modelName]
-                                                      localId:self.index
-                                                     uniqueId:self.index
-                                                      changes:logChanges
-                                                    updatedAt:self.updatedAt
-                                                      usingDb:db];
-}
-
-- (BOOL)logDeleteUsingDb:(FMDatabase *)db {
-    return [[MYUserEntryLog sharedInstance] logDeleteForModel:[[self class] modelName]
-                                                      localId:self.index
-                                                     uniqueId:self.index
-                                                    updatedAt:self.updatedAt
-                                                      usingDb:db];
-}
 
 #pragma mark - reverse
 - (void)reverseWithProperty:(NSString *)property {
@@ -225,17 +173,38 @@
     return [self removeEntry];
 }
 
+#pragma mark - Convenient
++ (NSInteger)count {
+    return [[self dataAccessor] countEntries];
+}
++ (id)entryAt:(NSNumber *)index {
+    return [[self dataAccessor] entryAt:index];
+}
++ (BOOL)existEntry {
+    return [[self dataAccessor] existEntry];
+}
++ (MYEntry *)firstEntry {
+    NSObject<MYEntryDataAccessProtocol> *accessor = [self dataAccessor];
+    if ([accessor respondsToSelector:@selector(firstEntry)]) {
+        return [[self dataAccessor] firstEntry];
+    }
+    LogError(@"[%@ %s] NOT implement!", NSStringFromClass([self class]), _cmd);
+    return nil;
+}
 #pragma mark for override
 - (BOOL)createEntry {
-    return [self createEntryInDb];
+    return [self.dataAccessor createEntry];
 }
 
 - (BOOL)updateEntry {
-    return [self updateEntryInDb];
+    return [self.dataAccessor updateEntry];
 }
 
 - (BOOL)removeEntry {
-    return [self removeEntryInDb];
+    return [self.dataAccessor removeEntry];
 }
 
++ (NSObject<MYEntryDataAccessProtocol> *)dataAccessor {
+    return nil;
+}
 @end

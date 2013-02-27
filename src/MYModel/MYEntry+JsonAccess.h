@@ -11,6 +11,8 @@
 
 @interface MYEntry (JsonAccess)
 
++ (NSString *)modelName;
+
 /**  使用json字典初始化
  */
 - (id)initWithJsonDictionary:(NSDictionary *)dic;
@@ -37,4 +39,10 @@
  */
 + (NSString *)convertJsonKeyNameToPropertyName:(NSString *)name;
 
+/** 转换属性名为对应的json字段
+ *
+ *  @param name 属性名称
+ *  @return 返回json字段
+ */
++ (NSString *)convertPropertyNameToJsonKeyName:(NSString *)name;
 @end

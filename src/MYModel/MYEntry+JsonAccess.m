@@ -19,6 +19,10 @@
     return self;
 }
 
++ (NSString *)modelName {
+    return [self convertAppleStylePropertyToRailsStyleProperty:NSStringFromClass([self class])];
+}
+
 - (void)setPropertyWithJsonKey:(NSString *)key toValue:(NSObject *)obj {
     NSString *property = [[self class] convertJsonKeyNameToPropertyName:key];
     SEL setSelector = [[self class] setterFromPropertyString:property];
@@ -32,6 +36,13 @@
         return @"remoteId";
     }
     return [self convertRailsStylePropertyToAppleStyleProperty:name];
+}
+
++ (NSString *)convertPropertyNameToJsonKeyName:(NSString *)name {
+    if ([name isEqualToString:@"remoteId"]) {
+        return @"id";
+    }
+    return [self convertAppleStylePropertyToRailsStyleProperty:name];
 }
 
 + (NSArray *)parseModelArrayFromHashArray:(NSArray *)list {

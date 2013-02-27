@@ -20,9 +20,6 @@
 }
 
 #pragma mark - override
-+ (NSInteger)count {
-    return [[[self fetcher] where:@"user_key = ?", [self userKey], nil] fetchCounter];
-}
 
 - (BOOL)save {
     if ([self.changes count] == 0)
@@ -41,21 +38,21 @@
 }
 
 + (FMDatabaseQueue *)dbQueue {
-    return [MYUserDataBase dbQueue];
+    return [MYDbManager dbQueue];
 }
 
 - (BOOL)logChanges:(NSDictionary *)changes usingDb:(FMDatabase *)db {
     NSMutableDictionary *logChanges = [NSMutableDictionary dictionaryWithDictionary:changes];
-    [self.ignoreLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
-        NSString *field = [[MYEntryDbSchema sharedInstance] dbFieldNameForProperty:property forModel:[self class]];
-        [logChanges removeObjectForKey:field];
-    }];
-    [self.extendLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
-        NSString *field = [[MYEntryDbSchema sharedInstance] dbFieldNameForProperty:property forModel:[self class]];
-        if (field) {
-            [logChanges setValue:[self performSelector:NSSelectorFromString(property)] forKey:field];
-        }
-    }];
+//    [self.ignoreLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
+//        NSString *field = [[MYEntryDbSchema sharedInstance] dbFieldNameForProperty:property forModel:[self class]];
+//        [logChanges removeObjectForKey:field];
+//    }];
+//    [self.extendLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
+//        NSString *field = [[MYEntryDbSchema sharedInstance] dbFieldNameForProperty:property forModel:[self class]];
+//        if (field) {
+//            [logChanges setValue:[self performSelector:NSSelectorFromString(property)] forKey:field];
+//        }
+//    }];
     return [[MYUserEntryLog sharedInstance] logChangeForModel:[[self class] modelName]
                                                               localId:self.index
                                                              uniqueId:self.remoteId

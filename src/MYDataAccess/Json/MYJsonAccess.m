@@ -32,10 +32,10 @@
 }
 
 #pragma mark - request api
-- (NSString *)parseAPI:(NSString *)api method:(NSString **)method {
+- (NSString *)parseAPI:(NSString *)api method:(NSString **)method args:(NSMutableDictionary **)args{
     NSArray *array = [api componentsSeparatedByString:@"@"];
     if ([array count] < 2) {
-        *method = @"POST";
+        *method = @"GET";
         return api;
     } else {
         *method = array[0];
@@ -47,7 +47,7 @@
     NSMutableDictionary *newValues = values == nil ? [NSMutableDictionary dictionaryWithCapacity:1] : [NSMutableDictionary dictionaryWithDictionary:values];
     [newValues addEntriesFromDictionary:[BHAnalysis IDToken]];
     NSString *method = nil;
-    url = [self parseAPI:url method:&method];
+    url = [self parseAPI:url method:&method args:&newValues];
     return [self requestURLString:url postValue:@{@"data" : [newValues universalConvertToJSONString]} method:method requestHeaders:@{@"data-type" : @"json"} security:YES];
 }
 
@@ -57,9 +57,10 @@
 
 - (id)requestAPI:(NSString *)api postValue:(NSDictionary *)values {
     NSString *method = nil;
-    NSString *url = [self parseAPI:api method:&method];
+    NSMutableDictionary *v = values == nil ? nil : [[NSMutableDictionary alloc] initWithDictionary:values];
+    NSString *url = [self parseAPI:api method:&method args:&v];
     return [self requestBaseAPIUrl:[NSString stringWithFormat:@"%@@%@", method, [[self class] api:url]]
-                                      postValue:values];
+                         postValue:[v autorelease]];
 }
 
 #pragma mark - request url

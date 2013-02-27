@@ -7,13 +7,13 @@
 //
 
 #import "MYUserDataBaseObserver.h"
-#import "MYSqlAccess.h"
+#import "MYDbManager.h"
 
 @implementation MYUserDataBaseObserver
 
 - (void)migrateUserDataBase:(NSNotification *)ntf {
-    MYSqlAccess *accessor = [ntf.userInfo valueForKey:@"sqlAccess"];
-    [accessor migratePlugin:@"MYUserEntryLog" toVersion:1 update:^(NSInteger oldVersion, MYSqlAccess *accessor) {
+    MYDbManager *accessor = [ntf.userInfo valueForKey:@"sqlAccess"];
+    [accessor migratePlugin:@"MYUserEntryLog" toVersion:1 update:^(NSInteger oldVersion, MYDbManager *accessor) {
         NSMutableArray *sqls = [[NSMutableArray alloc] initWithCapacity:0];
         if (oldVersion == 0) {
             // my_user_entry_logs
