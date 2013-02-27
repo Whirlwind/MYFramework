@@ -57,6 +57,7 @@
 - (void)initData{
     self.showValidErrorVisual = YES;
     self.isValid = YES;
+    self.stringWhenEmpty = @"";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardWillShowNotification
