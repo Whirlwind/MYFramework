@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'UIView'
   s.dependency 'NSDate', '~>0.0.3'
-  s.dependency_git 'Kal', :commit => '90e6934'
+  s.dependency_git 'Kal', :branch => 'KalView_picker'
 end
