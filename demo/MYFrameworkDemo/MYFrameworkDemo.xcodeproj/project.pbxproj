@@ -63,6 +63,7 @@
 		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
 		ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */; };
 		ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */; };
+		ABC9D99B16DE54DF001BAEEC /* MYUserEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */; };
 		EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87CF167ACA160068798C /* unitBackground@2x.png */; };
 		EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87D0167ACA160068798C /* unitPointer@2x.png */; };
 		ECC06D4A166F341400B6EA33 /* rulerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC06D49166F341400B6EA33 /* rulerBackground@2x.png */; };
@@ -634,6 +635,7 @@
 				ABAA74FF16DB623700F5930F /* MYDbManager+FileHelper.m in Sources */,
 				ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */,
 				ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */,
+				ABC9D99B16DE54DF001BAEEC /* MYUserEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
