@@ -15,6 +15,7 @@
 
 - (void)dealloc {
     [_index release], _index = nil;
+    [_remoteId release], _remoteId = nil;
     [_updatedAt release], _updatedAt = nil;
     [_createdAt release], _createdAt = nil;
     [_error release], _error = nil;
@@ -25,6 +26,13 @@
     [_changes release], _changes = nil;
     [_index release], _index = nil;
     [super dealloc];
+}
+
+- (NSNumber *)index {
+    if (_index == nil) {
+        return self.remoteId;
+    }
+    return _index;
 }
 
 - (void)setCreateDate:(NSDate *)date {

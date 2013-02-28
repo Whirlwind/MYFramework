@@ -19,6 +19,7 @@
 @property (retain, nonatomic) NSObject<MYEntryDataAccessProtocol> *dataAccessor;
 
 @property (retain, nonatomic) NSNumber *index;
+@property (retain, nonatomic) NSNumber *remoteId;
 @property (copy, nonatomic) NSString *createdAt;
 @property (copy, nonatomic) NSString *updatedAt;
 @property (assign, nonatomic) NSDate *createDate;
