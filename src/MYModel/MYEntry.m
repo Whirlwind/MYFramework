@@ -188,7 +188,7 @@
     if ([accessor respondsToSelector:@selector(firstEntry)]) {
         return [[self dataAccessor] firstEntry];
     }
-    LogError(@"[%@ %s] NOT implement!", NSStringFromClass([self class]), _cmd);
+    LogError(@"[%@ %@] NOT implement!", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     return nil;
 }
 #pragma mark for override
