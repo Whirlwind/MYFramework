@@ -83,22 +83,23 @@
     __block NSString *param = nil;
     __block NSString *newApi = api;
     [regex enumerateMatchesInString:api options:NSMatchingReportCompletion range:NSMakeRange(0, [api length]) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-        param = [api substringWithRange:[result rangeAtIndex:1]];
-        NSObject *value = (*args)[param];
-        if (value) {
-            [*args removeObjectForKey:param];
-        } else if (self.entry && [self.entry respondsToSelector:NSSelectorFromString(param)]) {
-            if ([param isEqualToString:@"resource"]) {
+        if (result) {
+            param = [api substringWithRange:[result rangeAtIndex:1]];
+            NSObject *value = (*args)[param];
+            if (value) {
+                [*args removeObjectForKey:param];
+            } else if ([param isEqualToString:@"resource"]) {
                 value = self.modelName;
-            } else {
+            } else if (self.entry && [self.entry respondsToSelector:NSSelectorFromString(param)]) {
+
                 param = [self.entryClass convertJsonKeyNameToPropertyName:param];
                 value = [self.entry performSelector:NSSelectorFromString(param)];
+            } else {
+                NSAssert(NO, @"param %@ NOT Found!", param);
             }
-        } else {
-            NSAssert(NO, @"param %@ NOT Found!", param);
+            newApi = [newApi stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"/:%@", param]
+                                                       withString:[NSString stringWithFormat:@"/%@", [self convertParamToString:value]]];
         }
-        newApi = [newApi stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"/:%@", param]
-                                                   withString:[NSString stringWithFormat:@"/%@", [self convertParamToString:value]]];
     }];
     return newApi;
 }
