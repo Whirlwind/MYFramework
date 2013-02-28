@@ -27,7 +27,7 @@
 }
 
 - (void)configView {
-    
+
 }
 
 - (void)popViewModel {
@@ -53,38 +53,91 @@
 }
 
 #pragma mark - observer
-- (void)registerObserverReceiver:(NSObject *)receiver
-                        selector:(SEL)selector
-                         keyPath:(NSString *)keyPath
-                         options:(NSKeyValueObservingOptions)options
-                         context:(void *)context {
+- (void)registerBindingObject:(NSObject *)object
+                     property:(NSString *)property
+                       target:(NSObject *)target
+               targetProperty:(NSString *)targetProperty {
+    [self registerBindingObject:object
+                       property:property
+                         target:target
+                 targetProperty:targetProperty
+                           mode:kMYViewBindingModeOneWay];
+}
+
+- (void)registerBindingObject:(NSObject *)object
+                     property:(NSString *)property
+                       target:(NSObject *)target
+               targetProperty:(NSString *)targetProperty
+                         mode:(enum MYViewBindingMode)mode {
+    SEL selector = [[target class] setterFromPropertyString:targetProperty];
+    [self registerObserverObject:object keyPath:property callback:target selector:selector];
+    if (mode == kMYViewBindingModeTwoWay) {
+        [self registerBindingObject:target
+                           property:targetProperty
+                             target:object
+                     targetProperty:property
+                               mode:kMYViewBindingModeOneWay];
+    }
+}
+- (void)registerObserverObject:(NSObject *)object
+                       keyPath:(NSString *)keyPath
+                      callback:(NSObject *)callback
+                      selector:(SEL)selector {
+    [self registerObserverObject:object
+                         keyPath:keyPath
+                        callback:callback
+                        selector:selector
+                         options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
+                         context:KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE];
+}
+- (void)registerObserverObject:(NSObject *)object
+                       keyPath:(NSString *)keyPath
+                      selector:(SEL)selector
+                       options:(NSKeyValueObservingOptions)options
+                       context:(void *)context {
+    [self registerObserverObject:object
+                         keyPath:keyPath
+                        callback:self
+                        selector:selector
+                         options:options
+                         context:context];
+}
+- (void)registerObserverObject:(NSObject *)object
+                       keyPath:(NSString *)keyPath
+                      callback:(NSObject *)callback
+                      selector:(SEL)selector
+                       options:(NSKeyValueObservingOptions)options
+                       context:(void *)context {
     NSMutableArray *array = (self.observerList)[keyPath];
     if (array == nil) {
         array = [NSMutableArray arrayWithCapacity:1];
     }
-    [array addObject:@[receiver,NSStringFromSelector(selector)]];
+    [array addObject:@[object, callback, NSStringFromSelector(selector)]];
     [self.observerList setValue:array forKey:keyPath];
-    [receiver addObserver:self forKeyPath:keyPath options:options context:context];
+    [object addObserver:self forKeyPath:keyPath options:options context:context];
 }
 
-- (void)unregisterObserverReceiver:(NSObject *)receiver
-                           keyPath:(NSString *)keyPath {
-    [receiver removeObserver:self forKeyPath:keyPath];
-    NSMutableArray *receivers = (self.observerList)[keyPath];
-    if (receivers == nil) {
+- (void)unregisterObserverObject:(NSObject *)object
+                         keyPath:(NSString *)keyPath {
+    [object removeObserver:self forKeyPath:keyPath];
+    NSMutableArray *objects = (self.observerList)[keyPath];
+    if (objects == nil) {
         return;
     }
-    for (NSArray *array in receivers) {
-        if (array[0] == receiver) {
-            [receivers removeObject:array];
+    for (NSArray *array in objects) {
+        if (array[0] == object) {
+            [objects removeObject:array];
             break;
         }
     }
-    if ([receivers count] == 0) {
+    if ([objects count] == 0) {
         [self.observerList removeObjectForKey:keyPath];
     }
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (change[NSKeyValueChangeNewKey] == change[NSKeyValueChangeOldKey]) {
+        return;
+    }
     NSArray *receivers = (self.observerList)[keyPath];
     if (receivers == nil) {
         return;
@@ -92,16 +145,21 @@
     for (NSArray *array in receivers) {
         NSObject *receiver = array[0];
         if (receiver == object) {
-            SEL selector = NSSelectorFromString((NSString *)array[1]);
+            NSObject *callback = array[1];
+            SEL selector = NSSelectorFromString((NSString *)array[2]);
             if ([NSThread isMainThread]) {
-                [self performSelector:selector withObject:change];
+                [callback performSelector:selector
+                               withObject:context == KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE ? change[NSKeyValueChangeNewKey] : change];
             } else {
-                [self performSelectorOnMainThread:selector withObject:change waitUntilDone:YES];
+                [callback performSelectorOnMainThread:selector
+                                           withObject:context == KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE ? change[NSKeyValueChangeNewKey] : change
+                                        waitUntilDone:YES];
             }
         }
     }
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
+
 #pragma mark - IB event
 - (IBAction)backAction:(id)sender {
     [self popViewModel];
