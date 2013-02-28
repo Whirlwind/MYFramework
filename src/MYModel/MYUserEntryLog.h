@@ -12,16 +12,16 @@
 
 AS_MY_SINGLETON(MYUserEntryLog)
 
-- (BOOL)logChangeForModel:(NSString *)modelName
-                  localId:(NSNumber *)localId
-                 uniqueId:(NSNumber *)uniqueId
-                  changes:(NSDictionary *)changes
-                updatedAt:(NSString *)updatedAt
-                  usingDb:(FMDatabase *)db;
-- (BOOL)logDeleteForModel:(NSString *)modelName
-                  localId:(NSNumber *)localId
-                 uniqueId:(NSNumber *)uniqueId
-                updatedAt:(NSString *)updatedAt
-                  usingDb:(FMDatabase *)db;
+//- (BOOL)logChangeForModel:(NSString *)modelName
+//                  localId:(NSNumber *)localId
+//                 uniqueId:(NSNumber *)uniqueId
+//                  changes:(NSDictionary *)changes
+//                updatedAt:(NSString *)updatedAt
+//                  usingDb:(FMDatabase *)db;
+//- (BOOL)logDeleteForModel:(NSString *)modelName
+//                  localId:(NSNumber *)localId
+//                 uniqueId:(NSNumber *)uniqueId
+//                updatedAt:(NSString *)updatedAt
+//                  usingDb:(FMDatabase *)db;
 
 @end
