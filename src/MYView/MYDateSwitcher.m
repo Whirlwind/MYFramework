@@ -77,6 +77,9 @@
 }
 #pragma mark - setter
 - (void)setDate:(NSDate *)date{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dateSwitcherWillChangeFrom:to:)]) {
+        [self.delegate dateSwitcherWillChangeFrom:_date to:date];
+    }
     self.lastDate = _date;
     [_date release];
     _date = [date retain];
@@ -97,9 +100,6 @@
 - (void)changeDateAction:(id)sender {
     UIControl *senderView = (UIControl *)sender;
     NSDate *newDate = [self.date addDay:senderView.tag];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(dateSwitcherWillChangeFrom:to:)]) {
-        [self.delegate dateSwitcherWillChangeFrom:self.date to:newDate];
-    }
     self.date = newDate;
 }
 - (NSString *)dateStringForDate:(NSDate *)date {
