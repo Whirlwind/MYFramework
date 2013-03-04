@@ -108,6 +108,9 @@
     if ([param isKindOfClass:[NSString class]]) {
         return (NSString *)param;
     }
+    if ([param isKindOfClass:[NSDate class]]) {
+        return [(NSDate *)param stringWithFormat:kMYDateTimeFormat];
+    }
     if ([param respondsToSelector:@selector(universalConvertToJSONString)]) {
         return [param performSelector:@selector(universalConvertToJSONString)];
     }
