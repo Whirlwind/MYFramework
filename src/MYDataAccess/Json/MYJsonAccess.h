@@ -10,6 +10,9 @@
 
 @interface MYJsonAccess : NSObject
 
+@property (copy, nonatomic) NSString *serverDomain;
+@property (copy, nonatomic) NSString *apiVersion;
+
 @property (nonatomic, retain) ASIHTTPRequest *request;
 @property (copy, nonatomic) NSString *securityKey;
 
@@ -28,7 +31,10 @@
 - (void)cancelRequest;
 - (BOOL)requestIsCancelled;
 
-+ (NSString *)api:(NSString *)api;
+- (NSString *)api:(NSString *)api;
+
++ (NSString *)serverDomain;
++ (NSString *)apiVersion;
 + (id)requestBaseAPIUrl:(NSString *)url postValue:(NSDictionary *)value;
 + (id)requestAPI:(NSString *)api;
 + (id)requestAPI:(NSString *)api postValue:(NSDictionary *)values;

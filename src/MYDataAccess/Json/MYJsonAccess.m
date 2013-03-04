@@ -17,9 +17,26 @@
 
 #pragma mark - init and dealloc
 - (void)dealloc{
+    [_apiVersion release], _apiVersion = nil;
+    [_serverDomain release], _serverDomain = nil;
     [_request release], _request = nil;
     [_securityKey release], _securityKey = nil;
     [super dealloc];
+}
+
+#pragma mark - getter
+- (NSString *)serverDomain {
+    if (_serverDomain == nil) {
+        _serverDomain = [[[self class] serverDomain] retain];
+    }
+    return _serverDomain;
+}
+
+- (NSString *)apiVersion {
+    if (_apiVersion == nil) {
+        _apiVersion = [[[self class] apiVersion] retain];
+    }
+    return _apiVersion;
 }
 
 #pragma mark - request
@@ -59,7 +76,7 @@
     NSString *method = nil;
     NSMutableDictionary *v = values == nil ? nil : [[NSMutableDictionary alloc] initWithDictionary:values];
     NSString *url = [self parseAPI:api method:&method args:&v];
-    return [self requestBaseAPIUrl:[NSString stringWithFormat:@"%@@%@", method, [[self class] api:url]]
+    return [self requestBaseAPIUrl:[NSString stringWithFormat:@"%@@%@", method, [self api:url]]
                          postValue:[v autorelease]];
 }
 
@@ -185,12 +202,17 @@
     }
 }
 
-#pragma mark - public class methods
-+ (NSString *)api:(NSString *)api {
-    return nil;
-//    return [NSString stringWithFormat:@"%@%@%@", kONEBaseAPIDomain, kONEBaseAPIVersion, _apiType];
+#pragma mark - override
+- (NSString *)api:(NSString *)api {
+    return [NSString stringWithFormat:@"%@%@%@", self.serverDomain, self.apiVersion, api];
 }
-
+#pragma mark - public class methods
++ (NSString *)serverDomain {
+    return nil;
+}
++ (NSString *)apiVersion {
+    return @"";
+}
 + (id)requestBaseAPIUrl:(NSString *)url postValue:(NSDictionary *)value {
     MYJsonAccess *json = [[[self class] alloc] init];
     NSDictionary *dic = [[json requestBaseAPIUrl:url postValue:value] retain];
