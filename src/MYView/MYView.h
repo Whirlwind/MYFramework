@@ -6,6 +6,10 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
+#define MYView_Define_ViewModelClass(name)\
+- (name *)vm {\
+    return (name *)self.relatedViewController;\
+}
 
 @class MYViewController;
 @class MYViewModel;
