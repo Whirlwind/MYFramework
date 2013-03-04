@@ -14,20 +14,38 @@
 
 @implementation MYViewModel
 
+- (void)dealloc {
+    [_viewName release], _viewName = nil;
+    [super dealloc];
+}
+
+- (id)initWithViewName:(NSString *)viewName {
+    if (self = [self init]) {
+        self.viewName = viewName;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     static NSString *suffix = @"Model";
-    NSString *name = [[self class] description];
-    NSString *viewName = nil;
-    if ([name hasSuffix:suffix]) {
-        viewName = [[[self class] description] substringToIndex:[name length] - [suffix length]];
-        if([self.nibBundle pathForResource:viewName ofType:@"nib"] != nil) {
-            NSArray *array = [self.nibBundle loadNibNamed:viewName owner:nil options:nil];
-            if (array) {
-                self.contentView = array[0];
-            }
+    NSString *name = NSStringFromClass([self class]);
+    if (self.viewName == nil) {
+        if ([name hasSuffix:suffix]) {
+            self.viewName = [[[self class] description] substringToIndex:[name length] - [suffix length]];
         } else {
-            self.contentView = [[[NSClassFromString(viewName) alloc] init] autorelease];
+            self.viewName = name;
+        }
+    }
+    if([self.nibBundle pathForResource:self.viewName ofType:@"nib"] != nil) {
+        NSArray *array = [self.nibBundle loadNibNamed:self.viewName owner:nil options:nil];
+        if (array) {
+            self.contentView = array[0];
+        }
+    } else {
+        Class v = NSClassFromString(self.viewName);
+        if (v) {
+            self.contentView = [[[v alloc] init] autorelease];
         }
     }
     self.view.width = self.contentView.width;

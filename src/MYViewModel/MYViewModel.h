@@ -9,7 +9,12 @@
 #import "MYViewController.h"
 
 @interface MYViewModel : MYViewController <MYViewControllerDelegate>
+
+@property (copy, nonatomic) NSString *viewName;
+
 @property (assign, nonatomic, getter=subViewControllers, setter=setSubViewControllers:) NSMutableArray *subViewModels;
+
+- (id)initWithViewName:(NSString *)viewName;
 
 - (void)addSubViewModel:(MYViewModel *)vm;
 - (void)addSubViewModel:(MYViewModel *)vm view:(UIView *)__view;
