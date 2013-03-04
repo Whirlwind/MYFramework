@@ -55,28 +55,26 @@
 #pragma mark - observer
 - (void)registerBindingObject:(NSObject *)object
                      property:(NSString *)property
-                       target:(NSObject *)target
-               targetProperty:(NSString *)targetProperty {
+                 listenObject:(NSObject *)target
+               listenProperty:(NSString *)targetProperty {
     [self registerBindingObject:object
                        property:property
-                         target:target
-                 targetProperty:targetProperty
+                   listenObject:target
+                 listenProperty:targetProperty
                            mode:kMYViewBindingModeOneWay];
 }
 
 - (void)registerBindingObject:(NSObject *)object
                      property:(NSString *)property
-                       target:(NSObject *)target
-               targetProperty:(NSString *)targetProperty
+                 listenObject:(NSObject *)target
+               listenProperty:(NSString *)targetProperty
                          mode:(enum MYViewBindingMode)mode {
-    SEL selector = [[target class] setterFromPropertyString:targetProperty];
-    [self registerObserverObject:object keyPath:property callback:target selector:selector];
+    SEL selector = [[target class] setterFromPropertyString:property];
+    NSObject *value = [target performSelector:NSSelectorFromString(targetProperty) withObject:nil];
+    [self sendToObject:object setProperty:NSStringFromSelector(selector) withChange:value];
+    [self registerObserverObject:target keyPath:targetProperty callback:object selector:selector];
     if (mode == kMYViewBindingModeTwoWay) {
-        [self registerBindingObject:target
-                           property:targetProperty
-                             target:object
-                     targetProperty:property
-                               mode:kMYViewBindingModeOneWay];
+        [self registerObserverObject:object keyPath:property callback:target selector:[[target class] setterFromPropertyString:targetProperty]];
     }
 }
 - (void)registerObserverObject:(NSObject *)object
@@ -146,20 +144,23 @@
         NSObject *receiver = array[0];
         if (receiver == object) {
             NSObject *callback = array[1];
-            SEL selector = NSSelectorFromString((NSString *)array[2]);
-            if ([NSThread isMainThread]) {
-                [callback performSelector:selector
-                               withObject:context == KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE ? change[NSKeyValueChangeNewKey] : change];
-            } else {
-                [callback performSelectorOnMainThread:selector
-                                           withObject:context == KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE ? change[NSKeyValueChangeNewKey] : change
-                                        waitUntilDone:YES];
-            }
+            [self sendToObject:callback setProperty:(NSString *)array[2] withChange:context == KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE ? change[NSKeyValueChangeNewKey] : change];
         }
     }
-    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
+- (void)sendToObject:(NSObject *)ui setProperty:(NSString *)setProperty withChange:(NSObject *)change {
+    SEL selector = NSSelectorFromString(setProperty);
+    if ([NSThread isMainThread]) {
+        [ui performSelector:selector
+                 withObject:change];
+    } else {
+        [ui performSelectorOnMainThread:selector
+                             withObject:change
+                          waitUntilDone:YES];
+    }
+}
 #pragma mark - IB event
 - (IBAction)backAction:(id)sender {
     [self popViewModel];

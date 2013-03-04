@@ -19,7 +19,7 @@ static NSString *const KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE = @"KVO_CONTEXT_ONLY_
 enum MYViewBindingMode {
     kMYViewBindingModeOneWay = 0,
     kMYViewBindingModeTwoWay = 1
-    };
+};
 
 @interface MYView : UIView
 
@@ -35,12 +35,12 @@ enum MYViewBindingMode {
 
 - (void)registerBindingObject:(NSObject *)object
                      property:(NSString *)property
-                       target:(NSObject *)target
-               targetProperty:(NSString *)targetProperty;
+                 listenObject:(NSObject *)target
+               listenProperty:(NSString *)targetProperty;
 - (void)registerBindingObject:(NSObject *)object
                      property:(NSString *)property
-                       target:(NSObject *)target
-               targetProperty:(NSString *)targetProperty
+                       listenObject:(NSObject *)target
+               listenProperty:(NSString *)targetProperty
                          mode:(enum MYViewBindingMode)mode;
 - (void)registerObserverObject:(NSObject *)object
                        keyPath:(NSString *)keyPath
