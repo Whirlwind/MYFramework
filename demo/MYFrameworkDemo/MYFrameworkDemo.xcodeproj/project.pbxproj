@@ -60,6 +60,7 @@
 		ABAA74F816DB544B00F5930F /* MYEntryJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74F416DB544B00F5930F /* MYEntryJsonAccess.m */; };
 		ABAA74F916DB544B00F5930F /* MYJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74F616DB544B00F5930F /* MYJsonAccess.m */; };
 		ABAA74FF16DB623700F5930F /* MYDbManager+FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74FE16DB623700F5930F /* MYDbManager+FileHelper.m */; };
+		ABB7A4F016E4864A0073590E /* MYFrameworkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7A4EF16E4864A0073590E /* MYFrameworkAppDelegate.m */; };
 		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
 		ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */; };
 		ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */; };
@@ -183,6 +184,8 @@
 		ABAA74F616DB544B00F5930F /* MYJsonAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYJsonAccess.m; sourceTree = "<group>"; };
 		ABAA74FD16DB623600F5930F /* MYDbManager+FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYDbManager+FileHelper.h"; sourceTree = "<group>"; };
 		ABAA74FE16DB623700F5930F /* MYDbManager+FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYDbManager+FileHelper.m"; sourceTree = "<group>"; };
+		ABB7A4EE16E4864A0073590E /* MYFrameworkAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFrameworkAppDelegate.h; sourceTree = "<group>"; };
+		ABB7A4EF16E4864A0073590E /* MYFrameworkAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYFrameworkAppDelegate.m; sourceTree = "<group>"; };
 		ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTextLabel.h; sourceTree = "<group>"; };
 		ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTextLabel.m; sourceTree = "<group>"; };
 		ABC9D99316DC8BB2001BAEEC /* MYDbSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDbSchema.h; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				AB3A910F1650946A00C672E5 /* MYViewController */,
 				AB76FEA516B8A65D00128E0A /* MYViewModel */,
 				AB06B7A516CF8E7200450A0E /* Observer */,
+				ABB7A4EE16E4864A0073590E /* MYFrameworkAppDelegate.h */,
+				ABB7A4EF16E4864A0073590E /* MYFrameworkAppDelegate.m */,
 			);
 			name = src;
 			path = ../../src;
@@ -636,6 +641,7 @@
 				ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */,
 				ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */,
 				ABC9D99B16DE54DF001BAEEC /* MYUserEntry.m in Sources */,
+				ABB7A4F016E4864A0073590E /* MYFrameworkAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
