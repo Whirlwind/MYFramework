@@ -12,11 +12,15 @@
 
 - (id)initWithJsonDictionary:(NSDictionary *)dic {
     if (self = [super init]) {
-        [dic enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
-            [self setPropertyWithJsonKey:key toValue:obj];
-        }];
+        [self updatePropertyWithJsonDictionary:dic];
     }
     return self;
+}
+
+- (void)updatePropertyWithJsonDictionary:(NSDictionary *)dic {
+    [dic enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
+        [self setPropertyWithJsonKey:key toValue:obj];
+    }];
 }
 
 + (NSString *)modelName {

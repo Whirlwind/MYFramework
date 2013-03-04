@@ -17,6 +17,10 @@
  */
 - (id)initWithJsonDictionary:(NSDictionary *)dic;
 
+/** 从json字典中更新当前对象的属性
+ */
+- (void)updatePropertyWithJsonDictionary:(NSDictionary *)dic;
+
 /** 从json数组中构造模型数组
  *  
  *  通过遍历调用[MYEntry initWithJsonDictionary:]初始化
