@@ -41,6 +41,10 @@
                                                    options:0
                                                      range:NSMakeRange(0, [property length])
                                               withTemplate:@"_$0"];
-    return [s1 lowercaseString];
+    s1 = [s1 lowercaseString];
+    if ([[s1 substringToIndex:1] isEqualToString:@"_"]) {
+        s1 = [s1 substringFromIndex:1];
+    }
+    return s1;
 }
 @end
