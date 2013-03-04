@@ -12,9 +12,20 @@
 #import "ASIHTTPRequest+MYSign.h"
 #import "URLHelper.h"
 #import "BHAnalysis.h"
+#import "ASIDownloadCache.h"
+
+@interface MYJsonAccess ()
+
+@property (nonatomic, retain) ASIHTTPRequest *request;
+
+@end
 
 @implementation MYJsonAccess
 
++ (void)initialize {
+    [ASIHTTPRequest setDefaultCache:[ASIDownloadCache sharedCache]];
+    [super initialize];
+}
 #pragma mark - init and dealloc
 - (void)dealloc{
     [_apiVersion release], _apiVersion = nil;
@@ -24,6 +35,11 @@
     [super dealloc];
 }
 
+- (id)init {
+    if (self = [super init]) {
+        self.cachePolicy = ASIUseDefaultCachePolicy;
+    }
+}
 #pragma mark - getter
 - (NSString *)serverDomain {
     if (_serverDomain == nil) {
@@ -93,6 +109,7 @@
         postValue = nil;
     }
     self.request.requestMethod = requestMethod;
+    self.request.cachePolicy = self.cachePolicy;
     if (headers) {
         if (self.request.requestHeaders) {
             [self.request.requestHeaders addEntriesFromDictionary:headers];
