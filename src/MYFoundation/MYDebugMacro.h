@@ -6,6 +6,10 @@
 //  Copyright (c) 2013年 BOOHEE. All rights reserved.
 //
 
+#ifndef OnlyUseJSONKit
+#   define OnlyUseJSONKit 1
+#endif
+
 #ifdef USE_MYDebuger
 #   import "LoggerClient.h"
 #endif
