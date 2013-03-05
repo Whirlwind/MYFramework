@@ -39,6 +39,7 @@
     if (self = [super init]) {
         self.cachePolicy = ASIUseDefaultCachePolicy;
     }
+    return self;
 }
 #pragma mark - getter
 - (NSString *)serverDomain {

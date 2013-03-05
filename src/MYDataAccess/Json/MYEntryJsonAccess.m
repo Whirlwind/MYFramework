@@ -41,14 +41,14 @@
 }
 
 - (id)initWithEntry:(MYEntry *)entry {
-    if (self = [super init]) {
+    if (self = [self init]) {
         self.entry = entry;
     }
     return self;
 }
 
 - (id)initWithEntryClass:(Class)entryClass {
-    if (self = [super init]) {
+    if (self = [self init]) {
         self.entryClass = entryClass;
     }
     return self;
