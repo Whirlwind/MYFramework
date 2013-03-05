@@ -77,9 +77,13 @@
     }
 }
 
+- (void)handleParams:(NSMutableDictionary **)params {
+    [*params addEntriesFromDictionary:[BHAnalysis IDToken]];
+}
+
 - (id)requestBaseAPIUrl:(NSString *)url postValue:(NSDictionary *)values {
     NSMutableDictionary *newValues = values == nil ? [NSMutableDictionary dictionaryWithCapacity:1] : [NSMutableDictionary dictionaryWithDictionary:values];
-    [newValues addEntriesFromDictionary:[BHAnalysis IDToken]];
+    [self handleParams:&newValues];
     NSString *method = nil;
     url = [self parseAPI:url method:&method args:&newValues];
     return [self requestURLString:url postValue:@{@"data" : [newValues universalConvertToJSONString]} method:method requestHeaders:@{@"data-type" : @"json"} security:YES];

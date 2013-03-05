@@ -18,6 +18,7 @@
 @property (assign, nonatomic) NSInteger cachePolicy;
 
 - (NSString *)parseAPI:(NSString *)api method:(NSString **)method args:(NSMutableDictionary **)args;
+- (void)handleParams:(NSMutableDictionary **)params;
 
 - (NSDictionary *)requestAPI:(NSString *)api;
 - (NSDictionary *)requestAPI:(NSString *)api
