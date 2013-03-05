@@ -23,6 +23,7 @@
     [self.dataAccessor.dataProperties enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self removeObserver:self forKeyPath:obj];
     }];
+    [_dataAccessor release], _dataAccessor = nil;
     [_changes release], _changes = nil;
     [_index release], _index = nil;
     [super dealloc];
