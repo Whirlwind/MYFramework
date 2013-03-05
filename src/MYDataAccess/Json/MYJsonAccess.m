@@ -197,7 +197,7 @@
                          code:nil
                       message:@"未知错误！"
                       request:values
-                     response:nil];
+                     response:[self.request responseString]];
         }
     }
     return nil;
