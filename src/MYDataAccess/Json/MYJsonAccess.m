@@ -150,10 +150,14 @@
     LogInfo(@"------END REQUEST %@: %@", method, url);
     if ([self.request isCancelled]) return nil;
     NSDictionary *dic = [[self.request responseString] universalConvertToJSONObject];
-    NSArray *errors = [dic objectForKey:@"errors"];
-    int s = [self.request responseStatusCode];
+    NSArray *errors = dic[@"errors"];
+    NSDictionary *error = dic[@"error"];
     if (errors) {
-        if ([errors isKindOfClass:[NSNull class]]) {
+        error = errors[0];
+    }
+    int s = [self.request responseStatusCode];
+    if (error) {
+        if ([error isKindOfClass:[NSNull class]]) {
             [self reportError:url
                        method:method
                        status:s
@@ -165,14 +169,14 @@
             [self reportError:url
                        method:method
                        status:s
-                         code:[[errors objectAtIndex:0] objectForKey:@"code"]
-                      message:[[errors objectAtIndex:0] objectForKey:@"message"]
+                         code:[error objectForKey:@"code"]
+                      message:[error objectForKey:@"message"]
                       request:values
                      response:[self.request responseString]];
         }
         return nil;
     }
-    if (s == 200) {
+    if (s >= 200 && s < 300) {
         if (dic == nil) {
             [self reportError:url
                        method:method
