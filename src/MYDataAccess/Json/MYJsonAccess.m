@@ -28,6 +28,7 @@
 }
 #pragma mark - init and dealloc
 - (void)dealloc{
+    [_lastError release], _lastError = nil;
     [_apiVersion release], _apiVersion = nil;
     [_serverDomain release], _serverDomain = nil;
     [_request release], _request = nil;
@@ -141,6 +142,7 @@
 }
 
 - (NSDictionary *)requestURLString:(NSString *)url postValue:(NSDictionary *)values method:(NSString *)method requestHeaders:(NSDictionary *)headers security:(BOOL)security {
+    self.lastError = nil;
     [self buildRequest:url method:method params:values requestHeaders:headers];
     if (security && self.securityKey) {
         [self.request buildSecurityParams:self.securityKey postData:values addIDParams:NO];
@@ -173,6 +175,7 @@
                       message:[error objectForKey:@"message"]
                       request:values
                      response:[self.request responseString]];
+            self.lastError = [NSError errorWithDomain:@"json" code:[error[@"code"] integerValue] userInfo:error];
         }
         return nil;
     }
