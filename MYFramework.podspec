@@ -29,4 +29,5 @@ Pod::Spec.new do |s|
   s.dependency 'JSONAPI'
   s.dependency 'BHAnalysis'
   s.dependency 'VersionString'
+  s.dependency 'MTStatusBarOverlay'
 end
