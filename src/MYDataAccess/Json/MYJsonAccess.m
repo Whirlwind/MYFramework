@@ -13,6 +13,7 @@
 #import "URLHelper.h"
 #import "BHAnalysis.h"
 #import "ASIDownloadCache.h"
+#import "MYFileStream.h"
 
 @interface MYJsonAccess ()
 
@@ -115,7 +116,12 @@
     if ([requestMethod isEqualToString:@"POST"]) {
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
         [postValue enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [request addPostValue:obj forKey:key];
+            if ([obj isKindOfClass:[MYFileStream class]]) {
+                MYFileStream *fileStream = (MYFileStream *)obj;
+                [request addData:fileStream.data withFileName:fileStream.fileName andContentType:fileStream.mimeType forKey:key];
+            } else {
+                [request addPostValue:obj forKey:key];
+            }
         }];
         self.request = request;
     } else {
