@@ -29,6 +29,6 @@ static NSString *myBundleName = nil;
 }
 
 + (UIImage *)image:(NSString *)name {
-    return [UIImage imageNamed:[self resource:name]];
+    return [UIImage imageNamed:[self resource:[NSString stringWithFormat:@"images/%@", name]]];
 }
 @end
