@@ -15,4 +15,8 @@
 @property (copy, nonatomic) NSString *filePath;
 @property (copy, nonatomic) NSString *fileName;
 
++ (MYFileStream *)fileStreamWithFilePath:(NSString *)filePath;
++ (MYFileStream *)fileStreamWithData:(NSData *)data mimeType:(NSString *)mimeType fileName:(NSString *)fileName;
+
++ (NSString *)mimeTypeForFileAtPath:(NSString *)path;
 @end

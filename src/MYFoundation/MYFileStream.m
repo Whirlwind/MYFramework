@@ -40,6 +40,20 @@
     return _mimeType;
 }
 
++ (MYFileStream *)fileStreamWithFilePath:(NSString *)filePath {
+    MYFileStream *stream = [[MYFileStream alloc] init];
+    [stream setFilePath:filePath];
+    return [stream autorelease];
+}
+
++ (MYFileStream *)fileStreamWithData:(NSData *)data mimeType:(NSString *)mimeType fileName:(NSString *)fileName {
+    MYFileStream *stream = [[MYFileStream alloc] init];
+    [stream setData:data];
+    [stream setMimeType:mimeType];
+    [stream setFileName:fileName];
+    return [stream autorelease];
+}
+
 + (NSString *)mimeTypeForFileAtPath:(NSString *)path
 {
 	if (![[[[NSFileManager alloc] init] autorelease] fileExistsAtPath:path]) {
