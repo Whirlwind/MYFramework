@@ -12,6 +12,7 @@
 @interface MYJsonAccess : NSObject
 
 @property (copy, nonatomic) NSString *serverDomain;
+@property (copy, nonatomic) NSString *nameSpace;
 @property (copy, nonatomic) NSString *apiVersion;
 
 @property (copy, nonatomic) NSString *securityKey;

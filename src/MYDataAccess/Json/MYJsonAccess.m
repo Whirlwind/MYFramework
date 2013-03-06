@@ -30,6 +30,7 @@
 - (void)dealloc{
     [_lastError release], _lastError = nil;
     [_apiVersion release], _apiVersion = nil;
+    [_nameSpace release], _nameSpace = nil;
     [_serverDomain release], _serverDomain = nil;
     [_request release], _request = nil;
     [_securityKey release], _securityKey = nil;
@@ -48,6 +49,13 @@
         _serverDomain = [[[self class] serverDomain] retain];
     }
     return _serverDomain;
+}
+
+- (NSString *)nameSpace {
+    if (_nameSpace == nil) {
+        _nameSpace = [[[self class] nameSpace] retain];
+    }
+    return _nameSpace;
 }
 
 - (NSString *)apiVersion {
@@ -233,11 +241,14 @@
 
 #pragma mark - override
 - (NSString *)api:(NSString *)api {
-    return [NSString stringWithFormat:@"%@%@%@", self.serverDomain, self.apiVersion, api];
+    return [NSString stringWithFormat:@"%@%@%@%@", self.serverDomain, self.nameSpace, self.apiVersion, api];
 }
 #pragma mark - public class methods
 + (NSString *)serverDomain {
     return nil;
+}
++ (NSString *)nameSpace {
+    return @"";
 }
 + (NSString *)apiVersion {
     return @"";
