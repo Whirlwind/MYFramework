@@ -8,6 +8,10 @@
 
 #import "MYEntry.h"
 
+#import "FMDatabase.h"
+#import "FMDatabaseQueue.h"
+#import "FMDatabase+MYAdditions.h"
+
 @interface MYEntry (SqlAccess)
 
 + (NSString *)convertPropertyNameToDbFieldName:(NSString *)name;
