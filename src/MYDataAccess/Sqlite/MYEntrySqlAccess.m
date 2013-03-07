@@ -21,9 +21,6 @@
 
 @implementation MYEntrySqlAccess
 
-//@synthesize needLog = _needLog;
-//@synthesize ignoreLogProperties = _ignoreLogProperties;
-//@synthesize extendLogProperties = _extendLogProperties;
 @synthesize entry = _entry;
 @synthesize entryClass = _entryClass;
 
