@@ -13,6 +13,7 @@
 
 @interface MYDbFetcher (public)
 - (NSString *)createWhereStatementWithArgs:(NSMutableArray **)args;
+- (NSString *)buildInsertSqlWithArgs:(NSMutableArray **)args replace:(BOOL)replace;
 @end
 
 @interface MYEntrySqlAccess ()
@@ -39,7 +40,7 @@
 }
 
 - (id)initWithEntry:(MYEntry<MYEntrySqlAccessProtocol> *)entry {
-    if (self = [super init]) {
+    if (self = [self init]) {
         self.entry = entry;
         [[MYDbSchema sharedInstance] loadSchemaInTable:self.tableName
                                                dbQueue:self.dbQueue];
@@ -48,7 +49,7 @@
 }
 
 - (id)initWithEntryClass:(Class)entryClass {
-    if (self = [super init]) {
+    if (self = [self init]) {
         self.entryClass = entryClass;
         [[MYDbSchema sharedInstance] loadSchemaInTable:self.tableName
                                                dbQueue:self.dbQueue];
@@ -114,7 +115,7 @@
     if (![self.updateDictionary existKey:@"user_key"] && [[MYDbSchema sharedInstance] hasColumn:@"user_key" forTable:self.tableName]) {
         self.updateDictionary[@"user_key"] = self.userKey;
     }
-    return [self buildInsertSqlWithArgs:args replace:replace];
+    return [super buildInsertSqlWithArgs:args replace:replace];
 }
 
 #pragma mark - DAO
