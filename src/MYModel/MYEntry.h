@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FMDatabase.h"
-#import "FMDatabaseQueue.h"
 #import "NSObject+MYProperty.h"
 #import "MYEntryDataAccessProtocol.h"
 
@@ -30,8 +28,6 @@
 @property (assign, nonatomic) BOOL needPostLocalChangeNotification;
 @property (retain, nonatomic) NSMutableDictionary *changes;
 
-@property (retain, nonatomic) FMDatabase *db;
-
 
 #pragma mark - listen
 - (NSArray *)listenProperties;
@@ -40,11 +36,6 @@
 - (void)reverse;
 - (void)postLocalChangeNotification;
 + (void)postLocalChangeNotification;
-
-#pragma mark - for override
-+ (BOOL)needLog;
-+ (BOOL)isUserDb;
-
 
 #pragma mark - DAO
 - (BOOL)save;

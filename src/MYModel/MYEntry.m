@@ -19,7 +19,6 @@
     [_updatedAt release], _updatedAt = nil;
     [_createdAt release], _createdAt = nil;
     [_error release], _error = nil;
-    [_db release], _db = nil;
     [self.dataAccessor.dataProperties enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self removeObserver:self forKeyPath:obj];
     }];
@@ -80,14 +79,6 @@
     if (_changes == nil)
         _changes = [[NSMutableDictionary alloc] initWithCapacity:0];
     return _changes;
-}
-
-+ (BOOL)isUserDb {
-    return NO;
-}
-
-+ (BOOL)needLog {
-    return NO;
 }
 
 - (void)postLocalChangeNotification {
