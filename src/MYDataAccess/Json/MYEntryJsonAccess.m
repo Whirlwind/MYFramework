@@ -35,6 +35,7 @@
 
 - (void)dealloc {
     [_modelName release], _modelName = nil;
+    [_modelNameWithPlural release], _modelNameWithPlural = nil;
     [_entry release], _entry = nil;
     _entryClass = nil;
     [_userKey release], _userKey = nil;
@@ -76,6 +77,20 @@
     return _modelName;
 }
 
+- (NSString *)modelNameWithPlural {
+    if (_modelNameWithPlural == nil) {
+        NSString *name = nil;
+        if (self.entry && [self.entry respondsToSelector:@selector(modelNameWithPlural)]) {
+            name = [self.entry performSelector:@selector(modelNameWithPlural)];
+        }
+        if (name == nil) {
+            name = [self.entryClass modelNameWithPlural];
+        }
+        self.modelNameWithPlural = name;
+    }
+    return _modelNameWithPlural;
+}
+
 - (NSString *)parseAPI:(NSString *)api method:(NSString **)method args:(NSMutableDictionary **)args{
     api = [super parseAPI:api method:method args:args];
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"/:([a-zA-Z\\d]+)"
@@ -90,7 +105,7 @@
             if (value) {
                 [*args removeObjectForKey:param];
             } else if ([param isEqualToString:@"resource"]) {
-                value = self.modelName;
+                value = self.modelNameWithPlural;
             } else if (self.entry && [self.entry respondsToSelector:NSSelectorFromString(param)]) {
 
                 param = [self.entryClass convertJsonKeyNameToPropertyName:param];

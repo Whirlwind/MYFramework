@@ -27,6 +27,10 @@
     return [self convertAppleStylePropertyToRailsStyleProperty:NSStringFromClass([self class])];
 }
 
++ (NSString *)modelNameWithPlural {
+    return [NSString stringWithFormat:@"%@s", [self modelName]];
+}
+
 - (void)setPropertyWithJsonKey:(NSString *)key toValue:(NSObject *)obj {
     NSString *property = [[self class] convertJsonKeyNameToPropertyName:key];
     SEL setSelector = [[self class] setterFromPropertyString:property];

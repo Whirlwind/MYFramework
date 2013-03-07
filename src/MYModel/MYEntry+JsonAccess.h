@@ -12,6 +12,7 @@
 @interface MYEntry (JsonAccess)
 
 + (NSString *)modelName;
++ (NSString *)modelNameWithPlural;
 
 /**  使用json字典初始化
  */
