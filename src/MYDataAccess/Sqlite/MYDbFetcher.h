@@ -6,8 +6,8 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import "FMDatabaseQueue.h"
 #import "FMDatabase.h"
+#import "FMDatabaseQueue.h"
 #import "FMDatabaseAdditions.h"
 #import "FMDatabase+MYAdditions.h"
 
@@ -25,25 +25,25 @@
 @property (retain, nonatomic) NSNumber *limit;
 @property (retain, nonatomic) NSMutableArray *orderBy;
 
-+ (MYDbFetcher *)fetcherForTableName:(NSString *)tableName;
++ (id)fetcherForTableName:(NSString *)tableName;
 
 - (id)initWithTableName:(NSString *)tableName;
 
 #pragma mark - build
-- (MYDbFetcher *)offset:(NSInteger)offset;
-- (MYDbFetcher *)limit:(NSInteger)limit;
-- (MYDbFetcher *)orderBy:(NSString *)aField
+- (id)offset:(NSInteger)offset;
+- (id)limit:(NSInteger)limit;
+- (id)orderBy:(NSString *)aField
                               ascending:(BOOL)isAscending;
-- (MYDbFetcher *)orderBy:(NSString *)aField;
-- (MYDbFetcher *)select:(NSString *)aFirstParam, ... NS_REQUIRES_NIL_TERMINATION;
-- (MYDbFetcher *)selectInArray:(NSArray *)fields;
-- (MYDbFetcher *)where:(NSString *)aCondition, ... NS_REQUIRES_NIL_TERMINATION;
-- (MYDbFetcher *)where:(NSString *)aCondition argsInArray:(NSArray *)args;
-- (MYDbFetcher *)update:(NSDictionary *)updateDic;
-- (MYDbFetcher *)insert:(NSDictionary *)insertDic;
+- (id)orderBy:(NSString *)aField;
+- (id)select:(NSString *)aFirstParam, ... NS_REQUIRES_NIL_TERMINATION;
+- (id)selectInArray:(NSArray *)fields;
+- (id)where:(NSString *)aCondition, ... NS_REQUIRES_NIL_TERMINATION;
+- (id)where:(NSString *)aCondition argsInArray:(NSArray *)args;
+- (id)update:(NSDictionary *)updateDic;
+- (id)insert:(NSDictionary *)insertDic;
 
-- (MYDbFetcher *)usingDb:(FMDatabase *)db;
-- (MYDbFetcher *)usingDbQueue:(FMDatabaseQueue *)dbQueue;
+- (id)usingDb:(FMDatabase *)db;
+- (id)usingDbQueue:(FMDatabaseQueue *)dbQueue;
 
 #pragma mark - fetch
 - (NSInteger)fetchInteger;

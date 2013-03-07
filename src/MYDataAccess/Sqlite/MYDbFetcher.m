@@ -10,7 +10,7 @@
 
 @implementation MYDbFetcher
 #pragma mark - class methods
-+ (MYDbFetcher *)fetcherForTableName:(NSString *)tableName {
++ (id)fetcherForTableName:(NSString *)tableName {
     return [[[self alloc] initWithTableName:tableName] autorelease];
 }
 
@@ -44,19 +44,19 @@
 }
 
 #pragma mark offset
-- (MYDbFetcher *)offset:(NSInteger)offset {
+- (id)offset:(NSInteger)offset {
     self.offset = [NSNumber numberWithInteger:offset];
     return self;
 }
 
 #pragma mark limit
-- (MYDbFetcher *)limit:(NSInteger)limit {
+- (id)limit:(NSInteger)limit {
     self.limit = [NSNumber numberWithInteger:limit];
     return self;
 }
 
 #pragma mark order by
-- (MYDbFetcher *)orderBy:(NSString *)aField
+- (id)orderBy:(NSString *)aField
                          ascending:(BOOL)isAscending {
     NSArray *orderBy = @[aField, [NSNumber numberWithBool:isAscending]];
     if (_orderBy == nil) {
@@ -67,12 +67,12 @@
     return self;
 }
 
-- (MYDbFetcher *)orderBy:(NSString *)aField {
+- (id)orderBy:(NSString *)aField {
     return [self orderBy:aField ascending:YES];
 }
 
 #pragma mark select
-- (MYDbFetcher *)select:(NSString *)aFirstParam, ... {
+- (id)select:(NSString *)aFirstParam, ... {
     if (_fields == nil) {
         _fields = [[NSMutableArray alloc] initWithObjects:aFirstParam, nil];
     } else {
@@ -87,7 +87,7 @@
     va_end(args);
     return self;
 }
-- (MYDbFetcher *)selectInArray:(NSArray *)fields {
+- (id)selectInArray:(NSArray *)fields {
     if (_fields == nil) {
         _fields = [[NSMutableArray alloc] initWithArray:fields];
     } else {
@@ -97,7 +97,7 @@
 }
 
 #pragma mark where
-- (MYDbFetcher *)where:(NSString *)aCondition, ... {
+- (id)where:(NSString *)aCondition, ... {
     NSMutableArray *conditions = [[NSMutableArray alloc] initWithObjects:aCondition, nil];
 
     va_list args;
@@ -112,7 +112,7 @@
     return self;
 }
 
-- (MYDbFetcher *)where:(NSString *)aCondition argsInArray:(NSArray *)args {
+- (id)where:(NSString *)aCondition argsInArray:(NSArray *)args {
     NSMutableArray *conditions = [[NSMutableArray alloc] initWithObjects:aCondition, nil];
     [conditions addObjectsFromArray:args];
     [self.wheres addObject:conditions];
@@ -121,7 +121,7 @@
 }
 
 #pragma mark update
-- (MYDbFetcher *)update:(NSDictionary *)updateDic {
+- (id)update:(NSDictionary *)updateDic {
     if (_updateDictionary == nil) {
         _updateDictionary = [[NSMutableDictionary alloc] initWithDictionary:updateDic copyItems:YES];
     } else {
@@ -131,17 +131,17 @@
 }
 
 #pragma mark insert
-- (MYDbFetcher *)insert:(NSDictionary *)insertDic {
+- (id)insert:(NSDictionary *)insertDic {
     return [self update:insertDic];
 }
 
 #pragma mark - using
-- (MYDbFetcher *)usingDb:(FMDatabase *)db {
+- (id)usingDb:(FMDatabase *)db {
     self.db = db;
     return self;
 }
 
-- (MYDbFetcher *)usingDbQueue:(FMDatabaseQueue *)dbQueue {
+- (id)usingDbQueue:(FMDatabaseQueue *)dbQueue {
     self.dbQueue = dbQueue;
     return self;
 }
