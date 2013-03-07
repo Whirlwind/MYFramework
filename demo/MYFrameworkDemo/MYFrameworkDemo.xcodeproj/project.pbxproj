@@ -33,6 +33,7 @@
 		AB3A911F1650946A00C672E5 /* MYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91111650946A00C672E5 /* MYNavigationController.m */; };
 		AB3A91221650946A00C672E5 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91171650946A00C672E5 /* MYViewController.m */; };
 		AB3FA6E616E6ED2400F57CB9 /* MYFileStream.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FA6E516E6ED2400F57CB9 /* MYFileStream.m */; };
+		AB3FA70B16E78BEC00F57CB9 /* MYEntryInDbLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9C16B7D7E500128E0A /* MYEntryInDbLog.m */; };
 		AB485AC2166F17460031747E /* pointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB485AC0166F17460031747E /* pointer@2x.png */; };
 		AB485AC3166F17460031747E /* ruler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB485AC1166F17460031747E /* ruler@2x.png */; };
 		AB76FE7216B7D19400128E0A /* MYBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE5B16B7D19400128E0A /* MYBroadcast.m */; };
@@ -65,7 +66,7 @@
 		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
 		ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */; };
 		ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */; };
-		ABC9D99B16DE54DF001BAEEC /* MYUserEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */; };
+		ABC9D99B16DE54DF001BAEEC /* MYEntryInDb.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9A16B7D7E500128E0A /* MYEntryInDb.m */; };
 		EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87CF167ACA160068798C /* unitBackground@2x.png */; };
 		EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87D0167ACA160068798C /* unitPointer@2x.png */; };
 		ECC06D4A166F341400B6EA33 /* rulerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC06D49166F341400B6EA33 /* rulerBackground@2x.png */; };
@@ -151,10 +152,10 @@
 		AB76FE9216B7D7E500128E0A /* MYEntry+JsonAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYEntry+JsonAccess.m"; sourceTree = "<group>"; };
 		AB76FE9316B7D7E500128E0A /* MYEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntry.h; sourceTree = "<group>"; };
 		AB76FE9416B7D7E500128E0A /* MYEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntry.m; sourceTree = "<group>"; };
-		AB76FE9916B7D7E500128E0A /* MYUserEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserEntry.h; sourceTree = "<group>"; };
-		AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserEntry.m; sourceTree = "<group>"; };
-		AB76FE9B16B7D7E500128E0A /* MYUserEntryLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYUserEntryLog.h; sourceTree = "<group>"; };
-		AB76FE9C16B7D7E500128E0A /* MYUserEntryLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYUserEntryLog.m; sourceTree = "<group>"; };
+		AB76FE9916B7D7E500128E0A /* MYEntryInDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntryInDb.h; sourceTree = "<group>"; };
+		AB76FE9A16B7D7E500128E0A /* MYEntryInDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntryInDb.m; sourceTree = "<group>"; };
+		AB76FE9B16B7D7E500128E0A /* MYEntryInDbLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntryInDbLog.h; sourceTree = "<group>"; };
+		AB76FE9C16B7D7E500128E0A /* MYEntryInDbLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntryInDbLog.m; sourceTree = "<group>"; };
 		AB76FEA616B8A65D00128E0A /* MYViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewModel.h; sourceTree = "<group>"; };
 		AB76FEA716B8A65D00128E0A /* MYViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewModel.m; sourceTree = "<group>"; };
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
@@ -461,10 +462,10 @@
 				ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */,
 				AB76FE9316B7D7E500128E0A /* MYEntry.h */,
 				AB76FE9416B7D7E500128E0A /* MYEntry.m */,
-				AB76FE9916B7D7E500128E0A /* MYUserEntry.h */,
-				AB76FE9A16B7D7E500128E0A /* MYUserEntry.m */,
-				AB76FE9B16B7D7E500128E0A /* MYUserEntryLog.h */,
-				AB76FE9C16B7D7E500128E0A /* MYUserEntryLog.m */,
+				AB76FE9916B7D7E500128E0A /* MYEntryInDb.h */,
+				AB76FE9A16B7D7E500128E0A /* MYEntryInDb.m */,
+				AB76FE9B16B7D7E500128E0A /* MYEntryInDbLog.h */,
+				AB76FE9C16B7D7E500128E0A /* MYEntryInDbLog.m */,
 			);
 			path = MYModel;
 			sourceTree = "<group>";
@@ -645,9 +646,10 @@
 				ABAA74FF16DB623700F5930F /* MYDbManager+FileHelper.m in Sources */,
 				ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */,
 				ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */,
-				ABC9D99B16DE54DF001BAEEC /* MYUserEntry.m in Sources */,
+				ABC9D99B16DE54DF001BAEEC /* MYEntryInDb.m in Sources */,
 				ABB7A4F016E4864A0073590E /* MYFrameworkAppDelegate.m in Sources */,
 				AB3FA6E616E6ED2400F57CB9 /* MYFileStream.m in Sources */,
+				AB3FA70B16E78BEC00F57CB9 /* MYEntryInDbLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
