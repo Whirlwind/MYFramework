@@ -107,8 +107,6 @@
             } else if ([param isEqualToString:@"resource"]) {
                 value = self.modelNameWithPlural;
             } else if (self.entry && [self.entry respondsToSelector:NSSelectorFromString(param)]) {
-
-                param = [self.entryClass convertJsonKeyNameToPropertyName:param];
                 value = [self.entry performSelector:NSSelectorFromString(param)];
             } else {
                 NSAssert(NO, @"param %@ NOT Found!", param);
@@ -126,6 +124,9 @@
     }
     if ([param isKindOfClass:[NSDate class]]) {
         return [(NSDate *)param stringWithFormat:kMYDateTimeFormat];
+    }
+    if ([param isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber *)param stringValue];
     }
     if ([param respondsToSelector:@selector(universalConvertToJSONString)]) {
         return [param performSelector:@selector(universalConvertToJSONString)];
