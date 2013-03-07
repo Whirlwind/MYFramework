@@ -16,6 +16,8 @@
 
 @property (retain, nonatomic) NSObject<MYEntryDataAccessProtocol> *dataAccessor;
 
+@property (copy, nonatomic) NSString *userKey;
+
 @property (retain, nonatomic) NSNumber *index;
 @property (retain, nonatomic) NSNumber *remoteId;
 @property (copy, nonatomic) NSString *createdAt;
@@ -52,4 +54,5 @@
 - (BOOL)removeEntry;
 
 + (NSObject<MYEntryDataAccessProtocol> *)dataAccessor;
++ (NSString *)userKey;
 @end

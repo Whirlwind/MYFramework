@@ -11,6 +11,7 @@
 @implementation MYEntry
 
 - (void)dealloc {
+    [_userKey release], _userKey = nil;
     [_index release], _index = nil;
     [_remoteId release], _remoteId = nil;
     [_updatedAt release], _updatedAt = nil;
@@ -89,6 +90,17 @@
     MY_BACKGROUND_BEGIN
     POST_BROADCAST;
     MY_BACKGROUND_COMMIT
+}
+
+- (NSString *)userKey {
+    if (_userKey != nil) {
+        return _userKey;
+    }
+    return [[self class] userKey];
+}
+
++ (NSString *)userKey {
+    return @" ";
 }
 
 #pragma mark - listener
