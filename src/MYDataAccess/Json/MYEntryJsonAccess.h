@@ -12,5 +12,6 @@
 @interface MYEntryJsonAccess : MYJsonAccess <MYEntryDataAccessProtocol>
 
 @property (copy, nonatomic) NSString *modelName;
+@property (copy, nonatomic) NSString *modelNameWithPlural;
 
 @end

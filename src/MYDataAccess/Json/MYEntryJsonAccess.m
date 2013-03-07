@@ -34,6 +34,8 @@
 @synthesize entryClass = _entryClass;
 
 - (void)dealloc {
+    [_modelName release], _modelName = nil;
+    [_modelNameWithPlural release], _modelNameWithPlural = nil;
     [_entry release], _entry = nil;
     _entryClass = nil;
     [_userKey release], _userKey = nil;
@@ -75,6 +77,20 @@
     return _modelName;
 }
 
+- (NSString *)modelNameWithPlural {
+    if (_modelNameWithPlural == nil) {
+        NSString *name = nil;
+        if (self.entry && [self.entry respondsToSelector:@selector(modelNameWithPlural)]) {
+            name = [self.entry performSelector:@selector(modelNameWithPlural)];
+        }
+        if (name == nil) {
+            name = [self.entryClass modelNameWithPlural];
+        }
+        self.modelNameWithPlural = name;
+    }
+    return _modelNameWithPlural;
+}
+
 - (NSString *)parseAPI:(NSString *)api method:(NSString **)method args:(NSMutableDictionary **)args{
     api = [super parseAPI:api method:method args:args];
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"/:([a-zA-Z\\d]+)"
@@ -89,10 +105,8 @@
             if (value) {
                 [*args removeObjectForKey:param];
             } else if ([param isEqualToString:@"resource"]) {
-                value = self.modelName;
+                value = self.modelNameWithPlural;
             } else if (self.entry && [self.entry respondsToSelector:NSSelectorFromString(param)]) {
-
-                param = [self.entryClass convertJsonKeyNameToPropertyName:param];
                 value = [self.entry performSelector:NSSelectorFromString(param)];
             } else {
                 NSAssert(NO, @"param %@ NOT Found!", param);
@@ -111,6 +125,9 @@
     if ([param isKindOfClass:[NSDate class]]) {
         return [(NSDate *)param stringWithFormat:kMYDateTimeFormat];
     }
+    if ([param isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber *)param stringValue];
+    }
     if ([param respondsToSelector:@selector(universalConvertToJSONString)]) {
         return [param performSelector:@selector(universalConvertToJSONString)];
     }
@@ -118,15 +135,6 @@
 }
 
 #pragma mark - DAO
-
-- (NSDictionary *)changesDictionary {
-    NSMutableDictionary *changeDic = [[NSMutableDictionary alloc] initWithCapacity:[self.entry.changes count]];
-    [self.entry.changes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSString *field = [self.entryClass convertPropertyNameToJsonKeyName:key];
-        changeDic[field] = obj[1];
-    }];
-    return [changeDic autorelease];
-}
 
 #pragma mark C
 - (BOOL)createEntry {
@@ -140,8 +148,12 @@
     if (api == nil) {
         api = kMYEntryJsonAccessAPICreate;
     }
-    NSDictionary *ret = [self requestAPI:api postValue:[self changesDictionary]];
-    return ret != nil;
+    NSDictionary *ret = [self requestAPI:api postValue:@{self.modelName : [self.entry changesDictionarySerializeForJsonAccess]}];
+    if (ret != nil) {
+        self.entry.remoteId = ret[[self.entryClass convertPropertyNameToJsonKeyName:@"remoteId"]];
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark U
@@ -156,7 +168,7 @@
     if (api == nil) {
         api = kMYEntryJsonAccessAPIUpdate;
     }
-    NSDictionary *ret = [self requestAPI:api postValue:[self changesDictionary]];
+    NSDictionary *ret = [self requestAPI:api postValue:@{self.modelName : [self.entry changesDictionarySerializeForJsonAccess]}];
     return ret != nil;
 }
 

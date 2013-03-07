@@ -12,7 +12,8 @@
 
 @optional
 
-@property (retain, nonatomic) NSString *modelName;
+@property (copy, nonatomic) NSString *modelName;
+@property (copy, nonatomic) NSString *modelNameWithPlural;
 
 - (NSString *)deleteAPI;
 - (NSString *)updateAPI;

@@ -91,12 +91,32 @@
     [*params addEntriesFromDictionary:[BHAnalysis IDToken]];
 }
 
+- (void)pickFileStreamFromDictionary:(NSMutableDictionary *)dic to:(NSMutableDictionary *)result withPath:(NSString *)path {
+    [dic enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[MYFileStream class]]) {
+            [result setValue:obj forKey:path == nil || [path isKindOfClass:[NSString class]] ? key : [NSString stringWithFormat:@"%@[%@]", path, key]];
+            [dic removeObjectForKey:key];
+        } else if ([obj isKindOfClass:[NSDictionary class]]) {
+            [self pickFileStreamFromDictionary:obj to:result withPath:path == nil || [path isKindOfClass:[NSString class]] ? key : [NSString stringWithFormat:@"%@[%@]", path, key]];
+            if ([obj count] == 0) {
+                [dic removeObjectForKey:key];
+            }
+        } else {
+        }
+    }];
+}
+
 - (id)requestBaseAPIUrl:(NSString *)url postValue:(NSDictionary *)values {
     NSMutableDictionary *newValues = values == nil ? [NSMutableDictionary dictionaryWithCapacity:1] : [NSMutableDictionary dictionaryWithDictionary:values];
     [self handleParams:&newValues];
     NSString *method = nil;
     url = [self parseAPI:url method:&method args:&newValues];
-    return [self requestURLString:url postValue:@{@"data" : [newValues universalConvertToJSONString]} method:method requestHeaders:@{@"data-type" : @"json"} security:YES];
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [self pickFileStreamFromDictionary:newValues to:result withPath:nil];
+    if ([newValues count] > 0) {
+        [result setValue:[newValues universalConvertToJSONString] forKey:@"data"];
+    }
+    return [self requestURLString:url postValue:result method:method requestHeaders:@{@"data-type" : @"json"} security:YES];
 }
 
 - (id)requestAPI:(NSString *)api {

@@ -12,6 +12,7 @@
 @interface MYEntry (JsonAccess)
 
 + (NSString *)modelName;
++ (NSString *)modelNameWithPlural;
 
 /**  使用json字典初始化
  */
@@ -49,4 +50,6 @@
  *  @return 返回json字段
  */
 + (NSString *)convertPropertyNameToJsonKeyName:(NSString *)name;
+
+- (NSMutableDictionary *)changesDictionarySerializeForJsonAccess;
 @end

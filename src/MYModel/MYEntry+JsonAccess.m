@@ -27,6 +27,10 @@
     return [self convertAppleStylePropertyToRailsStyleProperty:NSStringFromClass([self class])];
 }
 
++ (NSString *)modelNameWithPlural {
+    return [NSString stringWithFormat:@"%@s", [self modelName]];
+}
+
 - (void)setPropertyWithJsonKey:(NSString *)key toValue:(NSObject *)obj {
     NSString *property = [[self class] convertJsonKeyNameToPropertyName:key];
     SEL setSelector = [[self class] setterFromPropertyString:property];
@@ -55,6 +59,22 @@
         [ret addObject:[[[[self class] alloc] initWithJsonDictionary:obj] autorelease]];
     }];
     return [ret autorelease];
+}
+
+- (NSMutableDictionary *)changesDictionarySerializeForJsonAccess {
+    NSMutableDictionary *changeDic = [[NSMutableDictionary alloc] initWithCapacity:[self.changes count]];
+    [self.changes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSString *field = [[self class] convertPropertyNameToJsonKeyName:key];
+        if ([obj[1] isKindOfClass:[MYEntry class]]) {
+            changeDic[field] = [((MYEntry *)obj[1]) changesDictionarySerializeForJsonAccess];
+        } else {
+            changeDic[field] = obj[1];
+        }
+    }];
+    if (self.index != nil) {
+        changeDic[@"id"] = self.index;
+    }
+    return [changeDic autorelease];
 }
 
 @end
