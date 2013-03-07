@@ -135,6 +135,8 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (change[NSKeyValueChangeNewKey] == change[NSKeyValueChangeOldKey]) {
         return;
+    } else if ([change[NSKeyValueChangeNewKey] isKindOfClass:[NSString class]] && [change[NSKeyValueChangeNewKey] isEqualToString:change[NSKeyValueChangeOldKey]]) {
+        return;
     }
     NSArray *receivers = (self.observerList)[keyPath];
     if (receivers == nil) {
