@@ -30,6 +30,7 @@
 @property (assign, nonatomic) BOOL needPostLocalChangeNotification;
 @property (retain, nonatomic) NSMutableDictionary *changes;
 
+- (id)initWithIndex:(NSNumber *)index;
 
 #pragma mark - listen
 - (NSArray *)listenProperties;

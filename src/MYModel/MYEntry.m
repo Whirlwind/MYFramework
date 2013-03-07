@@ -58,6 +58,13 @@
     return self;
 }
 
+- (id)initWithIndex:(NSNumber *)index {
+    if (self = [self init]) {
+        self.index = index;
+    }
+    return self;
+}
+
 - (void)disableListenProperty:(void(^)(void))block {
     listening = NO;
     block();
