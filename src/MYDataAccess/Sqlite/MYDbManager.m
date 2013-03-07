@@ -16,7 +16,7 @@
 #   define kMYUserDatabasePassword nil
 #endif
 
-static FMDatabaseQueue *_dbQueue = nil;
+static FMDatabaseQueue *_sharedDbQueue = nil;
 @implementation MYDbManager
 
 - (void)dealloc {
@@ -176,12 +176,12 @@ static FMDatabaseQueue *_dbQueue = nil;
 }
 
 + (void)closeSharedDbQueue {
-    [_dbQueue close];
-    [_dbQueue release], _dbQueue = nil;
+    [_sharedDbQueue close];
+    [_sharedDbQueue release], _sharedDbQueue = nil;
 }
 
 + (FMDatabaseQueue *)sharedDbQueue {
-    return _dbQueue;
+    return _sharedDbQueue;
 }
 
 - (void)migrateUserDatabase:(NSNotification *)ntf {
@@ -189,7 +189,7 @@ static FMDatabaseQueue *_dbQueue = nil;
         return;
     }
     [self setDbFileName:kMYUserDatabaseFile password:kMYUserDatabasePassword];
-    _dbQueue = [self.dbQueue retain];
+    _sharedDbQueue = [self.dbQueue retain];
     POST_BROADCAST_WITH_ARGS(@{@"sqlAccess" : self});
     POST_BROADCAST_WITH_NAME(@"migrateUserDatabaseCompleted");
 }
