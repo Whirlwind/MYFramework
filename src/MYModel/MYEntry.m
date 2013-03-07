@@ -17,7 +17,7 @@
     [_updatedAt release], _updatedAt = nil;
     [_createdAt release], _createdAt = nil;
     [_error release], _error = nil;
-    [self.dataAccessor.dataProperties enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [[self.dataAccessor dataProperties] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self removeObserver:self forKeyPath:obj];
     }];
     [_dataAccessor release], _dataAccessor = nil;
@@ -73,7 +73,7 @@
 
 #pragma mark - getter
 
-- (NSObject<MYEntryDataAccessProtocol> *)dataAccessor {
+- (id)dataAccessor {
     if (_dataAccessor == nil) {
         _dataAccessor = [[[self class] dataAccessor] retain];
         [_dataAccessor setEntry:self];
@@ -113,7 +113,7 @@
 #pragma mark - listener
 - (NSArray *)listenProperties {
     if ([self.dataAccessor respondsToSelector:@selector(dataProperties)]) {
-        return self.dataAccessor.dataProperties;
+        return [self.dataAccessor dataProperties];
     }
     return @[];
 }

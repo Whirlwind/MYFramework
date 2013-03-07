@@ -14,7 +14,7 @@
     BOOL listening;
 }
 
-@property (retain, nonatomic) NSObject<MYEntryDataAccessProtocol> *dataAccessor;
+@property (retain, nonatomic) id dataAccessor;
 
 @property (copy, nonatomic) NSString *userKey;
 
