@@ -368,6 +368,9 @@
     NSMutableArray *tmp = [[NSMutableArray alloc] initWithCapacity:[self.updateDictionary count]];
     [self.updateDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [tmp addObject:[NSString stringWithFormat:@"`%@` = ?", key]];
+        if ([obj isKindOfClass:[NSDate class]]) {
+            obj = [(NSDate *)obj strftime:kMYDateTimeFormat];
+        }
         [*args addObject:obj];
     }];
     NSMutableString *sql = [NSMutableString stringWithFormat:@"UPDATE `%@` SET %@", self.tableName, [tmp componentsJoinedByString:@", "]];
@@ -389,6 +392,9 @@
     [self.updateDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [tmp addObject:[NSString stringWithFormat:@"`%@`", key]];
         [tmp2 addObject:@"?"];
+        if ([obj isKindOfClass:[NSDate class]]) {
+            obj = [(NSDate *)obj strftime:kMYDateTimeFormat];
+        }
         [*args addObject:obj];
     }];
     NSString *sql = [NSString stringWithFormat:@"INSERT %@ INTO `%@` (%@) VALUES (%@)", replace ? @"OR REPLACE" : @"", self.tableName, [tmp componentsJoinedByString:@", "], [tmp2 componentsJoinedByString:@", "]];
