@@ -7,9 +7,6 @@
 //
 
 #import "MYEntry.h"
-#import "NSDate+Extend.h"
-#import "MYDbSchema.h"
-#import "MYUserEntryLog.h"
 
 @implementation MYEntry
 
