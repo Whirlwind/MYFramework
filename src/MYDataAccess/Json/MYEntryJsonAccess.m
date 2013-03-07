@@ -148,7 +148,11 @@
         api = kMYEntryJsonAccessAPICreate;
     }
     NSDictionary *ret = [self requestAPI:api postValue:@{self.modelName : [self.entry changesDictionarySerializeForJsonAccess]}];
-    return ret != nil;
+    if (ret != nil) {
+        self.entry.remoteId = ret[[self.entryClass convertPropertyNameToJsonKeyName:@"remoteId"]];
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark U
