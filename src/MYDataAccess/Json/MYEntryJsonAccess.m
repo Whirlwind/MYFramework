@@ -34,6 +34,7 @@
 @synthesize entryClass = _entryClass;
 
 - (void)dealloc {
+    [_modelName release], _modelName = nil;
     [_entry release], _entry = nil;
     _entryClass = nil;
     [_userKey release], _userKey = nil;
