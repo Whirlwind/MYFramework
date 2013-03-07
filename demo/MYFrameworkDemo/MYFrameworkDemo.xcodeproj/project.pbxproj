@@ -33,6 +33,7 @@
 		AB3A911F1650946A00C672E5 /* MYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91111650946A00C672E5 /* MYNavigationController.m */; };
 		AB3A91221650946A00C672E5 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91171650946A00C672E5 /* MYViewController.m */; };
 		AB3FA6E616E6ED2400F57CB9 /* MYFileStream.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FA6E516E6ED2400F57CB9 /* MYFileStream.m */; };
+		AB3FA71A16E8960000F57CB9 /* MYWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3FA71916E8960000F57CB9 /* MYWebView.m */; };
 		AB485AC2166F17460031747E /* pointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB485AC0166F17460031747E /* pointer@2x.png */; };
 		AB485AC3166F17460031747E /* ruler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB485AC1166F17460031747E /* ruler@2x.png */; };
 		AB76FE7216B7D19400128E0A /* MYBroadcast.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE5B16B7D19400128E0A /* MYBroadcast.m */; };
@@ -121,6 +122,8 @@
 		AB3A91171650946A00C672E5 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		AB3FA6E416E6ED2400F57CB9 /* MYFileStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFileStream.h; sourceTree = "<group>"; };
 		AB3FA6E516E6ED2400F57CB9 /* MYFileStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYFileStream.m; sourceTree = "<group>"; };
+		AB3FA71816E8960000F57CB9 /* MYWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWebView.h; sourceTree = "<group>"; };
+		AB3FA71916E8960000F57CB9 /* MYWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWebView.m; sourceTree = "<group>"; };
 		AB485AC0166F17460031747E /* pointer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointer@2x.png"; sourceTree = "<group>"; };
 		AB485AC1166F17460031747E /* ruler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruler@2x.png"; sourceTree = "<group>"; };
 		AB76FE5A16B7D19400128E0A /* MYBroadcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBroadcast.h; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 		AB3A91021650946A00C672E5 /* MYView */ = {
 			isa = PBXGroup;
 			children = (
+				AB3FA71816E8960000F57CB9 /* MYWebView.h */,
+				AB3FA71916E8960000F57CB9 /* MYWebView.m */,
 				AB3A91031650946A00C672E5 /* CustomTabBar.h */,
 				AB3A91041650946A00C672E5 /* CustomTabBar.m */,
 				AB3A91051650946A00C672E5 /* CustomTabBarItem.h */,
@@ -648,6 +653,7 @@
 				ABC9D99B16DE54DF001BAEEC /* MYUserEntry.m in Sources */,
 				ABB7A4F016E4864A0073590E /* MYFrameworkAppDelegate.m in Sources */,
 				AB3FA6E616E6ED2400F57CB9 /* MYFileStream.m in Sources */,
+				AB3FA71A16E8960000F57CB9 /* MYWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
