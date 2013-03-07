@@ -302,7 +302,7 @@
 
 #pragma mark - table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return (self.maxValue - self.minValue + 2*self.increaseValuePerCell*kValueCheckBoxViewExtendCellNumber) / self.increaseValuePerCell + 1;
+    return ceil((self.maxValue - self.minValue + 2*self.increaseValuePerCell*kValueCheckBoxViewExtendCellNumber) / self.increaseValuePerCell + 1);
 }
 
 - (UIView *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
