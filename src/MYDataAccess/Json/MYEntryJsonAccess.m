@@ -135,15 +135,6 @@
 
 #pragma mark - DAO
 
-- (NSDictionary *)changesDictionary {
-    NSMutableDictionary *changeDic = [[NSMutableDictionary alloc] initWithCapacity:[self.entry.changes count]];
-    [self.entry.changes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        NSString *field = [self.entryClass convertPropertyNameToJsonKeyName:key];
-        changeDic[field] = obj[1];
-    }];
-    return [changeDic autorelease];
-}
-
 #pragma mark C
 - (BOOL)createEntry {
     if (self.entry.index != nil) {
@@ -156,7 +147,7 @@
     if (api == nil) {
         api = kMYEntryJsonAccessAPICreate;
     }
-    NSDictionary *ret = [self requestAPI:api postValue:[self changesDictionary]];
+    NSDictionary *ret = [self requestAPI:api postValue:@{self.modelName : [self.entry changesDictionarySerializeForJsonAccess]}];
     return ret != nil;
 }
 
@@ -172,7 +163,7 @@
     if (api == nil) {
         api = kMYEntryJsonAccessAPIUpdate;
     }
-    NSDictionary *ret = [self requestAPI:api postValue:[self changesDictionary]];
+    NSDictionary *ret = [self requestAPI:api postValue:@{self.modelName : [self.entry changesDictionarySerializeForJsonAccess]}];
     return ret != nil;
 }
 

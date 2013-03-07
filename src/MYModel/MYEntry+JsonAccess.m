@@ -61,4 +61,20 @@
     return [ret autorelease];
 }
 
+- (NSMutableDictionary *)changesDictionarySerializeForJsonAccess {
+    NSMutableDictionary *changeDic = [[NSMutableDictionary alloc] initWithCapacity:[self.changes count]];
+    [self.changes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSString *field = [[self class] convertPropertyNameToJsonKeyName:key];
+        if ([obj[1] isKindOfClass:[MYEntry class]]) {
+            changeDic[field] = [((MYEntry *)obj[1]) changesDictionarySerializeForJsonAccess];
+        } else {
+            changeDic[field] = obj[1];
+        }
+    }];
+    if (self.index != nil) {
+        changeDic[@"id"] = self.index;
+    }
+    return [changeDic autorelease];
+}
+
 @end

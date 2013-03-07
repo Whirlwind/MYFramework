@@ -50,4 +50,6 @@
  *  @return 返回json字段
  */
 + (NSString *)convertPropertyNameToJsonKeyName:(NSString *)name;
+
+- (NSMutableDictionary *)changesDictionarySerializeForJsonAccess;
 @end
