@@ -71,6 +71,7 @@
 - (NSObject<MYEntryDataAccessProtocol> *)dataAccessor {
     if (_dataAccessor == nil) {
         _dataAccessor = [[[self class] dataAccessor] retain];
+        [_dataAccessor setEntry:self];
     }
     return _dataAccessor;
 }
