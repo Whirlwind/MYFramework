@@ -53,6 +53,6 @@
 - (BOOL)updateEntry;
 - (BOOL)removeEntry;
 
-+ (NSObject<MYEntryDataAccessProtocol> *)dataAccessor;
 + (NSString *)userKey;
++ (id)dataAccessor;
 @end

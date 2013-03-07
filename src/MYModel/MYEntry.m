@@ -214,7 +214,7 @@
     return [self.dataAccessor removeEntry];
 }
 
-+ (NSObject<MYEntryDataAccessProtocol> *)dataAccessor {
++ (id)dataAccessor {
     return nil;
 }
 @end
