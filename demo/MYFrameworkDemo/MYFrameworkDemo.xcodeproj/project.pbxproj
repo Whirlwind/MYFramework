@@ -50,6 +50,8 @@
 		AB76FE9F16B7D7E500128E0A /* MYEntry+JsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9216B7D7E500128E0A /* MYEntry+JsonAccess.m */; };
 		AB76FEA016B7D7E500128E0A /* MYEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9416B7D7E500128E0A /* MYEntry.m */; };
 		AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FEA716B8A65D00128E0A /* MYViewModel.m */; };
+		AB94666216EC3B5F00403BD4 /* MYDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94666116EC3B5F00403BD4 /* MYDate.m */; };
+		AB94666516EC3B7600403BD4 /* MYDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94666416EC3B7600403BD4 /* MYDateTime.m */; };
 		AB9E55E616BF4F8D008D733B /* MYBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E55E516BF4F8D008D733B /* MYBundle.m */; };
 		AB9E565016BFC5AE008D733B /* MYInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564716BFC5AE008D733B /* MYInputField.m */; };
 		AB9E565116BFC5AE008D733B /* MYInputFieldEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9E564B16BFC5AE008D733B /* MYInputFieldEmail.m */; };
@@ -161,6 +163,10 @@
 		AB76FE9C16B7D7E500128E0A /* MYEntryInDbLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntryInDbLog.m; sourceTree = "<group>"; };
 		AB76FEA616B8A65D00128E0A /* MYViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewModel.h; sourceTree = "<group>"; };
 		AB76FEA716B8A65D00128E0A /* MYViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewModel.m; sourceTree = "<group>"; };
+		AB94666016EC3B5F00403BD4 /* MYDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDate.h; sourceTree = "<group>"; };
+		AB94666116EC3B5F00403BD4 /* MYDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDate.m; sourceTree = "<group>"; };
+		AB94666316EC3B7500403BD4 /* MYDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDateTime.h; sourceTree = "<group>"; };
+		AB94666416EC3B7600403BD4 /* MYDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDateTime.m; sourceTree = "<group>"; };
 		AB9BB3B5165DABBF00F56628 /* MYViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewControllerDelegate.h; sourceTree = "<group>"; };
 		AB9E55E416BF4F8D008D733B /* MYBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBundle.h; sourceTree = "<group>"; };
 		AB9E55E516BF4F8D008D733B /* MYBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBundle.m; sourceTree = "<group>"; };
@@ -435,6 +441,10 @@
 				AB9E55E516BF4F8D008D733B /* MYBundle.m */,
 				AB3FA6E416E6ED2400F57CB9 /* MYFileStream.h */,
 				AB3FA6E516E6ED2400F57CB9 /* MYFileStream.m */,
+				AB94666016EC3B5F00403BD4 /* MYDate.h */,
+				AB94666116EC3B5F00403BD4 /* MYDate.m */,
+				AB94666316EC3B7500403BD4 /* MYDateTime.h */,
+				AB94666416EC3B7600403BD4 /* MYDateTime.m */,
 			);
 			path = MYFoundation;
 			sourceTree = "<group>";
@@ -656,6 +666,8 @@
 				AB3FA6E616E6ED2400F57CB9 /* MYFileStream.m in Sources */,
 				AB3FA70B16E78BEC00F57CB9 /* MYEntryInDbLog.m in Sources */,
 				AB3FA71A16E8960000F57CB9 /* MYWebView.m in Sources */,
+				AB94666216EC3B5F00403BD4 /* MYDate.m in Sources */,
+				AB94666516EC3B7600403BD4 /* MYDateTime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
