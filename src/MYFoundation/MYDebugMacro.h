@@ -31,8 +31,9 @@ MYLogTag = array[index+1];\
 if (MYLogTag == nil) {\
 MYLogTag = [MYLogPath lastPathComponent];\
 }\
-LogMessageF( __FILE__,__LINE__,__FUNCTION__, MYLogTag, _level, __VA_ARGS__);}
-#   define NSLog(...) MYLog(9, __VA_ARGS__)
+LogMessageF( __FILE__,__LINE__,__FUNCTION__, MYLogTag, _level, __VA_ARGS__);\
+NSLog(__VA_ARGS__);}
+//#   define NSLog(...) MYLog(9, __VA_ARGS__)
 #else
 #   ifdef __OPTIMIZE__
 #       define NSLog(...) /**/
