@@ -103,6 +103,12 @@
     return [array autorelease];
 }
 
+- (NSString *)userKey {
+    if (_userKey == nil) {
+        self.userKey = [self.entry userKey];
+    }
+    return _userKey;
+}
 #pragma mark - override
 - (NSString *)createWhereStatementWithArgs:(NSMutableArray **)args {
     if ([[MYDbSchema sharedInstance] hasColumn:@"user_key" forTable:self.tableName]) {
