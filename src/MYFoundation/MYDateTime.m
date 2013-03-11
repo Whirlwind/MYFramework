@@ -53,9 +53,9 @@
 
 + (id)dateWithObject:(NSObject *)object {
     if ([object isKindOfClass:[NSString class]]) {
-        return [[self alloc] initWithString:(NSString *)object];
+        return [[[self alloc] initWithString:(NSString *)object] autorelease];
     } else if ([object isKindOfClass:[NSDate class]]) {
-        return [[self alloc] initWithNSDate:(NSDate *)object];
+        return [[[self alloc] initWithNSDate:(NSDate *)object] autorelease];
     }
     return nil;
 }
