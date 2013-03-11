@@ -33,20 +33,22 @@
     return _index;
 }
 
-- (void)setCreateDate:(NSDate *)date {
-    [self setCreatedAt:[date strftime:kMYDateTimeFormat]];
+- (void)setCreatedAt:(MYDateTime *)createdAt {
+    [_createdAt release], _createdAt = nil;
+    if ([createdAt isKindOfClass:[MYDateTime class]]) {
+        _createdAt = [createdAt retain];
+    } else {
+        _createdAt = [[MYDateTime dateWithObject:createdAt] retain];
+    }
 }
 
-- (NSDate *)createDate {
-    return [NSDate dateFromString:self.createdAt];
-}
-
-- (void)setUpdateDate:(NSDate *)updateDate {
-    [self setUpdatedAt:[updateDate strftime:kMYDateTimeFormat]];
-}
-
-- (NSDate *)updateDate {
-    return [NSDate dateFromString:self.updatedAt];
+- (void)setUpdatedAt:(MYDateTime *)updatedAt {
+    [_updatedAt release], _updatedAt = nil;
+    if ([updatedAt isKindOfClass:[MYDateTime class]]) {
+        _updatedAt = [updatedAt retain];
+    } else {
+        _updatedAt = [[MYDateTime dateWithObject:updatedAt] retain];
+    }
 }
 
 - (id)init {

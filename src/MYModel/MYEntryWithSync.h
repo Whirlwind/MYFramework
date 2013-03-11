@@ -1,5 +1,5 @@
 //
-//  ONEBaseUserDbEntry.h
+//  MYEntryWithSync.h
 //  ONEBase
 //
 //  Created by Whirlwind on 12-12-1.
@@ -7,18 +7,22 @@
 //
 
 #import "MYEntry.h"
-#import "MYEntrySqlAccess.h"
+#import "MYEntrySqlAccessWithLog.h"
 #import "MYEntry+SqlAccess.h"
 
 #import "MYEntry+JsonAccess.h"
 
-@interface MYEntryInDb : MYEntry
+@interface MYEntryWithSync : MYEntry <MYEntrySqlAccessProtocol>
 
-@property (copy, nonatomic) NSString *remoteUpdatedAt;
-@property (copy, nonatomic) NSString *remoteCreatedAt;
+@property (assign, nonatomic) BOOL needLog;
+
+@property (retain, nonatomic) MYDateTime *remoteUpdatedAt;
+@property (retain, nonatomic) MYDateTime *remoteCreatedAt;
 
 @property (retain, nonatomic) NSMutableArray *ignoreLogProperties;
 @property (retain, nonatomic) NSMutableArray *extendLogProperties;
+
++ (BOOL)needLog;
 
 + (NSString *)selectFirstRemoteCreateDateInLocal;
 + (NSString *)selectLatestRemoteUpdateDateInLocal;
@@ -30,9 +34,5 @@
 
 + (BOOL)existAnonymousData;
 + (BOOL)setAnonymousDataToCurrentUserData;
-
-//#pragma mark - log
-//- (BOOL)logChanges:(NSDictionary *)changes usingDb:(FMDatabase *)db;
-//- (BOOL)logDeleteUsingDb:(FMDatabase *)db;
 
 @end

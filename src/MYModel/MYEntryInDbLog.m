@@ -44,7 +44,7 @@ static BOOL uploading = NO;
                  uniqueId:(NSNumber *)uniqueId
                   userKey:(NSString *)userKey
                   changes:(NSDictionary *)changes
-                updatedAt:(NSString *)updatedAt
+                updatedAt:(MYDateTime *)updatedAt
                   usingDb:(FMDatabase *)db {
     __block BOOL status = YES;
     [changes enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -72,7 +72,7 @@ static BOOL uploading = NO;
                   userKey:(NSString *)userKey
                 fieldName:(NSString *)fieldName
                fieldValue:(NSString *)fieldValue
-                updatedAt:(NSString *)updatedAt
+                updatedAt:(MYDateTime *)updatedAt
                   usingDb:(FMDatabase *)db {
     if ([fieldName isEqualToString:@"updated_at"] || [fieldName isEqualToString:@"created_at"]) {
         return YES;

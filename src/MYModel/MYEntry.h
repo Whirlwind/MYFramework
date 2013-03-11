@@ -20,10 +20,8 @@
 
 @property (retain, nonatomic) NSNumber *index;
 @property (retain, nonatomic) NSNumber *remoteId;
-@property (copy, nonatomic) NSString *createdAt;
-@property (copy, nonatomic) NSString *updatedAt;
-@property (assign, nonatomic) NSDate *createDate;
-@property (assign, nonatomic) NSDate *updateDate;
+@property (retain, nonatomic) MYDateTime *createdAt;
+@property (retain, nonatomic) MYDateTime *updatedAt;
 
 @property (retain, nonatomic) NSError *error;
 

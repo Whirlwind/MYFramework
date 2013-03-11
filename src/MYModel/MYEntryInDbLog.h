@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import "MYEntryInDb.h"
+#import "MYEntryWithSync.h"
 #import "MYEntry+SqlAccess.h"
 
 @interface MYEntryInDbLog : NSObject
@@ -19,13 +19,13 @@
                  uniqueId:(NSNumber *)uniqueId
                   userKey:(NSString *)userKey
                   changes:(NSDictionary *)changes
-                updatedAt:(NSString *)updatedAt
+                updatedAt:(MYDateTime *)updatedAt
                   usingDb:(FMDatabase *)db;
 + (BOOL)logDeleteForModel:(NSString *)modelName
                   localId:(NSNumber *)localId
                  uniqueId:(NSNumber *)uniqueId
                   userKey:(NSString *)userKey
-                updatedAt:(NSString *)updatedAt
+                updatedAt:(MYDateTime *)updatedAt
                   usingDb:(FMDatabase *)db;
 
 @end

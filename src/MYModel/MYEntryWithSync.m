@@ -1,22 +1,50 @@
 //
-//  ONEBaseUserDbEntry.m
+//  MYEntryWithSync.m
 //  ONEBase
 //
 //  Created by Whirlwind on 12-12-1.
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import "MYEntryInDb.h"
-#import "MYEntryInDbLog.h"
-#import "MYDbSchema.h"
+#import "MYEntryWithSync.h"
 
-@implementation MYEntryInDb
+@implementation MYEntryWithSync
+@synthesize tableName = _tableName;
+@synthesize dbQueue = _dbQueue;
+
 - (void)dealloc {
+    [_tableName release], _tableName = nil;
+    [_dbQueue release], _dbQueue = nil;
     [_remoteCreatedAt release], _remoteCreatedAt = nil;
     [_remoteUpdatedAt release], _remoteUpdatedAt = nil;
     [_ignoreLogProperties release], _ignoreLogProperties = nil;
     [_extendLogProperties release], _extendLogProperties = nil;
     [super dealloc];
+}
+
+- (id)init {
+    if (self = [super init]) {
+        self.needLog = [[self class] needLog];
+    }
+    return self;
+}
+
+- (NSString *)tableName {
+    if (_tableName == nil) {
+        return [[self class] tableName];
+    }
+    return _tableName;
+}
+
+- (FMDatabaseQueue *)dbQueue {
+    if (_dbQueue == nil) {
+        return [[self class] dbQueue];
+    }
+    return _dbQueue = nil;
+}
+
++ (BOOL)needLog {
+    return YES;
 }
 
 - (NSMutableArray *)extendLogProperties {
@@ -34,36 +62,9 @@
 }
 
 + (id<MYEntryDataAccessProtocol>)dataAccessor {
-    return [[[MYEntrySqlAccess alloc] initWithEntryClass:self] autorelease];
-}
-- (BOOL)logChanges:(NSDictionary *)changes usingDb:(FMDatabase *)db {
-    NSMutableDictionary *logChanges = [NSMutableDictionary dictionaryWithDictionary:changes];
-    [_ignoreLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
-        NSString *field = [[self class] convertPropertyNameToDbFieldName:property];
-        [logChanges removeObjectForKey:field];
-    }];
-    [_extendLogProperties enumerateObjectsUsingBlock:^(NSString *property, NSUInteger idx, BOOL *stop) {
-        NSString *field = [[self class] convertPropertyNameToDbFieldName:property];
-        if (field) {
-            [logChanges setValue:[self performSelector:NSSelectorFromString(property)] forKey:field];
-        }
-    }];
-    return [MYEntryInDbLog logChangeForModel:[[self class] modelName]
-                                     localId:self.index
-                                    uniqueId:self.remoteId
-                                     userKey:self.userKey
-                                     changes:logChanges
-                                   updatedAt:self.updatedAt
-                                     usingDb:db];
+    return [[[MYEntrySqlAccessWithLog alloc] initWithEntryClass:self] autorelease];
 }
 
-- (BOOL)logDeleteUsingDb:(FMDatabase *)db {
-    return [MYEntryInDbLog logDeleteForModel:[[self class] modelName]
-                                     localId:self.index
-                                    uniqueId:self.remoteId
-                                     userKey:self.userKey                                                            updatedAt:self.updatedAt
-                                     usingDb:db];
-}
 
 #pragma mark - select
 + (NSString *)selectFirstRemoteCreateDateInLocal {
@@ -90,7 +91,7 @@
     if (dic == nil || [dic isKindOfClass:[NSNull class]]) {
         return YES;
     }
-    MYEntryInDb *entry = [[MYEntryInDb alloc] init];
+    MYEntryWithSync *entry = [[MYEntryWithSync alloc] init];
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([key isEqualToString:@"id"]) {
             key = @"remote_id";
