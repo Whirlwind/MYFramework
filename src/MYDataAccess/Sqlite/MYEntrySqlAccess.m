@@ -130,9 +130,6 @@
     NSDictionary *changeDic = [self changesDictionary];
     BOOL status = [[self insert:changeDic] insertDb:^BOOL(FMDatabase *db, NSInteger insertId) {
         self.entry.index = [NSNumber numberWithInteger:insertId];
-//        if (self.needLog && ![self logChanges:changeDic usingDb:db]) {
-//            return NO;
-//        }
         return YES;
     } replace:self.insertModeUsingReplace];
     return status;
@@ -198,9 +195,6 @@
         return YES;
     }
     BOOL status = [[self where:@"id = ?", self.entry.index, nil] deleteDb:^BOOL(FMDatabase *db) {
-//        if (self.needLog && ![self logDeleteUsingDb:db]) {
-//            return NO;
-//        }
         return YES;
     }];
     return status;
