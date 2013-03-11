@@ -6,4 +6,4 @@
 */application:didFinishLaunchingWithOptions:, MYApplicationObserver/migrateUserDatabase:, 2
 
 // db migrate
-MYUserDataBase/migrateUserDatabase:, MYUserDataBaseObserver/migrateUserDataBase:, 0
+*/migrateUserDatabase:, MYUserDataBaseObserver/migrateUserDataBase:, 0
