@@ -47,7 +47,7 @@
 
 - (id<MYNavigationControllerAnimationFactoryProtocol>)animationFactory {
     if (_animationFactory == nil) {
-        _animationFactory = [[MYNavigationControllerAnimationFactory alloc] init];
+        _animationFactory = [[MYNavigationControllerAnimationFactory alloc] initWithNavigationController:self];
     }
     return _animationFactory;
 }

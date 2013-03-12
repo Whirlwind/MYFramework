@@ -9,6 +9,14 @@
 #import "MYNavigationControllerAnimationFactory.h"
 
 @implementation MYNavigationControllerAnimationFactory
+@synthesize nav = _nav;
+
+- (id)initWithNavigationController:(MYNavigationController *)nav {
+    if (self = [self init]) {
+        self.nav = nav;
+    }
+    return self;
+}
 
 - (void)exchangeViewController:(id<MYViewControllerDelegate>)prevViewController
         withNextViewController:(id<MYViewControllerDelegate>)nextViewController
