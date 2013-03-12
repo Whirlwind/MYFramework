@@ -28,28 +28,30 @@
 
 - (void)viewDidLoad
 {
-    static NSString *suffix = @"Model";
-    NSString *name = NSStringFromClass([self class]);
-    if (self.viewName == nil) {
-        if ([name hasSuffix:suffix]) {
-            self.viewName = [[[self class] description] substringToIndex:[name length] - [suffix length]];
+    if (![NSStringFromClass([self class]) hasSuffix:@"Controller"]) {
+        static NSString *suffix = @"Model";
+        NSString *name = NSStringFromClass([self class]);
+        if (self.viewName == nil) {
+            if ([name hasSuffix:suffix]) {
+                self.viewName = [[[self class] description] substringToIndex:[name length] - [suffix length]];
+            } else {
+                self.viewName = name;
+            }
+        }
+        if([self.nibBundle pathForResource:self.viewName ofType:@"nib"] != nil) {
+            NSArray *array = [self.nibBundle loadNibNamed:self.viewName owner:nil options:nil];
+            if (array) {
+                self.contentView = array[0];
+            }
         } else {
-            self.viewName = name;
+            Class v = NSClassFromString(self.viewName);
+            if (v) {
+                self.contentView = [[[v alloc] init] autorelease];
+            }
         }
+        self.view.width = self.contentView.width;
+        self.view.height = self.contentView.height;
     }
-    if([self.nibBundle pathForResource:self.viewName ofType:@"nib"] != nil) {
-        NSArray *array = [self.nibBundle loadNibNamed:self.viewName owner:nil options:nil];
-        if (array) {
-            self.contentView = array[0];
-        }
-    } else {
-        Class v = NSClassFromString(self.viewName);
-        if (v) {
-            self.contentView = [[[v alloc] init] autorelease];
-        }
-    }
-    self.view.width = self.contentView.width;
-    self.view.height = self.contentView.height;
     [super viewDidLoad];
 }
 
