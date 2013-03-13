@@ -267,7 +267,15 @@
 
 #pragma mark - override
 - (NSString *)api:(NSString *)api {
-    return [NSString stringWithFormat:@"%@%@%@%@", self.serverDomain, self.nameSpace, self.apiVersion, api];
+    return [[self class] api:api withServerDomain:self.serverDomain nameSpace:self.nameSpace version:self.apiVersion];
+}
+
++ (NSString *)api:(NSString *)api withServerDomain:(NSString *)serverDomain nameSpace:(NSString *)nameSpace version:(NSString *)version {
+    return [NSString stringWithFormat:@"%@%@%@%@", serverDomain, nameSpace, version, api];
+}
+
++ (NSString *)api:(NSString *)api {
+    return [self api:api withServerDomain:[self serverDomain] nameSpace:[self nameSpace] version:[self apiVersion]];
 }
 #pragma mark - public class methods
 + (NSString *)serverDomain {

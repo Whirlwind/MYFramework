@@ -38,6 +38,8 @@
 
 - (NSString *)api:(NSString *)api;
 
++ (NSString *)api:(NSString *)api;
++ (NSString *)api:(NSString *)api withServerDomain:(NSString *)serverDomain nameSpace:(NSString *)nameSpace version:(NSString *)version;
 + (NSString *)serverDomain;
 + (NSString *)apiVersion;
 + (id)requestBaseAPIUrl:(NSString *)url postValue:(NSDictionary *)value;
