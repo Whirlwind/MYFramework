@@ -149,6 +149,9 @@
         postValue = nil;
     }
     self.request.requestMethod = requestMethod;
+    if (![requestMethod isEqualToString:@"GET"]) {
+        [self.request setShouldAttemptPersistentConnection:NO];
+    }
     self.request.cachePolicy = self.cachePolicy;
     if (headers) {
         if (self.request.requestHeaders) {
