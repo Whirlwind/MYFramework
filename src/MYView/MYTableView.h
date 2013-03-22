@@ -9,5 +9,5 @@
 @interface MYTableView : UITableView
 
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier createWithStyle:(UITableViewCellStyle)style;
-- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier createWithStyle:(UITableViewCellStyle)style createBlock:(void (^)(UITableViewCell *))block;
+- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier createWithStyle:(UITableViewCellStyle)style createBlock:(void (^)(UITableViewCell *cell))block;
 @end
