@@ -311,7 +311,7 @@
         [scView setContentOffset:CGPointMake(0.0f, 0.0f) animated:YES];
 }
 
-- (void) keyboardDidShow:(NSNotification*)aNotification {
+- (void)keyboardDidShow:(NSNotification*)aNotification {
     NSDictionary* info = [aNotification userInfo];
     
     //键盘的大小
