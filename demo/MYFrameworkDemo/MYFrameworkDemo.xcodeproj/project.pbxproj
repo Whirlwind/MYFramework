@@ -50,6 +50,7 @@
 		AB76FE9F16B7D7E500128E0A /* MYEntry+JsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9216B7D7E500128E0A /* MYEntry+JsonAccess.m */; };
 		AB76FEA016B7D7E500128E0A /* MYEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9416B7D7E500128E0A /* MYEntry.m */; };
 		AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FEA716B8A65D00128E0A /* MYViewModel.m */; };
+		AB7AFED216F449530034A4B7 /* MYOrderedMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7AFED116F449530034A4B7 /* MYOrderedMutableDictionary.m */; };
 		AB94665F16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94665E16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m */; };
 		AB94666216EC3B5F00403BD4 /* MYDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94666116EC3B5F00403BD4 /* MYDate.m */; };
 		AB94666516EC3B7600403BD4 /* MYDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94666416EC3B7600403BD4 /* MYDateTime.m */; };
@@ -164,6 +165,8 @@
 		AB76FE9C16B7D7E500128E0A /* MYEntryInDbLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntryInDbLog.m; sourceTree = "<group>"; };
 		AB76FEA616B8A65D00128E0A /* MYViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewModel.h; sourceTree = "<group>"; };
 		AB76FEA716B8A65D00128E0A /* MYViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewModel.m; sourceTree = "<group>"; };
+		AB7AFED016F449530034A4B7 /* MYOrderedMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOrderedMutableDictionary.h; sourceTree = "<group>"; };
+		AB7AFED116F449530034A4B7 /* MYOrderedMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYOrderedMutableDictionary.m; sourceTree = "<group>"; };
 		AB94665D16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntrySqlAccessWithLog.h; sourceTree = "<group>"; };
 		AB94665E16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntrySqlAccessWithLog.m; sourceTree = "<group>"; };
 		AB94666016EC3B5F00403BD4 /* MYDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDate.h; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				AB76FE7D16B7D25B00128E0A /* FMDatabase+MYAdditions.m */,
 				AB76FE7E16B7D25B00128E0A /* MYDebugMacro.h */,
 				AB76FE7F16B7D25B00128E0A /* MYMacroDefine.h */,
+				AB7AFED016F449530034A4B7 /* MYOrderedMutableDictionary.h */,
+				AB7AFED116F449530034A4B7 /* MYOrderedMutableDictionary.m */,
 				AB76FE8016B7D25B00128E0A /* MYSandbox.h */,
 				AB76FE8116B7D25B00128E0A /* MYSandbox.m */,
 				AB76FE8216B7D25B00128E0A /* MYSingleton.h */,
@@ -674,6 +679,7 @@
 				AB94665F16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m in Sources */,
 				AB94666216EC3B5F00403BD4 /* MYDate.m in Sources */,
 				AB94666516EC3B7600403BD4 /* MYDateTime.m in Sources */,
+				AB7AFED216F449530034A4B7 /* MYOrderedMutableDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
