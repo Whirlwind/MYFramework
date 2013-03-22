@@ -30,4 +30,5 @@ Pod::Spec.new do |s|
   s.dependency 'BHAnalysis'
   s.dependency 'VersionString'
   s.dependency 'MTStatusBarOverlay'
+    s.dependency 'IXPickerOverlayView'
 end

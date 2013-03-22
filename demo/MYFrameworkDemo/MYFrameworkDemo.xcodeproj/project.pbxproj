@@ -50,7 +50,11 @@
 		AB76FE9F16B7D7E500128E0A /* MYEntry+JsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9216B7D7E500128E0A /* MYEntry+JsonAccess.m */; };
 		AB76FEA016B7D7E500128E0A /* MYEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9416B7D7E500128E0A /* MYEntry.m */; };
 		AB76FEA816B8A65D00128E0A /* MYViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FEA716B8A65D00128E0A /* MYViewModel.m */; };
+		AB7AFECD16F445D00034A4B7 /* MYInputFieldPickerString.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7AFECC16F445D00034A4B7 /* MYInputFieldPickerString.m */; };
 		AB7AFED216F449530034A4B7 /* MYOrderedMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7AFED116F449530034A4B7 /* MYOrderedMutableDictionary.m */; };
+		AB7AFED716F453FC0034A4B7 /* MYInputFieldPickerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7AFED416F453FB0034A4B7 /* MYInputFieldPickerDate.m */; };
+		AB7AFED816F453FC0034A4B7 /* MYInputFieldPickerTime.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7AFED616F453FB0034A4B7 /* MYInputFieldPickerTime.m */; };
+		AB7AFEDB16F455E40034A4B7 /* MYInputFieldPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7AFEDA16F455E40034A4B7 /* MYInputFieldPicker.m */; };
 		AB94665F16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94665E16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m */; };
 		AB94666216EC3B5F00403BD4 /* MYDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94666116EC3B5F00403BD4 /* MYDate.m */; };
 		AB94666516EC3B7600403BD4 /* MYDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = AB94666416EC3B7600403BD4 /* MYDateTime.m */; };
@@ -165,8 +169,18 @@
 		AB76FE9C16B7D7E500128E0A /* MYEntryInDbLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntryInDbLog.m; sourceTree = "<group>"; };
 		AB76FEA616B8A65D00128E0A /* MYViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewModel.h; sourceTree = "<group>"; };
 		AB76FEA716B8A65D00128E0A /* MYViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewModel.m; sourceTree = "<group>"; };
+		AB7AFECB16F445D00034A4B7 /* MYInputFieldPickerString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldPickerString.h; sourceTree = "<group>"; };
+		AB7AFECC16F445D00034A4B7 /* MYInputFieldPickerString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldPickerString.m; sourceTree = "<group>"; };
+		AB7AFECE16F4476E0034A4B7 /* MYFramework.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = MYFramework.podspec; path = ../../MYFramework.podspec; sourceTree = "<group>"; };
+		AB7AFECF16F4476E0034A4B7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../../Podfile; sourceTree = "<group>"; };
 		AB7AFED016F449530034A4B7 /* MYOrderedMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOrderedMutableDictionary.h; sourceTree = "<group>"; };
 		AB7AFED116F449530034A4B7 /* MYOrderedMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYOrderedMutableDictionary.m; sourceTree = "<group>"; };
+		AB7AFED316F453FB0034A4B7 /* MYInputFieldPickerDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldPickerDate.h; sourceTree = "<group>"; };
+		AB7AFED416F453FB0034A4B7 /* MYInputFieldPickerDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldPickerDate.m; sourceTree = "<group>"; };
+		AB7AFED516F453FB0034A4B7 /* MYInputFieldPickerTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldPickerTime.h; sourceTree = "<group>"; };
+		AB7AFED616F453FB0034A4B7 /* MYInputFieldPickerTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldPickerTime.m; sourceTree = "<group>"; };
+		AB7AFED916F455E40034A4B7 /* MYInputFieldPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldPicker.h; sourceTree = "<group>"; };
+		AB7AFEDA16F455E40034A4B7 /* MYInputFieldPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldPicker.m; sourceTree = "<group>"; };
 		AB94665D16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYEntrySqlAccessWithLog.h; sourceTree = "<group>"; };
 		AB94665E16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYEntrySqlAccessWithLog.m; sourceTree = "<group>"; };
 		AB94666016EC3B5F00403BD4 /* MYDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDate.h; sourceTree = "<group>"; };
@@ -260,6 +274,8 @@
 		AB3A90C5165092CF00C672E5 = {
 			isa = PBXGroup;
 			children = (
+				AB7AFECE16F4476E0034A4B7 /* MYFramework.podspec */,
+				AB7AFECF16F4476E0034A4B7 /* Podfile */,
 				AB3A91011650946A00C672E5 /* src */,
 				AB3A90DA165092CF00C672E5 /* MYFrameworkDemo */,
 				AB3A90D3165092CF00C672E5 /* Frameworks */,
@@ -338,8 +354,6 @@
 		AB3A91021650946A00C672E5 /* MYView */ = {
 			isa = PBXGroup;
 			children = (
-				AB3FA71816E8960000F57CB9 /* MYWebView.h */,
-				AB3FA71916E8960000F57CB9 /* MYWebView.m */,
 				AB3A91031650946A00C672E5 /* CustomTabBar.h */,
 				AB3A91041650946A00C672E5 /* CustomTabBar.m */,
 				AB3A91051650946A00C672E5 /* CustomTabBarItem.h */,
@@ -356,12 +370,22 @@
 				AB9E564B16BFC5AE008D733B /* MYInputFieldEmail.m */,
 				AB9E564C16BFC5AE008D733B /* MYInputFieldNumber.h */,
 				AB9E564D16BFC5AE008D733B /* MYInputFieldNumber.m */,
+				AB7AFED916F455E40034A4B7 /* MYInputFieldPicker.h */,
+				AB7AFEDA16F455E40034A4B7 /* MYInputFieldPicker.m */,
+				AB7AFED316F453FB0034A4B7 /* MYInputFieldPickerDate.h */,
+				AB7AFED416F453FB0034A4B7 /* MYInputFieldPickerDate.m */,
+				AB7AFECB16F445D00034A4B7 /* MYInputFieldPickerString.h */,
+				AB7AFECC16F445D00034A4B7 /* MYInputFieldPickerString.m */,
+				AB7AFED516F453FB0034A4B7 /* MYInputFieldPickerTime.h */,
+				AB7AFED616F453FB0034A4B7 /* MYInputFieldPickerTime.m */,
 				AB9E564E16BFC5AE008D733B /* MYInputFieldText.h */,
 				AB9E564F16BFC5AE008D733B /* MYInputFieldText.m */,
 				AB3A91071650946A00C672E5 /* MYTableView.h */,
 				AB3A91081650946A00C672E5 /* MYTableView.m */,
 				AB3A91091650946A00C672E5 /* MYView.h */,
 				AB3A910A1650946A00C672E5 /* MYView.m */,
+				AB3FA71816E8960000F57CB9 /* MYWebView.h */,
+				AB3FA71916E8960000F57CB9 /* MYWebView.m */,
 				ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */,
 				ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */,
 				AB3A910B1650946A00C672E5 /* ValueCheckBoxView.h */,
@@ -433,7 +457,15 @@
 				AB76FE5916B7D19400128E0A /* BroadcastRoute */,
 				AB76FE7C16B7D25B00128E0A /* FMDatabase+MYAdditions.h */,
 				AB76FE7D16B7D25B00128E0A /* FMDatabase+MYAdditions.m */,
+				AB9E55E416BF4F8D008D733B /* MYBundle.h */,
+				AB9E55E516BF4F8D008D733B /* MYBundle.m */,
+				AB94666016EC3B5F00403BD4 /* MYDate.h */,
+				AB94666116EC3B5F00403BD4 /* MYDate.m */,
+				AB94666316EC3B7500403BD4 /* MYDateTime.h */,
+				AB94666416EC3B7600403BD4 /* MYDateTime.m */,
 				AB76FE7E16B7D25B00128E0A /* MYDebugMacro.h */,
+				AB3FA6E416E6ED2400F57CB9 /* MYFileStream.h */,
+				AB3FA6E516E6ED2400F57CB9 /* MYFileStream.m */,
 				AB76FE7F16B7D25B00128E0A /* MYMacroDefine.h */,
 				AB7AFED016F449530034A4B7 /* MYOrderedMutableDictionary.h */,
 				AB7AFED116F449530034A4B7 /* MYOrderedMutableDictionary.m */,
@@ -445,14 +477,6 @@
 				AB76FE8516B7D25B00128E0A /* NSDictionary+KeyExtends.m */,
 				AB76FE8616B7D25B00128E0A /* NSObject+MYProperty.h */,
 				AB76FE8716B7D25B00128E0A /* NSObject+MYProperty.m */,
-				AB9E55E416BF4F8D008D733B /* MYBundle.h */,
-				AB9E55E516BF4F8D008D733B /* MYBundle.m */,
-				AB3FA6E416E6ED2400F57CB9 /* MYFileStream.h */,
-				AB3FA6E516E6ED2400F57CB9 /* MYFileStream.m */,
-				AB94666016EC3B5F00403BD4 /* MYDate.h */,
-				AB94666116EC3B5F00403BD4 /* MYDate.m */,
-				AB94666316EC3B7500403BD4 /* MYDateTime.h */,
-				AB94666416EC3B7600403BD4 /* MYDateTime.m */,
 			);
 			path = MYFoundation;
 			sourceTree = "<group>";
@@ -679,7 +703,11 @@
 				AB94665F16EC2CD100403BD4 /* MYEntrySqlAccessWithLog.m in Sources */,
 				AB94666216EC3B5F00403BD4 /* MYDate.m in Sources */,
 				AB94666516EC3B7600403BD4 /* MYDateTime.m in Sources */,
+				AB7AFECD16F445D00034A4B7 /* MYInputFieldPickerString.m in Sources */,
 				AB7AFED216F449530034A4B7 /* MYOrderedMutableDictionary.m in Sources */,
+				AB7AFED716F453FC0034A4B7 /* MYInputFieldPickerDate.m in Sources */,
+				AB7AFED816F453FC0034A4B7 /* MYInputFieldPickerTime.m in Sources */,
+				AB7AFEDB16F455E40034A4B7 /* MYInputFieldPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

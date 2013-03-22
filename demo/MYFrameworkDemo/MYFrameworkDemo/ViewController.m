@@ -31,6 +31,10 @@
     [_checkBox updateUnits:@[@"分钟"]];
     [_checkBox updateSelectedUnitIndex:0];
     [_checkBox updateSelectedValue:50];
+
+    // MYInputFieldPicker
+    [self.picker setSource:@[@"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h"]];
+    [self.picker setValue:@"c"];
 }
 
 - (void)didReceiveMemoryWarning
