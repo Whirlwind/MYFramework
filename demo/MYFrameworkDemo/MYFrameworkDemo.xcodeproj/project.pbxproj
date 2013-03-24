@@ -172,7 +172,7 @@
 		AB7AFECB16F445D00034A4B7 /* MYInputFieldPickerString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldPickerString.h; sourceTree = "<group>"; };
 		AB7AFECC16F445D00034A4B7 /* MYInputFieldPickerString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYInputFieldPickerString.m; sourceTree = "<group>"; };
 		AB7AFECE16F4476E0034A4B7 /* MYFramework.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = MYFramework.podspec; path = ../../MYFramework.podspec; sourceTree = "<group>"; };
-		AB7AFECF16F4476E0034A4B7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../../Podfile; sourceTree = "<group>"; };
+		AB7AFECF16F4476E0034A4B7 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Podfile; path = ../../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AB7AFED016F449530034A4B7 /* MYOrderedMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOrderedMutableDictionary.h; sourceTree = "<group>"; };
 		AB7AFED116F449530034A4B7 /* MYOrderedMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYOrderedMutableDictionary.m; sourceTree = "<group>"; };
 		AB7AFED316F453FB0034A4B7 /* MYInputFieldPickerDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInputFieldPickerDate.h; sourceTree = "<group>"; };
