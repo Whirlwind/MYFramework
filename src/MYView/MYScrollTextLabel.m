@@ -1,16 +1,19 @@
 //
-//  ScrollTextLabel.m
+//  MYScrollTextLabel.m
 //  inice
 //
 //  Created by Whirlwind James on 12-8-11.
 //  Copyright (c) 2012年 BOOHEE. All rights reserved.
 //
 
-#import "ScrollTextLabel.h"
+#import "MYScrollTextLabel.h"
 
-@implementation ScrollTextLabel
-@synthesize label = _label;
-@synthesize maxScrollWidth = _maxScrollWidth;
+@implementation MYScrollTextLabel
+
+- (void)dealloc {
+    [_label release], _label = nil;
+    [super dealloc];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {

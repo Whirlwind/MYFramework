@@ -72,7 +72,7 @@
 		ABAA74F916DB544B00F5930F /* MYJsonAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74F616DB544B00F5930F /* MYJsonAccess.m */; };
 		ABAA74FF16DB623700F5930F /* MYDbManager+FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA74FE16DB623700F5930F /* MYDbManager+FileHelper.m */; };
 		ABB7A4F016E4864A0073590E /* MYFrameworkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7A4EF16E4864A0073590E /* MYFrameworkAppDelegate.m */; };
-		ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */; };
+		ABC21630168DA10D00BB4356 /* MYScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* MYScrollTextLabel.m */; };
 		ABC9D99516DC8BB2001BAEEC /* MYDbSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */; };
 		ABC9D99916DD9DA2001BAEEC /* MYEntry+SqlAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC9D99816DD9DA2001BAEEC /* MYEntry+SqlAccess.m */; };
 		ABC9D99B16DE54DF001BAEEC /* MYEntryWithSync.m in Sources */ = {isa = PBXBuildFile; fileRef = AB76FE9A16B7D7E500128E0A /* MYEntryWithSync.m */; };
@@ -219,8 +219,8 @@
 		ABAA74FE16DB623700F5930F /* MYDbManager+FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYDbManager+FileHelper.m"; sourceTree = "<group>"; };
 		ABB7A4EE16E4864A0073590E /* MYFrameworkAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYFrameworkAppDelegate.h; sourceTree = "<group>"; };
 		ABB7A4EF16E4864A0073590E /* MYFrameworkAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYFrameworkAppDelegate.m; sourceTree = "<group>"; };
-		ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTextLabel.h; sourceTree = "<group>"; };
-		ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTextLabel.m; sourceTree = "<group>"; };
+		ABC2162E168DA10D00BB4356 /* MYScrollTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYScrollTextLabel.h; sourceTree = "<group>"; };
+		ABC2162F168DA10D00BB4356 /* MYScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScrollTextLabel.m; sourceTree = "<group>"; };
 		ABC9D99316DC8BB2001BAEEC /* MYDbSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDbSchema.h; sourceTree = "<group>"; };
 		ABC9D99416DC8BB2001BAEEC /* MYDbSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYDbSchema.m; sourceTree = "<group>"; };
 		ABC9D99616DCC1C0001BAEEC /* MYEntryJsonAccessProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYEntryJsonAccessProtocol.h; sourceTree = "<group>"; };
@@ -380,14 +380,14 @@
 				AB7AFED616F453FB0034A4B7 /* MYInputFieldPickerTime.m */,
 				AB9E564E16BFC5AE008D733B /* MYInputFieldText.h */,
 				AB9E564F16BFC5AE008D733B /* MYInputFieldText.m */,
+				ABC2162E168DA10D00BB4356 /* MYScrollTextLabel.h */,
+				ABC2162F168DA10D00BB4356 /* MYScrollTextLabel.m */,
 				AB3A91071650946A00C672E5 /* MYTableView.h */,
 				AB3A91081650946A00C672E5 /* MYTableView.m */,
 				AB3A91091650946A00C672E5 /* MYView.h */,
 				AB3A910A1650946A00C672E5 /* MYView.m */,
 				AB3FA71816E8960000F57CB9 /* MYWebView.h */,
 				AB3FA71916E8960000F57CB9 /* MYWebView.m */,
-				ABC2162E168DA10D00BB4356 /* ScrollTextLabel.h */,
-				ABC2162F168DA10D00BB4356 /* ScrollTextLabel.m */,
 				AB3A910B1650946A00C672E5 /* ValueCheckBoxView.h */,
 				AB3A910C1650946A00C672E5 /* ValueCheckBoxView.m */,
 				AB1F15741680336F00E55E77 /* ValueCheckBoxViewCellRuler.h */,
@@ -664,7 +664,7 @@
 				AB3443A91654B2F600F77740 /* MYDateSwitcher.m in Sources */,
 				AB1F15761680336F00E55E77 /* ValueCheckBoxViewCellRuler.m in Sources */,
 				AB0178D816836C0E00DE4498 /* MYNavigationControllerAnimationFactory.m in Sources */,
-				ABC21630168DA10D00BB4356 /* ScrollTextLabel.m in Sources */,
+				ABC21630168DA10D00BB4356 /* MYScrollTextLabel.m in Sources */,
 				AB76FE7216B7D19400128E0A /* MYBroadcast.m in Sources */,
 				AB76FE7316B7D19400128E0A /* MYBroadcastCenter.m in Sources */,
 				AB76FE7416B7D19400128E0A /* MYRoute.m in Sources */,
