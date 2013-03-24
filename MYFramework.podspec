@@ -1,12 +1,3 @@
-class Pod::Spec
-  @@git_plugins_url = 'git@boohee-apple:/opt/git/Plugins'
-
-  def dependency_git(name, other={})
-    other[:git] = "#{@@git_plugins_url}/#{name}.git"
-    self.dependency name, other
-  end
-end
-
 Pod::Spec.new do |s|
   s.name         = "MYFramework"
   s.version      = "1.0"
@@ -22,7 +13,7 @@ Pod::Spec.new do |s|
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
 
   s.dependency 'UIView'
-  s.dependency 'NSDate', '~>0.0.3'
+  s.dependency 'NSDate'
   s.dependency 'FMDB'
   s.dependency 'NSString'
   s.dependency 'ASIHTTPRequest/Basic'
@@ -30,5 +21,5 @@ Pod::Spec.new do |s|
   s.dependency 'BHAnalysis'
   s.dependency 'VersionString'
   s.dependency 'MTStatusBarOverlay'
-    s.dependency 'IXPickerOverlayView'
+  s.dependency 'IXPickerOverlayView'
 end
