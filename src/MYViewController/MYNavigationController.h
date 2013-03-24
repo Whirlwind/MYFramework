@@ -14,6 +14,7 @@
 
 - (id)initWithRootViewController:(id<MYViewControllerDelegate>)viewController;
 
+- (id<MYViewControllerDelegate>)rootViewController;
 - (id<MYViewControllerDelegate>)topViewController;
 
 - (void)setRootViewController:(id<MYViewControllerDelegate>)vc animated:(BOOL)animated;

@@ -109,6 +109,14 @@
     }
     return [self.viewControllers lastObject];
 }
+
+- (id<MYViewControllerDelegate>)rootViewController {
+    if ([self.viewControllers count] == 0) {
+        return nil;
+    }
+    return self.viewControllers[0];
+}
+
 - (void)setRootViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated{
     if ([self.viewControllers count] <= 1) {
         [self pushViewController:vc
