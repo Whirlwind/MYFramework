@@ -36,13 +36,13 @@
 - (void)popToViewController:(UIViewController *)viewController
                    animated:(BOOL)animated
                      sender:(id)sender;
-- (void)popToTopViewControllerWithAnimated:(BOOL)animated;
-- (void)popToTopViewControllerWithAnimated:(BOOL)animated
-                                    sender:(id)sender;
-
 - (void)popToClass:(Class)className
           animated:(BOOL)animated
             sender:(id)sender;
+
+- (void)popToRootViewControllerWithAnimated:(BOOL)animated;
+- (void)popToRootViewControllerWithAnimated:(BOOL)animated
+                                    sender:(id)sender;
 
 - (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated;
 - (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender;

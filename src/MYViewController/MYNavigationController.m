@@ -181,11 +181,11 @@
     block(last, vc, sender);
 }
 
-- (void)popToTopViewControllerWithAnimated:(BOOL)animated {
-    [self popToTopViewControllerWithAnimated:animated sender:nil];
+- (void)popToRootViewControllerWithAnimated:(BOOL)animated {
+    [self popToRootViewControllerWithAnimated:animated sender:nil];
 }
 
-- (void)popToTopViewControllerWithAnimated:(BOOL)animated sender:(id)sender {
+- (void)popToRootViewControllerWithAnimated:(BOOL)animated sender:(id)sender {
     if ([self.viewControllers count] < 2)
         return;
     NSRange range;
