@@ -11,7 +11,7 @@
 @implementation MYEntry (JsonAccess)
 
 - (id)initWithJsonDictionary:(NSDictionary *)dic {
-    if (self = [super init]) {
+    if (self = [self init]) {
         [self updatePropertyWithJsonDictionary:dic];
     }
     return self;
