@@ -17,7 +17,7 @@
     [_updatedAt release], _updatedAt = nil;
     [_createdAt release], _createdAt = nil;
     [_error release], _error = nil;
-    [[self.dataAccessor dataProperties] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [[self listenProperties] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self removeObserver:self forKeyPath:obj];
     }];
     [_dataAccessor release], _dataAccessor = nil;
