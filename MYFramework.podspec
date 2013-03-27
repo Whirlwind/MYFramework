@@ -1,20 +1,11 @@
-class Pod::Spec
-  @@git_plugins_url = 'git@boohee-apple:/opt/git/Plugins'
-
-  def dependency_git(name, other={})
-    other[:git] = "#{@@git_plugins_url}/#{name}.git"
-    self.dependency name, other
-  end
-end
-
 Pod::Spec.new do |s|
   s.name         = "MYFramework"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "a based Router framework."
   s.homepage     = "http://EXAMPLE/MYFramework"
   s.license      = 'MIT'
   s.author       = { "Whirlwind" => "james@boohee.com" }
-  s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'v1.0'}
+  s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'v1.1'}
   s.platform     = :ios
   s.source_files = 'src/**/*.{h,m}'
   s.resources = "resources/**/*.png"
@@ -23,5 +14,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'UIView'
   s.dependency 'NSDate', '~>0.0.3'
-  s.dependency_git 'Kal', :branch => 'KalView_picker'
+  s.dependency 'Kal'
 end
