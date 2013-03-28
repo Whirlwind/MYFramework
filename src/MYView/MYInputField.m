@@ -33,6 +33,7 @@
     [_unitString release], _unitString = nil;
     [_stringWhenEmpty release], _stringWhenEmpty = nil;
     [_validPredicate release], _validPredicate = nil;
+    [_value release], _value = nil;
     [super dealloc];
 }
 
@@ -252,7 +253,7 @@
 }
 #pragma mark - UITextField delegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    textField.text = [self value];
+    textField.text = [[self value] description];
 //    self.isValid = NO;
     return YES;
 }
@@ -276,22 +277,22 @@
 
 - (void)setValue:(NSObject *)value{
     [self tryValid];
-    [self willChangeValueForKey:@"value"];
+    [_value release];
+    _value = [value retain];
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.inputField];
-    [self didChangeValueForKey:@"value"];
 }
 
-- (NSString *)value{
-    NSString *string = self.inputField.text;
-    if (self.unitString != nil) {
-        string = [string stringByReplacingOccurrencesOfString:self.unitString withString:@"" options:NSBackwardsSearch range:NSMakeRange(0, [string length])];
-    }
-    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    return string;
-}
+//- (NSObject *)value {
+//    NSString *string = self.inputField.text;
+//    if (self.unitString != nil) {
+//        string = [string stringByReplacingOccurrencesOfString:self.unitString withString:@"" options:NSBackwardsSearch range:NSMakeRange(0, [string length])];
+//    }
+//    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//    return string;
+//}
 
 - (BOOL)tryValid{
-     self.isValid = [self.validPredicate evaluateWithString:[self value]];
+     self.isValid = [self.validPredicate evaluateWithString:[[self value] description]];
     NSLog(@"%@ valid %d", self, self.isValid);
     return self.isValid;
 }
