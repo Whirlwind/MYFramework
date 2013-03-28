@@ -276,7 +276,9 @@
 
 - (void)setValue:(NSObject *)value{
     [self tryValid];
+    [self willChangeValueForKey:@"value"];
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.inputField];
+    [self didChangeValueForKey:@"value"];
 }
 
 - (NSString *)value{
