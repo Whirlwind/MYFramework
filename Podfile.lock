@@ -1,22 +1,16 @@
-
 PODS:
-- Kal (1.0rc1)
-- NSDate (0.0.3)
-- UIView (0.0.1)
+  - Kal (1.0rc1)
+  - NSDate (0.0.3)
+  - UIView (0.0.1)
 
 DEPENDENCIES:
-- Kal (from `git@boohee-apple:/opt/git/Plugins/Kal.git', branch `KalView_picker')
-- NSDate (~> 0.0.3)
-- UIView
-
-EXTERNAL SOURCES:
-  Kal:
-    :branch: KalView_picker
-    :git: git@boohee-apple:/opt/git/Plugins/Kal.git
+  - Kal
+  - NSDate (~> 0.0.3)
+  - UIView
 
 SPEC CHECKSUMS:
-  Kal: 501427b8e14e30856a9a8b8c6e7142b4276ee374
+  Kal: 1662d563939f65065f878ac82a90bb34863634ef
   NSDate: e46fbe7c9ab5ab0e701f017d62ab44090bb9c7aa
   UIView: a1085b6ecf7c1db57d39911cdad7a0a433573095
 
-COCOAPODS: 0.16.4
+COCOAPODS: 0.17.0.rc7
