@@ -26,8 +26,9 @@
 @property (nonatomic, assign) BOOL showValidErrorVisual;
 @property (nonatomic, assign) id<MYInputFieldDelegate> checkBoxDelegate;
 @property (nonatomic, retain) UIView *inputKeyboardAccessoryView;
-- (void)setValue:(NSObject *)value;
-- (NSString *)value;
+
+@property (nonatomic, retain) NSObject *value;
+
 - (void)updateValidResultVisual;
 
 - (void)cancelEditing;

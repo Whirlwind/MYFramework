@@ -21,7 +21,7 @@
     [super dealloc];
 }
 - (NSNumber *)numberValue{
-    NSString *string = [self value];
+    NSString *string = [[self value] description];
     if (string == nil || [string isEqualToString:@""]) {
         return nil;
     }

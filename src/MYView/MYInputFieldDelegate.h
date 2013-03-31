@@ -10,5 +10,5 @@
 @class MYInputField;
 @protocol MYInputFieldDelegate <NSObject>
 @optional
-- (void)checkbox:(MYInputField *)checkbox didInputValue:(NSString *)value;
+- (void)checkbox:(MYInputField *)checkbox didInputValue:(NSObject *)value;
 @end

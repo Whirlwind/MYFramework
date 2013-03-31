@@ -32,7 +32,7 @@
 }
 
 - (NSDate *)dateValue{
-    NSString *string = [self value];
+    NSString *string = [[self value] description];
     if (string == nil || [string isEqualToString:@""]) {
         return nil;
     }
@@ -91,7 +91,7 @@
     if (![self.inputField isFirstResponder]) {
         return;
     }
-    NSString *string = [self value];
+    NSString *string = [[self value] description];
     if (string != nil && ![string isEqualToString:@""]) {
         NSDate *date = [NSDate dateFromString:string withFormat:self.dateFormatInTextField];
         if (date != nil) {

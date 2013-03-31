@@ -62,13 +62,15 @@
 }
 
 - (void)setValue:(NSObject *)value {
-    if ([value isKindOfClass:[NSString class]]) {
-        [self.inputField setText:(NSString *)value];
-        [super setValue:value];
-        NSInteger index = [self.source indexOfObject:value];
-        if (index != NSNotFound) {
-            [self.picker selectRow:index inComponent:0 animated:YES];
-        }
+    if (value == self.value) {
+        return;
+    }
+    [self.inputField setText:[value description]];
+    [super setValue:value];
+    NSInteger index = [self.source indexOfObject:value];
+    if (index != NSNotFound) {
+        [self.picker selectRow:index inComponent:0 animated:YES];
     }
 }
+
 @end
