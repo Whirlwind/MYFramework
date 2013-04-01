@@ -262,14 +262,14 @@
     [self hideErrorVisualView];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    textField.text = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if ([textField.text isEqualToString:@""]) {
-        textField.text = self.stringWhenEmpty;
+    NSString *displayString = [[[self inputFieldValue] description] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if ([displayString isEqualToString:@""]) {
+        displayString = self.stringWhenEmpty;
     }
-    if (self.unitString != nil && textField.text != nil && ![textField.text isEqualToString:@""]) {
-        textField.text = [NSString stringWithFormat:@"%@ %@", textField.text, self.unitString];
+    if (self.unitString != nil && displayString != nil && ![displayString isEqualToString:@""]) {
+        textField.text = [NSString stringWithFormat:@"%@ %@", displayString, self.unitString];
     }
-    [self tryValid];
+    [self setValue:[self inputFieldValue]];
     if (self.checkBoxDelegate && [self.checkBoxDelegate respondsToSelector:@selector(checkbox:didInputValue:)]) {
         [self.checkBoxDelegate checkbox:self didInputValue:self.value];
     }
@@ -282,14 +282,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.inputField];
 }
 
-//- (NSObject *)value {
-//    NSString *string = self.inputField.text;
-//    if (self.unitString != nil) {
-//        string = [string stringByReplacingOccurrencesOfString:self.unitString withString:@"" options:NSBackwardsSearch range:NSMakeRange(0, [string length])];
-//    }
-//    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-//    return string;
-//}
+- (NSObject *)inputFieldValue {
+    return self.inputField.text;
+}
 
 - (BOOL)tryValid{
      self.isValid = [self.validPredicate evaluateWithString:[[self value] description]];

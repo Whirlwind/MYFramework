@@ -40,4 +40,6 @@
 - (UITextField *)initialiseInputField;
 - (UIView *)initialiseInputKeyboard;
 - (BOOL)tryValid;
+- (NSObject *)inputFieldValue;
+
 @end

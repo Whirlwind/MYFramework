@@ -61,6 +61,10 @@
     [self setValue:self.source[row]];
 }
 
+- (NSObject *)inputFieldValue {
+    return self.source[[self.picker selectedRowInComponent:0]];
+}
+
 - (void)setValue:(NSObject *)value {
     if (value == self.value) {
         return;
