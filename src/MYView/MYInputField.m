@@ -276,9 +276,9 @@
 }
 
 - (void)setValue:(NSObject *)value{
-    [self tryValid];
     [_value release];
     _value = [value retain];
+    [self tryValid];
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.inputField];
 }
 
