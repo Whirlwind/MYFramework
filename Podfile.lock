@@ -1,15 +1,12 @@
 PODS:
-  - Kal (1.0rc1)
   - NSDate (0.0.3)
   - UIView (0.0.1)
 
 DEPENDENCIES:
-  - Kal
   - NSDate (~> 0.0.3)
   - UIView
 
 SPEC CHECKSUMS:
-  Kal: 1662d563939f65065f878ac82a90bb34863634ef
   NSDate: e46fbe7c9ab5ab0e701f017d62ab44090bb9c7aa
   UIView: a1085b6ecf7c1db57d39911cdad7a0a433573095
 
