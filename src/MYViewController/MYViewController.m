@@ -190,7 +190,7 @@
     POST_BROADCAST;
 
     if (self.autoResizeToFitIphone5 && [UIScreen mainScreen].bounds.size.height == 568.0f) {
-        if ((self.interfaceOrientation & (UIDeviceOrientationLandscapeRight | UIDeviceOrientationLandscapeLeft)) > 0) {
+        if (UIInterfaceOrientationIsLandscape([self preferredInterfaceOrientationForPresentation])) {
             if((self.view.frame.size.width == 460.0f || self.view.frame.size.width == 480.f)) {
                 [self.view setFrameWithWidth:568.0f];
             }
