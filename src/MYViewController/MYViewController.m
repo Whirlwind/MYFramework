@@ -190,7 +190,7 @@
 
     POST_BROADCAST;
 
-    if (self.autoResizeToFitIphone5 && [UIScreen mainScreen].bounds.size.height == 568.0f && self.view.frame.size.height != 568.0f)
+    if (self.autoResizeToFitIphone5 && [UIScreen mainScreen].bounds.size.height == 568.0f && (self.view.frame.size.height == 460.0f || self.view.frame.size.height == 480.f))
         [self.view setFrameWithHeight:568.0f];
 
     [self reflashView:NO];
