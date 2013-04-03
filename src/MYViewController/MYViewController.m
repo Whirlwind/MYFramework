@@ -189,9 +189,18 @@
 
     POST_BROADCAST;
 
-    if (self.autoResizeToFitIphone5 && [UIScreen mainScreen].bounds.size.height == 568.0f && (self.view.frame.size.height == 460.0f || self.view.frame.size.height == 480.f))
-        [self.view setFrameWithHeight:568.0f];
-
+    if (self.autoResizeToFitIphone5 && [UIScreen mainScreen].bounds.size.height == 568.0f) {
+        if ((self.interfaceOrientation & (UIDeviceOrientationLandscapeRight | UIDeviceOrientationLandscapeLeft)) > 0) {
+            if((self.view.frame.size.width == 460.0f || self.view.frame.size.width == 480.f)) {
+                [self.view setFrameWithWidth:568.0f];
+            }
+        } else {
+            if((self.view.frame.size.height == 460.0f || self.view.frame.size.height == 480.f)) {
+                [self.view setFrameWithHeight:568.0f];
+            }
+        }
+    }
+    
     [self reflashView:NO];
 }
 - (void)viewWillAppear:(BOOL)animated{
