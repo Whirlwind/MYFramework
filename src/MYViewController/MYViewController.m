@@ -46,7 +46,6 @@
     [self releaseSubViews];
     [self releaseReloadableData];
 	[_threadPool release], _threadPool = nil;
-    [_myNavigationController release], _myNavigationController = nil;
 	[super dealloc];
 }
 
