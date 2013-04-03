@@ -92,7 +92,6 @@
                                          complete:^{
                                              if (isIOS4)
                                                  [prevViewController viewDidDisappear:animated];
-                                             [prevViewController release];
                                              if (!isPush)
                                                  [prevViewController setMyNavigationController:nil];
                                              if (isIOS4)
@@ -100,6 +99,7 @@
                                              if (block)
                                                  block();
                                              [self viewControllerDidChangedTo:nextViewController from:prevViewController];
+                                             [prevViewController release];
                                          }];
 }
 
