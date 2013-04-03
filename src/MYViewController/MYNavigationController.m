@@ -92,8 +92,9 @@
                                          complete:^{
                                              if (isIOS4)
                                                  [prevViewController viewDidDisappear:animated];
-                                             [prevViewController setMyNavigationController:nil];
                                              [prevViewController release];
+                                             if (!isPush)
+                                                 [prevViewController setMyNavigationController:nil];
                                              if (isIOS4)
                                                  [nextViewController viewDidAppear:animated];
                                              if (block)
