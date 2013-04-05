@@ -2,9 +2,9 @@ Pod::Spec.new do |s|
   s.name         = "MYFramework"
   s.version      = "1.1"
   s.summary      = "a based Router framework."
-  s.homepage     = "http://baiyulan.net/MYFramework"
+  s.homepage     = "https://github.com/Whirlwind/MYFramework"
   s.license      = 'MIT'
-  s.author       = { "Whirlwind" => "james@boohee.com" }
+  s.author       = { "Whirlwind" => "Whirlwindjames@foxmail.com" }
   s.source       = { :git => "https://github.com/Whirlwind/MYFramework.git", :tag=>'v1.1'}
   s.platform     = :ios
   s.source_files = 'src/**/*.{h,m}'
