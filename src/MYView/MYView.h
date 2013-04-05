@@ -11,7 +11,7 @@
 @interface MYView : UIView
 @property (retain, nonatomic) NSMutableDictionary *observerList;
 
-@property (retain, nonatomic) MYViewController *relatedViewController;
+@property (assign, nonatomic) MYViewController *relatedViewController;
 
 - (void)updateRelatedViewController:(MYViewController *)vc;
 - (void)configView;

@@ -17,7 +17,6 @@
         }
     }
     [_observerList release], _observerList = nil;
-    [_relatedViewController release], _relatedViewController = nil;
     [super dealloc];
 }
 
