@@ -8,6 +8,26 @@
 
 #import "MYView.h"
 
+@interface MYViewCallBacker : NSObject
+
+@property (nonatomic, assign) id recevier;
+@property (nonatomic, assign) SEL selector;
+
+- (id)initWithRecevier:(id)recevier selector:(SEL)selector;
+@end
+
+
+@implementation MYViewCallBacker
+- (id)initWithRecevier:(id)recevier selector:(SEL)selector {
+    if (self = [self init]) {
+        self.recevier = recevier;
+        self.selector = selector;
+    }
+    return self;
+}
+@end
+
+
 @implementation MYView
 
 - (void)dealloc {
@@ -36,7 +56,7 @@
 }
 
 #pragma mark - observer
-- (void)registerObserverReceiver:(NSObject *)receiver
+- (void)registerObserverReceiver:(id)receiver
                         selector:(SEL)selector
                          keyPath:(NSString *)keyPath
                          options:(NSKeyValueObservingOptions)options
@@ -45,21 +65,21 @@
     if (array == nil) {
         array = [NSMutableArray arrayWithCapacity:1];
     }
-    [array addObject:@[receiver,NSStringFromSelector(selector)]];
+    [array addObject:[[[MYViewCallBacker alloc] initWithRecevier:receiver selector:selector] autorelease]];
     [self.observerList setValue:array forKey:keyPath];
     [receiver addObserver:self forKeyPath:keyPath options:options context:context];
 }
 
-- (void)unregisterObserverReceiver:(NSObject *)receiver
+- (void)unregisterObserverReceiver:(id)receiver
                            keyPath:(NSString *)keyPath {
     [receiver removeObserver:self forKeyPath:keyPath];
     NSMutableArray *receivers = (self.observerList)[keyPath];
     if (receivers == nil) {
         return;
     }
-    for (NSArray *array in receivers) {
-        if (array[0] == receiver) {
-            [receivers removeObject:array];
+    for (MYViewCallBacker *backer in receivers) {
+        if (backer.recevier == receiver) {
+            [receivers removeObject:backer];
             break;
         }
     }
@@ -72,14 +92,16 @@
     if (receivers == nil) {
         return;
     }
-    for (NSArray *array in receivers) {
-        NSObject *receiver = array[0];
+    for (MYViewCallBacker *backer in receivers) {
+        id receiver = backer.recevier;
         if (receiver == object) {
-            SEL selector = NSSelectorFromString((NSString *)array[1]);
-            if ([NSThread isMainThread]) {
-                [self performSelector:selector withObject:change];
-            } else {
-                [self performSelectorOnMainThread:selector withObject:change waitUntilDone:YES];
+            SEL selector = backer.selector;
+            if ([receiver respondsToSelector:selector]) {
+                if ([NSThread isMainThread]) {
+                    [receiver performSelector:selector withObject:change];
+                } else {
+                    [receiver performSelectorOnMainThread:selector withObject:change waitUntilDone:YES];
+                }
             }
         }
     }
