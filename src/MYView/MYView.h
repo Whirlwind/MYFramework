@@ -15,11 +15,12 @@
 
 - (void)updateRelatedViewController:(MYViewController *)vc;
 - (void)configView;
-- (void)registerObserverReceiver:(NSObject *)receiver
+- (void)stopViewObserver;
+- (void)registerObserverReceiver:(id)receiver
                         selector:(SEL)selector
                          keyPath:(NSString *)keyPath
                          options:(NSKeyValueObservingOptions)options
                          context:(void *)context;
-- (void)unregisterObserverReceiver:(NSObject *)receiver
+- (void)unregisterObserverReceiver:(id)receiver
                            keyPath:(NSString *)keyPath;
 @end

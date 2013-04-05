@@ -31,11 +31,7 @@
 @implementation MYView
 
 - (void)dealloc {
-    for (NSString *keyPath in self.observerList.allKeys) {
-        for (MYViewCallBacker *backer in (self.observerList)[keyPath]) {
-            [backer.recevier removeObserver:self forKeyPath:keyPath];
-        }
-    }
+    [self stopViewObserver];
     [_observerList release], _observerList = nil;
     [super dealloc];
 }
@@ -56,6 +52,15 @@
 }
 
 #pragma mark - observer
+
+- (void)stopViewObserver {
+    for (NSString *keyPath in self.observerList.allKeys) {
+        for (MYViewCallBacker *backer in (self.observerList)[keyPath]) {
+            [backer.recevier removeObserver:self forKeyPath:keyPath];
+        }
+    }
+}
+
 - (void)registerObserverReceiver:(id)receiver
                         selector:(SEL)selector
                          keyPath:(NSString *)keyPath

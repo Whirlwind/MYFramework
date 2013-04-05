@@ -43,6 +43,7 @@
 		[thread cancel];
 		[_threadPool removeObject:thread];
 	}
+    [self.myView stopViewObserver];
     [self releaseSubViews];
     [self releaseReloadableData];
 	[_threadPool release], _threadPool = nil;
