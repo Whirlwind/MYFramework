@@ -32,8 +32,8 @@
 
 - (void)dealloc {
     for (NSString *keyPath in self.observerList.allKeys) {
-        for (NSArray *array in (self.observerList)[keyPath]) {
-            [array[0] removeObserver:self forKeyPath:keyPath];
+        for (MYViewCallBacker *backer in (self.observerList)[keyPath]) {
+            [backer.recevier removeObserver:self forKeyPath:keyPath];
         }
     }
     [_observerList release], _observerList = nil;
