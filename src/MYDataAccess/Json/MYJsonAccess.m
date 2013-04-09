@@ -89,6 +89,7 @@
 
 - (void)handleParams:(NSMutableDictionary **)params {
     [*params addEntriesFromDictionary:[BHAnalysis IDToken]];
+    [*params addEntriesFromDictionary:@{@"treatment_type": @"face"}];
 }
 
 - (void)pickFileStreamFromDictionary:(NSMutableDictionary *)dic to:(NSMutableDictionary *)result withPath:(NSString *)path {
