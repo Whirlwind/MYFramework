@@ -25,4 +25,8 @@
     return YES;
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[NSUserDefaults standardUserDefaults] increaseStartupCount];
+    [[NSUserDefaults standardUserDefaults] updateTerminateTime];
+}
 @end

@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'UIKit', 'Foundation', 'QuartzCore'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
 
+  s.dependency 'NSUserDefaults'
   s.dependency 'UIView'
   s.dependency 'NSDate'
   s.dependency 'FMDB'
