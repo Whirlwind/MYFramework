@@ -20,7 +20,7 @@
 @property (retain) NSMutableArray *threadPool;
 
 @property (assign, nonatomic) NSInteger vcType;
-@property (nonatomic, retain) MYNavigationController *myNavigationController;
+@property (nonatomic, assign) MYNavigationController *myNavigationController;
 @property (nonatomic, assign) BOOL keyboardIsOpened;
 @property (assign, nonatomic) BOOL autoResizeToFitIphone5;
 @property (nonatomic, assign) CGRect keyboardRect;
