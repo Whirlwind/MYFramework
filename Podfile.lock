@@ -1,0 +1,14 @@
+
+PODS:
+- NSDate (0.0.3)
+- UIView (0.0.1)
+
+DEPENDENCIES:
+- NSDate (~> 0.0.3)
+- UIView
+
+SPEC CHECKSUMS:
+  NSDate: e46fbe7c9ab5ab0e701f017d62ab44090bb9c7aa
+  UIView: a1085b6ecf7c1db57d39911cdad7a0a433573095
+
+COCOAPODS: 0.16.4
