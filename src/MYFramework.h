@@ -28,6 +28,8 @@
 #import "MYThread.h"
 #import "NSDictionary+KeyExtends.h"
 
+#import "NSUserDefaults+AppVersion.h"
+
 #import "MYRouteCenter.h"
 #import "NSObject+MYRoute.h"
 #import "MYBroadcastCenter.h"
