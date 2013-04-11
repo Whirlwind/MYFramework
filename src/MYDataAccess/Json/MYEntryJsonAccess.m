@@ -36,7 +36,6 @@
 - (void)dealloc {
     [_modelName release], _modelName = nil;
     [_modelNameWithPlural release], _modelNameWithPlural = nil;
-    [_entry release], _entry = nil;
     _entryClass = nil;
     [_userKey release], _userKey = nil;
     [super dealloc];

@@ -13,7 +13,7 @@
 
 @required
 @property (assign, nonatomic) Class entryClass;
-@property (retain, nonatomic) MYEntry *entry;
+@property (assign, nonatomic) MYEntry *entry;
 
 @optional
 @property (readonly, nonatomic) NSArray *dataProperties;

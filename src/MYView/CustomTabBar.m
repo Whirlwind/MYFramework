@@ -20,6 +20,7 @@
     [_oldSelectedItem release], _oldSelectedItem = nil;
     [_selectedItem release], _selectedItem = nil;
     [_contentView release], _contentView = nil;
+    [_items release], _items = nil;
 	[super dealloc];
 }
 
@@ -148,6 +149,8 @@
         }];
         y += lineSize.height + lineEdge;
     }];
+    [array release];
+    [lines release];
 }
 - (void)setCanRepeatClick:(BOOL)_repeat{
 	_canRepeatClick = _repeat;
