@@ -9,9 +9,9 @@
 #import "MYInputFieldPicker.h"
 
 @interface MYInputFieldPickerDate : MYInputFieldPicker
-@property (nonatomic, retain) UIDatePicker *datePicker;
-@property (nonatomic, retain) NSDate *maxValue;
-@property (nonatomic, retain) NSDate *minValue;
+@property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, strong) NSDate *maxValue;
+@property (nonatomic, strong) NSDate *minValue;
 @property (nonatomic, copy) NSString *dateFormatInTextField;
 
 - (NSDate *)dateValue;

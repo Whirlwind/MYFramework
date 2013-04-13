@@ -15,11 +15,6 @@
 @implementation MYInputFieldNumber
 
 #pragma mark - dealloc
-- (void)dealloc{
-    [_minValue release], _minValue = nil;
-    [_maxValue release], _maxValue = nil;
-    [super dealloc];
-}
 - (NSNumber *)numberValue{
     NSString *string = [[self value] description];
     if (string == nil || [string isEqualToString:@""]) {
@@ -58,8 +53,6 @@
             [doubleValueWithMaxTwoDecimalPlaces setMaximumFractionDigits:2];
             NSNumber *myValue = (NSNumber *)value;
             stringValue = [doubleValueWithMaxTwoDecimalPlaces stringFromNumber:myValue];
-            [doubleValueWithMaxTwoDecimalPlaces release];
-            doubleValueWithMaxTwoDecimalPlaces = nil;
         }
         if (self.unitString == nil) {
             ((UITextField *)self.inputField).text = stringValue;

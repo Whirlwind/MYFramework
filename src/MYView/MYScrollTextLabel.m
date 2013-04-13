@@ -10,11 +10,6 @@
 
 @implementation MYScrollTextLabel
 
-- (void)dealloc {
-    [_label release], _label = nil;
-    [super dealloc];
-}
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

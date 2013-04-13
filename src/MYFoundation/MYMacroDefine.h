@@ -24,6 +24,13 @@
 #   define MY_RETAIN(exp) [exp retain]
 #endif
 
+// performSelector 去除ARC警告
+#define MYPerformSelectorWithoutLeakWarningBegin \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
+#define MYPerformSelectorWithoutLeakWarningEnd \
+_Pragma("clang diagnostic pop")
+
 // Color helpers
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]

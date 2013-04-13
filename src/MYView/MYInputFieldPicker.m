@@ -14,8 +14,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UITextFieldTextDidChangeNotification
                                                   object:self.inputField];
-    [_inputLabel release], _inputLabel = nil;
-    [super dealloc];
 }
 
 - (void)initUI{
@@ -33,7 +31,7 @@
     [label setTextAlignment:UITextAlignmentCenter];
     label.font = [UIFont systemFontOfSize:16];
     [label setBackgroundColor:[UIColor clearColor]];
-    return [label autorelease];
+    return label;
 }
 
 - (UITextField *)initialiseInputField{
@@ -48,7 +46,7 @@
 #pragma mark - getter
 - (UILabel *)inputLabel{
     if (_inputLabel == nil) {
-        _inputLabel = [[self initialiseInputLabel] retain];
+        _inputLabel = [self initialiseInputLabel];
     }
     return _inputLabel;
 }

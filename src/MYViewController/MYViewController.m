@@ -45,8 +45,6 @@
 	}
     [self releaseSubViews];
     [self releaseReloadableData];
-	[_threadPool release], _threadPool = nil;
-	[super dealloc];
 }
 
 #pragma mark - init
@@ -265,7 +263,7 @@
 #pragma mark - Thread
 - (NSMutableArray *)getThreadPool{
     if (self.threadPool == nil) {
-        self.threadPool = [[[NSMutableArray alloc] initWithCapacity:0] autorelease];
+        self.threadPool = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self.threadPool;
 }
@@ -309,7 +307,6 @@
     MYViewController *vc = [[[self class] alloc] init];
     UIWindow *window = [[UIApplication sharedApplication] windows][0];
     [((MYNavigationController *)window.rootViewController) pushViewController:vc animated:YES sender:nil];
-    [vc release];
 }
 @end
 

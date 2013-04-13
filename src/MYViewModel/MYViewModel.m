@@ -14,11 +14,6 @@
 
 @implementation MYViewModel
 
-- (void)dealloc {
-    [_viewName release], _viewName = nil;
-    [super dealloc];
-}
-
 - (id)initWithViewName:(NSString *)viewName {
     if (self = [self init]) {
         self.viewName = viewName;
@@ -46,7 +41,7 @@
         } else {
             Class v = NSClassFromString(self.viewName);
             if (v) {
-                self.contentView = [[[v alloc] init] autorelease];
+                self.contentView = [[v alloc] init];
             }
         }
         self.view.width = self.contentView.width;

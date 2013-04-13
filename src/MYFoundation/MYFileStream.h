@@ -10,7 +10,7 @@
 
 @interface MYFileStream : NSObject
 
-@property (retain, nonatomic) NSData *data;
+@property (strong, nonatomic) NSData *data;
 @property (copy, nonatomic) NSString *mimeType;
 @property (copy, nonatomic) NSString *filePath;
 @property (copy, nonatomic) NSString *fileName;

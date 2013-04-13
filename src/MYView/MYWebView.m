@@ -19,7 +19,7 @@
 }
 
 - (void)loadRequestWithStringUrl:(NSString *)url{
-    [self loadRequest:[[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]] autorelease]];
+    [self loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]]];
 }
 
 - (void)loadResource:(NSString *)name{

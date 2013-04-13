@@ -17,9 +17,6 @@
             [array[0] removeObserver:self forKeyPath:keyPath];
         }
     }
-    [_observerList release], _observerList = nil;
-    [_relatedViewController release], _relatedViewController = nil;
-    [super dealloc];
 }
 
 - (void)updateRelatedViewController:(MYViewController *)vc {
@@ -41,7 +38,6 @@
 - (void)pushViewModelClass:(Class)className {
     id vm = [[className alloc] init];
     [self pushViewModel:vm];
-    [vm release];
 }
 
 #pragma mark - getter
@@ -70,7 +66,9 @@
                listenProperty:(NSString *)targetProperty
                          mode:(enum MYViewBindingMode)mode {
     SEL selector = [[target class] setterFromPropertyString:property];
+    MYPerformSelectorWithoutLeakWarningBegin
     NSObject *value = [target performSelector:NSSelectorFromString(targetProperty) withObject:nil];
+    MYPerformSelectorWithoutLeakWarningEnd
     [self sendToObject:object setProperty:NSStringFromSelector(selector) withChange:value];
     [self registerObserverObject:target keyPath:targetProperty callback:object selector:selector];
     if (mode == kMYViewBindingModeTwoWay) {
@@ -86,7 +84,7 @@
                         callback:callback
                         selector:selector
                          options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
-                         context:KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE];
+                         context:( void *)(KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE)];
 }
 - (void)registerObserverObject:(NSObject *)object
                        keyPath:(NSString *)keyPath
@@ -146,7 +144,7 @@
         NSObject *receiver = array[0];
         if (receiver == object) {
             NSObject *callback = array[1];
-            [self sendToObject:callback setProperty:(NSString *)array[2] withChange:context == KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE ? change[NSKeyValueChangeNewKey] : change];
+            [self sendToObject:callback setProperty:(NSString *)array[2] withChange:context == (__bridge void *)(KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE) ? change[NSKeyValueChangeNewKey] : change];
         }
     }
     //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -155,8 +153,10 @@
 - (void)sendToObject:(NSObject *)ui setProperty:(NSString *)setProperty withChange:(NSObject *)change {
     SEL selector = NSSelectorFromString(setProperty);
     if ([NSThread isMainThread]) {
+        MYPerformSelectorWithoutLeakWarningBegin
         [ui performSelector:selector
                  withObject:change];
+        MYPerformSelectorWithoutLeakWarningEnd
     } else {
         [ui performSelectorOnMainThread:selector
                              withObject:change

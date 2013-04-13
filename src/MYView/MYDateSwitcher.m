@@ -14,15 +14,9 @@
 #pragma mark - dealloc
 - (void)dealloc{
     [_leftBtn removeFromSuperview];
-    [_leftBtn release], _leftBtn = nil;
     [_rightBtn removeFromSuperview];
-    [_rightBtn release], _rightBtn = nil;
-    [_date release], _date = nil;
-    [_lastDate release], _lastDate = nil;
-    [_minDate release], _minDate = nil;
-    [_maxDate release], _maxDate = nil;
-    [super dealloc];
 }
+
 #pragma mark - init
 - (id)initWithCoder:(NSCoder *)aDecoder{
 	if (self = [super initWithCoder:aDecoder]) {
@@ -81,8 +75,7 @@
         [self.delegate dateSwitcherWillChangeFrom:_date to:date];
     }
     self.lastDate = _date;
-    [_date release];
-    _date = [date retain];
+    _date = date;
     if (self.minDate && [self.minDate timeIntervalSinceDate:_date]>=0) {
         [self.leftBtn setHidden:YES];
     } else {
@@ -198,7 +191,6 @@
         }
     }
 
-    [label release];
 }
 
 

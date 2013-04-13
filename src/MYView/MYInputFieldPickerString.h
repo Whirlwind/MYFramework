@@ -10,7 +10,7 @@
 
 @interface MYInputFieldPickerString : MYInputFieldPicker <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (retain, nonatomic) NSArray *source;
+@property (strong, nonatomic) NSArray *source;
 
-@property (retain, nonatomic) UIPickerView *picker;
+@property (strong, nonatomic) UIPickerView *picker;
 @end

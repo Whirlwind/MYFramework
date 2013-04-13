@@ -19,8 +19,8 @@
     NumberKeypadDecimalPoint*numberKeyPad;
 #endif
 }
-@property (nonatomic, retain) NSNumber *minValue;
-@property (nonatomic, retain) NSNumber *maxValue;
+@property (nonatomic, strong) NSNumber *minValue;
+@property (nonatomic, strong) NSNumber *maxValue;
 - (void)changeToDecimalKeyboard;
 - (void)changeToNumberKeyboard;
 - (BOOL)isNumberKeyboard;

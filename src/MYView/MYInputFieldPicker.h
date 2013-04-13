@@ -9,5 +9,5 @@
 #import "MYInputField.h"
 
 @interface MYInputFieldPicker : MYInputField
-@property (nonatomic, retain) UILabel *inputLabel;
+@property (nonatomic, strong) UILabel *inputLabel;
 @end

@@ -661,10 +661,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64ACB4F4102D4439A827EFF3 /* Pods.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYFrameworkDemo/MYFrameworkDemo-Prefix.pch";
 				INFOPLIST_FILE = "MYFrameworkDemo/MYFrameworkDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -674,10 +675,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64ACB4F4102D4439A827EFF3 /* Pods.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MYFrameworkDemo/MYFrameworkDemo-Prefix.pch";
 				INFOPLIST_FILE = "MYFrameworkDemo/MYFrameworkDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

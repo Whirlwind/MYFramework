@@ -10,13 +10,6 @@
 
 @implementation MYRoute
 
-
-- (void)dealloc {
-    [_name release], _name = nil;
-    [_path release], _path = nil;
-    [super dealloc];
-}
-
 - (id)initWithName:(NSString *)name
               path:(NSString *)path {
     if (self = [self init]) {
@@ -30,12 +23,14 @@
     NSArray *array = [self.path componentsSeparatedByString:@"/"];
     if ([array count] != 2)
         return nil;
-    NSObject *target = [[[NSClassFromString(array[0]) alloc] init] autorelease];
+    NSObject *target = [[NSClassFromString(array[0]) alloc] init];
     SEL selector = NSSelectorFromString(array[1]);
     if (![target respondsToSelector:selector]) {
         return nil;
     }
+    MYPerformSelectorWithoutLeakWarningBegin
     return [target performSelector:selector withObject:ntf];
+    MYPerformSelectorWithoutLeakWarningEnd
 }
 
 + (id)parseFileLine:(NSString *)line {
@@ -48,7 +43,7 @@
     NSString *path = array[1];
     MYRoute *route = [[[self class] alloc] initWithName:name
                                                    path:path];
-    return [route autorelease];
+    return route;
 }
 
 @end

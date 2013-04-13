@@ -18,13 +18,13 @@
 
 
 @interface MYDateSwitcher : UIView
-@property (nonatomic, retain) UIButton *leftBtn;
-@property (nonatomic, retain) UIButton *rightBtn;
-@property (nonatomic, retain) NSDate *date;
-@property (nonatomic, retain) NSDate *lastDate;
-@property (nonatomic, assign) IBOutlet id<MYDateSwitcherDelegate> delegate;
-@property (retain, nonatomic) NSDate *minDate;
-@property (retain, nonatomic) NSDate *maxDate;
+@property (nonatomic, strong) UIButton *leftBtn;
+@property (nonatomic, strong) UIButton *rightBtn;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSDate *lastDate;
+@property (nonatomic, weak) IBOutlet id<MYDateSwitcherDelegate> delegate;
+@property (strong, nonatomic) NSDate *minDate;
+@property (strong, nonatomic) NSDate *maxDate;
 
 
 
