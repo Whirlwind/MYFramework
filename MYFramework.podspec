@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.resources = "resources/**/*.png", "src/*.{broadcast,route}"
   s.frameworks = 'UIKit', 'Foundation', 'QuartzCore'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
+  s.requires_arc = true
 
   s.dependency 'NSUserDefaults+AppVersion'
   s.dependency 'UIView'
