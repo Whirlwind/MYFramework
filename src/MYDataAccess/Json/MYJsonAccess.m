@@ -117,7 +117,7 @@
     if ([newValues count] > 0) {
         [result setValue:[newValues universalConvertToJSONString] forKey:@"data"];
     }
-    return [self requestURLString:url postValue:result method:method requestHeaders:@{@"data-type" : @"json"} security:YES];
+    return [self requestURLString:url postValue:[result autorelease] method:method requestHeaders:@{@"data-type" : @"json"} security:YES];
 }
 
 - (id)requestAPI:(NSString *)api {
