@@ -13,6 +13,7 @@
 
 #import "NSObject+MYBroadcast.h"
 #import "NSObject+MYRoute.h"
+#import "NSObject+MYProperty.h"
 
 #import "MYMacroDefine.h"
 #import "MYDebugMacro.h"
@@ -34,8 +35,6 @@
 #import "NSObject+MYRoute.h"
 #import "MYBroadcastCenter.h"
 #import "NSObject+MYBroadcast.h"
-
-#import "MYEntry.h"
 
 #import "MYTableView.h"
 #import "MYViewController.h"
