@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files = 'src/**/*.{h,m}'
   s.resources = "resources/**/*.png", "src/*.{broadcast,route}"
-  s.frameworks = 'UIKit', 'Foundation', 'QuartzCore'
+  s.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'MobileCoreServices'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
 
   s.dependency 'NSUserDefaults'
