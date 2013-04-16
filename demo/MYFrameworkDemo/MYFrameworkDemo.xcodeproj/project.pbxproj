@@ -131,8 +131,6 @@
 		AB76FE6316B7D19400128E0A /* NSObject+MYBroadcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYBroadcast.m"; sourceTree = "<group>"; };
 		AB76FE6416B7D19400128E0A /* NSObject+MYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MYRoute.h"; sourceTree = "<group>"; };
 		AB76FE6516B7D19400128E0A /* NSObject+MYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MYRoute.m"; sourceTree = "<group>"; };
-		AB76FE7C16B7D25B00128E0A /* FMDatabase+MYAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+MYAdditions.h"; sourceTree = "<group>"; };
-		AB76FE7D16B7D25B00128E0A /* FMDatabase+MYAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+MYAdditions.m"; sourceTree = "<group>"; };
 		AB76FE7E16B7D25B00128E0A /* MYDebugMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYDebugMacro.h; sourceTree = "<group>"; };
 		AB76FE7F16B7D25B00128E0A /* MYMacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYMacroDefine.h; sourceTree = "<group>"; };
 		AB76FE8016B7D25B00128E0A /* MYSandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSandbox.h; sourceTree = "<group>"; };
@@ -399,8 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				AB76FE5916B7D19400128E0A /* BroadcastRoute */,
-				AB76FE7C16B7D25B00128E0A /* FMDatabase+MYAdditions.h */,
-				AB76FE7D16B7D25B00128E0A /* FMDatabase+MYAdditions.m */,
 				AB9E55E416BF4F8D008D733B /* MYBundle.h */,
 				AB9E55E516BF4F8D008D733B /* MYBundle.m */,
 				AB94666016EC3B5F00403BD4 /* MYDate.h */,
