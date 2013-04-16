@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "git@boohee-apple:/opt/git/Plugins/MYFramework.git", :tag=>'v1.1'}
   s.platform     = :ios
   s.source_files = 'src/**/*.{h,m}'
-  s.resources = "resources/**/*.png"
-  s.frameworks = 'UIKit', 'Foundation', 'QuartzCore'
+  s.resources = "resources/**/*.png", "src/*.{broadcast,route}"
+  s.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'MobileCoreServices'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
 
   s.dependency 'UIView'
