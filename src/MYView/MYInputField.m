@@ -252,15 +252,29 @@
     }
 }
 #pragma mark - UITextField delegate
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     textField.text = [[self value] description];
-//    self.isValid = NO;
+    //    self.isValid = NO;
+    if (self.checkBoxDelegate && [self.checkBoxDelegate respondsToSelector:@selector(inputFieldShouldBeginEditing:)]) {
+        return [self.checkBoxDelegate inputFieldShouldBeginEditing:self];
+    }
     return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     [self hideErrorVisualView];
+    if (self.checkBoxDelegate && [self.checkBoxDelegate respondsToSelector:@selector(inputFieldDidBeginEditing:)]) {
+        [self.checkBoxDelegate inputFieldDidBeginEditing:self];
+    }
 }
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    if (self.checkBoxDelegate && [self.checkBoxDelegate respondsToSelector:@selector(inputFieldShouldEndEditing:)]) {
+        return [self.checkBoxDelegate inputFieldShouldEndEditing:self];
+    }
+    return YES;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSString *displayString = [[[self inputFieldValue] description] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if ([displayString isEqualToString:@""]) {
@@ -275,6 +289,29 @@
     }
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (self.checkBoxDelegate && [self.checkBoxDelegate respondsToSelector:@selector(inputField:shouldChangeCharactersInRange:replacementString:)]) {
+        return [self.checkBoxDelegate inputField:self shouldChangeCharactersInRange:range replacementString:string];
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    if (self.checkBoxDelegate && [self.checkBoxDelegate respondsToSelector:@selector(inputFieldShouldClear:)]) {
+        return [self.checkBoxDelegate inputFieldShouldClear:self];
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (self.checkBoxDelegate && [self.checkBoxDelegate respondsToSelector:@selector(inputFieldShouldReturn:)]) {
+        return [self.checkBoxDelegate inputFieldShouldReturn:self];
+    }
+    return YES;
+}
+
+
+#pragma mark - value
 - (void)setValue:(NSObject *)value{
     [_value release];
     _value = [value retain];
