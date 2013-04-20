@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface MYOrderedMutableDictionary : NSMutableDictionary
-@property (nonatomic, retain) NSMutableArray *keyOrder;
-@property (nonatomic, retain) NSMutableDictionary *dic;
+@property (nonatomic, strong) NSMutableArray *keyOrder;
+@property (nonatomic, strong) NSMutableDictionary *dic;
 
 - (id)initWithCapacity:(NSUInteger)numItems;
 - (int)indexOfString:(NSString *)key;

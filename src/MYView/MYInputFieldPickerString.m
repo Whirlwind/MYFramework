@@ -11,11 +11,6 @@
 
 @implementation MYInputFieldPickerString
 
-- (void)dealloc {
-    [_source release], _source = nil;
-    [_picker release], _picker = nil;
-    [super dealloc];
-}
 #pragma mark - 重载
 - (void)initData{
     [super initData];
@@ -28,7 +23,7 @@
     return field;
 }
 - (UIView *)initialiseInputKeyboard {
-    self.picker = [[[UIPickerView alloc] init] autorelease];
+    self.picker = [[UIPickerView alloc] init];
     [self.picker setDataSource:self];
     [self.picker setDelegate:self];
     [self.picker setShowsSelectionIndicator:YES];
@@ -42,7 +37,7 @@
 //    [pannel addSubview:overlay];
 //    [overlay release];
 
-    return [pannel autorelease];
+    return pannel;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {

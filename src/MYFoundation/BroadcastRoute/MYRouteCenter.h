@@ -10,7 +10,7 @@
 
 #import "MYRoute.h"
 @interface MYRouteCenter : NSObject
-@property (retain, nonatomic) NSMutableDictionary *list;
+@property (strong, nonatomic) NSMutableDictionary *list;
 + (id)sharedInstant;
 + (void)addFileInBundle;
 

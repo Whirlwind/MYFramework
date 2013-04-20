@@ -10,16 +10,11 @@
 
 @implementation MYFrameworkAppDelegate
 
-- (void)dealloc {
-    [_window release], _window = nil;
-    [super dealloc];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [MYBroadcastCenter addFileInBundle];
     [MYRouteCenter addFileInBundle];
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     POST_BROADCAST_WITH_ARGS(@{@"window" : self.window});
     [self.window makeKeyAndVisible];
     return YES;
@@ -81,7 +76,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [[NSUserDefaults standardUserDefaults] increaseStartupCount];
-    [[NSUserDefaults standardUserDefaults] updateTerminateTime];
+//    [[NSUserDefaults standardUserDefaults] updateTerminateTime];
 
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {

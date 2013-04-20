@@ -15,19 +15,19 @@
 
 @interface MYInputField : UIView <UITextFieldDelegate>
 
-@property (nonatomic, retain) UIView *validView;
-@property (nonatomic, retain) UITextField *inputField;
-@property (nonatomic, retain) UIView *inputKeyboard;
-@property (nonatomic, retain) UIImageView *backgroundImageView;
+@property (nonatomic, strong) UIView *validView;
+@property (nonatomic, strong) UITextField *inputField;
+@property (nonatomic, strong) UIView *inputKeyboard;
+@property (nonatomic, strong) UIImageView *backgroundImageView;
 @property (nonatomic, copy) NSString *unitString;
 @property (nonatomic, copy) NSString *stringWhenEmpty;
-@property (nonatomic, retain) NSStringValid *validPredicate;
+@property (nonatomic, strong) NSStringValid *validPredicate;
 @property (nonatomic, assign) BOOL isValid;
 @property (nonatomic, assign) BOOL showValidErrorVisual;
-@property (nonatomic, assign) id<MYInputFieldDelegate> checkBoxDelegate;
-@property (nonatomic, retain) UIView *inputKeyboardAccessoryView;
+@property (nonatomic, weak) id<MYInputFieldDelegate> checkBoxDelegate;
+@property (nonatomic, strong) UIView *inputKeyboardAccessoryView;
 
-@property (nonatomic, retain) NSObject *value;
+@property (nonatomic, strong) NSObject *value;
 
 - (void)updateValidResultVisual;
 

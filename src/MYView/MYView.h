@@ -26,9 +26,9 @@ enum MYViewBindingMode {
 
 @interface MYView : UIView
 
-@property (retain, nonatomic) NSMutableDictionary *observerList;
+@property (strong, nonatomic) NSMutableDictionary *observerList;
 
-@property (retain, nonatomic) MYViewController *relatedViewController;
+@property (weak, nonatomic) MYViewController *relatedViewController;
 
 - (void)updateRelatedViewController:(MYViewController *)vc;
 - (void)configView;
@@ -62,6 +62,7 @@ enum MYViewBindingMode {
                        context:(void *)context;
 - (void)unregisterObserverObject:(NSObject *)object
                          keyPath:(NSString *)keyPath;
+- (void)stopObserver;
 
 #pragma mark - IB event
 - (IBAction)backAction:(id)sender;

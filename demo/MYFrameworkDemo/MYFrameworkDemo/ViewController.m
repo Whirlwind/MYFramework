@@ -43,11 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_tabBar release];
-    [_checkBox release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [self setTabBar:nil];
     [self setCheckBox:nil];

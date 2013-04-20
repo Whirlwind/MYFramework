@@ -10,11 +10,6 @@
 
 @implementation MYDateTime
 
-- (void)dealloc {
-    [_NSDate release], _NSDate = nil;
-    [super dealloc];
-}
-
 - (id)initWithString:(NSString *)dateString {
     return [self initWithNSDate:[NSDate dateFromString:dateString]];
 }
@@ -39,23 +34,23 @@
 
 - (id)copyWithZone:(NSZone *)zone {
     id copy = [[[self class] alloc] init];
-    [copy setNSDate:[[self.NSDate copy] autorelease]];
+    [copy setNSDate:[self.NSDate copy]];
     return copy;
 }
 #pragma mark - class methods
 + (id)dateWithNSDate:(NSDate *)date {
-    return [[[[self class] alloc] initWithNSDate:date] autorelease];
+    return [[[self class] alloc] initWithNSDate:date];
 }
 
 + (id)dateWithString:(NSString *)dateString {
-    return [[[[self class] alloc] initWithString:dateString] autorelease];
+    return [[[self class] alloc] initWithString:dateString];
 }
 
 + (id)dateWithObject:(NSObject *)object {
     if ([object isKindOfClass:[NSString class]]) {
-        return [[[self alloc] initWithString:(NSString *)object] autorelease];
+        return [[self alloc] initWithString:(NSString *)object];
     } else if ([object isKindOfClass:[NSDate class]]) {
-        return [[[self alloc] initWithNSDate:(NSDate *)object] autorelease];
+        return [[self alloc] initWithNSDate:(NSDate *)object];
     }
     return nil;
 }

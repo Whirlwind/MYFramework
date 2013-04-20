@@ -16,8 +16,7 @@ static NSString *myBundleName = nil;
 }
 
 + (void)changeBundleName:(NSString *)name {
-    [myBundleName release];
-    myBundleName = [name retain];
+    myBundleName = name;
 }
 
 + (NSString *)resource:(NSString *)name {

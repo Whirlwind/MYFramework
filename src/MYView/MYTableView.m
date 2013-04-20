@@ -18,7 +18,7 @@
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier createWithStyle:(UITableViewCellStyle)style createBlock:(void (^)(UITableViewCell *cell))block {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:style reuseIdentifier:identifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:identifier];
         if (block) {
             block(cell);
         }

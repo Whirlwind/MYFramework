@@ -16,12 +16,8 @@
 #pragma mark - dealloc
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_maxValue release], _maxValue = nil;
-    [_minValue release], _minValue = nil;
-    [_datePicker release], _datePicker = nil;
-    [_dateFormatInTextField release], _dateFormatInTextField = nil;
-    [super dealloc];
 }
+
 #pragma mark - init
 - (void)initData{
     [super initData];
@@ -43,11 +39,11 @@
 - (UIView *)initialiseInputKeyboard{
     UIView *keyboard = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 216.0)];
     [keyboard addSubview:self.datePicker];
-    return [keyboard autorelease];
+    return keyboard;
 }
 - (UIDatePicker *)initialiseDatePicker:(UIDatePicker *)pickerView{
     if (pickerView == nil) {
-        pickerView = [[[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 216.0)] autorelease];
+        pickerView = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 216.0)];
     }
     [pickerView setDatePickerMode:UIDatePickerModeDate];
     [pickerView setMaximumDate:self.maxValue];
@@ -58,19 +54,17 @@
 #pragma mark - getter
 - (UIDatePicker *)datePicker{
     if (_datePicker == nil) {
-        _datePicker = [[self initialiseDatePicker:nil] retain];
+        _datePicker = [self initialiseDatePicker:nil];
     }
     return _datePicker;
 }
 
 - (void)setMaxValue:(NSDate *)maxValue{
-    [_maxValue release];
-    _maxValue = [maxValue retain];
+    _maxValue = maxValue;
     [_datePicker setMaximumDate:_maxValue];
 }
 - (void)setMinValue:(NSDate *)minValue{
-    [_minValue release];
-    _minValue = [minValue retain];
+    _minValue = minValue;
     [_datePicker setMinimumDate:_minValue];
 }
 #pragma mark - valid

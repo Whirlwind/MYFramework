@@ -11,16 +11,17 @@ Pod::Spec.new do |s|
   s.resources = "resources/**/*.png", "src/*.{broadcast,route}"
   s.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'MobileCoreServices', 'CoreGraphics'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
+  s.requires_arc = true
 
   s.dependency 'NSUserDefaults+AppVersion'
   s.dependency 'UIView'
   s.dependency 'NSDate'
-  s.dependency 'FMDB'
+  # s.dependency 'FMDB'
   s.dependency 'NSString'
-  s.dependency 'ASIHTTPRequest/Basic'
-  s.dependency 'JSONAPI'
-  s.dependency 'BHAnalysis'
+  # s.dependency 'ASIHTTPRequest/Basic'
+  # s.dependency 'JSONAPI'
+  # s.dependency 'BHAnalysis'
   s.dependency 'VersionString'
-  s.dependency 'MTStatusBarOverlay'
+  # s.dependency 'MTStatusBarOverlay'
   s.dependency 'IXPickerOverlayView'
 end

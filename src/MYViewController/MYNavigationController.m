@@ -22,12 +22,6 @@
     [super releaseSubViews];
 }
 
-- (void)dealloc{
-    [_animationFactory release], _animationFactory = nil;
-    [_viewControllers release], _viewControllers = nil;
-    [super dealloc];
-}
-
 #pragma mark - init
 - (id)initWithRootViewController:(id<MYViewControllerDelegate>)viewController {
     if (self = [self init]) {
@@ -71,7 +65,6 @@
                       animated:(BOOL)animated
                         sender:(id)sender
                       complete:(void (^)(void))block {
-    [prevViewController retain];
     if ([prevViewController respondsToSelector:@selector(viewControllerResignTopViewController:)])
         [prevViewController viewControllerResignTopViewController:YES];
     [nextViewController setMyNavigationController:self];
@@ -99,7 +92,6 @@
                                              if (block)
                                                  block();
                                              [self viewControllerDidChangedTo:nextViewController from:prevViewController];
-                                             [prevViewController release];
                                          }];
 }
 
@@ -143,10 +135,10 @@
                               sender:sender
                             complete:nil];
     } else {
-        id<MYViewControllerDelegate> last = [[self.viewControllers lastObject] retain];
+        id<MYViewControllerDelegate> last = [self.viewControllers lastObject];
         [self.viewControllers removeAllObjects];
         [self.viewControllers addObject:vc];
-        [self exchangeViewController:[last autorelease]
+        [self exchangeViewController:last
               withNextViewController:vc
                            direction:YES
                             animated:animated
@@ -264,21 +256,21 @@
     if (self.viewControllers.count <= 1) {
         return;
     }
-    id<MYViewControllerDelegate> last = [[self.viewControllers lastObject] retain];
+    id<MYViewControllerDelegate> last = [self.viewControllers lastObject];
     [self.viewControllers removeLastObject];
-    block([last autorelease], [self.viewControllers lastObject], sender);
+    block(last, [self.viewControllers lastObject], sender);
 }
 
 - (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated {
     [self replaceTopViewController:vc animated:animated sender:nil];
 }
 - (void)replaceTopViewController:(id<MYViewControllerDelegate> )vc animated:(BOOL)animated sender:(id)sender{
-    id<MYViewControllerDelegate> last = [[self.viewControllers lastObject] retain];
+    id<MYViewControllerDelegate> last = [self.viewControllers lastObject];
     if (last) {
         [self.viewControllers removeObject:last];
     }
     [self.viewControllers addObject:vc];
-    [self exchangeViewController:[last autorelease]
+    [self exchangeViewController:last
           withNextViewController:vc
                        direction:YES
                         animated:animated

@@ -21,7 +21,7 @@
 
 + (NSString *)convertRailsStylePropertyToAppleStyleProperty:(NSString *)property {
     NSArray *pieces = [property componentsSeparatedByString:@"_"];
-    NSMutableArray *array = [[[NSMutableArray alloc] initWithCapacity:[pieces count]] autorelease];
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[pieces count]];
     [pieces enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (idx == 0) {
             [array addObject:obj];

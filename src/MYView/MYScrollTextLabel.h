@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MYScrollTextLabel : UIScrollView
-@property (retain, nonatomic) UILabel *label;
+@property (strong, nonatomic) UILabel *label;
 @property (assign, nonatomic) CGFloat maxScrollWidth;
 
 - (void)setText:(NSString *)text;

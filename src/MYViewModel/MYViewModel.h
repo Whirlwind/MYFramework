@@ -12,7 +12,7 @@
 
 @property (copy, nonatomic) NSString *viewName;
 
-@property (assign, nonatomic, getter=subViewControllers, setter=setSubViewControllers:) NSMutableArray *subViewModels;
+@property (strong, nonatomic) NSMutableArray *subViewModels;
 
 - (id)initWithViewName:(NSString *)viewName;
 

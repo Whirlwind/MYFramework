@@ -11,10 +11,10 @@
 @interface MYNavigationController : MYViewController
 
 /*  动画工厂，用于控制push和pop的切换动画 */
-@property (retain, nonatomic) id<MYNavigationControllerAnimationFactoryProtocol> animationFactory;
+@property (strong, nonatomic) id<MYNavigationControllerAnimationFactoryProtocol> animationFactory;
 
 /*  VC堆栈 */
-@property (nonatomic, retain) NSMutableArray *viewControllers;
+@property (nonatomic, strong) NSMutableArray *viewControllers;
 
 
 - (id)initWithRootViewController:(id<MYViewControllerDelegate>)viewController;

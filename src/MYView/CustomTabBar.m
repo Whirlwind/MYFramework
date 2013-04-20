@@ -17,11 +17,6 @@
 
 - (void)dealloc{
     [_contentView removeObserver:self forKeyPath:@"frame"];
-    [_oldSelectedItem release], _oldSelectedItem = nil;
-    [_selectedItem release], _selectedItem = nil;
-    [_contentView release], _contentView = nil;
-    [_items release], _items = nil;
-	[super dealloc];
 }
 
 - (CustomTabBar *)initWithCoder:(NSCoder *)aDecoder{
@@ -66,7 +61,6 @@
 		[buttonArray addObject:tabbar];
 	}];
     [self setItems:buttonArray animated:animated];
-	[buttonArray release], buttonArray=nil;
 }
 
 - (void)setItems:(NSArray *)items animated:(BOOL)animated {
@@ -149,8 +143,6 @@
         }];
         y += lineSize.height + lineEdge;
     }];
-    [array release];
-    [lines release];
 }
 - (void)setCanRepeatClick:(BOOL)_repeat{
 	_canRepeatClick = _repeat;
@@ -161,8 +153,7 @@
 - (void)setSelectedItem:(CustomTabBarItem *)_item{
     self.oldSelectedItem = self.selectedItem;
     self.oldSelectedIndex = self.selectedIndex;
-    [_selectedItem release];
-    _selectedItem = [_item retain];
+    _selectedItem = _item;
 	_selectedIndex = _item ? _item.tag : -1;
     [self updateSelectedItem];
 }
@@ -181,7 +172,9 @@
 		}
 	}
 	if (self.selectedItem && self.myDelegate && self.switchTab) {
+        MYPerformSelectorWithoutLeakWarningBegin
 		[self.myDelegate performSelector:self.switchTab withObject:self.selectedItem];
+        MYPerformSelectorWithoutLeakWarningEnd
 	}
 }
 - (void)switchTab:(id)sender {
@@ -191,7 +184,9 @@
 	}
 	else {
 		if (self.selectedItem && self.myDelegate && self.clickTab) {
+            MYPerformSelectorWithoutLeakWarningBegin
 			[self.myDelegate performSelector:self.clickTab withObject:self.selectedItem];
+            MYPerformSelectorWithoutLeakWarningEnd
 		}
 	}
 

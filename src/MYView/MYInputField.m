@@ -26,15 +26,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardDidShowNotification
                                                   object:nil];
-    [_backgroundImageView release], _backgroundImageView = nil;
-    [_validView release], _validView = nil;
-    [_inputField release], _inputField = nil;
-    [_inputKeyboard release], _inputKeyboard = nil;
-    [_unitString release], _unitString = nil;
-    [_stringWhenEmpty release], _stringWhenEmpty = nil;
-    [_validPredicate release], _validPredicate = nil;
-    [_value release], _value = nil;
-    [super dealloc];
 }
 
 #pragma mark - init
@@ -77,7 +68,6 @@
     [self addSubview:self.validView];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTouch:)];
     [self addGestureRecognizer:tapGesture];
-    [tapGesture release];
     if (self.backgroundImageView) {
         [self addSubview:self.backgroundImageView];
     }
@@ -135,7 +125,7 @@
     if (self.inputKeyboardAccessoryView != nil) {
         [inputField setInputAccessoryView:self.inputKeyboardAccessoryView];
     }
-    return [inputField autorelease];
+    return inputField;
 }
 
 - (UIView *)initialiseInputKeyboard{
@@ -313,8 +303,7 @@
 
 #pragma mark - value
 - (void)setValue:(NSObject *)value{
-    [_value release];
-    _value = [value retain];
+    _value = value;
     [self tryValid];
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self.inputField];
 }

@@ -20,12 +20,6 @@
     return self;
 }
 
-- (void)dealloc{
-    [_keyOrder release], _keyOrder = nil;
-    [_dic release], _dic = nil;
-    [super dealloc];
-}
-
 #pragma mark - getter
 - (NSMutableArray *)keyOrder{
     if (_keyOrder == nil) {

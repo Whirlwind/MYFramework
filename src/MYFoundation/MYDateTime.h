@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MYDateTime : NSObject <NSCopying>
-@property (retain, nonatomic) NSDate *NSDate;
+@property (strong, nonatomic) NSDate *NSDate;
 
 - (id)initWithString:(NSString *)dateString;
 - (id)initWithNSDate:(NSDate *)date;
