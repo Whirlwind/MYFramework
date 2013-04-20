@@ -31,6 +31,7 @@
 }
 - (void)releaseSubViews{
     [self setContentView:nil];
+    [self setView:nil];
     subViewDidLoaded = NO;
     [self setSubViewControllers:nil];
 }
