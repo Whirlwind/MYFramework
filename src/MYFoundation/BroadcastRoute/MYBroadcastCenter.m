@@ -7,7 +7,6 @@
 //
 
 #import "MYBroadcastCenter.h"
-#import "MYBroadcast.h"
 
 static MYBroadcastCenter *_sharedBroadcastCenter = nil;
 
@@ -20,7 +19,7 @@ static dispatch_once_t _sharedBroadcastCenterPred;
 }
 
 + (void)release {
-    [_sharedBroadcastCenter release], _sharedBroadcastCenter = nil;
+    _sharedBroadcastCenter = nil;
 }
 
 + (NSString *)extendString {
@@ -35,7 +34,6 @@ static dispatch_once_t _sharedBroadcastCenterPred;
     for (NSString *name in [self.list allKeys]) {
         [self unregisterNotification:name];
     }
-    [super dealloc];
 }
 - (void)registerNotification:(MYBroadcast *)broadcast {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -53,11 +51,9 @@ static dispatch_once_t _sharedBroadcastCenterPred;
 - (void)callback:(NSNotification *)ntf {
     NSArray *array = [self.list valueForKey:ntf.name];
     if (array != nil) {
-        [ntf retain];
         for (MYBroadcast *broadcast in array) {
             [broadcast executeWithNotification:ntf];
         }
-        [ntf release];
     }
 }
 

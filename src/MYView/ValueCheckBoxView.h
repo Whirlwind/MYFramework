@@ -13,7 +13,7 @@
 @property (nonatomic, assign) CGFloat maxValue;
 @property (assign, nonatomic) BOOL canSelectMinValue;
 @property (assign, nonatomic) BOOL canSelectMaxValue;
-@property (nonatomic, retain) NSArray *units;
+@property (nonatomic, strong) NSArray *units;
 
 @property (nonatomic, assign) CGFloat selectedValue;
 @property (nonatomic, assign) NSInteger selectedUnitIndex;
@@ -21,15 +21,15 @@
 @property (assign, nonatomic) CGFloat increaseValuePerCell;
 @property (assign, nonatomic) NSInteger splitNumberPerCell;
 
-@property (nonatomic, retain) UILabel *valueSelectedLabel;
-@property (retain, nonatomic) UILabel *subValueSelectedLabel;
-@property (nonatomic, retain) UILabel *unitSelectedLabel;
-@property (nonatomic, retain) UITableView *valueSelector;
-@property (nonatomic, retain) UIView *unitsView;
-@property (retain, nonatomic) UIView *unitSelectedFlagView;
-@property (readonly) NSObject *selectedUnit;
+@property (nonatomic, strong) UILabel *valueSelectedLabel;
+@property (strong, nonatomic) UILabel *subValueSelectedLabel;
+@property (nonatomic, strong) UILabel *unitSelectedLabel;
+@property (nonatomic, strong) UITableView *valueSelector;
+@property (nonatomic, strong) UIView *unitsView;
+@property (strong, nonatomic) UIView *unitSelectedFlagView;
+@property (unsafe_unretained, readonly) NSObject *selectedUnit;
 
-@property (assign, nonatomic) IBOutlet id<ValueCheckBoxViewDelegate> delegate;
+@property (weak, nonatomic) IBOutlet id<ValueCheckBoxViewDelegate> delegate;
 - (void)updateMinValue:(NSInteger)minValue;
 - (void)updateMaxValue:(NSInteger)maxValue;
 - (void)updateSelectedValue:(CGFloat)value;

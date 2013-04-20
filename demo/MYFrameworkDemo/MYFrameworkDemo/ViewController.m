@@ -31,6 +31,10 @@
     [_checkBox updateUnits:@[@"分钟"]];
     [_checkBox updateSelectedUnitIndex:0];
     [_checkBox updateSelectedValue:50];
+
+    // MYInputFieldPicker
+    [self.picker setSource:@[@"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h"]];
+    [self.picker setValue:@"c"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,11 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_tabBar release];
-    [_checkBox release];
-    [super dealloc];
-}
 - (void)viewDidUnload {
     [self setTabBar:nil];
     [self setCheckBox:nil];

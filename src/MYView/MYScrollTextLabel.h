@@ -1,5 +1,5 @@
 //
-//  ScrollTextLabel.h
+//  MYScrollTextLabel.h
 //  inice
 //
 //  Created by Whirlwind James on 12-8-11.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScrollTextLabel : UIScrollView
-@property (retain, nonatomic) UILabel *label;
+@interface MYScrollTextLabel : UIScrollView
+@property (strong, nonatomic) UILabel *label;
 @property (assign, nonatomic) CGFloat maxScrollWidth;
 
 - (void)setText:(NSString *)text;

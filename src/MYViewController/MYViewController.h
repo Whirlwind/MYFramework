@@ -17,16 +17,16 @@
     BOOL subViewDidLoaded;
     BOOL dataDidLoaded;
 }
-@property (retain) NSMutableArray *threadPool;
+@property (strong) NSMutableArray *threadPool;
 
 @property (assign, nonatomic) NSInteger vcType;
-@property (nonatomic, assign) MYNavigationController *myNavigationController;
+@property (nonatomic, weak) MYNavigationController *myNavigationController;
 @property (nonatomic, assign) BOOL keyboardIsOpened;
 @property (assign, nonatomic) BOOL autoResizeToFitIphone5;
 @property (nonatomic, assign) CGRect keyboardRect;
 @property (nonatomic, assign) NSInteger viewZIndex;
-@property (nonatomic, retain) NSMutableArray *subViewControllers;
-@property (retain, nonatomic) IBOutlet UIView *contentView;
+@property (nonatomic, strong) NSMutableArray *subViewControllers;
+@property (strong, nonatomic) IBOutlet UIView *contentView;
 
 - (id)initWithVCType:(NSInteger)vcType;
 @end

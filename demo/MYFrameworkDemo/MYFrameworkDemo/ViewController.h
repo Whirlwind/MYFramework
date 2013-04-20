@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CustomTabBar.h"
 #import "ValueCheckBoxView.h"
-@interface ViewController : UIViewController
-@property (retain, nonatomic) IBOutlet CustomTabBar *tabBar;
+#import "MYInputFieldPickerString.h"
 
-@property (retain, nonatomic) IBOutlet ValueCheckBoxView *checkBox;
+@interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet CustomTabBar *tabBar;
+
+@property (strong, nonatomic) IBOutlet ValueCheckBoxView *checkBox;
+
+@property (strong, nonatomic) IBOutlet MYInputFieldPickerString *picker;
 - (IBAction)changeTabBar:(id)sender;
 @end

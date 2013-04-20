@@ -26,13 +26,14 @@
     NSObject *target = [[NSClassFromString(array[0]) alloc] init];
     SEL selector = NSSelectorFromString(array[1]);
     if (![target respondsToSelector:selector]) {
-        [target release];
         return nil;
     }
     switch (self.thread) {
         case 1: // 主线程
             if ([NSThread currentThread].isMainThread) {
+                MYPerformSelectorWithoutLeakWarningBegin
                 [target performSelector:selector withObject:ntf];
+                MYPerformSelectorWithoutLeakWarningEnd
             } else {
                 [target performSelectorOnMainThread:selector
                                          withObject:ntf
@@ -43,10 +44,11 @@
             [target performSelectorInBackground:selector withObject:ntf];
             break;
         default: // 当前线程
+            MYPerformSelectorWithoutLeakWarningBegin
             [target performSelector:selector withObject:ntf];
+            MYPerformSelectorWithoutLeakWarningEnd
             break;
     }
-    [target release];
     return nil;
 }
 
@@ -67,6 +69,6 @@
     MYBroadcast *route = [[MYBroadcast alloc] initWithName:name
                                                       path:path
                                                     thread:thread];
-    return [route autorelease];
+    return route;
 }
 @end

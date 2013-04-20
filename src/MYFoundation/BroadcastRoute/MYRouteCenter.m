@@ -7,7 +7,6 @@
 //
 
 #import "MYRouteCenter.h"
-#import "MYRoute.h"
 
 static MYRouteCenter *_sharedRouteCenter = nil;
 static dispatch_once_t _sharedRouteCenterPred;
@@ -20,7 +19,7 @@ static dispatch_once_t _sharedRouteCenterPred;
 }
 
 + (void)release {
-    [_sharedRouteCenter release], _sharedRouteCenter = nil;
+    _sharedRouteCenter = nil;
 }
 
 + (void)addFileInBundle {
@@ -34,10 +33,6 @@ static dispatch_once_t _sharedRouteCenterPred;
 
 + (Class)modelClass {
     return [MYRoute class];
-}
-- (void)dealloc {
-    [_list release], _list = nil;
-    [super dealloc];
 }
 
 - (void)addFileInDir:(NSString *)dir {
@@ -72,7 +67,6 @@ static dispatch_once_t _sharedRouteCenterPred;
                 [self add:route];
         }
     }];
-    [content release];
 }
 
 - (void)add:(MYRoute *)route {

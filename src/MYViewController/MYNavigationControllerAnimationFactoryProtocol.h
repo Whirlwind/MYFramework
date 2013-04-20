@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class MYNavigationController;
+
 @protocol MYNavigationControllerAnimationFactoryProtocol <NSObject>
 
+@property (assign, nonatomic) MYNavigationController *nav;
+- (id)initWithNavigationController:(MYNavigationController *)nav;
 - (void)exchangeViewController:(id<MYViewControllerDelegate>)prevViewController
         withNextViewController:(id<MYViewControllerDelegate>)nextViewController
                      direction:(BOOL)isPush

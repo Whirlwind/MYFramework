@@ -11,11 +11,6 @@
 
 @implementation CustomTabBarItem
 
--(void)dealloc{
-	[_button release], _button=nil;
-	[_titleLabel release], _titleLabel=nil;
-	[super dealloc];
-}
 -(void)buildWithButton:(UIButton *)button label:(UILabel *)label {
 	self.button = button;
 	self.button.selected = NO;
@@ -53,9 +48,8 @@
     [button setFrame:CGRectMake(0, 0, label.frame.size.width+10.0f, label.frame.size.height+10.0f)];
 	
 	[self buildWithButton:button label:label];
-	[label release], label=nil;
-
 }
+
 -(void)setTitle:(NSString *)_title{
 	self.titleLabel.text = _title;
 }
@@ -65,7 +59,9 @@
 -(void)myClick:(id)sender{
 	[self setSelectedStatus:self.selectedStatus+1];
 	if (self.click) {
+        MYPerformSelectorWithoutLeakWarningBegin
 		[self.myDelegate performSelector:self.click withObject:self];
+        MYPerformSelectorWithoutLeakWarningEnd
 	}
 }
 -(void)setClick:(id)delegate click:(SEL)click{
@@ -100,11 +96,11 @@
 +(CustomTabBarItem *)itemWithTitle:(NSString *)_title {
 	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
 	[item build:_title];
-	return [item autorelease];
+	return item;
 }
 +(CustomTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label {
 	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
 	[item buildWithButton:_button label:_label];
-	return [item autorelease];
+	return item;
 }
 @end

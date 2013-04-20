@@ -14,11 +14,11 @@
 @property (nonatomic, assign) BOOL loopSelect;
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) BOOL canRepeatClick;
-@property (nonatomic, retain) UILabel *titleLabel;
-@property (nonatomic, retain) UIButton *button;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIButton *button;
 
 
-@property (nonatomic, assign) id myDelegate;
+@property (nonatomic, weak) id myDelegate;
 @property (nonatomic, assign) SEL click;
 
 +(CustomTabBarItem *)itemWithTitle:(NSString *)_title;

@@ -30,7 +30,11 @@
     [super didReceiveMemoryWarning];
 }
 - (void)releaseSubViews{
+    if (self.isViewLoaded) {
+        [self.myView stopObserver];
+    }
     [self setContentView:nil];
+    [self setView:nil];
     subViewDidLoaded = NO;
     [self setSubViewControllers:nil];
 }
@@ -43,11 +47,8 @@
 		[thread cancel];
 		[_threadPool removeObject:thread];
 	}
-    [self.myView stopViewObserver];
     [self releaseSubViews];
     [self releaseReloadableData];
-	[_threadPool release], _threadPool = nil;
-	[super dealloc];
 }
 
 #pragma mark - init
@@ -74,10 +75,12 @@
 - (void)initData{
     self.viewZIndex = 0;
     self.autoResizeToFitIphone5 = YES;
+    POST_BROADCAST;
     [self reloadData];
 }
 
 - (void)reloadData{
+    POST_BROADCAST;
     dataDidLoaded = YES;
 }
 
@@ -86,12 +89,12 @@
 }
 
 - (void)reloadDataAndReflashView:(BOOL)animated {
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self reloadData];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self reflashView:animated];
-        });
-    });
+    MY_BACKGROUND_BEGIN_WITH_PRIORITY(DISPATCH_QUEUE_PRIORITY_HIGH)
+    [self reloadData];
+    MY_FOREGROUND_BEGIN
+    [self reflashView:animated];
+    MY_FOREGROUND_COMMIT
+    MY_BACKGROUND_COMMIT
 }
 
 #pragma mark - getter
@@ -264,7 +267,7 @@
 #pragma mark - Thread
 - (NSMutableArray *)getThreadPool{
     if (self.threadPool == nil) {
-        self.threadPool = [[[NSMutableArray alloc] initWithCapacity:0] autorelease];
+        self.threadPool = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self.threadPool;
 }
@@ -308,7 +311,6 @@
     MYViewController *vc = [[[self class] alloc] init];
     UIWindow *window = [[UIApplication sharedApplication] windows][0];
     [((MYNavigationController *)window.rootViewController) pushViewController:vc animated:YES sender:nil];
-    [vc release];
 }
 @end
 

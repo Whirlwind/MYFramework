@@ -9,16 +9,16 @@
 
 @interface CustomTabBar : UIView
 
-@property (nonatomic, assign) id myDelegate;
+@property (nonatomic, weak) id myDelegate;
 @property (nonatomic, assign) SEL switchTab;
 @property (nonatomic, assign) SEL clickTab;
 @property (nonatomic, assign) int selectedIndex;
 @property (nonatomic, assign) int oldSelectedIndex;
 @property (nonatomic, assign) BOOL canRepeatClick;
-@property (nonatomic, retain) CustomTabBarItem *selectedItem;
-@property (nonatomic, retain) CustomTabBarItem *oldSelectedItem;
-@property (retain, nonatomic) NSMutableArray *items;
-@property (retain, nonatomic) UIView *contentView;
+@property (nonatomic, strong) CustomTabBarItem *selectedItem;
+@property (nonatomic, strong) CustomTabBarItem *oldSelectedItem;
+@property (strong, nonatomic) NSMutableArray *items;
+@property (strong, nonatomic) UIView *contentView;
 
 - (void)setItemsWithTitle:(NSArray *)itemArray animated:(BOOL)animated;
 - (void)setItems:(NSArray *)items animated:(BOOL)animated;

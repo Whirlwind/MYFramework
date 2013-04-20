@@ -18,19 +18,10 @@
 
 #pragma mark - dealloc
 - (void)dealloc {
-    [_unitSelectedFlagView release], _unitSelectedFlagView = nil;
-    [_valueSelectedLabel release], _valueSelectedLabel = nil;
-    [_subValueSelectedLabel release], _subValueSelectedLabel = nil;
-    [_unitSelectedLabel release], _unitSelectedLabel = nil;
-    [_valueSelector release], _valueSelector = nil;
-    [_unitsView release], _unitsView = nil;
-
     _minValue = -1;
     _maxValue = -1;
-    [_units release], _units = nil;
     _selectedValue = -1;
     _selectedUnitIndex = -1;
-    [super dealloc];
 }
 
 #pragma mark - init
@@ -59,7 +50,6 @@
     UIImageView * backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rulerBackground"]];
     backgroundView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 219.0f);
     [self addSubview:backgroundView];
-    [backgroundView release];
     
     [self addSubview:self.valueSelectedLabel];
     [self addSubview:self.subValueSelectedLabel];
@@ -70,12 +60,10 @@
     UIImageView * mask = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rulerMask"]];
     mask.frame = CGRectMake(0.0f, 63.0f, 320.0f, 101.0f);
     [self addSubview:mask];
-    [mask release];
     
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kValueCheckBoxViewPointerImage]];
     [image setCenter:CGPointMake(160.0f, 113.0f)];
     [self addSubview:image];
-    [image release];
 
     [self addSubview:self.unitsView];
     [self.unitsView addSubview:self.unitSelectedFlagView];
@@ -154,7 +142,6 @@
         [_unitSelectedFlagView setTag:99];
         
         [_unitSelectedFlagView addSubview:unitPointer];
-        [unitPointer release];
     }
     return _unitSelectedFlagView;
 }
@@ -226,7 +213,6 @@
         UIImageView * unitBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 51.0f)];
         unitBackground.image = [UIImage imageNamed:@"unitBackground"];
         [_unitsView addSubview:unitBackground];
-        [unitBackground release];
     }
     
     CGFloat width = self.unitsView.frame.size.width / count;
@@ -312,10 +298,10 @@
     NSString *cellId = [NSString stringWithFormat:@"kValueCell_%d", self.splitNumberPerCell];
     cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         [cell setFrameWithWidth:kValueCheckBoxViewCellWidth Height:kValueCheckBoxViewCellHeight];
         [cell.contentView setBackgroundColor:[UIColor clearColor]];
-        [cell.contentView addSubview:[[[ValueCheckBoxViewCellRuler alloc] initWithFrame:cell.bounds splitNumber:self.splitNumberPerCell] autorelease]];
+        [cell.contentView addSubview:[[ValueCheckBoxViewCellRuler alloc] initWithFrame:cell.bounds splitNumber:self.splitNumberPerCell]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -325,7 +311,6 @@
         [label setTextColor:[UIColor colorWithRed:51/255 green:51/255 blue:51/255 alpha:1]];
         [label setBackgroundColor:[UIColor clearColor]];
         [cell.contentView addSubview:label];
-        [label release];
     }
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:12071614];
     CGFloat value = [self valueForContentOffsetY:(indexPath.row - kValueCheckBoxViewExtendCellNumber) * kValueCheckBoxViewCellHeight];

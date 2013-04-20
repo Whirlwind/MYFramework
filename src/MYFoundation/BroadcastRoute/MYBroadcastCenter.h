@@ -7,6 +7,7 @@
 //
 
 #import "MYRouteCenter.h"
+#import "MYBroadcast.h"
 
 @interface MYBroadcastCenter : MYRouteCenter
 @end
