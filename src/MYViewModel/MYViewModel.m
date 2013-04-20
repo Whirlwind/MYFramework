@@ -58,4 +58,11 @@
     [self addSubViewController:vm view:__view];
 }
 
+- (NSMutableArray *)subViewModels {
+    return [self subViewControllers];
+}
+
+- (void)setSubViewModels:(NSMutableArray *)subViewModels {
+    [self setSubViewControllers:subViewModels];
+}
 @end
