@@ -30,6 +30,9 @@
     [super didReceiveMemoryWarning];
 }
 - (void)releaseSubViews{
+    if (self.isViewLoaded) {
+        [self.myView stopObserver];
+    }
     [self setContentView:nil];
     [self setView:nil];
     subViewDidLoaded = NO;

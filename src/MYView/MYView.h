@@ -62,6 +62,7 @@ enum MYViewBindingMode {
                        context:(void *)context;
 - (void)unregisterObserverObject:(NSObject *)object
                          keyPath:(NSString *)keyPath;
+- (void)stopObserver;
 
 #pragma mark - IB event
 - (IBAction)backAction:(id)sender;

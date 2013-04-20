@@ -8,15 +8,33 @@
 
 #import "MYView.h"
 #import "MYViewModel.h"
+@interface MYViewCallBacker : NSObject
+
+@property (weak, nonatomic) id object;
+@property (copy, nonatomic) NSString *keyPath;
+@property (nonatomic, weak) id observer;
+@property (nonatomic, assign) SEL selector;
+
+- (id)initWithObject:(id)object keyPath:(NSString *)keyPath observer:(id)observer selector:(SEL)selector;
+@end
+
+
+@implementation MYViewCallBacker
+- (id)initWithObject:(id)object keyPath:(NSString *)keyPath observer:(id)observer selector:(SEL)selector {
+    if (self = [self init]) {
+        self.object = object;
+        self.keyPath = keyPath;
+        self.observer = observer;
+        self.selector = selector;
+    }
+    return self;
+}
+@end
 
 @implementation MYView
 
 - (void)dealloc {
-    for (NSString *keyPath in self.observerList.allKeys) {
-        for (NSArray *array in (self.observerList)[keyPath]) {
-            [array[0] removeObserver:self forKeyPath:keyPath];
-        }
-    }
+    [self stopObserver];
 }
 
 - (void)updateRelatedViewController:(MYViewController *)vc {
@@ -69,7 +87,7 @@
     MYPerformSelectorWithoutLeakWarningBegin
     NSObject *value = [target performSelector:NSSelectorFromString(targetProperty) withObject:nil];
     MYPerformSelectorWithoutLeakWarningEnd
-    [self sendToObject:object setProperty:NSStringFromSelector(selector) withChange:value];
+    [self sendToObject:object setProperty:selector withChange:value];
     [self registerObserverObject:target keyPath:targetProperty callback:object selector:selector];
     if (mode == kMYViewBindingModeTwoWay) {
         [self registerObserverObject:object keyPath:property callback:target selector:[[target class] setterFromPropertyString:targetProperty]];
@@ -108,7 +126,11 @@
     if (array == nil) {
         array = [NSMutableArray arrayWithCapacity:1];
     }
-    [array addObject:@[object, callback, NSStringFromSelector(selector)]];
+    MYViewCallBacker *callbacker = [[MYViewCallBacker alloc] initWithObject:object
+                                                                    keyPath:keyPath
+                                                                   observer:callback
+                                                                   selector:selector];
+    [array addObject:callbacker];
     [self.observerList setValue:array forKey:keyPath];
     [object addObserver:self forKeyPath:keyPath options:options context:context];
 }
@@ -120,9 +142,9 @@
     if (objects == nil) {
         return;
     }
-    for (NSArray *array in objects) {
-        if (array[0] == object) {
-            [objects removeObject:array];
+    for (MYViewCallBacker *caller in objects) {
+        if (caller.object == object) {
+            [objects removeObject:caller];
             break;
         }
     }
@@ -140,28 +162,34 @@
     if (receivers == nil) {
         return;
     }
-    for (NSArray *array in receivers) {
-        NSObject *receiver = array[0];
-        if (receiver == object) {
-            NSObject *callback = array[1];
-            [self sendToObject:callback setProperty:(NSString *)array[2] withChange:context == (__bridge void *)(KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE) ? change[NSKeyValueChangeNewKey] : change];
+    for (MYViewCallBacker *callbacker in receivers) {
+        if (callbacker.object == object) {
+            [self sendToObject:callbacker.observer setProperty:callbacker.selector withChange:context == (__bridge void *)(KVO_CONTEXT_ONLY_PASS_CHANGED_VALUE) ? change[NSKeyValueChangeNewKey] : change];
         }
     }
     //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
-- (void)sendToObject:(NSObject *)ui setProperty:(NSString *)setProperty withChange:(NSObject *)change {
-    SEL selector = NSSelectorFromString(setProperty);
+- (void)sendToObject:(NSObject *)ui setProperty:(SEL)setProperty withChange:(NSObject *)change {
     if ([NSThread isMainThread]) {
         MYPerformSelectorWithoutLeakWarningBegin
-        [ui performSelector:selector
+        [ui performSelector:setProperty
                  withObject:change];
         MYPerformSelectorWithoutLeakWarningEnd
     } else {
-        [ui performSelectorOnMainThread:selector
+        [ui performSelectorOnMainThread:setProperty
                              withObject:change
                           waitUntilDone:YES];
     }
+}
+
+- (void)stopObserver {
+    for (NSString *keyPath in self.observerList.allKeys) {
+        for (MYViewCallBacker *callbacker in (self.observerList)[keyPath]) {
+            [callbacker.object removeObserver:self forKeyPath:keyPath];
+        }
+    }
+    [self.observerList removeAllObjects];
 }
 #pragma mark - IB event
 - (IBAction)backAction:(id)sender {
