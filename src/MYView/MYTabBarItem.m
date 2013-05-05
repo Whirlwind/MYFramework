@@ -1,15 +1,15 @@
 //
-//  CustomTabBarItem.m
+//  MYTabBarItem.m
 //  food
 //
 //  Created by Whirlwind James on 11-9-22.
 //  Copyright 2011 BOOHEE. All rights reserved.
 //
 
-#import "CustomTabBarItem.h"
+#import "MYTabBarItem.h"
 
 
-@implementation CustomTabBarItem
+@implementation MYTabBarItem
 
 -(void)buildWithButton:(UIButton *)button label:(UILabel *)label {
 	self.button = button;
@@ -93,13 +93,13 @@
     [super setTag:tag];
     [self.button setTag:tag];
 }
-+(CustomTabBarItem *)itemWithTitle:(NSString *)_title {
-	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
++(MYTabBarItem *)itemWithTitle:(NSString *)_title {
+	MYTabBarItem *item = [[MYTabBarItem alloc] init];
 	[item build:_title];
 	return item;
 }
-+(CustomTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label {
-	CustomTabBarItem *item = [[CustomTabBarItem alloc] init];
++(MYTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label {
+	MYTabBarItem *item = [[MYTabBarItem alloc] init];
 	[item buildWithButton:_button label:_label];
 	return item;
 }

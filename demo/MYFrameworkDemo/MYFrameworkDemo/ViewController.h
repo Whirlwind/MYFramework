@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomTabBar.h"
+#import "MYTabBar.h"
 #import "ValueCheckBoxView.h"
 #import "MYInputFieldPickerString.h"
 
 @interface ViewController : UIViewController
-@property (strong, nonatomic) IBOutlet CustomTabBar *tabBar;
+@property (strong, nonatomic) IBOutlet MYTabBar *tabBar;
 
 @property (strong, nonatomic) IBOutlet ValueCheckBoxView *checkBox;
 
