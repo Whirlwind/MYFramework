@@ -22,8 +22,6 @@
 		AB3A90EB165092CF00C672E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3A90EA165092CF00C672E5 /* Default-568h@2x.png */; };
 		AB3A90EE165092CF00C672E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A90ED165092CF00C672E5 /* ViewController.m */; };
 		AB3A90F1165092CF00C672E5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB3A90EF165092CF00C672E5 /* ViewController.xib */; };
-		AB3A911A1650946A00C672E5 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91041650946A00C672E5 /* CustomTabBar.m */; };
-		AB3A911B1650946A00C672E5 /* CustomTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91061650946A00C672E5 /* CustomTabBarItem.m */; };
 		AB3A911C1650946A00C672E5 /* MYTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A91081650946A00C672E5 /* MYTableView.m */; };
 		AB3A911D1650946A00C672E5 /* MYView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A910A1650946A00C672E5 /* MYView.m */; };
 		AB3A911E1650946A00C672E5 /* ValueCheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3A910C1650946A00C672E5 /* ValueCheckBoxView.m */; };
@@ -59,6 +57,8 @@
 		ABB7A4F016E4864A0073590E /* MYFrameworkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7A4EF16E4864A0073590E /* MYFrameworkAppDelegate.m */; };
 		ABC21630168DA10D00BB4356 /* MYScrollTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC2162F168DA10D00BB4356 /* MYScrollTextLabel.m */; };
 		ABF2C91F171999B500381951 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF2C91E171999B500381951 /* MobileCoreServices.framework */; };
+		ABFDA37F1736321D000BC630 /* MYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA37C1736321D000BC630 /* MYTabBar.m */; };
+		ABFDA3801736321D000BC630 /* MYTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFDA37E1736321D000BC630 /* MYTabBarItem.m */; };
 		EC6B87D1167ACA160068798C /* unitBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87CF167ACA160068798C /* unitBackground@2x.png */; };
 		EC6B87D2167ACA160068798C /* unitPointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC6B87D0167ACA160068798C /* unitPointer@2x.png */; };
 		ECC06D4A166F341400B6EA33 /* rulerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC06D49166F341400B6EA33 /* rulerBackground@2x.png */; };
@@ -91,10 +91,6 @@
 		AB3A90EC165092CF00C672E5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AB3A90ED165092CF00C672E5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AB3A90F0165092CF00C672E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		AB3A91031650946A00C672E5 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
-		AB3A91041650946A00C672E5 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
-		AB3A91051650946A00C672E5 /* CustomTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarItem.h; sourceTree = "<group>"; };
-		AB3A91061650946A00C672E5 /* CustomTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarItem.m; sourceTree = "<group>"; };
 		AB3A91071650946A00C672E5 /* MYTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTableView.h; sourceTree = "<group>"; };
 		AB3A91081650946A00C672E5 /* MYTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTableView.m; sourceTree = "<group>"; };
 		AB3A91091650946A00C672E5 /* MYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYView.h; sourceTree = "<group>"; };
@@ -173,6 +169,10 @@
 		ABC2162F168DA10D00BB4356 /* MYScrollTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYScrollTextLabel.m; sourceTree = "<group>"; };
 		ABEEE92E16512A360002BC58 /* MYFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFramework.h; sourceTree = "<group>"; };
 		ABF2C91E171999B500381951 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		ABFDA37B1736321D000BC630 /* MYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTabBar.h; sourceTree = "<group>"; };
+		ABFDA37C1736321D000BC630 /* MYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTabBar.m; sourceTree = "<group>"; };
+		ABFDA37D1736321D000BC630 /* MYTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTabBarItem.h; sourceTree = "<group>"; };
+		ABFDA37E1736321D000BC630 /* MYTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTabBarItem.m; sourceTree = "<group>"; };
 		ABFEDC4E16645BBD0053A5BC /* MYFramework-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYFramework-Prefix.pch"; sourceTree = "<group>"; };
 		D49B9F6386094C51AD178C53 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6B87CF167ACA160068798C /* unitBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unitBackground@2x.png"; sourceTree = "<group>"; };
@@ -277,10 +277,10 @@
 		AB3A91021650946A00C672E5 /* MYView */ = {
 			isa = PBXGroup;
 			children = (
-				AB3A91031650946A00C672E5 /* CustomTabBar.h */,
-				AB3A91041650946A00C672E5 /* CustomTabBar.m */,
-				AB3A91051650946A00C672E5 /* CustomTabBarItem.h */,
-				AB3A91061650946A00C672E5 /* CustomTabBarItem.m */,
+				ABFDA37B1736321D000BC630 /* MYTabBar.h */,
+				ABFDA37C1736321D000BC630 /* MYTabBar.m */,
+				ABFDA37D1736321D000BC630 /* MYTabBarItem.h */,
+				ABFDA37E1736321D000BC630 /* MYTabBarItem.m */,
 				AB3443A61654B2F600F77740 /* MYDateSwitcher.h */,
 				AB3443A71654B2F600F77740 /* MYDateSwitcher.m */,
 				AB3443A81654B2F600F77740 /* MYDateSwitcherDefine.h */,
@@ -523,8 +523,6 @@
 				AB3A90E1165092CF00C672E5 /* main.m in Sources */,
 				AB3A90E5165092CF00C672E5 /* AppDelegate.m in Sources */,
 				AB3A90EE165092CF00C672E5 /* ViewController.m in Sources */,
-				AB3A911A1650946A00C672E5 /* CustomTabBar.m in Sources */,
-				AB3A911B1650946A00C672E5 /* CustomTabBarItem.m in Sources */,
 				AB3A911C1650946A00C672E5 /* MYTableView.m in Sources */,
 				AB3A911D1650946A00C672E5 /* MYView.m in Sources */,
 				AB3A911E1650946A00C672E5 /* ValueCheckBoxView.m in Sources */,
@@ -560,6 +558,8 @@
 				AB7AFED716F453FC0034A4B7 /* MYInputFieldPickerDate.m in Sources */,
 				AB7AFED816F453FC0034A4B7 /* MYInputFieldPickerTime.m in Sources */,
 				AB7AFEDB16F455E40034A4B7 /* MYInputFieldPicker.m in Sources */,
+				ABFDA37F1736321D000BC630 /* MYTabBar.m in Sources */,
+				ABFDA3801736321D000BC630 /* MYTabBarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

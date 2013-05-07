@@ -19,7 +19,7 @@
     [super viewDidLoad];
     [self.tabBar setItemsWithTitle:@[@"1", @"2", @"3"] animated:NO];
     [self.tabBar setCanRepeatClick:YES];
-    [self.tabBar.items enumerateObjectsUsingBlock:^(CustomTabBarItem *obj, NSUInteger idx, BOOL *stop) {
+    [self.tabBar.items enumerateObjectsUsingBlock:^(MYTabBarItem *obj, NSUInteger idx, BOOL *stop) {
         [obj setBackgroundColor:[UIColor blueColor]];
     }];
 

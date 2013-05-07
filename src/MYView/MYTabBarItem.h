@@ -1,5 +1,5 @@
 //
-//  CustomTabBarItem.h
+//  MYTabBarItem.h
 //  food
 //
 //  Created by Whirlwind James on 11-9-22.
@@ -7,7 +7,7 @@
 //
 
 
-@interface CustomTabBarItem : UIView
+@interface MYTabBarItem : UIView
 
 @property (nonatomic, assign) int selectedStatus;
 @property (nonatomic, assign) int allSelectedStatus;
@@ -21,8 +21,8 @@
 @property (nonatomic, weak) id myDelegate;
 @property (nonatomic, assign) SEL click;
 
-+(CustomTabBarItem *)itemWithTitle:(NSString *)_title;
-+(CustomTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label;
++(MYTabBarItem *)itemWithTitle:(NSString *)_title;
++(MYTabBarItem *)itemWithButton:(UIButton *)_button label:(UILabel *)_label;
 -(void)setTitle:(NSString *)_title;
 -(void)setBackgroundImage:(UIImage *)_image forState:(UIControlState)_state;
 -(void)setClick:(id)_delegate click:(SEL)_click;

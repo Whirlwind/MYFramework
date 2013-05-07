@@ -1,13 +1,13 @@
 //
-//  CustomTabBar.h
+//  MYTabBar.h
 //  food
 //
 //  Created by Whirlwind James on 11-9-22.
 //  Copyright 2011 BOOHEE. All rights reserved.
 //
-#import "CustomTabBarItem.h"
+#import "MYTabBarItem.h"
 
-@interface CustomTabBar : UIView
+@interface MYTabBar : UIView
 
 @property (nonatomic, weak) id myDelegate;
 @property (nonatomic, assign) SEL switchTab;
@@ -15,8 +15,8 @@
 @property (nonatomic, assign) int selectedIndex;
 @property (nonatomic, assign) int oldSelectedIndex;
 @property (nonatomic, assign) BOOL canRepeatClick;
-@property (nonatomic, strong) CustomTabBarItem *selectedItem;
-@property (nonatomic, strong) CustomTabBarItem *oldSelectedItem;
+@property (nonatomic, strong) MYTabBarItem *selectedItem;
+@property (nonatomic, strong) MYTabBarItem *oldSelectedItem;
 @property (strong, nonatomic) NSMutableArray *items;
 @property (strong, nonatomic) UIView *contentView;
 
