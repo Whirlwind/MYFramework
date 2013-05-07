@@ -28,7 +28,7 @@ enum MYViewBindingMode {
 
 @property (strong, nonatomic) NSMutableDictionary *observerList;
 
-@property (weak, nonatomic) MYViewController *relatedViewController;
+@property (unsafe_unretained, nonatomic) MYViewController *relatedViewController;
 
 - (void)updateRelatedViewController:(MYViewController *)vc;
 - (void)configView;
