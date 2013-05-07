@@ -10,22 +10,23 @@
 #import "MYViewModel.h"
 @interface MYViewCallBacker : NSObject
 
-@property (weak, nonatomic) id object;
-@property (copy, nonatomic) NSString *keyPath;
+@property (unsafe_unretained, nonatomic) id object;
+@property (strong, nonatomic) NSString *keyPath;
 @property (nonatomic, weak) id observer;
 @property (nonatomic, assign) SEL selector;
 
-- (id)initWithObject:(id)object keyPath:(NSString *)keyPath observer:(id)observer selector:(SEL)selector;
+- (id)initWithObject:(id)object keyPath:(NSString *)keyPath observer:(id)observer selector:(SEL)selector context:(void *)context;
 @end
 
 
 @implementation MYViewCallBacker
-- (id)initWithObject:(id)object keyPath:(NSString *)keyPath observer:(id)observer selector:(SEL)selector {
+- (id)initWithObject:(id)object keyPath:(NSString *)keyPath observer:(id)observer selector:(SEL)selector context:(void *)context {
     if (self = [self init]) {
         self.object = object;
         self.keyPath = keyPath;
         self.observer = observer;
         self.selector = selector;
+        self.context = context;
     }
     return self;
 }
@@ -129,10 +130,11 @@
     MYViewCallBacker *callbacker = [[MYViewCallBacker alloc] initWithObject:object
                                                                     keyPath:keyPath
                                                                    observer:callback
-                                                                   selector:selector];
+                                                                   selector:selector
+                                                                    context:context];
     [array addObject:callbacker];
     [self.observerList setValue:array forKey:keyPath];
-    [object addObserver:self forKeyPath:keyPath options:options context:context];
+    [object addObserver:callback forKeyPath:keyPath options:options context:context];
 }
 
 - (void)unregisterObserverObject:(NSObject *)object
@@ -184,11 +186,11 @@
 }
 
 - (void)stopObserver {
-    for (NSString *keyPath in self.observerList.allKeys) {
-        for (MYViewCallBacker *callbacker in (self.observerList)[keyPath]) {
-            [callbacker.object removeObserver:self forKeyPath:keyPath];
+    [self.observerList enumerateKeysAndObjectsUsingBlock:^(NSString *keyPath, NSArray *obj, BOOL *stop) {
+        for (MYViewCallBacker *callbacker in obj) {
+            [callbacker.object removeObserver:callbacker.observer forKeyPath:keyPath context:callbacker.context];
         }
-    }
+    }];
     [self.observerList removeAllObjects];
 }
 #pragma mark - IB event
