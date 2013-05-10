@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *keyPath;
 @property (nonatomic, weak) id observer;
 @property (nonatomic, assign) SEL selector;
+@property (assign, nonatomic) void *context;
 
 - (id)initWithObject:(id)object keyPath:(NSString *)keyPath observer:(id)observer selector:(SEL)selector context:(void *)context;
 @end
@@ -134,7 +135,7 @@
                                                                     context:context];
     [array addObject:callbacker];
     [self.observerList setValue:array forKey:keyPath];
-    [object addObserver:callback forKeyPath:keyPath options:options context:context];
+    [object addObserver:self forKeyPath:keyPath options:options context:context];
 }
 
 - (void)unregisterObserverObject:(NSObject *)object
@@ -188,7 +189,7 @@
 - (void)stopObserver {
     [self.observerList enumerateKeysAndObjectsUsingBlock:^(NSString *keyPath, NSArray *obj, BOOL *stop) {
         for (MYViewCallBacker *callbacker in obj) {
-            [callbacker.object removeObserver:callbacker.observer forKeyPath:keyPath context:callbacker.context];
+            [callbacker.object removeObserver:self forKeyPath:keyPath context:callbacker.context];
         }
     }];
     [self.observerList removeAllObjects];
