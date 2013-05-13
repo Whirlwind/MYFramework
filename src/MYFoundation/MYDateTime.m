@@ -39,18 +39,24 @@
 }
 #pragma mark - class methods
 + (id)dateWithNSDate:(NSDate *)date {
+    if (date == nil) {
+        return nil;
+    }
     return [[[self class] alloc] initWithNSDate:date];
 }
 
 + (id)dateWithString:(NSString *)dateString {
+    if (dateString == nil) {
+        return nil;
+    }
     return [[[self class] alloc] initWithString:dateString];
 }
 
 + (id)dateWithObject:(NSObject *)object {
     if ([object isKindOfClass:[NSString class]]) {
-        return [[self alloc] initWithString:(NSString *)object];
+        return [self dateWithString:(NSString *)object];
     } else if ([object isKindOfClass:[NSDate class]]) {
-        return [[self alloc] initWithNSDate:(NSDate *)object];
+        return [self dateWithNSDate:(NSDate *)object];
     }
     return nil;
 }
