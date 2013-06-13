@@ -14,6 +14,7 @@
 #import "NSObject+MYBroadcast.h"
 #import "NSObject+MYRoute.h"
 #import "NSObject+MYProperty.h"
+#import "NSString+stringValue.h"
 
 #import "MYMacroDefine.h"
 #import "MYDebugMacro.h"
