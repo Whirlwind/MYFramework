@@ -1,2 +1,4 @@
 // ===========MYFramework's prefix pch===========
-#import "MYFramework.h"
+#ifdef __OBJC__
+#   import "MYFramework.h"
+#endif
