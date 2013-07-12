@@ -10,6 +10,9 @@
 
 @interface MYTextView : UITextView
 
+@property (assign, nonatomic) BOOL allowSelection;
+@property (strong, nonatomic) NSAttributedString *attributedString;
+
 - (CGFloat)lineHeight;
 
 @end
