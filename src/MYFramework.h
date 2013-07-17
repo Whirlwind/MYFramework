@@ -26,6 +26,7 @@
 
 #import "CGRectAdditions.h"
 #import "UIView+Additions.h"
+#import "UIView+MoveView.h"
 
 #import "MYSingleton.h"
 #import "MYThread.h"
