@@ -54,6 +54,9 @@
 }
 
 - (void)setText:(NSString *)string {
+    if ([string isKindOfClass:[NSNull class]]) {
+        return;
+    }
 	[super setText:string];
 	[self setNeedsDisplay];
 }
@@ -166,5 +169,6 @@
 
 - (void)_textEndEditing:(NSNotification *)notification {
 	[self setIsEditing:NO];
+    self.text = self.text;
 }
 @end
