@@ -10,4 +10,6 @@
 
 @interface NSNull (stringValue)
 
+- (NSString *)stringValue;
+
 @end

@@ -9,5 +9,7 @@
 #import "NSNull+stringValue.h"
 
 @implementation NSNull (stringValue)
-
+- (NSString *)stringValue {
+    return @"";
+}
 @end
