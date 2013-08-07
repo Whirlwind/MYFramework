@@ -36,5 +36,5 @@ _Pragma("clang diagnostic pop")
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
 // String blank
-#define NSStringIsBlank(string) (string == nil || [[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])
+#define NSStringIsBlank(string) (string == nil || [string isKindOfClass:[NSNull class]] || [[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])
 #define NSStringIsPresent(string) !NSStringIsBlank(string)
