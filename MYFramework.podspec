@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Whirlwind" => "Whirlwindjames@foxmail.com" }
   s.source       = { :git => "https://github.com/Whirlwind/MYFramework.git", :tag=>'v1.2'}
   s.platform     = :ios, '5.0'
-  s.source_files = 'src/**/*.{h,m}'
+  s.source_files = 'src/*.{h,m}', 'src/**/*.{h,m}'
   s.resources = "resources/**/*.png", "src/*.{broadcast,route}"
   s.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'MobileCoreServices', 'CoreGraphics'
   s.prefix_header_file = 'src/MYFramework-Prefix.pch'
