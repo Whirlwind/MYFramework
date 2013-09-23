@@ -14,12 +14,12 @@
 
 
 #define MY_MULTI_THREAD_BEGIN(queue)            if (![NSThread currentThread].isCancelled) {\
-dispatch_async(queue, ^{\
-if ([self respondsToSelector:@selector(addCurrentThreadToThreadPool)]) [self performSelector:@selector(addCurrentThreadToThreadPool)];
+dispatch_async(queue, ^{
+
 
 #define MY_MULTI_THREAD_DELAY(x,queue)          if (![NSThread currentThread].isCancelled) {\
-dispatch_after(dispatch_time(DISPATCH_TIME_NOW, x * USEC_PER_SEC), queue, ^{\
-if ([self respondsToSelector:@selector(addCurrentThreadToThreadPool)]) [self performSelector:@selector(addCurrentThreadToThreadPool)];
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, x * USEC_PER_SEC), queue, ^{
+
 
 
 #define MY_FOREGROUND_BEGIN                     MY_MULTI_THREAD_BEGIN(MY_FOREGROUND_QUEUE)
